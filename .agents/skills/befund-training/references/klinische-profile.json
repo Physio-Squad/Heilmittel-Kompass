@@ -1,0 +1,586 @@
+{
+  "schema_version": "1.0",
+  "snapshot_date": "2026-10-19",
+  "source_application": "Heilmittel-Kompass 0.4.1",
+  "review_status": "prototype_selected_sections_only_no_independent_clinical_release",
+  "source_count_explanation": "14 Dokument-/Quelleneinträge, nicht 14 unabhängige Leitlinien. Mehrere Einträge gehören zur selben Leitlinie oder übernehmen dieselbe Evidenzbasis.",
+  "usage": "Profiltexte beschreiben ausgewählte Interventionen und praktische Einordnungen. Codepräfixe sind nur grobe Hinweise und keine diagnostische Bestätigung. Kein vollständiger Befundtestkatalog oder Dosierungs-/Progressionsalgorithmus.",
+  "sources": {
+    "N59": {
+      "label": "NICE NG59 · Rückenschmerz",
+      "country": "Großbritannien",
+      "year": "2016, Update 2020",
+      "url": "https://www.nice.org.uk/guidance/ng59/chapter/Recommendations",
+      "location": "1.1.3, 1.2.1–1.2.10",
+      "checked": "17.10.2026",
+      "status": "Übernommene Recherche; Originalinhalt zuvor teilweise indexiert zugänglich. Keine erneute Vollprüfung."
+    },
+    "N226": {
+      "label": "NICE NG226 · Arthrose",
+      "country": "Großbritannien",
+      "year": "2022",
+      "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations",
+      "location": "1.3.1–1.3.9",
+      "checked": "17.10.2026",
+      "status": "Übernommene Recherche; Originalinhalt zuvor teilweise indexiert zugänglich. Keine erneute Vollprüfung."
+    },
+    "R25": {
+      "label": "JOSPT · Rotatorenmanschetten-Tendinopathie",
+      "country": "International / JOSPT",
+      "year": "2025",
+      "url": "https://doi.org/10.2519/jospt.2025.13182",
+      "location": "Empfehlungen 24–26, 32–33",
+      "checked": "17.10.2026",
+      "status": "Übernommene Recherche; direkter Verlagsabruf eingeschränkt. Keine erneute Vollprüfung."
+    },
+    "U1": {
+      "label": "VA/DoD · Low Back Pain",
+      "country": "USA",
+      "year": "2022",
+      "url": "https://www.healthquality.va.gov/HEALTHQUALITY/guidelines/Pain/lbp/VADODLBPCPGProviderSummaryFinal508.pdf",
+      "location": "Provider Summary, Empfehlungen 9–11 und 17, S. 2–3",
+      "checked": "19.10.2026",
+      "status": "Original-PDF abgerufen; relevante Empfehlungstabelle gelesen."
+    },
+    "U2": {
+      "label": "APTA Orthopedics · Hip Osteoarthritis",
+      "country": "USA",
+      "year": "2025",
+      "url": "https://www.orthopt.org/uploads/content_files/files/koc_et_al_2025_hip_pain_and_mobility_deficits_hip_osteoarthritis_revision_2025%281%29.pdf",
+      "location": "Summary of Recommendations, CPG2",
+      "checked": "19.10.2026",
+      "status": "Original-PDF beim Herausgeber abgerufen; Empfehlungsübersicht gelesen."
+    },
+    "U3": {
+      "label": "APTA Orthopedics · Midportion Achilles Tendinopathy",
+      "country": "USA",
+      "year": "2024",
+      "url": "https://www.orthopt.org/uploads/content_files/files/Achilles_Pain_revision_2024.pdf",
+      "location": "Summary of Recommendations, CPG2",
+      "checked": "19.10.2026",
+      "status": "Original-PDF beim Herausgeber abgerufen; Empfehlungsübersicht und Geltungsbereich gelesen."
+    },
+    "U4": {
+      "label": "APTA Orthopedics · Heel Pain / Plantar Fasciitis",
+      "country": "USA",
+      "year": "2023",
+      "url": "https://www.orthopt.org/uploads/content_files/files/Heel_Pain_Plantar_Fasciitis_revision_2023_1_.pdf",
+      "location": "Summary of Recommendations, CPG2",
+      "checked": "19.10.2026",
+      "status": "Original-PDF beim Herausgeber abgerufen; Empfehlungsübersicht gelesen."
+    },
+    "U5": {
+      "label": "APTA Orthopedics · Lateral Ankle Ligament Sprains",
+      "country": "USA",
+      "year": "2021",
+      "url": "https://www.orthopt.org/uploads/content_files/files/jospt.2021.0302.pdf",
+      "location": "Summary of Recommendations, CPG2–3, akute/postakute Distorsion",
+      "checked": "19.10.2026",
+      "status": "Original-PDF beim Herausgeber abgerufen; relevante Empfehlungen gelesen."
+    },
+    "U6": {
+      "label": "APTA Orthopedics · Neck Pain",
+      "country": "USA",
+      "year": "2017 · älterer Stand",
+      "url": "https://www.orthopt.org/uploads/content_files/files/Neck%20Pain%20CPG%20-%20Revision%202017.pdf",
+      "location": "A2–A3, Neck pain with mobility deficits",
+      "checked": "19.10.2026",
+      "status": "Original-PDF gelesen. Literatur vor August 2016; historischer Vergleich für die Untergruppe mit Mobilitätsdefizit. Neue deutsche Grundlage separat unter DE2."
+    },
+    "NL1": {
+      "label": "VSG · Achilles tendinopathie",
+      "country": "Niederlande",
+      "year": "2020",
+      "url": "https://richtlijnendatabase.nl/richtlijn/achilles_tendinopathie/behandeling_achilles_tendinopathie/conservatieve_behandelopties_bij_achilles_tendinopathie.html",
+      "location": "Conservatieve behandelopties, Aanbeveling und Overwegingen",
+      "checked": "19.10.2026",
+      "status": "Originalmodul gelesen; Portal nennt Gültigkeitsbeurteilung 15.10.2020. Kein Nachweis einer weltweit neuesten Fassung."
+    },
+    "DE1": {
+      "label": "DGOU · S3 Prävention und Therapie der Gonarthrose",
+      "country": "Deutschland",
+      "year": "Version 5.0 · Überarbeitung 12.07.2024",
+      "url": "https://register.awmf.org/assets/guidelines/187-050l_S3_Gonarthrose_2025-05.pdf",
+      "location": "Langfassung: Empfehlungen 33–35, 39, 41; Statements 36, 38; S. 130–131, 140, 144–155, 166",
+      "checked": "19.10.2026",
+      "status": "Nutzer-PDF gezielt gelesen; SHA-256 identisch mit AWMF-Download. Dateiname 2025-05, Inhalt 2024; nächste Überprüfung laut Dokument 11.07.2029. Teile übernehmen NICE NG226."
+    },
+    "DE1E": {
+      "label": "DGOU · Gonarthrose, Evidenzbericht",
+      "country": "Deutschland",
+      "year": "Version 5.0 · zu den Empfehlungen 2024",
+      "url": "https://register.awmf.org/assets/guidelines/187-050e_S3_Gonarthrose_2025-05.pdf",
+      "location": "Empfehlungen 34, 35 und 39; S. 98–100 und 158–159",
+      "checked": "19.10.2026",
+      "status": "Nutzer-PDF gezielt gelesen; SHA-256 identisch mit AWMF-Download. Dokumentiert Übernahme aus NICE NG226; kein weiterer unabhängiger Wirksamkeitsnachweis."
+    },
+    "DE1P": {
+      "label": "DGOU · Gonarthrose, Patientenleitlinie",
+      "country": "Deutschland",
+      "year": "Version 5.0 · Inhalt 2024",
+      "url": "https://register.awmf.org/assets/guidelines/187-050p_S3_Gonarthrose_2025-05.pdf",
+      "location": "Abschnitte 5.2.1 und 5.3, S. 9 und 13",
+      "checked": "19.10.2026",
+      "status": "Nutzer-PDF zur Verständlichkeit abgeglichen; SHA-256 identisch mit AWMF-Download. Keine unabhängige zusätzliche Leitlinie; für Empfehlungsstärken ist die Langfassung maßgeblich."
+    },
+    "DE2": {
+      "label": "DEGAM · S3 Nicht-spezifische Nackenschmerzen",
+      "country": "Deutschland",
+      "year": "Version 3.0 · Stand 16.01.2025",
+      "url": "https://register.awmf.org/assets/guidelines/053-007l_S3_Nackenschmerzen_2025-08.pdf",
+      "location": "Empfehlungen 9–13, 25, 28–40; S. 14, 17–20 und 40–45",
+      "checked": "19.10.2026",
+      "status": "Nutzer-PDF gezielt gelesen; SHA-256 identisch mit AWMF-Download. Laut Dokument gültig 18.02.2025–17.02.2030, Revision geplant ab 01.02.2027. Dateiname 2025-08 ist nicht der fachliche Stand."
+    }
+  },
+  "profiles": {
+    "back": {
+      "title": "Lumbaler Rückenschmerz",
+      "scope": "Ärztlich abgeklärter lumbaler Rückenschmerz ohne spezifische Ursache oder Warnzeichen. Nicht auf Fraktur, Tumor, Infektion, entzündliche Erkrankung oder postoperative Versorgung übertragen.",
+      "codes": [
+        "M54.5",
+        "M54.9",
+        "M54.8"
+      ],
+      "therapy": "Aktivität und Selbstmanagement unterstützen. Je nach Bedarf ein strukturiertes Übungsprogramm mit Kraft, Ausdauer, Bewegungskontrolle oder alltagsbezogener Bewegung wählen. Keine einzelne Trainingsform pauschal als überlegen darstellen.",
+      "therapyRefs": [
+        "N59",
+        "U1"
+      ],
+      "selfHelp": "Bei günstigem Verlauf und ausreichender Sicherheit im Alltag können Beratung, Aktivität und eigenständiges Üben ohne zusätzliche Behandlungsserie ausreichen.",
+      "guided": "Anleitung erwägen, wenn Einschränkungen oder Unsicherheit die selbstständige Umsetzung erschweren und ein angepasstes Übungsprogramm benötigt wird. Aus dem ICD allein folgt kein Behandlungsbedarf.",
+      "extras": [
+        {
+          "name": "Manuelle Techniken",
+          "verdict": "Bedingt sinnvoll",
+          "text": "NICE: nur als Bestandteil eines Pakets mit Übungen erwägen. VA/DoD: bei chronischen Beschwerden schwache Empfehlung dafür; bei akuten Beschwerden unzureichende Evidenz. Daraus folgt keine Pflicht zu KG + MT auf einem Rezept.",
+          "refs": [
+            "N59",
+            "U1"
+          ]
+        },
+        {
+          "name": "Ultraschall",
+          "verdict": "Leitlinien uneinig",
+          "text": "NICE rät ab. VA/DoD sieht unzureichende Evidenz für oder gegen die Anwendung. Kein gesicherter routinemäßiger Zusatznutzen.",
+          "refs": [
+            "N59",
+            "U1"
+          ]
+        },
+        {
+          "name": "Wärme",
+          "verdict": "Hier nicht abschließend bewertet",
+          "text": "Keine automatische Ergänzung aus den hier ausgewerteten Empfehlungen ableiten. Fehlende Bewertung bedeutet nicht nachgewiesene Unwirksamkeit.",
+          "refs": [
+            "N59"
+          ]
+        }
+      ],
+      "sources": [
+        "N59",
+        "U1"
+      ],
+      "evidence": "VA/DoD: strukturiertes Üben und manuelle Techniken bei chronischem Schmerz jeweils „Weak for“. Bei akutem Schmerz reicht die Evidenz für manuelle Techniken nicht für ein Dafür/Dagegen. Empfehlungsstärke nicht mit Effektgröße gleichsetzen.",
+      "tags": {
+        "US": "NICE: dagegen · VA/DoD: Evidenz unzureichend",
+        "MT": "Nach Phase und Befund · mit aktivem Ansatz"
+      }
+    },
+    "neck": {
+      "title": "Nicht-spezifische Nackenschmerzen",
+      "scope": "Ärztlich abgeklärte nicht-spezifische Nackenschmerzen ohne Hinweise auf eine spezifische Ursache. Keine Übertragung auf Trauma, Radikulopathie, Myelopathie oder Gefäßerkrankung. Deutsche Grundlage: DEGAM-S3-Leitlinie 2025. Die ältere US-Quelle gilt nur für passende Untergruppen, etwa Mobilitätsdefizit.",
+      "codes": [
+        "M54.2"
+      ],
+      "therapy": "Körperliche Aktivität und verständliche Aufklärung bilden die Basis. Bei chronischen Beschwerden soll Bewegungstherapie verordnet werden; bei akuten Beschwerden kann sie verordnet werden. Beweglichkeit, Kraft und Ausdauer individuell passend trainieren. Akute und chronische Beschwerden haben damit unterschiedliche Empfehlungsstärken.",
+      "therapyRefs": [
+        "DE2"
+      ],
+      "selfHelp": "Aktiv bleiben und erlernte Übungen im Alltag umsetzen; Ruhigstellung wird nicht empfohlen. Selbst angewandte Wärme wird empfohlen. Das ersetzt bei chronischen Beschwerden nicht die starke Empfehlung zur Bewegungstherapie.",
+      "guided": "DEGAM: Bei chronischen nicht-spezifischen Nackenschmerzen soll Bewegungstherapie verordnet werden (Grad A). Bei akuten Beschwerden ist sie eine Kann-Option auf Expertenkonsens. Der passende Betreuungsumfang bleibt individuell; daraus folgt keine feste Sitzungszahl.",
+      "extras": [
+        {
+          "name": "Manuelle Techniken",
+          "verdict": "Nach Indikationsprüfung möglich",
+          "text": "DEGAM: Mobilisation/Manipulation kann angeboten werden (offene Empfehlung, Grad 0). Die US-Leitlinie 2017 empfiehlt bei chronischem Mobilitätsdefizit ein multimodales Vorgehen mit Übungen und manuellen Techniken. Unterschiedliche Geltungsbereiche und Empfehlungsstärken beachten; kein automatischer Auftrag zu HWS-Manipulation.",
+          "refs": [
+            "DE2",
+            "U6"
+          ]
+        },
+        {
+          "name": "Wärme selbst anwenden / Fango verordnen",
+          "verdict": "Selbstwärme empfohlen · Fango nicht verordnen",
+          "text": "DEGAM empfiehlt selbst angewandte Wärme (Grad B). Von der Verordnung von Fango und Rotlicht als Heilmittel rät die Leitlinie dagegen mit „sollte nicht“ ab (Expertenkonsens). Selbstbehandlung und verordnete Wärmeanwendung sind hier ausdrücklich verschieden.",
+          "refs": [
+            "DE2"
+          ]
+        },
+        {
+          "name": "Elektrotherapie, Laser und Ultraschall",
+          "verdict": "Nach DEGAM nicht empfohlen",
+          "text": "Elektro- und Lasertherapie sollten nicht eingesetzt beziehungsweise verordnet werden (Grad B dagegen). Für Ultraschall einschließlich Stoßwelle rät die Leitlinie auf Basis von Expertenkonsens ab. Diese Aussagen gelten für nicht-spezifische Nackenschmerzen.",
+          "refs": [
+            "DE2"
+          ]
+        },
+        {
+          "name": "Mechanische Traktion",
+          "verdict": "Nach DEGAM nicht verordnen",
+          "text": "Die deutsche Leitlinie rät von mechanischer Traktion ab (Grad B dagegen). Empfehlungen für spezielle radikuläre Untergruppen aus anderen Leitlinien lassen sich nicht auf dieses Profil übertragen.",
+          "refs": [
+            "DE2"
+          ]
+        },
+        {
+          "name": "Weichteilbehandlung / Massage",
+          "verdict": "Akut nicht · chronisch nur mit Aktivierung erwägen",
+          "text": "Bei akuten Beschwerden sollten Weichteilbehandlungen nach DEGAM nicht verordnet werden (Expertenkonsens). Bei chronischen Beschwerden können sie mit aktivierenden Maßnahmen kombiniert werden (offene Empfehlung, Grad 0). Das ist nicht mit einer generellen Ablehnung aller manuellen Techniken gleichzusetzen.",
+          "refs": [
+            "DE2"
+          ]
+        },
+        {
+          "name": "Kälte: Selbstanwendung / verordnete Kryotherapie",
+          "verdict": "Selbstanwendung möglich · Verordnung nicht empfohlen",
+          "text": "Selbst angewandte Kälte kann laut Expertenkonsens genutzt werden. Verordnete Kryotherapie wird dagegen auf Expertenkonsens nicht empfohlen. Aus der möglichen Selbstanwendung folgt keine Empfehlung für ein ergänzendes Heilmittel.",
+          "refs": [
+            "DE2"
+          ]
+        }
+      ],
+      "sources": [
+        "DE2",
+        "U6"
+      ],
+      "evidence": "DEGAM 2025: körperliche Aktivität Grad A (9), Selbstwärme Grad B (12), Mobilisation/Manipulation Grad 0 (25), Bewegungstherapie akut: Kann-Option auf Expertenkonsens (38), chronisch: Grad A (39), Edukation Grad B (40). Elektro-/Lasertherapie und mechanische Traktion Grad B dagegen (28–30). Fango, Rotlicht, Kryotherapie und Ultraschall: Negativempfehlungen auf Expertenkonsens (31–35), keine als Grad A ausgegebene Studienlage. Die US-Leitlinie 2017 betrifft enger gefasste Untergruppen und wird nicht als gleicher Geltungsbereich behandelt.",
+      "tags": {
+        "US": "DEGAM: Ultraschall nicht empfohlen · Expertenkonsens",
+        "MT": "DEGAM: möglich nach Indikationsprüfung · Grad 0",
+        "KG": "Akut: Kann-Option · chronisch: stark empfohlen",
+        "ET": "DEGAM: Elektrotherapie nicht empfohlen",
+        "FANGO": "DEGAM: Fango nicht verordnen · Selbstwärme separat",
+        "KALT": "DEGAM: verordnete Kryotherapie nicht empfohlen"
+      },
+      "needRefs": [
+        "DE2"
+      ],
+      "needNote": "Die Empfehlung zur Bewegungstherapie stammt aus DEGAM (38/39). Die Abwägung zwischen Eigenübungen und betreuten Terminen bleibt individuell; eine feste Verordnungsschwelle oder Termindosis wird daraus nicht abgeleitet."
+    },
+    "oa": {
+      "title": "Kniearthrose · konservativ",
+      "scope": "Konservative Behandlung bestätigter Kniearthrose. Keine automatische Übertragung auf akute Verletzung oder die unmittelbare postoperative Phase.",
+      "codes": [
+        "M17"
+      ],
+      "therapy": "Individuell angepasste Bewegungstherapie, zum Beispiel Kraft- und Ausdauertraining, verbunden mit Aufklärung. Die deutsche S3-Leitlinie empfiehlt dies stark. Bewegung im Wasser ist eine mögliche Alternative. Bei Übergewicht Gewichtsmanagement besprechen. KG kann aktive Inhalte abbilden; Geräte sind nicht automatisch nötig.",
+      "therapyRefs": [
+        "DE1",
+        "DE1P"
+      ],
+      "selfHelp": "Regelmäßiges eigenständiges Üben bleibt wichtig, insbesondere nach dem Erlernen eines passenden Programms. Die deutsche Leitlinie unterstützt eine langfristige aktive Umsetzung; daraus folgt nicht, dass alle Betroffenen dauerhaft betreute Termine brauchen.",
+      "guided": "Die deutsche Leitlinie schlägt vor, Bewegungstherapie unter Aufsicht durchzuführen (schwächere Empfehlung als die starke Empfehlung für Bewegungstherapie selbst). Das spricht dafür, angeleitete Therapie zu erwägen; Umfang und Übergang zum eigenständigen Üben bleiben individuell.",
+      "extras": [
+        {
+          "name": "Manuelle Techniken",
+          "verdict": "Nur zusammen mit Bewegungstherapie",
+          "text": "Die deutsche S3-Leitlinie schlägt MT nur in Kombination mit Bewegungstherapie vor (35, schwache Empfehlung dafür). Für MT allein sind die Belege unzureichend. Daraus folgt keine Pflicht, KG und MT gemeinsam auf ein Rezept zu schreiben.",
+          "refs": [
+            "DE1",
+            "DE1E",
+            "N226"
+          ]
+        },
+        {
+          "name": "Ultraschall und benannte Elektro-/Laserverfahren",
+          "verdict": "Deutsche S3-Leitlinie empfiehlt dagegen",
+          "text": "TENS, Ultraschall, Interferenzstrom, Laser, gepulste Kurzwelle und NMES sollen wegen unzureichender Nutzenbelege nicht durchgeführt werden (39, starke Empfehlung dagegen). Das ist eine klinische Empfehlung für Gonarthrose und keine Aussage über jede Erkrankung oder die formale Verordnungsfähigkeit.",
+          "refs": [
+            "DE1",
+            "DE1E"
+          ]
+        },
+        {
+          "name": "Massage, Vibration und Traktion",
+          "verdict": "Belege unzureichend · keine Positivempfehlung",
+          "text": "Die Langfassung bewertet die Evidenz für Massage, Vibration sowie apparative und manuelle Traktion als nicht ausreichend für eine Empfehlung beziehungsweise Beurteilung (36–38). Das ist von der ausdrücklichen Negativempfehlung für die zuvor genannten Elektro-/Ultraschallverfahren zu unterscheiden.",
+          "refs": [
+            "DE1"
+          ]
+        }
+      ],
+      "sources": [
+        "DE1",
+        "DE1E",
+        "DE1P",
+        "N226"
+      ],
+      "evidence": "Deutsche S3, Version 5.0, Stand Juli 2024: individuelle Bewegungstherapie stark dafür; Aufsicht schwach dafür (34); Bewegung im Wasser schwach dafür (33); MT nur mit Bewegungstherapie schwach dafür (35); benannte Elektro-/Ultraschall-/Laserverfahren stark dagegen (39). Empfehlung 41 schlägt Bewegung mit Edukation/Verhaltensmaßnahmen vor. Die Empfehlungen 34/35/39/41 übernehmen NICE NG226: übereinstimmende Aussagen sind keine voneinander unabhängigen zusätzlichen Wirksamkeitsnachweise. Patientenfassung und Evidenzbericht sind Bestandteile derselben Leitlinie.",
+      "tags": {
+        "US": "Deutsche S3: bei Gonarthrose nicht empfohlen",
+        "MT": "Deutsche S3: nur mit Bewegungstherapie",
+        "ET": "Deutsche S3: benannte Elektroverfahren nicht empfohlen",
+        "ES": "Deutsche S3: NMES nicht empfohlen"
+      },
+      "needRefs": [
+        "DE1",
+        "DE1E"
+      ],
+      "needNote": "Bewegungstherapie: starke Empfehlung dafür. Durchführung unter Aufsicht: schwache Empfehlung dafür (34). Das ist keine automatische Verordnungspflicht für jede Person und keine Vorgabe einer festen Sitzungszahl."
+    },
+    "hip": {
+      "title": "Hüftarthrose · konservativ",
+      "scope": "Bestätigte Hüftarthrose ohne frische Operation oder Fraktur. Die MT-Empfehlung der US-Leitlinie betrifft leichte bis mittelgradige Arthrose mit passenden Mobilitätsdefiziten, eingeschränkter Flexibilität oder Schmerzen.",
+      "codes": [
+        "M16"
+      ],
+      "therapy": "Individualisiertes Beweglichkeits-, Kraft- und Ausdauertraining; bei Bedarf im Wasser. Bei entsprechenden Defiziten Geh-, Gleichgewichts- und alltagsbezogenes Funktionstraining ergänzen. Bei Übergewicht Unterstützung beim Gewichtsmanagement einbeziehen.",
+      "therapyRefs": [
+        "U2"
+      ],
+      "selfHelp": "Ein erlerntes, angepasstes Trainingsprogramm kann eigenständig durchgeführt werden. Die Leitlinie begründet keine feste Mindestzahl an Physiotherapieterminen.",
+      "guided": "Bei relevanten Einschränkungen von Gehen, Gleichgewicht oder Beweglichkeit kann individuelle Anleitung helfen, das Programm und gegebenenfalls Hilfsmittel an den Alltag anzupassen.",
+      "extras": [
+        {
+          "name": "Manuelle Techniken",
+          "verdict": "Bei passendem Befund empfohlen",
+          "text": "APTA 2025 empfiehlt Gelenk-/Weichteilmobilisation bei leichter bis mittelgradiger Arthrose mit passendem Befund. NICE bindet manuelle Behandlung an therapeutisches Training. Die Indikation hängt vom konkreten Befund ab.",
+          "refs": [
+            "U2",
+            "N226"
+          ]
+        },
+        {
+          "name": "Ultraschall",
+          "verdict": "Leitlinien uneinig",
+          "text": "APTA 2025 lässt eine Ergänzung bei ausdrücklich widersprüchlicher Evidenz und gemeinsamer Entscheidung zu. NICE rät ab. Deshalb kein automatischer Standardzusatz.",
+          "refs": [
+            "U2",
+            "N226"
+          ]
+        }
+      ],
+      "sources": [
+        "U2",
+        "N226"
+      ],
+      "evidence": "APTA 2025: individuelles Training Grad A, manuelle Therapie Grad A für den genannten Geltungsbereich, Ultraschall Grad D (widersprüchliche Evidenz). Originalgrade sind keine Effektgrößen und keine direkten Vergleiche deutscher Heilmittel. Eine deutsche Koxarthrose-Leitlinie liegt hier nicht zur Auswertung vor; daraus werden keine deutschen Hüftempfehlungen abgeleitet.",
+      "tags": {
+        "US": "APTA: widersprüchlich · NICE: dagegen",
+        "MT": "Bei passendem Befund empfohlen"
+      }
+    },
+    "shoulder": {
+      "title": "Rotatorenmanschetten-Tendinopathie",
+      "scope": "Erwachsene mit bestätigter Rotatorenmanschetten-Tendinopathie in nicht operativer Versorgung. Nicht automatisch auf komplette Ruptur, Frozen Shoulder, Fraktur oder postoperative Behandlung übertragen.",
+      "codes": [
+        "M75.1",
+        "M75.3",
+        "M75.4"
+      ],
+      "therapy": "Individuelle Aufklärung und ein aktives Übungsprogramm, zum Beispiel mit angepasst dosiertem Widerstands- und Bewegungskontrolltraining. Die deutsche KG kann das abbilden; Geräte und mehrere Hauptheilmittel sind nicht automatisch nötig.",
+      "therapyRefs": [
+        "R25"
+      ],
+      "selfHelp": "Ein gut angeleitetes Eigenübungsprogramm kann einen großen Teil der aktiven Behandlung tragen. Aus der Diagnose allein folgt keine notwendige längere Serie betreuter Termine.",
+      "guided": "Unterstützung erwägen, wenn passende Übungsauswahl und Belastungsanpassung eigenständig schwer gelingen. Wie viel Betreuung benötigt wird, hängt vom individuellen Befund und Unterstützungsbedarf ab.",
+      "extras": [
+        {
+          "name": "Manuelle Techniken",
+          "verdict": "Kurzfristig erwägen",
+          "text": "Können kurzfristig bei der Schmerzlinderung helfen. Sie sind keine allgemeine Voraussetzung für langfristigen Erfolg und ersetzen das aktive Programm nicht.",
+          "refs": [
+            "R25"
+          ]
+        },
+        {
+          "name": "Therapeutischer Ultraschall",
+          "verdict": "Nicht empfohlen",
+          "text": "Die Leitlinie empfiehlt ihn weder bei kalzifizierender noch bei nicht kalzifizierender Tendinopathie. Keine automatische Ergänzung zur aktiven Rehabilitation.",
+          "refs": [
+            "R25"
+          ]
+        }
+      ],
+      "sources": [
+        "R25"
+      ],
+      "evidence": "Übernommener Recherchebefund zur Leitlinie 2025; direkter Originalabruf bleibt eingeschränkt. Die GRASP-Studie ist kein Nachweis, dass jede Dosis oder jeder Betreuungsumfang gleichwertig ist.",
+      "tags": {
+        "US": "Bei dieser Tendinopathie nicht empfohlen",
+        "MT": "Mögliche kurzfristige Schmerzhilfe"
+      }
+    },
+    "achilles": {
+      "title": "Achillessehnen-Tendinopathie · Midportion",
+      "scope": "Mittlerer Sehnenabschnitt (Midportion), keine Ruptur oder postoperative Situation. Die US-Leitlinie gilt nicht für Ansatzbeschwerden. Die niederländische Quelle behandelt auch den Ansatz; diese Empfehlungen werden hier nicht pauschal übertragen.",
+      "codes": [
+        "M76.6"
+      ],
+      "therapy": "Progressives Belastungstraining der Waden-/Achillessehneneinheit und Aufklärung zu Schmerz und Belastung. Last an die Verträglichkeit anpassen; vollständige Ruhe ist bei Midportion-Tendinopathie kein allgemeiner Behandlungsansatz. Bei vermuteter struktureller Fragilität nicht pauschal hohe Lasten empfehlen.",
+      "therapyRefs": [
+        "U3",
+        "NL1"
+      ],
+      "selfHelp": "Nach geeigneter Anleitung kann das Training überwiegend eigenständig stattfinden. Trainingseinheiten sind nicht gleich Physiotherapietermine. Die niederländische Quelle sieht eine aktive, durch qualifizierte Behandelnde begleitete Versorgung vor.",
+      "guided": "Anleitung ist besonders sinnvoll, wenn Belastung, Übungsausführung oder die Einordnung der Beschwerden Unterstützung erfordern. Die Leitlinien liefern keine feste Schwelle für die Zahl betreuter Termine.",
+      "extras": [
+        {
+          "name": "Manuelle Techniken",
+          "verdict": "Bei Mobilitätsdefizit erwägen",
+          "text": "Die US-Leitlinie lässt manuelle Behandlung bei passenden Beweglichkeitsdefiziten zu. Dies ist eine Expertenempfehlung, kein Nachweis eines routinemäßigen Zusatznutzens für alle.",
+          "refs": [
+            "U3"
+          ]
+        },
+        {
+          "name": "Fersenkeil",
+          "verdict": "Vorübergehend erwägen",
+          "text": "Kann laut US-Leitlinie die Sprunggelenks-Dorsalflexion während Aktivität vorübergehend reduzieren; kein Ersatz für Belastungstraining.",
+          "refs": [
+            "U3"
+          ]
+        },
+        {
+          "name": "Ultraschall",
+          "verdict": "Nicht als alleinige Behandlung",
+          "text": "Die US-Leitlinie rät von alleiniger Ultraschallbehandlung ab. Daraus folgt kein geprüfter Nutzen einer Ergänzung. Die niederländische Quelle diskutiert Zusatzverfahren bei unklarem Zusatznutzen.",
+          "refs": [
+            "U3",
+            "NL1"
+          ]
+        },
+        {
+          "name": "Low-Level-Laser",
+          "verdict": "Nach US-Leitlinie nicht einsetzen",
+          "text": "Diese Negativempfehlung gilt für Midportion-Tendinopathie. Sie wird nicht auf andere Diagnosen übertragen.",
+          "refs": [
+            "U3"
+          ]
+        }
+      ],
+      "sources": [
+        "U3",
+        "NL1"
+      ],
+      "evidence": "US 2024: Belastungstraining Grad A; manuelle Therapie Grad F (Expertenmeinung), Fersenkeil Grad C. Niederlande 2020: viele Vergleiche mit niedriger bis sehr niedriger Evidenzsicherheit. Kein Länder-Konsens über jede Zusatzmaßnahme.",
+      "tags": {
+        "US": "Nicht als alleinige Behandlung · Zusatznutzen offen",
+        "MT": "Bei Mobilitätsdefizit · Expertenempfehlung"
+      }
+    },
+    "heel": {
+      "title": "Plantarer Fersenschmerz / Plantarfasziitis",
+      "scope": "Klinisch bestätigte Plantarfasziitis. Nicht auf alle Ursachen von Fersenschmerz, Fraktur, Sehnenruptur oder neurologische Beschwerden übertragen.",
+      "codes": [
+        "M72.2",
+        "M77.3"
+      ],
+      "therapy": "Plantarfaszienspezifisches und Waden-Stretching sowie Krafttraining der Fuß-/Sprunggelenksmuskulatur. Relevante Gelenk- und Weichteilrestriktionen können gezielte manuelle Techniken rechtfertigen.",
+      "therapyRefs": [
+        "U4"
+      ],
+      "selfHelp": "Stretching und ein erlerntes Kraftprogramm können eigenständig erfolgen. Aus der Diagnose allein folgt kein fester Umfang betreuter Behandlung.",
+      "guided": "Anleitung erwägen, wenn das Programm individuell angepasst werden muss oder Beweglichkeitseinschränkungen und Funktionsprobleme eine gezielte Behandlung erfordern.",
+      "extras": [
+        {
+          "name": "Manuelle Techniken",
+          "verdict": "Bei passenden Restriktionen empfohlen",
+          "text": "US-Leitlinie: Gelenke und Weichteile gezielt behandeln, um Einschränkungen, Schmerz und Funktion zu verbessern.",
+          "refs": [
+            "U4"
+          ]
+        },
+        {
+          "name": "Taping / Einlagen / Nachtschiene",
+          "verdict": "Je nach Bedarf ergänzen",
+          "text": "Taping kann kurzfristig in Verbindung mit anderen Maßnahmen helfen. Einlagen nicht als alleinige Behandlung zur kurzfristigen Schmerzlinderung einsetzen. Nachtschienen sind eine Option bei konsistentem morgendlichem Anlaufschmerz.",
+          "refs": [
+            "U4"
+          ]
+        },
+        {
+          "name": "Ultraschall",
+          "verdict": "Nicht zur Verstärkung des Stretchings",
+          "text": "Die Negativempfehlung bezieht sich konkret auf Ultraschall zur Verstärkung der Stretchingwirkung. Keine pauschale Aussage zu jedem denkbaren Einsatz.",
+          "refs": [
+            "U4"
+          ]
+        },
+        {
+          "name": "Low-Level-Laser",
+          "verdict": "Als Teil eines Programms empfohlen",
+          "text": "Die US-Leitlinie empfiehlt ihn als Ergänzung für kurzfristige Schmerzlinderung (Grad B). Das ist weder eine deutsche Katalogfreigabe noch ein Beleg für langfristigen Zusatznutzen.",
+          "refs": [
+            "U4"
+          ]
+        }
+      ],
+      "sources": [
+        "U4"
+      ],
+      "evidence": "US 2023: Stretching und passende manuelle Therapie Grad A; Krafttraining Grad B; Laser Grad B für kurzfristigen Schmerz. Empfehlungsgrade nicht als Rangliste zwischen KG und MT verwenden.",
+      "tags": {
+        "US": "Nicht zur Verstärkung des Stretchings",
+        "MT": "Bei passenden Restriktionen empfohlen"
+      }
+    },
+    "ankle": {
+      "title": "Laterale Sprunggelenksdistorsion · akut / postakut",
+      "scope": "Bestätigte laterale Bandverletzung nach Abklärung relevanter Differenzialdiagnosen. Keine Übertragung auf Fraktur, Syndesmosenverletzung oder postoperative Versorgung. Chronische Instabilität hat eigene Teil-Empfehlungen.",
+      "codes": [
+        "S93.4"
+      ],
+      "therapy": "An die Verletzung angepasste Stützung und schrittweise Belastung, kombiniert mit geschützter Bewegung, neuromuskulärem Training und Gleichgewichtstraining. Eigenübungen und angeleitete Behandlung nach Schweregrad und Bedarf verbinden.",
+      "therapyRefs": [
+        "U5"
+      ],
+      "selfHelp": "Ein angepasstes Heimprogramm kann Teil der Versorgung sein. Ob es ohne weitere Termine genügt, hängt von Verletzungsschwere, Einschränkungen und sicherer Umsetzung ab.",
+      "guided": "Bei deutlichen Funktions- oder Gleichgewichtsdefiziten und Unterstützungsbedarf ein strukturiertes Rehabilitationsprogramm erwägen. Keine pauschale Serie allein wegen des ICD.",
+      "extras": [
+        {
+          "name": "Orthese / Tape",
+          "verdict": "Angepasster Schutz sinnvoll",
+          "text": "US-Leitlinie empfiehlt passende externe Stützung und schrittweise Belastung. Hilfsmittel sind gesondert von physiotherapeutischen Heilmitteln zu beurteilen.",
+          "refs": [
+            "U5"
+          ]
+        },
+        {
+          "name": "Manuelle Techniken",
+          "verdict": "Zusammen mit Übungen empfohlen",
+          "text": "Schmerzfreie Gelenk-/Weichteiltechniken können Beweglichkeit und Gang unterstützen. Kein automatischer Auftrag zu mehreren Hauptheilmitteln.",
+          "refs": [
+            "U5"
+          ]
+        },
+        {
+          "name": "Therapeutischer Ultraschall",
+          "verdict": "Bei akuter Distorsion nicht empfohlen",
+          "text": "Die US-Leitlinie empfiehlt, Ultraschall bei akuter Sprunggelenksdistorsion nicht einzusetzen.",
+          "refs": [
+            "U5"
+          ]
+        },
+        {
+          "name": "Elektrotherapie",
+          "verdict": "Widersprüchliche Evidenz",
+          "text": "Die US-Leitlinie beschreibt widersprüchliche Evidenz für die akute Distorsion. Das ist kein gesicherter Standardzusatz und kein pauschales Verbot.",
+          "refs": [
+            "U5"
+          ]
+        }
+      ],
+      "sources": [
+        "U5"
+      ],
+      "evidence": "US 2021: Training, angepasste Stützung und passende manuelle Techniken Grad A. Ultraschall: Negativempfehlung Grad A. Aussagen zur akuten Distorsion nicht ungeprüft auf chronische Instabilität übertragen.",
+      "tags": {
+        "US": "Bei akuter Distorsion nicht empfohlen",
+        "MT": "Schmerzfrei zusammen mit Übungen",
+        "ET": "Widersprüchliche Evidenz"
+      }
+    }
+  }
+}

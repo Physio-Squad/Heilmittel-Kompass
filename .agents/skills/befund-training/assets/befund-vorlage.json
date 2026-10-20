@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Unbefüllte Befundvorlage; keine echte Person und kein validiertes Triage- oder Diagnoseschema.",
+  "case_id": null,
+  "is_demo": null,
+  "diagnosis": {
+    "confirmation_status": "nicht_bestaetigt",
+    "description": null,
+    "icd": null,
+    "source": null,
+    "care_context": null
+  },
+  "clinical_scope": {
+    "profile_id": null,
+    "confirmation_status": "nicht_beurteilt",
+    "confirmed_by": null,
+    "reason": null
+  },
+  "complaints": {
+    "region": null,
+    "duration": null,
+    "phase": "nicht_beurteilt",
+    "phase_definition_source": null
+  },
+  "function": {
+    "limited_activities": [],
+    "patient_goals": [],
+    "known_load_tolerance": null,
+    "self_exercise_ability": null
+  },
+  "examination": {
+    "status": "nicht_erfasst",
+    "findings": [],
+    "finding_record_template": {
+      "test_or_measure": null,
+      "value": null,
+      "unit": null,
+      "measurement_date": null,
+      "interpretation": null,
+      "method_source": null
+    }
+  },
+  "red_flag_screening": {
+    "status": "nicht_beurteilt",
+    "checklist_source": null,
+    "findings": [],
+    "notice": "Leere Einträge bedeuten keine negativen Befunde. Dieses Feld enthält keine vollständige Triage-Checkliste."
+  },
+  "constraints": {
+    "known_restrictions": [],
+    "restriction_review_status": "nicht_beurteilt",
+    "available_equipment": [],
+    "preferences": []
+  },
+  "clinical_decision": {
+    "effective_interventions": [],
+    "independent_exercise_options": [],
+    "guidance_needs": [],
+    "adjunct_options": [],
+    "source_references": [],
+    "open_questions": []
+  },
+  "training_plan": {
+    "status": "nicht_erstellt",
+    "items": [],
+    "item_template": {
+      "exercise": null,
+      "functional_goal": null,
+      "selection_reason": null,
+      "source_references": [],
+      "parameters": {
+        "load_or_intensity": null,
+        "sets": null,
+        "repetitions": null,
+        "duration": null,
+        "frequency": null,
+        "rest": null
+      },
+      "parameter_provenance": [],
+      "known_constraints": [],
+      "review_status": "nicht_geprueft"
+    }
+  },
+  "clinical_review": {
+    "status": "ausstehend",
+    "reviewer": null,
+    "review_date": null,
+    "notes": null
+  }
+}

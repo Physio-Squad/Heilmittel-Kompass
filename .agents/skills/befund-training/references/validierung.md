@@ -1,0 +1,52 @@
+> Historischer Prüfstand des Heilmittel-Kompass 0.4.1 vom 19.10.2026. Diese Testergebnisse gelten nicht automatisch für eine neue Befund- und Trainings-App.
+
+# Validierung und bekannte Grenzen
+
+## Durchgeführt
+
+- JavaScript-Syntaxprüfung der eigenständigen HTML.
+- Gezielte VM-Prüfungen mit simuliertem DOM: Symptome, Mengen, Zusatzcode, Blanko sowie Demo-Vorbelegungen und fortbestehende Demo-Kennzeichnung.
+- Beim ursprünglichen Import kein realer Browser-/Layouttest: Zugriff auf lokale file-URL wurde damals im Browserwerkzeug blockiert. Nicht durch andere Browserzugriffe umgangen. Die zusätzliche aktuelle Chromium-Prüfung der lokal über HTTP ausgelieferten App ist unten gesondert beschrieben.
+- Frühere Logikprüfungen aus dem Cloud-Chat wurden berichtet, ihre ursprünglichen Testdateien wurden nicht übernommen.
+
+Der beiliegende reproduzierbare Smoke-Test ist ein begrenzter Funktionstest, keine medizinische Prüfung.
+
+## Prüfungen für 0.4 – 19.10.2026
+
+Zusätzlich zur JavaScript-Syntaxprüfung und `node tests/smoke.cjs` wurde die lokal per HTTP ausgelieferte App mit echtem Chromium/Playwright geprüft:
+
+- Acht Profile bei 1440, 390 und 320 Pixel Breite: jeweils alle drei vereinbarten Fragen, Quellenzugang und kein horizontaler Seitenüberlauf.
+- Keine automatische Wahl eines Profils oder Befüllung optionaler Therapieziele. Manuell gewähltes Profil bleibt beim anschließenden Diagnoseeintrag erhalten.
+- Offensichtliche Abweichung zwischen ICD und Profil zeigt einen Hinweis und unterdrückt klinische Hinweise auf den Heilmittelkarten.
+- Unterschiedliche Zusatzbewertungen bleiben sichtbar: Ultraschall bei Rücken/Hüfte sowie Laser bei Achillessehne gegenüber Plantarfasziitis.
+- Alle drei Demofälle über echte UI-Schaltflächen; Kennzeichnung bleibt bei Profiländerung erhalten. Wechsel aus Demo zu echtem Fall löscht die Demo-Profilzuordnung.
+- Eigenständige HTML wird tatsächlich heruntergeladen und enthält die neuen Profile. Keine JavaScript-Laufzeitfehler im geprüften Ablauf.
+- Screenshots des klinischen Bereichs bei Desktop- und Mobilbreite zusätzlich visuell angesehen.
+
+Reproduzierbar: im App-Ordner `python3 -m http.server 8000 --bind 127.0.0.1` starten, dann in einem zweiten Prozess `node tests/browser.cjs` ausführen. Playwright und Chromium müssen installiert sein; in der geprüften Cloud-Umgebung waren beide vorhanden. Optional andere URL über `HEILMITTEL_TEST_URL`, Chromium-Pfad über `CHROMIUM_EXECUTABLE`, Artefaktordner über `HEILMITTEL_TEST_ARTIFACTS`. Screenshots und Testdownload liegen standardmäßig außerhalb des Repositorys unter `/tmp/heilmittel-kompass-browser`.
+
+Dies ist keine vollständige Browser-/Barrierefreiheitsprüfung, kein Test sämtlicher Katalogfälle und keine fachliche Bestätigung der Empfehlungen. Tastatur-/Screenreader-Vollprüfung und Zwischenablage bleiben offen. Die nachfolgenden fachlichen Prüfpunkte bestehen fort.
+
+## Ergänzende Prüfung 0.4.1 – deutscher Abgleich
+
+Syntaxprüfung, Smoke-Test und die echte Chromium-Prüfung wurden mit den aktualisierten Profilen wiederholt. Zusätzliche Browserprüfungen betreffen: deutsche Quellenlinks, akute Kann-Option versus starke chronische Bewegungsempfehlung, Selbstwärme versus Fango-Verordnung, klinische Hinweise auf den Karten für Fango/Ultraschall sowie starke Bewegungsempfehlung versus schwächere Aufsichtsempfehlung bei Kniearthrose. Datierung und die gemeinsame NICE-Evidenzbasis sind einsehbar. Neue Screenshots der beiden deutschen Profile wurden zur Sichtprüfung erstellt.
+
+Die vier Originaldateien wurden mit dem AWMF-Download per SHA-256 verglichen; alle waren identisch. Das prüft die Identität der verwendeten Quellen, nicht die klinische Richtigkeit jeder Aussage. Kein vollständiger Evidenzaudit und keine unabhängige medizinische Freigabe.
+
+## Priorisierte offene Punkte
+
+1. Jede ICD-Zeile auf Gültigkeit, Endständigkeit, Klartext und 2026-Fassung prüfen.
+2. Vollständige LHB/BVB-Listen einschließlich zweitem Code, Alter, Fristen und Zusatzbedingungen abbilden.
+3. Alle Diagnosegruppen und Kombinationsregeln am aktuellen Katalog prüfen; bisher begrenzter Umfang.
+4. Blanko-Whitelist, Ampelzuordnung/-ausnahmen, Mengen, Tagelimits, Beginn und Laufzeit am aktuellen Vertrag verifizieren. Besonderes Augenmerk auf inklusive/exklusive Datumsberechnung.
+5. MLD-Zuordnung, Zeitoptionen und Kompressionshinweise unabhängig prüfen.
+6. KG-ZNS-Alters-/Technikgrenzen und andere qualifikationsgebundene Leistungen prüfen.
+7. Klinische Geltungsbereiche und aktuelle Leitlinienstände überprüfen. Die manuelle Auswahl eines Profils kann derzeit vom eingegebenen ICD abweichen; sie ist keine automatische medizinische Plausibilitätsprüfung.
+8. Für jede Empfehlungsstufe Intervention, Nutzen, Dauer und Evidenzsicherheit nachvollziehbar dokumentieren.
+9. Browser: Desktop/Mobil, Fokus/Labels, Screenreader, Tastatur, Download und Zwischenablage, leere/ungültige Zustände und längere Texte.
+10. Wechsel zwischen echten Fällen und Demos: verbleibende Ziele, Alter, Häufigkeit oder sonstige Werte auf unbeabsichtigte Übernahme prüfen.
+11. Vollständige Datenbankprüfung und reale Fachreview durch geeignete ärztliche/physiotherapeutische Expertise vor klinischer Freigabe.
+
+## Produktgrenze
+
+Die App stellt kein vollständiges Rezept aus und prüft keine gesamte Behandlungshistorie oder regionalen Wirtschaftlichkeitsregeln. „Auswahl erstellt“ ist keine rechtliche oder medizinische Freigabe.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Befund & Training"
+  short_description: "Leitlinienwissen für Befund- und Trainings-Apps"
+  default_prompt: "Nutze $befund-training, um die Befund- und Trainings-App mit den vorhandenen klinischen Profilen, Quellen und fachlichen Grenzen weiterzuentwickeln."

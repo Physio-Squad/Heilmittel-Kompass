@@ -1,9 +1,23 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Heilmittel · Einfach verordnen</title><meta name="description" content="Physiotherapeutische Heilmittel übersichtlich auswählen: Diagnose, Diagnosegruppe und mögliche Kombinationen."><style>
-:root{--ink:#233b38;--muted:#677772;--line:#dfe7e2;--bg:#f5f7f3;--green:#315f50;--soft:#e9f1e8;--white:#fff;--amber:#91652e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}button,input,select,textarea{font:inherit}button,a,input,select,summary{outline-offset:4px}button{cursor:pointer}button:disabled{cursor:default;opacity:.45}a{color:var(--green)}header{background:#fff;border-bottom:1px solid var(--line)}.top{max-width:1190px;margin:auto;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:11px;font-weight:650;font-size:19px;letter-spacing:-.6px}.mark{display:grid;place-items:center;width:31px;height:31px;border:1px solid #a3b7a8;border-radius:9px;color:var(--green);font-size:23px;font-weight:400}.meta{font-size:12px;color:var(--muted)}main{max-width:1190px;padding:45px 28px;margin:auto}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.7px;font-weight:650;color:var(--green)}h1{font-size:clamp(29px,4vw,43px);line-height:1.15;letter-spacing:-1.6px;font-weight:560;margin:11px 0 14px}h2{font-size:19px;letter-spacing:-.5px;font-weight:600;margin:0}h3{font-size:15px;margin:0 0 9px}.intro{color:var(--muted);max-width:630px;margin:0 0 23px}.notice{border:1px solid var(--line);padding:11px 16px;border-radius:10px;font-size:12px;color:var(--muted);margin-bottom:24px;background:#f0f3eb}.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,1fr);gap:24px;align-items:start}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:16px}.cardhead{display:flex;align-items:center;gap:12px;margin-bottom:19px}.num{font-size:12px;display:grid;place-items:center;flex-shrink:0;width:28px;height:28px;background:var(--soft);color:var(--green);border-radius:50%}.small{font-size:12px;color:var(--muted)}.fieldlabel{display:block;font-size:12px;font-weight:650;margin:13px 0 7px}input:not([type=checkbox]),select,textarea{width:100%;padding:12px 13px;border:1px solid #ccd8cf;border-radius:9px;background:white;color:var(--ink);min-width:0}input:focus,select:focus,textarea:focus{border-color:var(--green);outline:2px solid #315f5020}.searchwrap{position:relative}.searchicon{position:absolute;left:14px;top:11px;font-size:22px;color:var(--muted)}#search{padding-left:43px}.results{border:1px solid var(--line);border-radius:10px;margin-top:7px;max-height:280px;overflow:auto;background:white}.result{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:transparent;padding:11px 13px;color:var(--ink)}.result:last-child{border-bottom:0}.result:hover,.result:focus{background:var(--soft)}.code{font-size:12px;font-weight:650;color:var(--green);margin-right:9px}.examples{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.pill{border:1px solid var(--line);border-radius:30px;background:#fff;padding:6px 11px;color:var(--muted);font-size:12px}.pill:hover{border-color:var(--green);color:var(--green)}.selected{margin-top:12px;background:var(--soft);border-radius:10px;padding:12px 14px;font-size:13px}.row{display:flex;gap:12px;align-items:start}.row>*{flex:1;min-width:0}.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.choice{border:1px solid var(--line);border-radius:10px;background:#fff;padding:13px;text-align:left;color:var(--ink);position:relative}.choice strong{display:block;font-size:14px;margin-bottom:3px}.choice span{display:block;font-size:12px;line-height:1.45;color:var(--muted)}.choice.active{border:1.5px solid var(--green);background:#f0f6ee;padding:12.5px}.choice.active:after{content:'✓';position:absolute;right:10px;top:9px;color:var(--green)}.choice:disabled{opacity:1;background:#fafbf9}.divider{border-top:1px solid var(--line);margin:19px 0}.empty{color:var(--muted);font-size:13px;padding:15px 0}.summary{position:sticky;top:20px}.summary .card{border-color:#cbdacd}.summaryhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.badge{font-size:10px;letter-spacing:.7px;text-transform:uppercase;padding:5px 8px;border-radius:5px;background:var(--soft);color:var(--green)}.summaryline{padding:11px 0;border-bottom:1px solid var(--line);font-size:13px;display:flex;justify-content:space-between;gap:16px}.summaryline>span:first-child{color:var(--muted)}.summaryline>span:last-child{text-align:right;max-width:65%;overflow-wrap:anywhere}.summarytitle{font-size:24px;font-weight:550;letter-spacing:-.7px;margin:18px 0 5px}.summarybox{padding:14px;background:var(--bg);border-radius:10px;font-size:12px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;margin:16px 0}.primary{background:var(--green);border:1px solid var(--green);color:#fff;padding:12px 17px;border-radius:9px;font-size:13px;font-weight:600}.secondary{background:white;color:var(--green);border:1px solid var(--line);padding:10px 13px;border-radius:9px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.hint{padding:12px 14px;border-left:3px solid #9cb79d;background:#f2f6ef;font-size:12px;margin-top:12px;border-radius:0 8px 8px 0}.hint.warn{border-color:#c59a5f;background:#fbf6ed;color:#7a582b}.check{display:flex;align-items:start;gap:8px;font-size:12px;margin:12px 0}.check input{margin-top:4px;accent-color:var(--green)}details{margin-top:15px;border-top:1px solid var(--line);padding-top:13px;font-size:12px}summary{cursor:pointer;font-weight:600}.detailsbody{padding-top:10px;color:var(--muted)}.detailsbody p{margin:7px 0}.tabs{display:flex;gap:8px;margin-bottom:16px}.tabs button{flex:1}.hidden,[hidden]{display:none!important}.footer{border-top:1px solid var(--line);margin-top:28px;padding-top:20px;display:flex;gap:15px;flex-wrap:wrap;justify-content:space-between;font-size:12px;color:var(--muted)}.sourcegrid{display:grid;gap:10px;margin:10px 0}.sourcegrid a{display:block}.progress{display:flex;gap:7px;margin:8px 0 22px}.progress i{height:3px;flex:1;border-radius:4px;background:var(--line)}.progress i.done{background:#74997d}#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:30px;font-size:13px;z-index:9}.ampel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.ampel div{padding:12px;border-radius:8px;background:#eaf3e8}.ampel div.red{background:#f8ece8;color:#915d4c}.ampel b{display:block}.muted{color:var(--muted)}@media(max-width:800px){main{padding:29px 17px}.top{padding:17px}.layout{grid-template-columns:1fr;gap:0}.summary{position:static}.card{padding:19px;border-radius:13px}.meta{max-width:135px;text-align:right}h1{letter-spacing:-1px}.choices{grid-template-columns:1fr 1fr}}@media(max-width:390px){.choices{grid-template-columns:1fr}.row{flex-direction:column}.row>*{width:100%}.tabs{flex-direction:column}}@media print{header,.notice,.workflow,.footer,.actions,.summary details,#toast{display:none!important}main{padding:0}.layout{display:block}.summary{position:static}.summary .card{border:0}.summarybox{background:white}body{background:white}}
-.summarytitle{font-size:28px;line-height:1.3;letter-spacing:-.5px;overflow-wrap:anywhere}.summaryline{font-size:15px;padding:14px 0;display:block}.summaryline>span:first-child{display:block;font-size:12px;margin-bottom:4px}.summaryline>span:last-child{display:block;text-align:left;max-width:100%;font-weight:550}.summary .small{font-size:14px}.summary .card{padding:26px}.summarytitle + .small{margin-top:8px}</style></head><body><header><div class="top"><div class="brand"><span class="mark" aria-hidden="true">+</span>heilmittel<span class="muted" style="font-weight:400"> / kompakt</span></div><span class="meta">Physiotherapie · GKV<br>Erster Arbeitsstand</span></div></header><main><div class="eyebrow">Von der Diagnose zur Verordnung</div><h1>Das passende Heilmittel.<br>Einfach auswählen.</h1><p class="intro">Diagnose eingeben, Diagnosegruppe bestätigen und die möglichen Heilmittel zusammenstellen.</p><div class="notice">Erste Version: häufige Diagnosen und Schulter-Blankoverordnungen. Kein vollständiges ICD-Verzeichnis. Sonderbedarfe sind nur bei ausdrücklich bestätigten Treffern hinterlegt; andere Fälle bleiben offen.</div><section class="card" aria-label="Patientenbeispiele"><div class="summaryhead"><h2>Mit einem Beispiel ausprobieren</h2><button id="toggleDemos" class="secondary" aria-expanded="false" aria-controls="demoCases">Demoversion öffnen</button></div><p class="small">Drei fiktive Fälle zeigen den Ablauf. Die Beispielmengen sind Demonstrationswerte, keine pauschalen Verordnungsempfehlungen.</p><div id="demoCases" hidden><div class="choices" id="demoChoices"></div></div><div id="demoNotice" class="hint" hidden role="status"></div></section><div class="layout"><div class="workflow">
+:root{--ink:#233b38;--muted:#677772;--line:#dfe7e2;--bg:#f5f7f3;--green:#315f50;--soft:#e9f1e8;--white:#fff;--amber:#91652e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}button,input,select,textarea{font:inherit}button,a,input,select,summary{outline-offset:4px}button{cursor:pointer}button:disabled{cursor:default;opacity:.45}a{color:var(--green)}header{background:#fff;border-bottom:1px solid var(--line)}.top{max-width:1190px;margin:auto;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:11px;font-weight:650;font-size:19px;letter-spacing:-.6px}.mark{display:grid;place-items:center;width:31px;height:31px;border:1px solid #a3b7a8;border-radius:9px;color:var(--green);font-size:23px;font-weight:400}.meta{font-size:12px;color:var(--muted)}main{max-width:1190px;padding:45px 28px;margin:auto}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.7px;font-weight:650;color:var(--green)}h1{font-size:clamp(29px,4vw,43px);line-height:1.15;letter-spacing:-1.6px;font-weight:560;margin:11px 0 14px}h2{font-size:19px;letter-spacing:-.5px;font-weight:600;margin:0}h3{font-size:15px;margin:0 0 9px}.intro{color:var(--muted);max-width:630px;margin:0 0 23px}.notice{border:1px solid var(--line);padding:11px 16px;border-radius:10px;font-size:12px;color:var(--muted);margin-bottom:24px;background:#f0f3eb}.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,1fr);gap:24px;align-items:start}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:16px}.cardhead{display:flex;align-items:center;gap:12px;margin-bottom:19px}.num{font-size:12px;display:grid;place-items:center;flex-shrink:0;width:28px;height:28px;background:var(--soft);color:var(--green);border-radius:50%}.small{font-size:12px;color:var(--muted)}.fieldlabel{display:block;font-size:12px;font-weight:650;margin:13px 0 7px}input:not([type=checkbox]),select,textarea{width:100%;padding:12px 13px;border:1px solid #ccd8cf;border-radius:9px;background:white;color:var(--ink);min-width:0}input:focus,select:focus,textarea:focus{border-color:var(--green);outline:2px solid #315f5020}.searchwrap{position:relative}.searchicon{position:absolute;left:14px;top:11px;font-size:22px;color:var(--muted)}#search{padding-left:43px}.results{border:1px solid var(--line);border-radius:10px;margin-top:7px;max-height:280px;overflow:auto;background:white}.result{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:transparent;padding:11px 13px;color:var(--ink)}.result:last-child{border-bottom:0}.result:hover,.result:focus{background:var(--soft)}.code{font-size:12px;font-weight:650;color:var(--green);margin-right:9px}.examples{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.pill{border:1px solid var(--line);border-radius:30px;background:#fff;padding:6px 11px;color:var(--muted);font-size:12px}.pill:hover{border-color:var(--green);color:var(--green)}.selected{margin-top:12px;background:var(--soft);border-radius:10px;padding:12px 14px;font-size:13px}.row{display:flex;gap:12px;align-items:start}.row>*{flex:1;min-width:0}.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.choice{border:1px solid var(--line);border-radius:10px;background:#fff;padding:13px;text-align:left;color:var(--ink);position:relative}.choice strong{display:block;font-size:14px;margin-bottom:3px}.choice span{display:block;font-size:12px;line-height:1.45;color:var(--muted)}.choice.active{border:1.5px solid var(--green);background:#f0f6ee;padding:12.5px}.choice.active:after{content:'✓';position:absolute;right:10px;top:9px;color:var(--green)}.choice:disabled{opacity:1;background:#fafbf9}.divider{border-top:1px solid var(--line);margin:19px 0}.empty{color:var(--muted);font-size:13px;padding:15px 0}.summary{position:sticky;top:20px}.summary .card{border-color:#cbdacd}.summaryhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.badge{font-size:10px;letter-spacing:.7px;text-transform:uppercase;padding:5px 8px;border-radius:5px;background:var(--soft);color:var(--green)}.summaryline{padding:11px 0;border-bottom:1px solid var(--line);font-size:13px;display:flex;justify-content:space-between;gap:16px}.summaryline>span:first-child{color:var(--muted)}.summaryline>span:last-child{text-align:right;max-width:65%;overflow-wrap:anywhere}.summarytitle{font-size:24px;font-weight:550;letter-spacing:-.7px;margin:18px 0 5px}.summarybox{padding:14px;background:var(--bg);border-radius:10px;font-size:12px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;margin:16px 0}.primary{background:var(--green);border:1px solid var(--green);color:#fff;padding:12px 17px;border-radius:9px;font-size:13px;font-weight:600}.secondary{background:white;color:var(--green);border:1px solid var(--line);padding:10px 13px;border-radius:9px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.hint{padding:12px 14px;border-left:3px solid #9cb79d;background:#f2f6ef;font-size:12px;margin-top:12px;border-radius:0 8px 8px 0}.hint.warn{border-color:#c59a5f;background:#fbf6ed;color:#7a582b}.check{display:flex;align-items:start;gap:8px;font-size:12px;margin:12px 0}.check input{margin-top:4px;accent-color:var(--green)}details{margin-top:15px;border-top:1px solid var(--line);padding-top:13px;font-size:12px}summary{cursor:pointer;font-weight:600}.detailsbody{padding-top:10px;color:var(--muted)}.detailsbody p{margin:7px 0}.tabs{display:flex;gap:8px;margin-bottom:16px}.tabs button{flex:1}.hidden,[hidden]{display:none!important}.footer{border-top:1px solid var(--line);margin-top:28px;padding-top:20px;display:flex;gap:15px;flex-wrap:wrap;justify-content:space-between;font-size:12px;color:var(--muted)}.sourcegrid{display:grid;gap:10px;margin:10px 0}.sourcegrid a{display:block}.progress{display:flex;gap:7px;margin:8px 0 22px}.progress i{height:3px;flex:1;border-radius:4px;background:var(--line)}.progress i.done{background:#74997d}#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:30px;font-size:13px;z-index:9}.ampel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.ampel div{padding:12px;border-radius:8px;background:#eaf3e8}.ampel div.red{background:#f8ece8;color:#915d4c}.ampel b{display:block}.muted{color:var(--muted)}@media(max-width:800px){main{padding:29px 17px}.top{padding:17px}.layout{grid-template-columns:1fr;gap:0}.summary{position:static}.card{padding:19px;border-radius:13px}.meta{max-width:135px;text-align:right}h1{letter-spacing:-1px}.choices{grid-template-columns:1fr 1fr}}@media(max-width:390px){.top{flex-wrap:wrap}.meta{text-align:left;max-width:none}.choices{grid-template-columns:1fr}.row{flex-direction:column}.row>*{width:100%}.tabs{flex-direction:column}}@media print{header,.notice,.workflow,.footer,.actions,.summary details,#toast{display:none!important}main{padding:0}.layout{display:block}.summary{position:static}.summary .card{border:0}.summarybox{background:white}body{background:white}}
+.summarytitle{font-size:28px;line-height:1.3;letter-spacing:-.5px;overflow-wrap:anywhere}.summaryline{font-size:15px;padding:14px 0;display:block}.summaryline>span:first-child{display:block;font-size:12px;margin-bottom:4px}.summaryline>span:last-child{display:block;text-align:left;max-width:100%;font-weight:550}.summary .small{font-size:14px}.summary .card{padding:26px}.summarytitle + .small{margin-top:8px}
+.clinical-guide h2{margin-top:9px}.evidence-scope{font-size:12px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px}.evidence-question{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}.evidence-question h3{font-size:16px;line-height:1.4}.evidence-question p,.evidence-need{font-size:13px}.evidence-question p{margin:8px 0}.evidence-need dt{font-weight:650;margin-top:13px}.evidence-need dd{margin:5px 0 0}.evidence-extras{display:grid;gap:10px}.evidence-extra{border:1px solid var(--line);border-radius:10px;padding:14px;background:#fafbf8;min-width:0}.evidence-extra h4{font-size:14px;margin:0}.evidence-extra .evidence-verdict{font-weight:650;color:var(--green);margin:4px 0 8px}.evidence-ref{display:block;font-size:11px;color:var(--muted);margin-top:6px}.evidence-sources{padding-left:19px}.evidence-sources li{margin-bottom:15px;overflow-wrap:anywhere}.evidence-question .small{font-size:12px}
+.evidence-overview{margin:0;padding-left:18px}.evidence-overview li{margin:0 0 8px}.evidence-overview li:last-child{margin-bottom:0}
+.evidence-bullets{margin:8px 0;padding-left:18px;font-size:13px}.evidence-bullets li{margin-bottom:6px}.evidence-scope.evidence-bullets{font-size:12px;padding-left:20px}.evidence-adjuncts{margin:8px 0;padding-left:18px;font-size:13px}.evidence-adjuncts li{margin-bottom:10px}.evidence-adjuncts .evidence-ref{display:inline;font-size:10px;margin-left:3px}.evidence-question{margin-top:17px;padding-top:14px}
+</style></head><body><header><div class="top"><div class="brand"><span class="mark" aria-hidden="true">+</span>heilmittel<span class="muted" style="font-weight:400"> / kompakt</span></div><span class="meta">Physiotherapie · GKV<br>Prototyp · 0.4.3</span></div></header><main><div class="eyebrow">Von der Diagnose zur Verordnung</div><h1>Was hilft wirklich?<br>Therapie bewusst auswählen.</h1><p class="intro">Therapie, Bedarf und sinnvolle Zusätze anhand von Leitlinien einordnen. Danach die passenden Heilmittel zusammenstellen.</p><div class="notice">Erste Version: häufige Diagnosen und Schulter-Blankoverordnungen. Kein vollständiges ICD-Verzeichnis. Sonderbedarfe sind nur bei ausdrücklich bestätigten Treffern hinterlegt; andere Fälle bleiben offen.</div><section class="card" aria-label="Patientenbeispiele"><div class="summaryhead"><h2>Mit einem Beispiel ausprobieren</h2><button id="toggleDemos" class="secondary" aria-expanded="false" aria-controls="demoCases">Demoversion öffnen</button></div><p class="small">Drei fiktive Fälle zeigen den Ablauf. Die Beispielmengen sind Demonstrationswerte, keine pauschalen Verordnungsempfehlungen.</p><div id="demoCases" hidden><div class="choices" id="demoChoices"></div></div><div id="demoNotice" class="hint" hidden role="status"></div></section><div class="layout"><div class="workflow">
+<section class="card clinical-guide" aria-labelledby="clinicalTitle">
+<div class="eyebrow">Klinische Orientierung</div><h2 id="clinicalTitle">Was hilft – und was braucht es dafür?</h2>
+<p class="small">Therapie, Bedarf und Zusätze auf einen Blick.</p>
+<label class="fieldlabel" for="evidenceProfile">Klinischen Bereich bestätigen</label>
+<select id="evidenceProfile" aria-describedby="clinicalScopeNote"><option value="">Bitte klinischen Bereich wählen</option><option value="back">Lumbaler Rückenschmerz</option><option value="neck">Nicht-spezifische Nackenschmerzen</option><option value="oa">Kniearthrose · konservativ</option><option value="hip">Hüftarthrose · konservativ</option><option value="shoulder">Rotatorenmanschetten-Tendinopathie</option><option value="achilles">Achillessehnen-Tendinopathie · Midportion</option><option value="heel">Plantarer Fersenschmerz / Plantarfasziitis</option><option value="ankle">Laterale Sprunggelenksdistorsion · akut / postakut</option></select>
+<p class="small" id="clinicalScopeNote">Geltungsbereich am Befund bestätigen; ICD allein reicht nicht.</p>
+<div id="evidenceBody"></div>
+<details><summary>Wie ist die Einordnung zu verstehen?</summary><div class="detailsbody"><ul class="evidence-overview"><li>Empfehlungen gelten für den gewählten klinischen Bereich.</li><li>Befund, Ziele und Belastbarkeit bestimmen den Therapiebedarf.</li><li>KG, MT und KG-Gerät bilden keine pauschale Wirksamkeitsrangliste.</li><li>Klinischer Nutzen und GKV-Verordnungsfähigkeit werden getrennt beurteilt.</li></ul></div></details>
+</section>
+
 <section class="card"><div class="cardhead"><span class="num">1</span><h2>Welche Diagnose liegt vor?</h2></div><label class="fieldlabel" for="search">Diagnose oder ICD-10-Code</label><div class="searchwrap"><span class="searchicon" aria-hidden="true">⌕</span><input id="search" autocomplete="off" placeholder="z. B. M75.4, Multiple Sklerose oder Lymphödem" aria-controls="matches" aria-expanded="false"></div><div id="matches" class="results" hidden></div><div class="examples"><span class="small" style="padding:5px 0">Ausprobieren:</span><button class="pill" data-example="M54.5">Rücken</button><button class="pill" data-example="M75.4">Schulter</button><button class="pill" data-example="G35.9">MS</button><button class="pill" data-example="I89.01">Lymphödem</button></div><div id="diagnosis" hidden></div><div id="secondCodeWrap" hidden><label class="fieldlabel" for="secondCode">Zweiter ICD-Code für diesen Listeneintrag</label><input id="secondCode" placeholder="Erforderlichen Zusatzcode eingeben"><p class="small">Ein passender Zusatzcode bestätigt allein noch keinen Sonderbedarf; weitere Listenbedingungen prüfen.</p></div><details><summary>Diagnose nicht in der Suche?</summary><div class="detailsbody">Sie können einen eigenen ICD-Code eintragen und die Diagnosegruppe selbst zuordnen. Sonderbedarf und Blankoverordnung werden dann nicht automatisch bestätigt.<div class="row"><div><label class="fieldlabel" for="customCode">ICD-Code</label><input id="customCode" placeholder="z. B. M54.4" maxlength="12"></div><div><label class="fieldlabel" for="customName">Diagnose</label><input id="customName" placeholder="Ärztliche Diagnose" maxlength="150"></div></div><button id="useCustom" class="secondary" style="margin-top:12px">Eigene Diagnose übernehmen</button><p id="customError" role="alert"></p></div></details></section>
 <section class="card"><div class="cardhead"><span class="num">2</span><h2>Diagnosegruppe bestätigen</h2></div><div class="row"><div><label class="fieldlabel" for="group">Diagnosegruppe</label><select id="group" disabled><option value="">Bitte zuerst Diagnose wählen</option></select></div><div><label class="fieldlabel" >Leitsymptomatik · Mehrfachauswahl</label><select id="symptom" disabled hidden aria-hidden="true"><option value="">Passende Symptomatik wählen</option></select><div id="symptomChoices"></div></div></div><div id="symptomCustom" hidden><label class="fieldlabel" for="individual">Patientenindividuelle Leitsymptomatik</label><textarea id="individual" rows="2" placeholder="Vergleichbare Funktionsstörung der gewählten Diagnosegruppe"></textarea></div><div id="groupHint" class="small" style="margin-top:11px">Der Vorschlag orientiert sich an der Diagnose. Die Zuordnung bleibt ärztliche Entscheidung.</div></section>
-<section class="card"><h3>Was ist therapeutisch angemessen?</h3><p class="small">Verordnungsfähig bedeutet nicht automatisch notwendig. Zuerst Befund und Ziel, dann belegten Nutzen, Belastung und Aufwand abwägen. Bedarfsgerechte Menge statt automatisch maximaler Menge.</p><label class="fieldlabel" for="evidenceProfile">Passenden klinischen Geltungsbereich bestätigen · optional</label><select id="evidenceProfile"><option value="">Keine Leitlinienzuordnung bestätigt</option><option value="back">Lumbaler Rückenschmerz ohne spezifische Ursache / Warnzeichen</option><option value="oa">Konservative Behandlung bei Knie- oder Hüftarthrose</option><option value="shoulder">Konservative Rotatorenmanschetten-Tendinopathie</option></select><div id="evidenceBody"></div><details><summary>Wie die Priorität entsteht</summary><div class="detailsbody">Die Einordnung überträgt Empfehlungen zu Interventionen auf mögliche Heilmittel. Sie ist keine direkte Vergleichsstudie von KG, MT und KG-Gerät und keine automatische Notwendigkeitsbescheinigung. KG-Gerät ist nicht allein deshalb wirksamer, weil Geräte genutzt werden. Befund, Ziel, Eigenübungsfähigkeit, Verlauf und Präferenzen entscheiden mit. Qualifikations- und Terminaufwand sind praktische Faktoren, kein Beweis gegen eine Therapie. Nicht untersuchte Optionen bleiben offen. Bei unbekanntem Geltungsbereich wird kein Ranking vergeben. Internationale Empfehlungen verändern die deutschen Katalogregeln nicht.</div></details></section><section class="card"><div class="cardhead"><span class="num">3</span><h2>Heilmittel auswählen</h2></div><div id="routeTabs" class="tabs" hidden><button class="secondary" id="normalRoute">Konventionell</button><button class="secondary" id="blankRoute">Blankoverordnung</button></div><div id="therapyEmpty" class="empty">Nach Auswahl einer Diagnose sehen Sie hier die verfügbaren Heilmittel.</div><div id="therapyPanel" hidden><div id="primaryChoices" class="choices"></div><div class="hint" id="mtInfo" hidden><strong>MT bewusst auswählen</strong><p>Manuelle Therapie ist eine Leistung mit anerkannter Zusatzqualifikation. Je nach örtlichem Angebot kann das die Terminwahl einschränken. Wenn die Behandlungsziele mit allgemeiner KG erreichbar sind und diese zur Diagnosegruppe passt, KG als Option prüfen.</p><p>MT bedeutet nicht, dass die gesamte Behandlung ausschließlich passiv auf der Liege stattfinden muss. Zum Behandlungskonzept können auch aktive Übungen, Eigenübungen und Anleitung gehören; die verordnete MT-Leistung bleibt maßgeblich.</p><p class="small"><a href="https://www.vdek.com/vertragspartner/heilmittel/weiterbildung.html" target="_blank" rel="noopener">Zusatzqualifikation</a> · <a href="https://www.g-ba.de/richtlinien/12/" target="_blank" rel="noopener">Heilmittel-Richtlinie</a></p></div><p class="small">Auswahl für diese erste Version: KG, MT, KG-Gerät, MLD, KG-ZNS und ausgewählte physikalische Maßnahmen. Keine Gruppenbehandlungen. KG-ZNS wird nicht vorausgewählt.</p><div id="znsTechnique" hidden><label for="technique" class="fieldlabel">Technik bei KG-ZNS</label><select id="technique"><option value="">Bitte auswählen</option><option>Bobath</option><option>Vojta</option><option>PNF</option></select></div><div id="bandageWrap" hidden><label class="check"><input id="bandage" type="checkbox">MLD mit anschließender Kompressionsbandagierung</label><p class="small">Erforderliche Kompressionsbinden gegebenenfalls gesondert als Verbandsmittel verordnen.</p></div><details><summary>Ausnahme: mehrere Hauptheilmittel kombinieren</summary><div class="detailsbody"><p><strong>Für den üblichen Ablauf: ein Hauptheilmittel wählen, bei Bedarf mit passender Ergänzung.</strong></p><p>Mehrere Hauptheilmittel, etwa KG + MT oder KG + KG-Gerät, nur bei gezieltem Bedarf erwägen. Die Aufteilung kann zusätzliche Terminabstimmung und Therapeutenwechsel bedeuten und ist daher im Praxisablauf häufig unpraktisch. Dies ist ein organisatorischer Hinweis; die Kombination ist bei passender Katalogzuordnung grundsätzlich verordnungsfähig.</p>Bis zu drei unterschiedliche vorrangige Heilmittel sind möglich. Die Einheiten werden aufgeteilt – nicht je Heilmittel neu ausgeschöpft. Ergänzende Maßnahmen sind auf höchstens die Summe dieser Einheiten begrenzt.</div><div id="extraChoices" style="margin-top:12px"></div></details></div><div id="blankPanel" hidden><div class="hint">Die Physiotherapie entscheidet über Heilmittel, Anzahl und Frequenz. Der Arzt legt Diagnose, Diagnosegruppe, Leitsymptomatik, Hausbesuch und gegebenenfalls Dringlichkeit und Therapiebericht fest.</div><div class="row"><div><label class="fieldlabel" for="issueDate">Ausstellungsdatum</label><input type="date" id="issueDate"></div><div><label class="fieldlabel" for="side">Behandelte Schulter</label><select id="side"><option value="">Bitte wählen</option><option>Rechts</option><option>Links</option><option>Beidseits – gesondert prüfen</option></select></div></div><div id="blankRules"></div><details open><summary>Ampelsystem und Therapieplanung</summary><div id="ampelContent" class="detailsbody"></div></details></div></section>
+<section class="card"><div class="cardhead"><span class="num">3</span><h2>Heilmittel auswählen</h2></div><div id="routeTabs" class="tabs" hidden><button class="secondary" id="normalRoute">Konventionell</button><button class="secondary" id="blankRoute">Blankoverordnung</button></div><div id="therapyEmpty" class="empty">Nach Auswahl einer Diagnose sehen Sie hier die verfügbaren Heilmittel.</div><div id="therapyPanel" hidden><div id="primaryChoices" class="choices"></div><div class="hint" id="mtInfo" hidden><strong>MT bewusst auswählen</strong><p>Manuelle Therapie ist eine Leistung mit anerkannter Zusatzqualifikation. Je nach örtlichem Angebot kann das die Terminwahl einschränken. Wenn die Behandlungsziele mit allgemeiner KG erreichbar sind und diese zur Diagnosegruppe passt, KG als Option prüfen.</p><p>MT bedeutet nicht, dass die gesamte Behandlung ausschließlich passiv auf der Liege stattfinden muss. Zum Behandlungskonzept können auch aktive Übungen, Eigenübungen und Anleitung gehören; die verordnete MT-Leistung bleibt maßgeblich.</p><p class="small"><a href="https://www.vdek.com/vertragspartner/heilmittel/weiterbildung.html" target="_blank" rel="noopener">Zusatzqualifikation</a> · <a href="https://www.g-ba.de/richtlinien/12/" target="_blank" rel="noopener">Heilmittel-Richtlinie</a></p></div><p class="small">Auswahl für diese erste Version: KG, MT, KG-Gerät, MLD, KG-ZNS und ausgewählte physikalische Maßnahmen. Keine Gruppenbehandlungen. KG-ZNS wird nicht vorausgewählt.</p><div id="znsTechnique" hidden><label for="technique" class="fieldlabel">Technik bei KG-ZNS</label><select id="technique"><option value="">Bitte auswählen</option><option>Bobath</option><option>Vojta</option><option>PNF</option></select></div><div id="bandageWrap" hidden><label class="check"><input id="bandage" type="checkbox">MLD mit anschließender Kompressionsbandagierung</label><p class="small">Erforderliche Kompressionsbinden gegebenenfalls gesondert als Verbandsmittel verordnen.</p></div><details><summary>Ausnahme: mehrere Hauptheilmittel kombinieren</summary><div class="detailsbody"><p><strong>Für den üblichen Ablauf: ein Hauptheilmittel wählen, bei Bedarf mit passender Ergänzung.</strong></p><p>Mehrere Hauptheilmittel, etwa KG + MT oder KG + KG-Gerät, nur bei gezieltem Bedarf erwägen. Die Aufteilung kann zusätzliche Terminabstimmung und Therapeutenwechsel bedeuten und ist daher im Praxisablauf häufig unpraktisch. Dies ist ein organisatorischer Hinweis; die Kombination ist bei passender Katalogzuordnung grundsätzlich verordnungsfähig.</p>Bis zu drei unterschiedliche vorrangige Heilmittel sind möglich. Die Einheiten werden aufgeteilt – nicht je Heilmittel neu ausgeschöpft. Ergänzende Maßnahmen sind auf höchstens die Summe dieser Einheiten begrenzt.</div><div id="extraChoices" style="margin-top:12px"></div></details></div><div id="blankPanel" hidden><div class="hint">Die Physiotherapie entscheidet über Heilmittel, Anzahl und Frequenz. Der Arzt legt Diagnose, Diagnosegruppe, Leitsymptomatik, Hausbesuch und gegebenenfalls Dringlichkeit und Therapiebericht fest.</div><div class="row"><div><label class="fieldlabel" for="issueDate">Ausstellungsdatum</label><input type="date" id="issueDate"></div><div><label class="fieldlabel" for="side">Behandelte Schulter</label><select id="side"><option value="">Bitte wählen</option><option>Rechts</option><option>Links</option><option>Beidseits – gesondert prüfen</option></select></div></div><div id="blankRules"></div><details open><summary>Ampelsystem und Therapieplanung</summary><div id="ampelContent" class="detailsbody"></div></details></div></section>
 <section class="card" id="quantityCard" hidden><div class="cardhead"><span class="num">4</span><h2>Menge & Rahmen</h2></div><div id="specialInfo"></div><div class="row"><div><label class="fieldlabel" for="units">Vorrangige Einheiten insgesamt</label><input id="units" type="number" min="1" max="999" value="6"></div><div><label class="fieldlabel" for="frequency">Frequenz pro Woche</label><select id="frequency"><option value="1-3">1–3 × wöchentlich</option><option value="1-2">1–2 × wöchentlich</option><option value="1">1 × wöchentlich</option><option value="2">2 × wöchentlich</option><option value="3">3 × wöchentlich</option><option value="4">4 × wöchentlich</option><option value="5">5 × wöchentlich</option></select></div></div><div id="splitUnits"></div><div id="suppUnitsWrap" hidden><label for="suppUnits" class="fieldlabel">Einheiten der Ergänzung</label><input id="suppUnits" type="number" min="1" placeholder="Bewusst festlegen, z. B. 3"><p class="small">Separat zählen, höchstens so viele wie die vorrangigen Einheiten. Keine automatische Ausschöpfung.</p></div><div class="row"><div><label class="fieldlabel" for="age">Alter, falls relevant</label><input id="age" type="number" min="0" max="120" placeholder="Jahre"></div><div><label class="fieldlabel" for="prior">Bisherige vorrangige Einheiten im Fall</label><input id="prior" type="number" min="0" placeholder="Optional / unbekannt"></div></div><div id="quantityHint"></div><details><summary>Individuelle Genehmigung & langfristiger Bedarf</summary><label class="check"><input id="approval" type="checkbox">Individuelle Genehmigung der Krankenkasse liegt für diese Diagnose und Diagnosegruppe vor.</label><div id="approvalFields" hidden><label class="fieldlabel" for="approvalUntil">Genehmigung gültig bis</label><input id="approvalUntil" type="date"><label class="check"><input id="unlimited" type="checkbox">Unbefristet genehmigt</label></div><div class="detailsbody">Ohne Listentreffer kann bei vergleichbaren schweren, dauerhaften Schädigungen und einem voraussichtlichen Therapiebedarf von mindestens einem Jahr ein individueller Antrag infrage kommen. Ärztliche Begründung und Verordnung unterstützen den Antrag; die Krankenkasse entscheidet. Eine ärztliche Begründung allein begründet keine Kassengenehmigung.</div></details></section>
 <section class="card" id="goalsCard"><h3>ggf. Therapieziele / weitere med. Befunde und Hinweise</h3><p class="small">Optionaler Text für das gleichnamige Feld auf Muster 13. Passende Bausteine zuschalten und bei Bedarf individuell ergänzen.</p>
 <label class="check"><input type="checkbox" data-goal="Aktive Therapie und selbstständiges Üben im Rahmen der Belastbarkeit bevorzugen.">Aktive Therapie bevorzugen</label>
@@ -23,7 +37,7 @@ let activeDemo=null;
 const state={diag:null,group:'',sym:'',primary:[],supp:'NONE',route:'normal'};const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));let textOutput='';
 function normalized(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ß/g,'ss');}
 function search(){let q=normalized($('search').value.trim());let found=DIAGNOSES.filter(d=>normalized(d.code+' '+d.name).includes(q)).slice(0,14);$('matches').hidden=!q;$('search').setAttribute('aria-expanded',String(!!q));$('matches').innerHTML=found.length?found.map(d=>`<button class="result" data-code="${esc(d.code)}"><span class="code">${esc(d.code)}</span>${esc(d.name)}</button>`).join(''):'<div class="empty" style="padding:13px">Kein hinterlegter Treffer. Nutzen Sie unten „Diagnose nicht in der Suche?“.</div>';}
-function choose(d){activeDemo=null;$('demoNotice').hidden=true;state.diag=d;state.group=d.group||'';state.sym='';state.primary=[];state.supp='NONE';state.route='normal';$('approval').checked=false;$('approvalUntil').value='';$('unlimited').checked=false;$('prior').value='';$('technique').value='';$('individual').value='';$('bandage').checked=false;$('secondCode').value='';$('evidenceProfile').value='';$('search').value=d.code+' · '+d.name;$('matches').hidden=true;$('search').setAttribute('aria-expanded','false');$('diagnosis').hidden=false;$('diagnosis').className='selected';$('diagnosis').textContent=d.family?'Codefamilie gewählt. Bitte vollständigen ICD-Code unten konkretisieren.':d.custom?'Eigene Diagnose · keine automatische Prüfung der ICD-Gültigkeit oder Sonderlisten.':'Diagnose übernommen · '+d.code;$('group').disabled=false;$('group').innerHTML='<option value="">Diagnosegruppe wählen</option>'+Object.entries(G).map(([k,g])=>`<option value="${k}">${k} · ${g.name}</option>`).join('');$('group').value=state.group;setGroup();}
+function choose(d){const previousDemo=activeDemo;activeDemo=null;$('demoNotice').hidden=true;state.diag=d;state.group=d.group||'';state.sym='';state.primary=[];state.supp='NONE';state.route='normal';$('approval').checked=false;$('approvalUntil').value='';$('unlimited').checked=false;$('prior').value='';$('technique').value='';$('individual').value='';$('bandage').checked=false;$('secondCode').value='';if(previousDemo)$('evidenceProfile').value='';$('search').value=d.code+' · '+d.name;$('matches').hidden=true;$('search').setAttribute('aria-expanded','false');$('diagnosis').hidden=false;$('diagnosis').className='selected';$('diagnosis').textContent=d.family?'Codefamilie gewählt. Bitte vollständigen ICD-Code unten konkretisieren.':d.custom?'Eigene Diagnose · keine automatische Prüfung der ICD-Gültigkeit oder Sonderlisten.':'Diagnose übernommen · '+d.code;$('group').disabled=false;$('group').innerHTML='<option value="">Diagnosegruppe wählen</option>'+Object.entries(G).map(([k,g])=>`<option value="${k}">${k} · ${g.name}</option>`).join('');$('group').value=state.group;setGroup();}
 function setGroup(){state.group=$('group').value;state.primary=[];state.supp='NONE';state.route='normal';state.sym='';$('symptom').disabled=!state.group;$('symptom').innerHTML='<option value="">Bitte bestätigen</option>'+(state.group?[...G[state.group].sym,'x · Patientenindividuelle Symptomatik'].map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join(''):'');$('symptomChoices').innerHTML=state.group?[...G[state.group].sym,'x · Patientenindividuelle Symptomatik'].map(v=>'<label class="check"><input type="checkbox" data-sym="'+esc(v)+'">'+esc(v)+'</label>').join(''):'';$('units').value=state.group?G[state.group].max:6;$('suppUnits').value='';renderChoices();update();}
 function allowed(){if(!state.group)return[];return G[state.group].primary.filter(k=>k!=='MLD'||state.diag?.mld);}
 function blankAvailable(){return !!(state.diag?.blank&&state.group==='EX'&&!state.diag?.second&&!state.diag?.family);}
@@ -32,13 +46,991 @@ function choice(k,active,type){return `<button class="choice ${active?'active':'
 function special(){let d=state.diag;let matching=d?.group===state.group;let validApproval=$('approval').checked&&($('unlimited').checked||$('approvalUntil').value>=today());if(validApproval)return{type:'Individuell genehmigter langfristiger Bedarf',twelve:true,note:'Voraussetzung: Genehmigung umfasst die angegebene Diagnose und Diagnosegruppe. Umfang und Gültigkeit des Bescheids beachten.'};if(matching&&d?.lhb)return{type:'Langfristiger Heilmittelbedarf · Listentreffer',twelve:true,note:'Diagnosefamilien benötigen einen gültigen vollständigen ICD-Code. Allgemeine KG ist bei passender Katalogzuordnung ebenfalls möglich.'};if(matching&&d?.bvb)return{type:'Besonderer Verordnungsbedarf · Listentreffer',twelve:true,note:'M75.1 mit EX ist in der bundesweiten Diagnoseliste aufgeführt.'};return{type:'Sonderbedarf nicht abschließend geprüft',twelve:false,note:d?.conditional?'Lipödem: BVB-Voraussetzungen, insbesondere Zusammenhang mit komplexer physikalischer Entstauungstherapie, prüfen. Kein automatischer Zwölf-Wochen-Nachweis in diesem Arbeitsstand.':'Die regulären Katalogmengen sind angezeigt. Weitere Listentreffer oder regionale Besonderheiten sind damit nicht ausgeschlossen.'};}
 function today(){return new Date().toLocaleDateString('en-CA');}function addDays(date,n){let d=new Date(date+'T12:00:00');d.setDate(d.getDate()+n);return d.toLocaleDateString('de-DE');}
 
-const evidenceProfiles={
-back:{title:'Lumbaler Rückenschmerz',scope:'Keine Übertragung auf Fraktur, Tumor, Infektion, entzündliche Erkrankung oder postoperative Nachbehandlung. Bei rasch besserndem Verlauf kann Beratung und Aktivität ohne zusätzliche Behandlungsserie ausreichen.',core:'Aktiv bleiben und Selbstmanagement unterstützen; Übungsprogramm nach Verlauf und Bedarf. KG kann dies abbilden. KG-Gerät nur bei passendem Trainingsziel; keine belegte pauschale Überlegenheit gegenüber anderem Training.',adjunct:'Manuelle Techniken nach NICE nur in einem Behandlungspaket mit Übungen erwägen. Daraus folgt keine Pflicht, KG und MT zusammen auf ein Rezept zu schreiben.',avoid:'NICE empfiehlt therapeutischen Ultraschall nicht. Wärme wird hier nicht als notwendiger Standardzusatz eingestuft; individuellen Zusatznutzen prüfen.',url:'https://www.nice.org.uk/guidance/ng59/chapter/Recommendations',source:'NICE NG59 · Empfehlungen 1.1.3 und 1.2.1–1.2.10'},
-oa:{title:'Knie- / Hüftarthrose',scope:'Konservative Versorgung; keine automatische Übertragung auf akute Verletzung oder unmittelbare postoperative Phase.',core:'Individuell angepasstes Kraft- und Ausdauertraining mit Anleitung und Edukation hat Vorrang. KG kann genügen; KG-Gerät bei geeignetem Trainingsbedarf und Katalogzuordnung erwägen.',adjunct:'Manuelle Therapie bei Knie- oder Hüftarthrose nur zusammen mit therapeutischem Training erwägen. Alleinige manuelle Behandlung ist nicht ausreichend belegt.',avoid:'NICE rät bei Arthrose von therapeutischem Ultraschall sowie TENS, Interferenzstrom und NMES wegen unzureichendem Nutzennachweis ab. Dies wird nicht pauschal auf jede Form der Elektrotherapie übertragen.',url:'https://www.nice.org.uk/guidance/ng226/chapter/Recommendations',source:'NICE NG226 · 1.3.1–1.3.9, 2022'},
-shoulder:{title:'Rotatorenmanschetten-Tendinopathie',scope:'Erwachsene, nicht operative Versorgung. Nicht automatisch auf komplette Ruptur, frische Operation, Fraktur oder Frozen Shoulder übertragen.',core:'Individuelle Aufklärung und aktives Übungsprogramm, einschließlich angepasstem Widerstands- oder Bewegungskontrolltraining, als initiale Behandlung. KG kann dies umsetzen; ein gerätegebundenes Setting ist nicht automatisch nötig.',adjunct:'Manuelle Techniken können kurzfristig Schmerzen lindern; sie sind keine allgemeine Voraussetzung für den langfristigen Behandlungserfolg.',avoid:'Die Leitlinie empfiehlt therapeutischen Ultraschall weder bei kalzifizierender noch nicht kalzifizierender Tendinopathie. Keine automatische Ergänzung zur aktiven Rehabilitation.',url:'https://doi.org/10.2519/jospt.2025.13182',source:'JOSPT CPG 2025 · Empfehlungen 24–26, 32–33'}
+const evidenceSources={
+  "N59": {
+    "label": "NICE NG59 · Rückenschmerz",
+    "country": "Großbritannien",
+    "year": "2016, Update 2020",
+    "url": "https://www.nice.org.uk/guidance/ng59/chapter/Recommendations",
+    "location": "1.1.3, 1.2.1–1.2.10",
+    "checked": "17.10.2026",
+    "status": "Übernommene Recherche; Originalinhalt zuvor teilweise indexiert zugänglich. Keine erneute Vollprüfung."
+  },
+  "N226": {
+    "label": "NICE NG226 · Arthrose",
+    "country": "Großbritannien",
+    "year": "2022",
+    "url": "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations",
+    "location": "1.3.1–1.3.9",
+    "checked": "17.10.2026",
+    "status": "Übernommene Recherche; Originalinhalt zuvor teilweise indexiert zugänglich. Keine erneute Vollprüfung."
+  },
+  "R25": {
+    "label": "JOSPT · Rotatorenmanschetten-Tendinopathie",
+    "country": "International / JOSPT",
+    "year": "2025",
+    "url": "https://doi.org/10.2519/jospt.2025.13182",
+    "location": "Empfehlungen 24–26, 32–33",
+    "checked": "17.10.2026",
+    "status": "Übernommene Recherche; direkter Verlagsabruf eingeschränkt. Keine erneute Vollprüfung."
+  },
+  "U1": {
+    "label": "VA/DoD · Low Back Pain",
+    "country": "USA",
+    "year": "2022",
+    "url": "https://www.healthquality.va.gov/HEALTHQUALITY/guidelines/Pain/lbp/VADODLBPCPGProviderSummaryFinal508.pdf",
+    "location": "Provider Summary, Empfehlungen 9–11 und 17, S. 2–3",
+    "checked": "19.10.2026",
+    "status": "Original-PDF abgerufen; relevante Empfehlungstabelle gelesen."
+  },
+  "U2": {
+    "label": "APTA Orthopedics · Hip Osteoarthritis",
+    "country": "USA",
+    "year": "2025",
+    "url": "https://www.orthopt.org/uploads/content_files/files/koc_et_al_2025_hip_pain_and_mobility_deficits_hip_osteoarthritis_revision_2025%281%29.pdf",
+    "location": "Summary of Recommendations, CPG2",
+    "checked": "19.10.2026",
+    "status": "Original-PDF beim Herausgeber abgerufen; Empfehlungsübersicht gelesen."
+  },
+  "U3": {
+    "label": "APTA Orthopedics · Midportion Achilles Tendinopathy",
+    "country": "USA",
+    "year": "2024",
+    "url": "https://www.orthopt.org/uploads/content_files/files/Achilles_Pain_revision_2024.pdf",
+    "location": "Summary of Recommendations, CPG2",
+    "checked": "19.10.2026",
+    "status": "Original-PDF beim Herausgeber abgerufen; Empfehlungsübersicht und Geltungsbereich gelesen."
+  },
+  "U4": {
+    "label": "APTA Orthopedics · Heel Pain / Plantar Fasciitis",
+    "country": "USA",
+    "year": "2023",
+    "url": "https://www.orthopt.org/uploads/content_files/files/Heel_Pain_Plantar_Fasciitis_revision_2023_1_.pdf",
+    "location": "Summary of Recommendations, CPG2",
+    "checked": "19.10.2026",
+    "status": "Original-PDF beim Herausgeber abgerufen; Empfehlungsübersicht gelesen."
+  },
+  "U5": {
+    "label": "APTA Orthopedics · Lateral Ankle Ligament Sprains",
+    "country": "USA",
+    "year": "2021",
+    "url": "https://www.orthopt.org/uploads/content_files/files/jospt.2021.0302.pdf",
+    "location": "Summary of Recommendations, CPG2–3, akute/postakute Distorsion",
+    "checked": "19.10.2026",
+    "status": "Original-PDF beim Herausgeber abgerufen; relevante Empfehlungen gelesen."
+  },
+  "U6": {
+    "label": "APTA Orthopedics · Neck Pain",
+    "country": "USA",
+    "year": "2017 · älterer Stand",
+    "url": "https://www.orthopt.org/uploads/content_files/files/Neck%20Pain%20CPG%20-%20Revision%202017.pdf",
+    "location": "A2–A3, Neck pain with mobility deficits",
+    "checked": "19.10.2026",
+    "status": "Original-PDF gelesen. Literatur vor August 2016; historischer Vergleich für die Untergruppe mit Mobilitätsdefizit. Neue deutsche Grundlage separat unter DE2."
+  },
+  "NL1": {
+    "label": "VSG · Achilles tendinopathie",
+    "country": "Niederlande",
+    "year": "2020",
+    "url": "https://richtlijnendatabase.nl/richtlijn/achilles_tendinopathie/behandeling_achilles_tendinopathie/conservatieve_behandelopties_bij_achilles_tendinopathie.html",
+    "location": "Conservatieve behandelopties, Aanbeveling und Overwegingen",
+    "checked": "19.10.2026",
+    "status": "Originalmodul gelesen; Portal nennt Gültigkeitsbeurteilung 15.10.2020. Kein Nachweis einer weltweit neuesten Fassung."
+  },
+  "DE1": {
+    "label": "DGOU · S3 Prävention und Therapie der Gonarthrose",
+    "country": "Deutschland",
+    "year": "Version 5.0 · Überarbeitung 12.07.2024",
+    "url": "https://register.awmf.org/assets/guidelines/187-050l_S3_Gonarthrose_2025-05.pdf",
+    "location": "Langfassung: Empfehlungen 33–35, 39, 41; Statements 36, 38; S. 130–131, 140, 144–155, 166",
+    "checked": "19.10.2026",
+    "status": "Nutzer-PDF gezielt gelesen; SHA-256 identisch mit AWMF-Download. Dateiname 2025-05, Inhalt 2024; nächste Überprüfung laut Dokument 11.07.2029. Teile übernehmen NICE NG226."
+  },
+  "DE1E": {
+    "label": "DGOU · Gonarthrose, Evidenzbericht",
+    "country": "Deutschland",
+    "year": "Version 5.0 · zu den Empfehlungen 2024",
+    "url": "https://register.awmf.org/assets/guidelines/187-050e_S3_Gonarthrose_2025-05.pdf",
+    "location": "Empfehlungen 34, 35 und 39; S. 98–100 und 158–159",
+    "checked": "19.10.2026",
+    "status": "Nutzer-PDF gezielt gelesen; SHA-256 identisch mit AWMF-Download. Dokumentiert Übernahme aus NICE NG226; kein weiterer unabhängiger Wirksamkeitsnachweis."
+  },
+  "DE1P": {
+    "label": "DGOU · Gonarthrose, Patientenleitlinie",
+    "country": "Deutschland",
+    "year": "Version 5.0 · Inhalt 2024",
+    "url": "https://register.awmf.org/assets/guidelines/187-050p_S3_Gonarthrose_2025-05.pdf",
+    "location": "Abschnitte 5.2.1 und 5.3, S. 9 und 13",
+    "checked": "19.10.2026",
+    "status": "Nutzer-PDF zur Verständlichkeit abgeglichen; SHA-256 identisch mit AWMF-Download. Keine unabhängige zusätzliche Leitlinie; für Empfehlungsstärken ist die Langfassung maßgeblich."
+  },
+  "DE2": {
+    "label": "DEGAM · S3 Nicht-spezifische Nackenschmerzen",
+    "country": "Deutschland",
+    "year": "Version 3.0 · Stand 16.01.2025",
+    "url": "https://register.awmf.org/assets/guidelines/053-007l_S3_Nackenschmerzen_2025-08.pdf",
+    "location": "Empfehlungen 9–13, 25, 28–40; S. 14, 17–20 und 40–45",
+    "checked": "19.10.2026",
+    "status": "Nutzer-PDF gezielt gelesen; SHA-256 identisch mit AWMF-Download. Laut Dokument gültig 18.02.2025–17.02.2030, Revision geplant ab 01.02.2027. Dateiname 2025-08 ist nicht der fachliche Stand."
+  }
 };
-function renderEvidence(){let e=evidenceProfiles[$('evidenceProfile').value];$('evidenceBody').innerHTML=e?'<p class="small">'+esc(e.scope)+'</p><div class="hint"><b>Vorrang: aktive Basis</b><br>'+esc(e.core)+'</div><div class="hint"><b>Gezielt erwägen</b><br>'+esc(e.adjunct)+'</div><div class="hint warn"><b>Kein routinemäßiger Zusatz</b><br>'+esc(e.avoid)+'</div><p class="small"><a target="_blank" rel="noopener" href="'+e.url+'">'+esc(e.source)+'</a> · recherchiert 17.10.2026</p>'+( $('evidenceProfile').value==='shoulder'?'<details><summary>Studienbeispiel: angemessene Intensität</summary><p class="small">GRASP (708 Erwachsene, 2021): Bis zu sechs betreute Übungstermine zeigten über zwölf Monate keine Überlegenheit gegenüber einer Beratungssitzung mit Eigenübungsprogramm. Das belegt keine allgemeine Gleichwertigkeit jeder Dosis; Verlauf und Unterstützungsbedarf bleiben entscheidend. <a target="_blank" rel="noopener" href="https://doi.org/10.1016/S0140-6736(21)00846-1">Originalstudie</a></p></details>':''):'<p class="small">Für weitere Erkrankungen, insbesondere neurologische Erkrankungen und Lymphödeme, ist hier noch keine klinische Priorisierung hinterlegt.</p>';}
-function evidenceTag(k,x){if(!$('evidenceProfile').value)return '';if(x==='US')return 'Leitlinie: nicht empfohlen';if(x!=='NONE')return 'Zusatznutzen individuell prüfen';if(k==='KG')return 'Aktive Basis möglich';if(k==='KGG')return 'Bei gezieltem Trainingsbedarf';if(k==='MT')return 'Gezielt erwägen · aktive Therapie einplanen';return 'Keine Priorisierung hinterlegt';}
+const evidenceProfiles={
+  "back": {
+    "title": "Lumbaler Rückenschmerz",
+    "scope": "Ärztlich abgeklärter lumbaler Rückenschmerz ohne spezifische Ursache oder Warnzeichen. Nicht auf Fraktur, Tumor, Infektion, entzündliche Erkrankung oder postoperative Versorgung übertragen.",
+    "codes": [
+      "M54.5",
+      "M54.9",
+      "M54.8"
+    ],
+    "therapy": "Aktivität und Selbstmanagement unterstützen. Je nach Bedarf ein strukturiertes Übungsprogramm mit Kraft, Ausdauer, Bewegungskontrolle oder alltagsbezogener Bewegung wählen. Keine einzelne Trainingsform pauschal als überlegen darstellen.",
+    "therapyRefs": [
+      "N59",
+      "U1"
+    ],
+    "selfHelp": "Bei günstigem Verlauf und ausreichender Sicherheit im Alltag können Beratung, Aktivität und eigenständiges Üben ohne zusätzliche Behandlungsserie ausreichen.",
+    "guided": "Anleitung erwägen, wenn Einschränkungen oder Unsicherheit die selbstständige Umsetzung erschweren und ein angepasstes Übungsprogramm benötigt wird. Aus dem ICD allein folgt kein Behandlungsbedarf.",
+    "extras": [
+      {
+        "name": "Manuelle Techniken",
+        "verdict": "Bedingt sinnvoll",
+        "text": "NICE: nur als Bestandteil eines Pakets mit Übungen erwägen. VA/DoD: bei chronischen Beschwerden schwache Empfehlung dafür; bei akuten Beschwerden unzureichende Evidenz. Daraus folgt keine Pflicht zu KG + MT auf einem Rezept.",
+        "refs": [
+          "N59",
+          "U1"
+        ]
+      },
+      {
+        "name": "Ultraschall",
+        "verdict": "Leitlinien uneinig",
+        "text": "NICE rät ab. VA/DoD sieht unzureichende Evidenz für oder gegen die Anwendung. Kein gesicherter routinemäßiger Zusatznutzen.",
+        "refs": [
+          "N59",
+          "U1"
+        ]
+      },
+      {
+        "name": "Wärme",
+        "verdict": "Hier nicht abschließend bewertet",
+        "text": "Keine automatische Ergänzung aus den hier ausgewerteten Empfehlungen ableiten. Fehlende Bewertung bedeutet nicht nachgewiesene Unwirksamkeit.",
+        "refs": [
+          "N59"
+        ]
+      }
+    ],
+    "sources": [
+      "N59",
+      "U1"
+    ],
+    "evidence": "VA/DoD: strukturiertes Üben und manuelle Techniken bei chronischem Schmerz jeweils „Weak for“. Bei akutem Schmerz reicht die Evidenz für manuelle Techniken nicht für ein Dafür/Dagegen. Empfehlungsstärke nicht mit Effektgröße gleichsetzen.",
+    "tags": {
+      "US": "NICE: dagegen · VA/DoD: Evidenz unzureichend",
+      "MT": "Nach Phase und Befund · mit aktivem Ansatz"
+    },
+    "brief": {
+      "scope": [
+        "Lumbaler Schmerz ohne spezifische Ursache oder Warnzeichen.",
+        "Nicht bei Fraktur, Tumor, Infektion, Entzündung oder nach Operation."
+      ],
+      "therapy": [
+        "Aktiv bleiben; Selbstmanagement unterstützen.",
+        "Kraft, Ausdauer oder Bewegungskontrolle nach Bedarf trainieren."
+      ],
+      "need": [
+        "Günstiger Verlauf: Beratung und Eigenübungen können ausreichen.",
+        "Anleitung bei Einschränkungen oder Schwierigkeiten mit dem Eigenprogramm erwägen."
+      ],
+      "extras": [
+        {
+          "label": "Manuelle Therapie",
+          "text": "NICE: nur mit Übungen. VA/DoD: chronisch schwach empfohlen, akut Evidenz unzureichend.",
+          "refs": [
+            "N59",
+            "U1"
+          ]
+        },
+        {
+          "label": "Ultraschall-Wärmetherapie",
+          "text": "NICE rät ab; VA/DoD: Evidenz unzureichend.",
+          "refs": [
+            "N59",
+            "U1"
+          ]
+        },
+        {
+          "label": "Wärmetherapie",
+          "text": "Hier nicht abschließend bewertet; kein automatischer Zusatz.",
+          "refs": [
+            "N59"
+          ]
+        }
+      ],
+      "evidence": [
+        "VA/DoD: strukturiertes Training und Manuelle Therapie bei chronischem Schmerz jeweils „Weak for“.",
+        "Akute und chronische Empfehlungen unterscheiden.",
+        "Empfehlungsstärke ist keine Effektgröße."
+      ]
+    }
+  },
+  "neck": {
+    "title": "Nicht-spezifische Nackenschmerzen",
+    "scope": "Ärztlich abgeklärte nicht-spezifische Nackenschmerzen ohne Hinweise auf eine spezifische Ursache. Keine Übertragung auf Trauma, Radikulopathie, Myelopathie oder Gefäßerkrankung. Deutsche Grundlage: DEGAM-S3-Leitlinie 2025. Die ältere US-Quelle gilt nur für passende Untergruppen, etwa Mobilitätsdefizit.",
+    "codes": [
+      "M54.2"
+    ],
+    "therapy": "Körperliche Aktivität und verständliche Aufklärung bilden die Basis. Bei chronischen Beschwerden soll Bewegungstherapie verordnet werden; bei akuten Beschwerden kann sie verordnet werden. Beweglichkeit, Kraft und Ausdauer individuell passend trainieren. Akute und chronische Beschwerden haben damit unterschiedliche Empfehlungsstärken.",
+    "therapyRefs": [
+      "DE2"
+    ],
+    "selfHelp": "Aktiv bleiben und erlernte Übungen im Alltag umsetzen; Ruhigstellung wird nicht empfohlen. Selbst angewandte Wärme wird empfohlen. Das ersetzt bei chronischen Beschwerden nicht die starke Empfehlung zur Bewegungstherapie.",
+    "guided": "DEGAM: Bei chronischen nicht-spezifischen Nackenschmerzen soll Bewegungstherapie verordnet werden (Grad A). Bei akuten Beschwerden ist sie eine Kann-Option auf Expertenkonsens. Der passende Betreuungsumfang bleibt individuell; daraus folgt keine feste Sitzungszahl.",
+    "extras": [
+      {
+        "name": "Manuelle Techniken",
+        "verdict": "Nach Indikationsprüfung möglich",
+        "text": "DEGAM: Mobilisation/Manipulation kann angeboten werden (offene Empfehlung, Grad 0). Die US-Leitlinie 2017 empfiehlt bei chronischem Mobilitätsdefizit ein multimodales Vorgehen mit Übungen und manuellen Techniken. Unterschiedliche Geltungsbereiche und Empfehlungsstärken beachten; kein automatischer Auftrag zu HWS-Manipulation.",
+        "refs": [
+          "DE2",
+          "U6"
+        ]
+      },
+      {
+        "name": "Wärme selbst anwenden / Fango verordnen",
+        "verdict": "Selbstwärme empfohlen · Fango nicht verordnen",
+        "text": "DEGAM empfiehlt selbst angewandte Wärme (Grad B). Von der Verordnung von Fango und Rotlicht als Heilmittel rät die Leitlinie dagegen mit „sollte nicht“ ab (Expertenkonsens). Selbstbehandlung und verordnete Wärmeanwendung sind hier ausdrücklich verschieden.",
+        "refs": [
+          "DE2"
+        ]
+      },
+      {
+        "name": "Elektrotherapie, Laser und Ultraschall",
+        "verdict": "Nach DEGAM nicht empfohlen",
+        "text": "Elektro- und Lasertherapie sollten nicht eingesetzt beziehungsweise verordnet werden (Grad B dagegen). Für Ultraschall einschließlich Stoßwelle rät die Leitlinie auf Basis von Expertenkonsens ab. Diese Aussagen gelten für nicht-spezifische Nackenschmerzen.",
+        "refs": [
+          "DE2"
+        ]
+      },
+      {
+        "name": "Mechanische Traktion",
+        "verdict": "Nach DEGAM nicht verordnen",
+        "text": "Die deutsche Leitlinie rät von mechanischer Traktion ab (Grad B dagegen). Empfehlungen für spezielle radikuläre Untergruppen aus anderen Leitlinien lassen sich nicht auf dieses Profil übertragen.",
+        "refs": [
+          "DE2"
+        ]
+      },
+      {
+        "name": "Weichteilbehandlung / Massage",
+        "verdict": "Akut nicht · chronisch nur mit Aktivierung erwägen",
+        "text": "Bei akuten Beschwerden sollten Weichteilbehandlungen nach DEGAM nicht verordnet werden (Expertenkonsens). Bei chronischen Beschwerden können sie mit aktivierenden Maßnahmen kombiniert werden (offene Empfehlung, Grad 0). Das ist nicht mit einer generellen Ablehnung aller manuellen Techniken gleichzusetzen.",
+        "refs": [
+          "DE2"
+        ]
+      },
+      {
+        "name": "Kälte: Selbstanwendung / verordnete Kryotherapie",
+        "verdict": "Selbstanwendung möglich · Verordnung nicht empfohlen",
+        "text": "Selbst angewandte Kälte kann laut Expertenkonsens genutzt werden. Verordnete Kryotherapie wird dagegen auf Expertenkonsens nicht empfohlen. Aus der möglichen Selbstanwendung folgt keine Empfehlung für ein ergänzendes Heilmittel.",
+        "refs": [
+          "DE2"
+        ]
+      }
+    ],
+    "sources": [
+      "DE2",
+      "U6"
+    ],
+    "evidence": "DEGAM 2025: körperliche Aktivität Grad A (9), Selbstwärme Grad B (12), Mobilisation/Manipulation Grad 0 (25), Bewegungstherapie akut: Kann-Option auf Expertenkonsens (38), chronisch: Grad A (39), Edukation Grad B (40). Elektro-/Lasertherapie und mechanische Traktion Grad B dagegen (28–30). Fango, Rotlicht, Kryotherapie und Ultraschall: Negativempfehlungen auf Expertenkonsens (31–35), keine als Grad A ausgegebene Studienlage. Die US-Leitlinie 2017 betrifft enger gefasste Untergruppen und wird nicht als gleicher Geltungsbereich behandelt.",
+    "tags": {
+      "US": "DEGAM: Ultraschall nicht empfohlen · Expertenkonsens",
+      "MT": "DEGAM: möglich nach Indikationsprüfung · Grad 0",
+      "KG": "Akut: Kann-Option · chronisch: stark empfohlen",
+      "ET": "DEGAM: Elektrotherapie nicht empfohlen",
+      "FANGO": "DEGAM: Fango nicht verordnen · Expertenkonsens",
+      "KALT": "DEGAM: Kryotherapie nicht verordnen · Expertenkonsens"
+    },
+    "needRefs": [
+      "DE2"
+    ],
+    "needNote": "Die Empfehlung zur Bewegungstherapie stammt aus DEGAM (38/39). Die Abwägung zwischen Eigenübungen und betreuten Terminen bleibt individuell; eine feste Verordnungsschwelle oder Termindosis wird daraus nicht abgeleitet.",
+    "brief": {
+      "scope": [
+        "Ärztlich abgeklärte, nicht-spezifische Nackenschmerzen.",
+        "Nicht bei Trauma, Radikulopathie, Myelopathie oder Gefäßproblemen."
+      ],
+      "therapy": [
+        "Aktiv bleiben; individuell passende Übungen.",
+        "Aufklärung und Eigenübungen unterstützen."
+      ],
+      "need": [
+        "Akut: Bewegungstherapie möglich (Expertenkonsens).",
+        "Chronisch: Bewegungstherapie soll verordnet werden (Grad A)."
+      ],
+      "extras": [
+        {
+          "label": "Manuelle Therapie",
+          "text": "Nach Indikationsprüfung möglich (Grad 0).",
+          "refs": [
+            "DE2"
+          ]
+        },
+        {
+          "label": "Wärmetherapie",
+          "text": "Fango/Rotlicht: nicht verordnen (Expertenkonsens).",
+          "refs": [
+            "DE2"
+          ]
+        },
+        {
+          "label": "Elektrotherapie / Lasertherapie / Traktion",
+          "text": "Nicht empfohlen (Grad B dagegen).",
+          "refs": [
+            "DE2"
+          ]
+        },
+        {
+          "label": "Ultraschall-Wärmetherapie",
+          "text": "Nicht empfohlen (Expertenkonsens).",
+          "refs": [
+            "DE2"
+          ]
+        },
+        {
+          "label": "Massage",
+          "text": "Akut nicht; chronisch mit aktivierenden Maßnahmen möglich.",
+          "refs": [
+            "DE2"
+          ]
+        },
+        {
+          "label": "Kryotherapie",
+          "text": "Nicht verordnen (Expertenkonsens).",
+          "refs": [
+            "DE2"
+          ]
+        }
+      ],
+      "evidence": [
+        "DEGAM: Aktivität A; Edukation B; Mobilisation/Manipulation 0 (redaktionell Manuelle Therapie zugeordnet).",
+        "Bewegungstherapie akut: Expertenkonsens; chronisch: A.",
+        "Massage akut: Expertenkonsens dagegen; chronisch: Grad 0, nur mit Aktivierung.",
+        "US-Leitlinie 2017: ältere Grundlage für enger gefasste Untergruppen, etwa Mobilitätsdefizite."
+      ]
+    }
+  },
+  "oa": {
+    "title": "Kniearthrose · konservativ",
+    "scope": "Konservative Behandlung bestätigter Kniearthrose. Keine automatische Übertragung auf akute Verletzung oder die unmittelbare postoperative Phase.",
+    "codes": [
+      "M17"
+    ],
+    "therapy": "Individuell angepasste Bewegungstherapie, zum Beispiel Kraft- und Ausdauertraining, verbunden mit Aufklärung. Die deutsche S3-Leitlinie empfiehlt dies stark. Bewegung im Wasser ist eine mögliche Alternative. Bei Übergewicht Gewichtsmanagement besprechen. KG kann aktive Inhalte abbilden; Geräte sind nicht automatisch nötig.",
+    "therapyRefs": [
+      "DE1",
+      "DE1P"
+    ],
+    "selfHelp": "Regelmäßiges eigenständiges Üben bleibt wichtig, insbesondere nach dem Erlernen eines passenden Programms. Die deutsche Leitlinie unterstützt eine langfristige aktive Umsetzung; daraus folgt nicht, dass alle Betroffenen dauerhaft betreute Termine brauchen.",
+    "guided": "Die deutsche Leitlinie schlägt vor, Bewegungstherapie unter Aufsicht durchzuführen (schwächere Empfehlung als die starke Empfehlung für Bewegungstherapie selbst). Das spricht dafür, angeleitete Therapie zu erwägen; Umfang und Übergang zum eigenständigen Üben bleiben individuell.",
+    "extras": [
+      {
+        "name": "Manuelle Techniken",
+        "verdict": "Nur zusammen mit Bewegungstherapie",
+        "text": "Die deutsche S3-Leitlinie schlägt MT nur in Kombination mit Bewegungstherapie vor (35, schwache Empfehlung dafür). Für MT allein sind die Belege unzureichend. Daraus folgt keine Pflicht, KG und MT gemeinsam auf ein Rezept zu schreiben.",
+        "refs": [
+          "DE1",
+          "DE1E",
+          "N226"
+        ]
+      },
+      {
+        "name": "Ultraschall und benannte Elektro-/Laserverfahren",
+        "verdict": "Deutsche S3-Leitlinie empfiehlt dagegen",
+        "text": "TENS, Ultraschall, Interferenzstrom, Laser, gepulste Kurzwelle und NMES sollen wegen unzureichender Nutzenbelege nicht durchgeführt werden (39, starke Empfehlung dagegen). Das ist eine klinische Empfehlung für Gonarthrose und keine Aussage über jede Erkrankung oder die formale Verordnungsfähigkeit.",
+        "refs": [
+          "DE1",
+          "DE1E"
+        ]
+      },
+      {
+        "name": "Massage, Vibration und Traktion",
+        "verdict": "Belege unzureichend · keine Positivempfehlung",
+        "text": "Die Langfassung bewertet die Evidenz für Massage, Vibration sowie apparative und manuelle Traktion als nicht ausreichend für eine Empfehlung beziehungsweise Beurteilung (36–38). Das ist von der ausdrücklichen Negativempfehlung für die zuvor genannten Elektro-/Ultraschallverfahren zu unterscheiden.",
+        "refs": [
+          "DE1"
+        ]
+      }
+    ],
+    "sources": [
+      "DE1",
+      "DE1E",
+      "DE1P",
+      "N226"
+    ],
+    "evidence": "Deutsche S3, Version 5.0, Stand Juli 2024: individuelle Bewegungstherapie stark dafür; Aufsicht schwach dafür (34); Bewegung im Wasser schwach dafür (33); MT nur mit Bewegungstherapie schwach dafür (35); benannte Elektro-/Ultraschall-/Laserverfahren stark dagegen (39). Empfehlung 41 schlägt Bewegung mit Edukation/Verhaltensmaßnahmen vor. Die Empfehlungen 34/35/39/41 übernehmen NICE NG226: übereinstimmende Aussagen sind keine voneinander unabhängigen zusätzlichen Wirksamkeitsnachweise. Patientenfassung und Evidenzbericht sind Bestandteile derselben Leitlinie.",
+    "tags": {
+      "US": "Deutsche S3: bei Gonarthrose nicht empfohlen",
+      "MT": "Deutsche S3: nur mit Bewegungstherapie",
+      "ET": "Deutsche S3: benannte Elektroverfahren nicht empfohlen",
+      "ES": "Deutsche S3: NMES nicht empfohlen"
+    },
+    "needRefs": [
+      "DE1",
+      "DE1E"
+    ],
+    "needNote": "Bewegungstherapie: starke Empfehlung dafür. Durchführung unter Aufsicht: schwache Empfehlung dafür (34). Das ist keine automatische Verordnungspflicht für jede Person und keine Vorgabe einer festen Sitzungszahl.",
+    "brief": {
+      "scope": [
+        "Bestätigte Kniearthrose, konservative Versorgung.",
+        "Nicht auf akute Verletzungen oder die unmittelbare postoperative Phase übertragen."
+      ],
+      "therapy": [
+        "Individuell angepasstes Kraft- und Ausdauertraining.",
+        "Bewegung im Wasser als Alternative erwägen.",
+        "Bei Übergewicht Gewichtsmanagement unterstützen."
+      ],
+      "need": [
+        "Bewegungstherapie: stark empfohlen.",
+        "Unter Aufsicht: schwächere Empfehlung. Eigenübungen bleiben wichtig."
+      ],
+      "extras": [
+        {
+          "label": "Manuelle Therapie",
+          "text": "Nur mit Bewegungstherapie erwägen; keine Pflicht zu KG + MT.",
+          "refs": [
+            "DE1",
+            "N226"
+          ]
+        },
+        {
+          "label": "TENS, Ultraschall, Interferenzstrom, Laser, gepulste Kurzwelle, NMES",
+          "text": "Starke Empfehlung dagegen.",
+          "refs": [
+            "DE1"
+          ]
+        },
+        {
+          "label": "Massage, Vibration, Traktion",
+          "text": "Belege unzureichend; keine Positivempfehlung.",
+          "refs": [
+            "DE1"
+          ]
+        }
+      ],
+      "evidence": [
+        "Deutsche S3: Bewegung stark empfohlen; Aufsicht und Bewegung im Wasser schwächer empfohlen.",
+        "MT nur mit Bewegungstherapie; benannte physikalische Verfahren stark dagegen.",
+        "Empfehlungen übernehmen teilweise NICE NG226: keine voneinander unabhängigen zusätzlichen Wirksamkeitsnachweise.",
+        "Patientenfassung und Evidenzbericht gehören zur selben Leitlinie."
+      ]
+    }
+  },
+  "hip": {
+    "title": "Hüftarthrose · konservativ",
+    "scope": "Bestätigte Hüftarthrose ohne frische Operation oder Fraktur. Die MT-Empfehlung der US-Leitlinie betrifft leichte bis mittelgradige Arthrose mit passenden Mobilitätsdefiziten, eingeschränkter Flexibilität oder Schmerzen.",
+    "codes": [
+      "M16"
+    ],
+    "therapy": "Individualisiertes Beweglichkeits-, Kraft- und Ausdauertraining; bei Bedarf im Wasser. Bei entsprechenden Defiziten Geh-, Gleichgewichts- und alltagsbezogenes Funktionstraining ergänzen. Bei Übergewicht Unterstützung beim Gewichtsmanagement einbeziehen.",
+    "therapyRefs": [
+      "U2"
+    ],
+    "selfHelp": "Ein erlerntes, angepasstes Trainingsprogramm kann eigenständig durchgeführt werden. Die Leitlinie begründet keine feste Mindestzahl an Physiotherapieterminen.",
+    "guided": "Bei relevanten Einschränkungen von Gehen, Gleichgewicht oder Beweglichkeit kann individuelle Anleitung helfen, das Programm und gegebenenfalls Hilfsmittel an den Alltag anzupassen.",
+    "extras": [
+      {
+        "name": "Manuelle Techniken",
+        "verdict": "Bei passendem Befund empfohlen",
+        "text": "APTA 2025 empfiehlt Gelenk-/Weichteilmobilisation bei leichter bis mittelgradiger Arthrose mit passendem Befund. NICE bindet manuelle Behandlung an therapeutisches Training. Die Indikation hängt vom konkreten Befund ab.",
+        "refs": [
+          "U2",
+          "N226"
+        ]
+      },
+      {
+        "name": "Ultraschall",
+        "verdict": "Leitlinien uneinig",
+        "text": "APTA 2025 lässt eine Ergänzung bei ausdrücklich widersprüchlicher Evidenz und gemeinsamer Entscheidung zu. NICE rät ab. Deshalb kein automatischer Standardzusatz.",
+        "refs": [
+          "U2",
+          "N226"
+        ]
+      }
+    ],
+    "sources": [
+      "U2",
+      "N226"
+    ],
+    "evidence": "APTA 2025: individuelles Training Grad A, manuelle Therapie Grad A für den genannten Geltungsbereich, Ultraschall Grad D (widersprüchliche Evidenz). Originalgrade sind keine Effektgrößen und keine direkten Vergleiche deutscher Heilmittel.",
+    "tags": {
+      "US": "APTA: widersprüchlich · NICE: dagegen",
+      "MT": "Bei passendem Befund empfohlen"
+    },
+    "brief": {
+      "scope": [
+        "Bestätigte Hüftarthrose, konservative Versorgung.",
+        "Nicht bei frischer Operation oder Fraktur."
+      ],
+      "therapy": [
+        "Beweglichkeit, Kraft und Ausdauer individuell trainieren.",
+        "Bei Bedarf Gang, Gleichgewicht und Alltagsaufgaben üben.",
+        "Bei Übergewicht Gewichtsmanagement unterstützen."
+      ],
+      "need": [
+        "Erlerntes Eigenprogramm selbstständig umsetzen.",
+        "Anleitung bei relevanten Beweglichkeits-, Gang- oder Gleichgewichtsdefiziten erwägen."
+      ],
+      "extras": [
+        {
+          "label": "Manuelle Therapie",
+          "text": "APTA: bei leichter/mittelgradiger Arthrose mit passendem Mobilitäts-, Flexibilitäts- oder Schmerzbefund empfohlen.",
+          "refs": [
+            "U2"
+          ]
+        },
+        {
+          "label": "Ultraschall-Wärmetherapie",
+          "text": "APTA 2025: Ergänzung bei widersprüchlicher Evidenz möglich; NICE rät ab.",
+          "refs": [
+            "U2",
+            "N226"
+          ]
+        }
+      ],
+      "evidence": [
+        "APTA 2025: individuelles Training A; passende Manuelle Therapie A; Ultraschall D.",
+        "NICE: manuelle Therapie nur zusammen mit Übungen erwägen.",
+        "Originalgrade sind keine direkten Wirksamkeitsvergleiche deutscher Heilmittel."
+      ]
+    }
+  },
+  "shoulder": {
+    "title": "Rotatorenmanschetten-Tendinopathie",
+    "scope": "Erwachsene mit bestätigter Rotatorenmanschetten-Tendinopathie in nicht operativer Versorgung. Nicht automatisch auf komplette Ruptur, Frozen Shoulder, Fraktur oder postoperative Behandlung übertragen.",
+    "codes": [
+      "M75.1",
+      "M75.3",
+      "M75.4"
+    ],
+    "therapy": "Individuelle Aufklärung und ein aktives Übungsprogramm, zum Beispiel mit angepasst dosiertem Widerstands- und Bewegungskontrolltraining. Die deutsche KG kann das abbilden; Geräte und mehrere Hauptheilmittel sind nicht automatisch nötig.",
+    "therapyRefs": [
+      "R25"
+    ],
+    "selfHelp": "Ein gut angeleitetes Eigenübungsprogramm kann einen großen Teil der aktiven Behandlung tragen. Aus der Diagnose allein folgt keine notwendige längere Serie betreuter Termine.",
+    "guided": "Unterstützung erwägen, wenn passende Übungsauswahl und Belastungsanpassung eigenständig schwer gelingen. Wie viel Betreuung benötigt wird, hängt vom individuellen Befund und Unterstützungsbedarf ab.",
+    "extras": [
+      {
+        "name": "Manuelle Techniken",
+        "verdict": "Kurzfristig erwägen",
+        "text": "Können kurzfristig bei der Schmerzlinderung helfen. Sie sind keine allgemeine Voraussetzung für langfristigen Erfolg und ersetzen das aktive Programm nicht.",
+        "refs": [
+          "R25"
+        ]
+      },
+      {
+        "name": "Therapeutischer Ultraschall",
+        "verdict": "Nicht empfohlen",
+        "text": "Die Leitlinie empfiehlt ihn weder bei kalzifizierender noch bei nicht kalzifizierender Tendinopathie. Keine automatische Ergänzung zur aktiven Rehabilitation.",
+        "refs": [
+          "R25"
+        ]
+      }
+    ],
+    "sources": [
+      "R25"
+    ],
+    "evidence": "Die GRASP-Studie ist kein Nachweis, dass jede Dosis oder jeder Betreuungsumfang gleichwertig ist.",
+    "tags": {
+      "US": "Bei dieser Tendinopathie nicht empfohlen",
+      "MT": "Mögliche kurzfristige Schmerzhilfe"
+    },
+    "brief": {
+      "scope": [
+        "Rotatorenmanschetten-Tendinopathie, konservative Versorgung.",
+        "Nicht bei kompletter Ruptur, Frozen Shoulder, Fraktur oder nach Operation."
+      ],
+      "therapy": [
+        "Aufklärung und individuelles aktives Übungsprogramm.",
+        "Widerstands- oder Bewegungskontrolltraining passend zum Befund."
+      ],
+      "need": [
+        "Eigenübungen können einen großen Teil der Behandlung tragen.",
+        "Anleitung bei Schwierigkeiten mit Auswahl oder Belastungsanpassung erwägen."
+      ],
+      "extras": [
+        {
+          "label": "Manuelle Therapie",
+          "text": "Mögliche kurzfristige Schmerzhilfe; aktives Training bleibt wichtig.",
+          "refs": [
+            "R25"
+          ]
+        },
+        {
+          "label": "Ultraschall-Wärmetherapie",
+          "text": "Weder bei kalzifizierender noch nicht-kalzifizierender Tendinopathie empfohlen.",
+          "refs": [
+            "R25"
+          ]
+        }
+      ],
+      "evidence": [
+        "JOSPT 2025: Edukation und aktives Training als initiale Behandlung.",
+        "GRASP belegt keine allgemeine Gleichwertigkeit jeder Dosis oder jedes Betreuungsumfangs."
+      ]
+    }
+  },
+  "achilles": {
+    "title": "Achillessehnen-Tendinopathie · Midportion",
+    "scope": "Mittlerer Sehnenabschnitt (Midportion), keine Ruptur oder postoperative Situation. Die US-Leitlinie gilt nicht für Ansatzbeschwerden. Die niederländische Quelle behandelt auch den Ansatz; diese Empfehlungen werden hier nicht pauschal übertragen.",
+    "codes": [
+      "M76.6"
+    ],
+    "therapy": "Progressives Belastungstraining der Waden-/Achillessehneneinheit und Aufklärung zu Schmerz und Belastung. Last an die Verträglichkeit anpassen; vollständige Ruhe ist bei Midportion-Tendinopathie kein allgemeiner Behandlungsansatz. Bei vermuteter struktureller Fragilität nicht pauschal hohe Lasten empfehlen.",
+    "therapyRefs": [
+      "U3",
+      "NL1"
+    ],
+    "selfHelp": "Nach geeigneter Anleitung kann das Training überwiegend eigenständig stattfinden. Trainingseinheiten sind nicht gleich Physiotherapietermine. Die niederländische Quelle sieht eine aktive, durch qualifizierte Behandelnde begleitete Versorgung vor.",
+    "guided": "Anleitung ist besonders sinnvoll, wenn Belastung, Übungsausführung oder die Einordnung der Beschwerden Unterstützung erfordern. Die Leitlinien liefern keine feste Schwelle für die Zahl betreuter Termine.",
+    "extras": [
+      {
+        "name": "Manuelle Techniken",
+        "verdict": "Bei Mobilitätsdefizit erwägen",
+        "text": "Die US-Leitlinie lässt manuelle Behandlung bei passenden Beweglichkeitsdefiziten zu. Dies ist eine Expertenempfehlung, kein Nachweis eines routinemäßigen Zusatznutzens für alle.",
+        "refs": [
+          "U3"
+        ]
+      },
+      {
+        "name": "Fersenkeil",
+        "verdict": "Vorübergehend erwägen",
+        "text": "Kann laut US-Leitlinie die Sprunggelenks-Dorsalflexion während Aktivität vorübergehend reduzieren; kein Ersatz für Belastungstraining.",
+        "refs": [
+          "U3"
+        ]
+      },
+      {
+        "name": "Ultraschall",
+        "verdict": "Nicht als alleinige Behandlung",
+        "text": "Die US-Leitlinie rät von alleiniger Ultraschallbehandlung ab. Daraus folgt kein geprüfter Nutzen einer Ergänzung. Die niederländische Quelle diskutiert Zusatzverfahren bei unklarem Zusatznutzen.",
+        "refs": [
+          "U3",
+          "NL1"
+        ]
+      },
+      {
+        "name": "Low-Level-Laser",
+        "verdict": "Nach US-Leitlinie nicht einsetzen",
+        "text": "Diese Negativempfehlung gilt für Midportion-Tendinopathie. Sie wird nicht auf andere Diagnosen übertragen.",
+        "refs": [
+          "U3"
+        ]
+      }
+    ],
+    "sources": [
+      "U3",
+      "NL1"
+    ],
+    "evidence": "US 2024: Belastungstraining Grad A; manuelle Therapie Grad F (Expertenmeinung), Fersenkeil Grad C. Niederlande 2020: viele Vergleiche mit niedriger bis sehr niedriger Evidenzsicherheit. Kein Länder-Konsens über jede Zusatzmaßnahme.",
+    "tags": {
+      "US": "Nicht als alleinige Behandlung · Zusatznutzen offen",
+      "MT": "Bei Mobilitätsdefizit · Expertenempfehlung"
+    },
+    "brief": {
+      "scope": [
+        "Midportion-Tendinopathie; nicht auf Ansatzbeschwerden übertragen.",
+        "Nicht bei Ruptur, nach Operation oder vermuteter struktureller Fragilität."
+      ],
+      "therapy": [
+        "Progressives Sehnen-/Wadentraining; Last an Verträglichkeit anpassen.",
+        "Belastung erklären und anpassen; keine pauschale vollständige Ruhe."
+      ],
+      "need": [
+        "Erlerntes Training überwiegend eigenständig möglich.",
+        "Anleitung bei Schwierigkeiten mit Belastung oder Übungsausführung."
+      ],
+      "extras": [
+        {
+          "label": "Manuelle Therapie",
+          "text": "Bei Mobilitätsdefizit erwägen; Expertenempfehlung.",
+          "refs": [
+            "U3"
+          ]
+        },
+        {
+          "label": "Fersenkeil",
+          "text": "Vorübergehend erwägen; ersetzt kein Training.",
+          "refs": [
+            "U3"
+          ]
+        },
+        {
+          "label": "Ultraschall-Wärmetherapie",
+          "text": "Nicht als alleinige Behandlung; Zusatznutzen unklar.",
+          "refs": [
+            "U3",
+            "NL1"
+          ]
+        },
+        {
+          "label": "Low-Level-Laser",
+          "text": "Nach US-Leitlinie nicht einsetzen.",
+          "refs": [
+            "U3"
+          ]
+        }
+      ],
+      "evidence": [
+        "US 2024: Belastungstraining A; Manuelle Therapie F; Fersenkeil C.",
+        "NL 2020: viele Vergleiche mit niedriger bis sehr niedriger Evidenzsicherheit.",
+        "US-Quelle: Midportion. NL-Quelle: auch Ansatzbeschwerden; Empfehlungen nicht pauschal übertragen."
+      ]
+    }
+  },
+  "heel": {
+    "title": "Plantarer Fersenschmerz / Plantarfasziitis",
+    "scope": "Klinisch bestätigte Plantarfasziitis. Nicht auf alle Ursachen von Fersenschmerz, Fraktur, Sehnenruptur oder neurologische Beschwerden übertragen.",
+    "codes": [
+      "M72.2",
+      "M77.3"
+    ],
+    "therapy": "Plantarfaszienspezifisches und Waden-Stretching sowie Krafttraining der Fuß-/Sprunggelenksmuskulatur. Relevante Gelenk- und Weichteilrestriktionen können gezielte manuelle Techniken rechtfertigen.",
+    "therapyRefs": [
+      "U4"
+    ],
+    "selfHelp": "Stretching und ein erlerntes Kraftprogramm können eigenständig erfolgen. Aus der Diagnose allein folgt kein fester Umfang betreuter Behandlung.",
+    "guided": "Anleitung erwägen, wenn das Programm individuell angepasst werden muss oder Beweglichkeitseinschränkungen und Funktionsprobleme eine gezielte Behandlung erfordern.",
+    "extras": [
+      {
+        "name": "Manuelle Techniken",
+        "verdict": "Bei passenden Restriktionen empfohlen",
+        "text": "US-Leitlinie: Gelenke und Weichteile gezielt behandeln, um Einschränkungen, Schmerz und Funktion zu verbessern.",
+        "refs": [
+          "U4"
+        ]
+      },
+      {
+        "name": "Taping / Einlagen / Nachtschiene",
+        "verdict": "Je nach Bedarf ergänzen",
+        "text": "Taping kann kurzfristig in Verbindung mit anderen Maßnahmen helfen. Einlagen nicht als alleinige Behandlung zur kurzfristigen Schmerzlinderung einsetzen. Nachtschienen sind eine Option bei konsistentem morgendlichem Anlaufschmerz.",
+        "refs": [
+          "U4"
+        ]
+      },
+      {
+        "name": "Ultraschall",
+        "verdict": "Nicht zur Verstärkung des Stretchings",
+        "text": "Die Negativempfehlung bezieht sich konkret auf Ultraschall zur Verstärkung der Stretchingwirkung. Keine pauschale Aussage zu jedem denkbaren Einsatz.",
+        "refs": [
+          "U4"
+        ]
+      },
+      {
+        "name": "Low-Level-Laser",
+        "verdict": "Als Teil eines Programms empfohlen",
+        "text": "Die US-Leitlinie empfiehlt ihn als Ergänzung für kurzfristige Schmerzlinderung (Grad B). Das ist weder eine deutsche Katalogfreigabe noch ein Beleg für langfristigen Zusatznutzen.",
+        "refs": [
+          "U4"
+        ]
+      }
+    ],
+    "sources": [
+      "U4"
+    ],
+    "evidence": "US 2023: Stretching und passende manuelle Therapie Grad A; Krafttraining Grad B; Laser Grad B für kurzfristigen Schmerz. Empfehlungsgrade nicht als Rangliste zwischen KG und MT verwenden.",
+    "tags": {
+      "US": "Nicht zur Verstärkung des Stretchings",
+      "MT": "Bei passenden Restriktionen empfohlen"
+    },
+    "brief": {
+      "scope": [
+        "Klinisch bestätigte Plantarfasziitis.",
+        "Nicht bei anderen Ursachen wie Fraktur, Ruptur oder neurologischen Beschwerden."
+      ],
+      "therapy": [
+        "Plantarfaszie und Waden dehnen.",
+        "Fuß-/Sprunggelenksmuskulatur kräftigen.",
+        "Passende Gelenk-/Weichteilrestriktionen gezielt behandeln."
+      ],
+      "need": [
+        "Erlerntes Dehn- und Kraftprogramm eigenständig umsetzen.",
+        "Anleitung oder gezielte Behandlung bei relevanten Funktionsdefiziten erwägen."
+      ],
+      "extras": [
+        {
+          "label": "Manuelle Therapie",
+          "text": "Bei passenden Restriktionen empfohlen.",
+          "refs": [
+            "U4"
+          ]
+        },
+        {
+          "label": "Taping / Einlagen",
+          "text": "Taping kurzfristig ergänzend; Einlagen nicht als alleinige Behandlung zur kurzfristigen Schmerzlinderung.",
+          "refs": [
+            "U4"
+          ]
+        },
+        {
+          "label": "Nachtschiene",
+          "text": "Bei anhaltendem morgendlichem Anlaufschmerz.",
+          "refs": [
+            "U4"
+          ]
+        },
+        {
+          "label": "Ultraschall-Wärmetherapie",
+          "text": "Nicht zur Verstärkung des Stretchings.",
+          "refs": [
+            "U4"
+          ]
+        },
+        {
+          "label": "Low-Level-Laser",
+          "text": "Als Teil eines Programms zur kurzfristigen Schmerzlinderung empfohlen.",
+          "refs": [
+            "U4"
+          ]
+        }
+      ],
+      "evidence": [
+        "US 2023: Stretching und Manuelle Therapie A; Krafttraining und Laser B.",
+        "Laser: kurzfristiger Schmerz, kein belegter langfristiger Zusatznutzen.",
+        "Keine deutsche Katalogfreigabe aus der US-Empfehlung ableiten."
+      ]
+    }
+  },
+  "ankle": {
+    "title": "Laterale Sprunggelenksdistorsion · akut / postakut",
+    "scope": "Bestätigte laterale Bandverletzung nach Abklärung relevanter Differenzialdiagnosen. Keine Übertragung auf Fraktur, Syndesmosenverletzung oder postoperative Versorgung. Chronische Instabilität hat eigene Teil-Empfehlungen.",
+    "codes": [
+      "S93.4"
+    ],
+    "therapy": "An die Verletzung angepasste Stützung und schrittweise Belastung, kombiniert mit geschützter Bewegung, neuromuskulärem Training und Gleichgewichtstraining. Eigenübungen und angeleitete Behandlung nach Schweregrad und Bedarf verbinden.",
+    "therapyRefs": [
+      "U5"
+    ],
+    "selfHelp": "Ein angepasstes Heimprogramm kann Teil der Versorgung sein. Ob es ohne weitere Termine genügt, hängt von Verletzungsschwere, Einschränkungen und sicherer Umsetzung ab.",
+    "guided": "Bei deutlichen Funktions- oder Gleichgewichtsdefiziten und Unterstützungsbedarf ein strukturiertes Rehabilitationsprogramm erwägen. Keine pauschale Serie allein wegen des ICD.",
+    "extras": [
+      {
+        "name": "Orthese / Tape",
+        "verdict": "Angepasster Schutz sinnvoll",
+        "text": "US-Leitlinie empfiehlt passende externe Stützung und schrittweise Belastung. Hilfsmittel sind gesondert von physiotherapeutischen Heilmitteln zu beurteilen.",
+        "refs": [
+          "U5"
+        ]
+      },
+      {
+        "name": "Manuelle Techniken",
+        "verdict": "Zusammen mit Übungen empfohlen",
+        "text": "Schmerzfreie Gelenk-/Weichteiltechniken können Beweglichkeit und Gang unterstützen. Kein automatischer Auftrag zu mehreren Hauptheilmitteln.",
+        "refs": [
+          "U5"
+        ]
+      },
+      {
+        "name": "Therapeutischer Ultraschall",
+        "verdict": "Bei akuter Distorsion nicht empfohlen",
+        "text": "Die US-Leitlinie empfiehlt, Ultraschall bei akuter Sprunggelenksdistorsion nicht einzusetzen.",
+        "refs": [
+          "U5"
+        ]
+      },
+      {
+        "name": "Elektrotherapie",
+        "verdict": "Widersprüchliche Evidenz",
+        "text": "Die US-Leitlinie beschreibt widersprüchliche Evidenz für die akute Distorsion. Das ist kein gesicherter Standardzusatz und kein pauschales Verbot.",
+        "refs": [
+          "U5"
+        ]
+      }
+    ],
+    "sources": [
+      "U5"
+    ],
+    "evidence": "US 2021: Training, angepasste Stützung und passende manuelle Techniken Grad A. Ultraschall: Negativempfehlung Grad A. Aussagen zur akuten Distorsion nicht ungeprüft auf chronische Instabilität übertragen.",
+    "tags": {
+      "US": "Bei akuter Distorsion nicht empfohlen",
+      "MT": "Schmerzfrei zusammen mit Übungen",
+      "ET": "Widersprüchliche Evidenz"
+    },
+    "brief": {
+      "scope": [
+        "Bestätigte akute/postakute laterale Bandverletzung.",
+        "Nicht bei Fraktur, Syndesmosenverletzung, nach Operation oder chronischer Instabilität."
+      ],
+      "therapy": [
+        "Angepasst stützen; Belastung schrittweise steigern.",
+        "Beweglichkeit, neuromuskuläre Kontrolle und Gleichgewicht trainieren."
+      ],
+      "need": [
+        "Heimprogramm nach Schweregrad und sicherer Umsetzung.",
+        "Angeleitete Rehabilitation bei deutlichen Funktions-/Gleichgewichtsdefiziten erwägen."
+      ],
+      "extras": [
+        {
+          "label": "Orthese / Tape",
+          "text": "Angepasster Schutz; Hilfsmittel gesondert beurteilen.",
+          "refs": [
+            "U5"
+          ]
+        },
+        {
+          "label": "Manuelle Therapie",
+          "text": "Schmerzfrei zusammen mit Übungen empfohlen.",
+          "refs": [
+            "U5"
+          ]
+        },
+        {
+          "label": "Ultraschall-Wärmetherapie",
+          "text": "Bei akuter Distorsion nicht empfohlen.",
+          "refs": [
+            "U5"
+          ]
+        },
+        {
+          "label": "Elektrotherapie",
+          "text": "Widersprüchliche Evidenz; kein Standardzusatz.",
+          "refs": [
+            "U5"
+          ]
+        }
+      ],
+      "evidence": [
+        "US 2021: Training, angepasste Stützung und passende Manuelle Therapie A.",
+        "Ultraschall akut: Negativempfehlung A; Elektrotherapie: widersprüchliche Evidenz D.",
+        "Keine ungeprüfte Übertragung auf chronische Instabilität."
+      ]
+    }
+  }
+};
+function evidenceRefs(refs){return '<span class="evidence-ref">Quellen: '+refs.map(esc).join(', ')+'</span>';}
+function evidenceProfileConflict(e){
+  const code=state.diag?.code?.toUpperCase();
+  return !!code&&!e.codes.some(prefix=>code.startsWith(prefix));
+}
+function evidenceBullets(items,className='evidence-bullets'){
+  return '<ul class="'+className+'">'+items.map(text=>'<li>'+esc(text)+'</li>').join('')+'</ul>';
+}
+function renderEvidence(){
+  const e=evidenceProfiles[$('evidenceProfile').value];
+  if(!e){$('evidenceBody').innerHTML='<div class="empty">Klinischen Bereich wählen: Therapie, Physiotherapiebedarf und Zusätze auf einen Blick.<p class="small">Für andere Erkrankungen ist hier noch keine klinische Einordnung hinterlegt.</p></div>';return;}
+  const q=e.brief;
+  const conflict=evidenceProfileConflict(e)?'<div class="hint warn" role="status">Der gewählte Bereich passt nicht offensichtlich zur ICD-Angabe. Bitte abgleichen; Hinweise auf den Heilmittelkarten bleiben ausgeblendet.</div>':'';
+  $('evidenceBody').innerHTML=conflict+evidenceBullets(q.scope,'evidence-scope evidence-bullets')+
+    '<section class="evidence-question" aria-labelledby="evidenceTherapy"><h3 id="evidenceTherapy">1 · Welche konkrete Therapie hilft?</h3>'+evidenceBullets(q.therapy)+evidenceRefs(e.therapyRefs)+'</section>'+
+    '<section class="evidence-question" aria-labelledby="evidenceNeed"><h3 id="evidenceNeed">2 · Wann ist Physiotherapie sinnvoll?</h3>'+evidenceBullets(q.need)+'<p class="small">Betreuungsumfang individuell; keine feste Sitzungszahl.</p>'+(e.needRefs?evidenceRefs(e.needRefs):'')+'</section>'+
+    '<section class="evidence-question" aria-labelledby="evidenceExtras"><h3 id="evidenceExtras">3 · Welche Zusätze lohnen sich?</h3><ul class="evidence-adjuncts">'+q.extras.map(x=>'<li><strong>'+esc(x.label)+':</strong> '+esc(x.text)+'</li>').join('')+'</ul>'+evidenceRefs([...new Set(q.extras.flatMap(x=>x.refs))])+'</section>'+
+    '<details><summary>Quellen, Empfehlungsstärke und Grenzen</summary><div class="detailsbody">'+evidenceBullets(q.evidence)+'<p class="small">Klinische Empfehlungen sind keine automatische GKV-Verordnungsfreigabe.</p><ul class="evidence-sources">'+e.sources.map(id=>{const source=evidenceSources[id];return '<li><a href="'+esc(source.url)+'" target="_blank" rel="noopener">'+esc(id+' · '+source.label+' · '+source.year)+'</a><br>'+esc(source.country+' · '+source.location)+'<br>Abgerufen am '+esc(source.checked)+'</li>';}).join('')+'</ul></div></details>';
+}
+function evidenceTag(k,x){
+  const e=evidenceProfiles[$('evidenceProfile').value];if(!e||evidenceProfileConflict(e))return '';
+  if(x!=='NONE')return e.tags[x]||'Zusatznutzen hier nicht abschließend bewertet';
+  if(e.tags[k])return e.tags[k];
+  if(k==='KG')return 'Aktive Inhalte möglich · Befund entscheidet';
+  if(k==='KGG')return 'Bei passendem Trainingsbedarf · keine pauschale Überlegenheit';
+  return 'Keine klinische Priorisierung hinterlegt';
+}
 
 function symptomText(){return $('symptom').value.startsWith('x')?$('individual').value:[...document.querySelectorAll('[data-sym]:checked')].map(el=>el.dataset.sym).join('; ');}
 function goalText(){return [...document.querySelectorAll('[data-goal]:checked')].map(el=>el.dataset.goal).concat($('goalCustom').value.trim()).filter(Boolean).join(' ');}
@@ -52,7 +1044,7 @@ let split=[];if(state.primary.length>1){let old={};document.querySelectorAll('[d
 let primaryText=state.primary.map(k=>(split.length?split.find(x=>x[0]===k)[1]+' × ':'')+T[k][0]+(k==='ZNS'&&$('technique').value?' ('+$('technique').value+')':'')+(k.startsWith('MLD')&&$('bandage').checked?' + Kompressionsbandagierung':'')).join(' / ');
 let supplementText=state.supp==='NONE'?'Ohne Ergänzung':T[state.supp][0];let issue=$('issueDate').value;if(isBlank){if(!issue)w.push('Ausstellungsdatum ergänzen.');if(!$('side').value)w.push('Schulterseite angeben.');if($('side').value.startsWith('Beidseits'))w.push('Beidseitige Behandlung und parallele Verordnungen gesondert prüfen.');$('blankRules').innerHTML=`<div class="hint">Gültigkeit: höchstens 16 Wochen ab Ausstellungsdatum${issue?' · bis '+addDays(issue,112):''}.<br>Beginn: innerhalb von ${$('urgent').checked?14:28} Tagen${issue?' · spätestens '+addDays(issue,$('urgent').checked?14:28):''}. Unterbrechungen verlängern die 16 Wochen nicht.</div>`;let ap=d.amp||1;let exempt=sp.twelve;let lim=ap===2?[26,8]:[18,6];$('ampelContent').innerHTML=(exempt?'<div class="hint">Bei bestätigtem LHB/BVB sind die Ampelphasen nicht anzuwenden. Die wirtschaftliche und medizinische Verantwortung bleibt bestehen.</div>':`<p>Ampelsystem ${ap} · vorrangige und ergänzende Einheiten getrennt zählen.</p><div class="ampel"><div><b>Grün</b>Bis ${lim[0]} vorrangige<br>Bis ${lim[1]} ergänzende</div><div class="red"><b>Rot · 9 % Abschlag</b>Ab ${lim[0]+1}. vorrangiger<br>Ab ${lim[1]+1}. ergänzender Einheit</div></div>`)+`<p>Physiotherapeutische Diagnostik vor der ersten Behandlung. Individuelle Ziele und Therapieplan festlegen und im Verlauf anpassen.</p><p>Pro Behandlungstag höchstens zwei vorrangige und ein ergänzendes Heilmittel. Die Bedarfsdiagnostik kann einmal, frühestens 28 Tage nach der physiotherapeutischen Diagnostik, erfolgen.</p><p>Keine parallele weitere Schulterverordnung für dieselbe Lokalisation aus der Vertragsliste; rechte und linke Schulter gesondert betrachten. Nach 16 Wochen ist bei weiterem Bedarf eine neue ärztliche Verordnung nötig.</p>`;}
 let combinationNote=state.primary.length>1&&!isBlank?'<div class="hint"><strong>Ausnahme: mehrere Hauptheilmittel.</strong> Mögliche Therapeutenwechsel und zusätzliche Terminabstimmung berücksichtigen.</div>':'';let complete=w.length===0;let summaryLabel=isBlank?'Blankoverordnung':primaryText?(primaryText+(state.supp==='NONE'?'':' + '+T[state.supp][0])):'Heilmittel noch offen';$('status').textContent=complete?'Auswahl erstellt':'Angaben prüfen';$('summaryContent').innerHTML=`<div class="summaryline"><span>ICD-10</span><span>${esc(d.code)}</span></div><div class="summaryline"><span>Diagnose</span><span>${esc(d.name)}</span></div><div class="summaryline"><span>Diagnosegruppe</span><span>${state.group}</span></div><div class="summaryline"><span>Leitsymptomatik</span><span>${esc(symptomText())||'Noch offen'}</span></div><p class="summarytitle">${esc(summaryLabel)}</p><p class="small">${isBlank?'Heilmittel, Menge und Frequenz durch die Physiotherapie.':(state.primary.length?'Gewählte Behandlungskombination':'Bitte Behandlung auswählen')}</p><div class="summaryline"><span>${isBlank?'Gültigkeit':'Menge / Frequenz'}</span><span>${isBlank?'Max. 16 Wochen':esc(units+' Einheiten · '+freq+' × / Woche')}</span></div>`;
-textOutput=`VERORDNUNGSAUSWAHL – ${complete?'zur ärztlichen Prüfung':'ENTWURF, Angaben offen'}\nDiagnose: ${d.code}${d.second?' + '+($('secondCode').value.trim()||'Zusatzcode offen'):''} – ${d.name}\nDiagnosegruppe: ${state.group}\nLeitsymptomatik: ${symptomText()||'offen'}\nHeilmittel: ${isBlank?'BLANKOVERORDNUNG':primaryText||'offen'}\n`+(isBlank?`Ausstellungsdatum: ${issue||'offen'}\nSchulter: ${$('side').value||'offen'}\nGültigkeit: maximal 16 Wochen ab Ausstellung\n`:`Ergänzung: ${state.supp==='NONE'?supplementText:($('suppUnits').value||'Menge offen')+' × '+supplementText}\nVorrangige Einheiten insgesamt: ${units}\nFrequenz: ${freq} × wöchentlich\nStatus: ${sp.type}\n`)+`Hausbesuch: ${$('house').checked?'ja, medizinisch erforderlich':'nein'}\nTherapiebericht: ${$('report').checked?'ja':'nein'}\nDringlicher Bedarf: ${$('urgent').checked?'ja, Beginn innerhalb 14 Tagen':'nein, Beginn innerhalb 28 Tagen'}\n`+(w.length?'\nOFFEN:\n'+w.map(x=>'• '+x).join('\n')+'\n':'')+'\nAuswahlhilfe / Arbeitsstand 0.3, kein ausgestelltes Rezept. Quellenstand 17.10.2026.';
+textOutput=`VERORDNUNGSAUSWAHL – ${complete?'zur ärztlichen Prüfung':'ENTWURF, Angaben offen'}\nDiagnose: ${d.code}${d.second?' + '+($('secondCode').value.trim()||'Zusatzcode offen'):''} – ${d.name}\nDiagnosegruppe: ${state.group}\nLeitsymptomatik: ${symptomText()||'offen'}\nHeilmittel: ${isBlank?'BLANKOVERORDNUNG':primaryText||'offen'}\n`+(isBlank?`Ausstellungsdatum: ${issue||'offen'}\nSchulter: ${$('side').value||'offen'}\nGültigkeit: maximal 16 Wochen ab Ausstellung\n`:`Ergänzung: ${state.supp==='NONE'?supplementText:($('suppUnits').value||'Menge offen')+' × '+supplementText}\nVorrangige Einheiten insgesamt: ${units}\nFrequenz: ${freq} × wöchentlich\nStatus: ${sp.type}\n`)+`Hausbesuch: ${$('house').checked?'ja, medizinisch erforderlich':'nein'}\nTherapiebericht: ${$('report').checked?'ja':'nein'}\nDringlicher Bedarf: ${$('urgent').checked?'ja, Beginn innerhalb 14 Tagen':'nein, Beginn innerhalb 28 Tagen'}\n`+(w.length?'\nOFFEN:\n'+w.map(x=>'• '+x).join('\n')+'\n':'')+'\nAuswahlhilfe / Arbeitsstand 0.4.3, kein ausgestelltes Rezept. Verordnungsregeln: Prüfstand 17.10.2026; klinischer Abgleich: 19.10.2026.';
 $('summaryContent').innerHTML+=[['Hausbesuch',$('house').checked?'Ja · medizinisch erforderlich':'Nein'],['Therapiebericht',$('report').checked?'Anfordern':'Nicht angefordert'],['Behandlungsbeginn',$('urgent').checked?'Dringlich · innerhalb von 14 Tagen':'Innerhalb von 28 Tagen']].map(([label,value])=>'<div class="summaryline"><span>'+label+'</span><span>'+value+'</span></div>').join('');if(isBlank)$('summaryContent').innerHTML+='<div class="summaryline"><span>Ausstellungsdatum / Schulter</span><span>'+esc((issue||'Datum offen')+' · '+($('side').value||'Seite offen'))+'</span></div>';if(!isBlank&&state.supp!=='NONE')$('summaryContent').innerHTML+='<div class="summaryline"><span>Ergänzung · eigene Menge</span><span>'+esc(($('suppUnits').value||'Noch offen')+' × '+supplementText)+'</span></div>';if(d.second)$('summaryContent').innerHTML+='<div class="summaryline"><span>Zweiter ICD-Code</span><span>'+esc($('secondCode').value||'Noch offen')+'</span></div>';if(goals){$('summaryContent').innerHTML+='<div class="summaryline"><span>ggf. Therapieziele / weitere med. Befunde und Hinweise</span><span>'+esc(goals)+'</span></div>';textOutput+='\nggf. Therapieziele / weitere med. Befunde und Hinweise:\n'+goals+'\n';}if(activeDemo){$('summaryContent').innerHTML='<p class="badge">Demo · fiktives Patientenbeispiel</p>'+$('summaryContent').innerHTML;textOutput='DEMO – FIKTIVES PATIENTENBEISPIEL\n'+textOutput;}$('warnings').innerHTML=combinationNote+w.map(x=>'<div class="hint warn">'+esc(x)+'</div>').join('');$('copy').disabled=!isBlank&&!state.primary.length;}
 $('search').addEventListener('input',search);$('search').addEventListener('keydown',e=>{if(e.key==='Escape'){$('matches').hidden=true;$('search').setAttribute('aria-expanded','false');}if(e.key==='Enter'){let first=$('matches').querySelector('button');if(first){e.preventDefault();first.click();}}});$('matches').addEventListener('click',e=>{let b=e.target.closest('[data-code]');if(b)choose(DIAGNOSES.find(d=>d.code===b.dataset.code));});document.querySelectorAll('[data-example]').forEach(b=>b.onclick=()=>choose(DIAGNOSES.find(d=>d.code===b.dataset.example)));$('group').onchange=setGroup;$('useCustom').onclick=()=>{let code=$('customCode').value.trim().toUpperCase();if(!/^[A-Z][0-9]{2}(\.[0-9]{1,3})?$/.test(code)||!$('customName').value.trim()){$('customError').textContent='Bitte einen vollständigen ICD-Code und die Diagnosebezeichnung eingeben.';return;}$('customError').textContent='';let match=DIAGNOSES.find(d=>d.code===code&&!d.family&&!d.second);choose(match||{code,name:$('customName').value.trim(),group:'',custom:true});};
 document.addEventListener('click',e=>{let b=e.target.closest('[data-primary]');if(!b)return;state.primary=[b.dataset.primary];if(state.supp!==(b.dataset.combination||'NONE'))$('suppUnits').value='';state.supp=b.dataset.combination||'NONE';renderChoices();update();});$('extraChoices').addEventListener('change',e=>{if(!e.target.dataset.extra)return;let selected=[...$('extraChoices').querySelectorAll('input:checked')].map(x=>x.dataset.extra);if(selected.length>3){e.target.checked=false;toast('Höchstens drei vorrangige Heilmittel.');return;}if(selected.filter(k=>k.startsWith('MLD')).length>1){e.target.checked=false;toast('Eine passende MLD-Zeit auswählen.');return;}state.primary=selected;state.supp='NONE';renderChoices();update();});$('blankRoute').onclick=()=>{state.route='blank';renderChoices();update();};$('normalRoute').onclick=()=>{state.route='normal';renderChoices();update();};['symptom','frequency','age','prior','units','individual','technique','bandage','approval','approvalUntil','unlimited','issueDate','side','urgent','house','report'].forEach(id=>$(id).addEventListener(['individual','units','age','prior'].includes(id)?'input':'change',update));$('splitUnits').addEventListener('change',update);
@@ -87,4 +1079,5 @@ $('demoChoices').innerHTML=demoCases.map(d=>'<button class="choice" data-demo="'
 $('toggleDemos').onclick=()=>{let open=$('demoCases').hidden;$('demoCases').hidden=!open;$('toggleDemos').setAttribute('aria-expanded',String(open));$('toggleDemos').textContent=open?'Beispiele ausblenden':'Demoversion öffnen';};
 $('demoChoices').addEventListener('click',e=>{let b=e.target.closest('[data-demo]');if(b)loadDemo(b.dataset.demo);});
 
+renderEvidence();
 </script></body></html>

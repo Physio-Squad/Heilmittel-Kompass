@@ -1,0 +1,18 @@
+{
+  "repository": "Physio-Squad/Heilmittel-Kompass",
+  "branch": "research/leitlinien-quellen-2026-10",
+  "commit": "aff328c2afc17f7b4b37246c9af84c62a135cbf5",
+  "imported_on": "2026-10-20",
+  "mode": "selected_files_byte_identical_no_branch_merge",
+  "files": [
+    {
+      "path": "evidence/QUELLEN.md",
+      "sha256": "591376b782b9a90738ba3fb521389518da02291e78e08c1a6e1cf7e5756a2c9e"
+    },
+    {
+      "path": "evidence/PRUEFPROTOKOLL.md",
+      "sha256": "128d304cfeed4b79bf5b14463c930e086ba7d500ef101d44ba02ee063ebee533"
+    }
+  ],
+  "notice": "Importdatum ist kein neuer Abruf oder Prüfzeitpunkt der externen Originalquellen."
+}

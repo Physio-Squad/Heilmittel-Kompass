@@ -1,0 +1,139 @@
+{
+  "status": "Fachliche Abnahmeszenarien; kein ausgeführter Test einer neuen App und keine vollständige klinische Validierung.",
+  "all_cases_fictional": true,
+  "cases": [
+    {
+      "id": "nacken-selbstwaerme",
+      "profile_id": "neck",
+      "source_ids": [
+        "DE2"
+      ],
+      "input": {
+        "complaint": "Ärztlich abgeklärter nicht-spezifischer Nackenschmerz; individuelles Risiko separat prüfen."
+      },
+      "expected": [
+        "Selbstwärme als empfohlene Option unterscheiden.",
+        "Fango-Verordnung nicht aus der Selbstwärmeempfehlung ableiten.",
+        "Negativempfehlung zu Fango auf Expertenkonsens kenntlich machen."
+      ]
+    },
+    {
+      "id": "nacken-phase",
+      "profile_id": "neck",
+      "source_ids": [
+        "DE2"
+      ],
+      "input": {
+        "comparison": [
+          "akuter nicht-spezifischer Nackenschmerz",
+          "chronischer nicht-spezifischer Nackenschmerz"
+        ]
+      },
+      "expected": [
+        "Akut: Bewegungstherapie als Kann-Option auf Expertenkonsens.",
+        "Chronisch: starke Empfehlung zur Bewegungstherapie.",
+        "Keine feste Sitzungszahl und keinen Diagnosealgorithmus erzeugen."
+      ]
+    },
+    {
+      "id": "knie-betreuung",
+      "profile_id": "oa",
+      "source_ids": [
+        "DE1",
+        "DE1E",
+        "DE1P",
+        "N226"
+      ],
+      "input": {
+        "diagnosis": "Ärztlich bestätigte Gonarthrose, konservative Versorgung."
+      },
+      "expected": [
+        "Starke Bewegungsempfehlung von schwächerer Aufsichtsempfehlung unterscheiden.",
+        "NICE-Übernahme und Dokumentabhängigkeit nicht als unabhängige Studien zählen.",
+        "Unzureichende Massage-/Traktionsevidenz von Negativempfehlungen für benannte physikalische Verfahren trennen."
+      ]
+    },
+    {
+      "id": "huefte-ultraschall",
+      "profile_id": "hip",
+      "source_ids": [
+        "U2",
+        "N226"
+      ],
+      "input": {
+        "diagnosis": "Bestätigte Hüftarthrose, konservativ."
+      },
+      "expected": [
+        "Unterschied zwischen APTA 2025 und NICE zur Ultraschall-Ergänzung offenlegen.",
+        "Keine deutsche Koxarthrose-Empfehlung behaupten.",
+        "Passende manuelle Techniken nicht pauschal als unnötig abwerten."
+      ]
+    },
+    {
+      "id": "laser-diagnosespezifisch",
+      "profile_id": null,
+      "source_ids": [
+        "U3",
+        "U4"
+      ],
+      "input": {
+        "comparison": [
+          "Midportion-Achillessehnen-Tendinopathie",
+          "Plantarfasziitis"
+        ]
+      },
+      "expected": [
+        "US-Laser-Negativempfehlung bei Midportion nicht auf Plantarfasziitis übertragen.",
+        "US-Empfehlung bei Plantarfasziitis auf kurzfristigen Schmerz und ein Behandlungsprogramm begrenzen.",
+        "Keine deutsche Katalogfreigabe aus der US-Empfehlung ableiten."
+      ]
+    },
+    {
+      "id": "geltungsbereich-offen",
+      "profile_id": "achilles",
+      "source_ids": [
+        "U3"
+      ],
+      "input": {
+        "diagnosis": "Akute Achillessehnenruptur oder frische Operation; keine passende Midportion-Konstellation."
+      },
+      "expected": [
+        "Keine Bestätigung des Midportion-Profils.",
+        "Keinen automatisch dosierten Lasttrainingsplan anbieten.",
+        "Konkrete postoperative Vorgaben und fachliche Einordnung als erforderlich offenhalten."
+      ]
+    },
+    {
+      "id": "befund-unbekannt",
+      "profile_id": null,
+      "source_ids": [],
+      "input": {
+        "diagnosis_status": "nicht_bestaetigt",
+        "red_flag_screening": "nicht_beurteilt",
+        "measurements": []
+      },
+      "expected": [
+        "Keine automatische Diagnose, normale Messwerte oder negative Warnzeichen unterstellen.",
+        "Keine individuelle Trainingsfreigabe ausgeben.",
+        "Unbekannte Angaben beibehalten; nur entscheidungsrelevante Klärung anfordern."
+      ]
+    },
+    {
+      "id": "dosis-fehlt",
+      "profile_id": "oa",
+      "source_ids": [
+        "DE1"
+      ],
+      "input": {
+        "diagnosis": "Bestätigte Gonarthrose",
+        "functional_goal": "Aufstehen erleichtern",
+        "specific_exercise_dose": null
+      },
+      "expected": [
+        "Passende Interventionskategorie begründen.",
+        "Sätze/Wiederholungen/Last nicht pauschal mit 3 x 10 auffüllen.",
+        "Belegte Parameter von fachlichen Festlegungen und offenen Angaben trennen."
+      ]
+    }
+  ]
+}

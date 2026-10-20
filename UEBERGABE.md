@@ -1,0 +1,60 @@
+# Heilmittel-Kompass – Übergabe vom 20.10.2026
+
+## Zuerst lesen
+
+1. `Heilmittel-Kompass/AGENTS.md`
+2. `Heilmittel-Kompass/docs/produktkonzept.md`
+3. `evidence/ABGLEICH.md`
+4. `Heilmittel-Kompass/docs/anforderungen.md` und `docs/validierung.md`
+
+Diese Übergabe und das Produktkonzept beschreiben den zuletzt bestätigten Auftrag. Ältere Übergaben und der Befund-/Training-Skill bilden teilweise frühere Zielvorstellungen ab.
+
+## Tatsächlicher Arbeitsstand
+
+- Repository: https://github.com/Physio-Squad/Heilmittel-Kompass
+- App: Version 0.4.3, eigenständige `Heilmittel-Kompass/index.html`, ohne Build-Schritt.
+- Übergabe-Branch: `codex/uebergabe-2026-10-20`. Dieser Branch sichert den aktuellen App-, Dokumentations- und Recherchestand einschließlich der zuvor nicht committeten Änderungen. Im neuen Chat ausdrücklich diesen Branch verwenden; `main` enthält den Übergabestand nicht automatisch. Es wurde kein Website-Deployment vorgenommen.
+- Die beiden Originaldateien unter `evidence/` wurden unverändert aus Branch `research/leitlinien-quellen-2026-10`, Commit `aff328c2afc17f7b4b37246c9af84c62a135cbf5`, übernommen. Herkunft und Prüfsummen: `evidence/IMPORT.json`.
+- Der Rechercheimport wurde mit den vorhandenen Quellen abgeglichen. Er enthält Quellenregister und Prüfstände, noch keine vollständige Matrix extrahierter Einzelempfehlungen oder geprüfte Katalogdatenbank.
+
+## Bestätigter Produktauftrag
+
+Ärztliche Entscheidungshilfe zur Verordnung physiotherapeutischer Heilmittel. Eingabe: Diagnose plus wenige Angaben zu Funktion, Beschwerden und Ziel. Ausgabe: begründeter Vorschlag mit Alternativen, ohne automatische Auswahl. Erste fachlich geprüfte Fassung: häufige muskuloskelettale Fälle; alle dafür angebotenen Regeln vollständig prüfen.
+
+Keine pauschale Bevorzugung einer Therapieposition. Belegte Unterschiede in Nutzen und Empfehlungen transparent darstellen. KG ist nicht automatisch aktiv, MT nicht ausschließlich passiv. Klinische Interventionen und abrechenbare Heilmittelpositionen nachvollziehbar zuordnen; klinischen Nutzen und formale GKV-Verordnungsfähigkeit getrennt prüfen.
+
+Drei klinische Kernfragen: Welche Therapie hilft? Wann ist Physiotherapie sinnvoll? Welche Zusätze lohnen sich? Autonome Behandlungssteuerung und automatische Trainingsprogression gehören derzeit nicht zum Auftrag.
+
+Gewünschter künftiger Ablauf: Diagnose/ICD bestätigen, wenige Funktionsangaben erfragen, Diagnosegruppe und Leitsymptomatik begründen, Heilmittelvorschläge und Alternativen erläutern, ärztliche Auswahl und formale Verordnung prüfen. Dieser neue Ablauf ist noch nicht vollständig implementiert.
+
+## Bereits umgesetzt
+
+Acht klinische Profile: Rücken, Nacken, Kniearthrose, Hüftarthrose, Rotatorenmanschetten-Tendinopathie, Midportion-Achillessehnen-Tendinopathie, Plantarfasziitis und akute/postakute laterale Sprunggelenksdistorsion. Geltungsbereiche und Ausschlüsse beachten.
+
+Alle klinischen Einordnungen kurz und stichpunktartig. Begriffe: Manuelle Therapie, Traktion, Massage, Kryotherapie. Hinweise zur Selbstanwendung von Wärme/Kälte wurden aus der Oberfläche entfernt. Quellenanzeige kompakt; tatsächliche Abrufdaten bleiben erhalten. Interne Prüfanmerkungen stehen in der Dokumentation statt in der Oberfläche. Klinisch relevante Unsicherheiten bleiben sichtbar.
+
+## Nächster fachlicher Schwerpunkt
+
+Geltende Heilmittel-Richtlinie, Physiotherapie-Katalog und ICD-10-GM-Stand anhand der Originalquellen prüfen. Für den unterstützten Umfang kontextabhängige ICD-/Diagnosegruppen-Zuordnungen, gruppenspezifische Leitsymptomatiken, individuelle Angaben, Heilmittelpositionen, Kombinationen, Mengen und angebotene Sonderfälle belastbar abbilden.
+
+ICD, Diagnosegruppe und Leitsymptomatik sind unterschiedliche Angaben. a/b/c haben gruppenspezifische Bedeutung; sie bezeichnen keine Heilmittel oder Evidenzgrade. Keine ungeprüfte eindeutige ICD-zu-Gruppe-Tabelle und keine vollständige Validierung aus Format-/Präfixprüfungen ableiten. Exakte Originaltexte und Regeln sind noch zu verifizieren.
+
+Die bisherige App erfüllt diese vollständige formale Prüfung noch nicht. G-BA-/KBV-Originalquellen waren beim letzten Abrufversuch am 20.10.2026 in der Sitzung nicht erreichbar. Das ist eine dokumentierte Zugriffslücke, kein Beleg für die Unverfügbarkeit der Dokumente. Erreichbarkeit bei Bedarf neu prüfen; keine Regeln erfinden.
+
+Weitere Rechercheaufgaben: Einzelempfehlungen mit Fundstellen strukturieren; niederländische Arthrosequellen KNGF/NOV prüfen; deutschen Hüftleitlinienstatus und Schulteroriginale klären. Schlaganfall, COPD und Beckenboden aus dem importierten Register liegen außerhalb des bestätigten Startumfangs.
+
+## Evidenz und Grenzen
+
+14 lokale Quellen-/Dokumenteinträge sind nicht 14 unabhängige Leitlinien. Deutsche Gonarthrose-Langfassung, Evidenzbericht und Patientenfassung gehören zusammen; NICE-Übernahmen nicht als zusätzliche unabhängige Evidenz zählen. Dateinamen sind keine verlässlichen fachlichen Versionsdaten.
+
+Deutsche Originale wurden gezielt in relevanten Abschnitten geprüft und mit den AWMF-Dateien abgeglichen; kein vollständiger Audit aller Seiten. Einzelheiten und Fundstellen: `Heilmittel-Kompass/docs/deutsche-leitlinien.md`. Importierte Quellen nicht automatisch als neu verifiziert ausgeben; vorhandene gezielte lokale Prüfungen nicht durch allgemeinere Importnotizen löschen. Quellen-Abrufdaten beim Import nicht überschreiben.
+
+Die hochgeladenen Original-PDFs sind nicht im Repository enthalten. Links, Prüfsummen, Fundstellen und Prüfgrenzen sind dokumentiert. Der alte Skill unter `.agents/skills/befund-training/` enthält teilweise Snapshots von 0.4.1; für aktuelle Produktentscheidungen und Quellenstände die App-Dokumentation und `evidence/` verwenden.
+
+## Technische Prüfung und Start
+
+Für den lokalen Stand vor dieser Repository-Übergabe bestanden für Version 0.4.3 die JavaScript-Syntaxprüfung, `node tests/smoke.cjs` und echte Chromium-Browsertests für acht Profile bei 1440, 390 und 320 Pixeln. Softwaretests sind keine medizinische oder formale fachliche Freigabe.
+
+App lokal öffnen: `Heilmittel-Kompass/index.html`. Für Browserprüfungen im App-Ordner einen Server starten (`python3 -m http.server 8000 --bind 127.0.0.1`) und separat `node tests/browser.cjs` ausführen. Der Browsertest braucht Playwright und Chromium; Installationen aus der bisherigen Umgebung werden durch den Repository-Inhalt nicht mitgeliefert.
+
+Bei Fortsetzung zuerst Bestand lesen und einen konkreten nächsten Teil bearbeiten. Keine bereits vorliegenden Produktentscheidungen erneut erfragen. Änderungen nicht als veröffentlicht darstellen; eine Veröffentlichung ist ein gesonderter Schritt.

@@ -1,5 +1,7 @@
 # Übergabe und Cloud-Fortsetzung
 
+> Historische Übergabe zum Importstand 0.3. Aktuelle Übergabe: [UEBERGABE.md](../../UEBERGABE.md) im Repository-Stamm. Für Produktziele und nächste Aufgaben gelten die aktuelle Übergabe und [produktkonzept.md](produktkonzept.md); die folgende frühere Liste ist kein aktueller Veröffentlichungsauftrag.
+
 ## Maßgeblicher Stand
 
 Dieses Repository enthält die lokale Version 0.3 als index.html. Titel im Produkt ist noch „Heilmittel / kompakt“ beziehungsweise Heilmittel-Assistent; Repositoryname ist Heilmittel-Kompass. Eine Umbenennung des UI wurde nicht ungefragt vorgenommen.
