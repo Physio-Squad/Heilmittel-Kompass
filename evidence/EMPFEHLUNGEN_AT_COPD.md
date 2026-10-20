@@ -68,7 +68,7 @@ Kernbefund für die App: Ein großer Teil der stark empfohlenen Maßnahmen (Trai
 
 ## Umsetzung als Profil (21.10.2026)
 
-Profil `copd` in `Heilmittel-Kompass/daten/profile-ergaenzung.js` (noch nicht in `index.html` eingebaut; Prüfung mit `node scripts/check-ergaenzung.cjs`).
+Profil `copd` in `Heilmittel-Kompass/daten/profile-ergaenzung.js` (Gesamtdokumentation aller Profile: [PROFILE_ERGAENZUNG.md](PROFILE_ERGAENZUNG.md)) (noch nicht in `index.html` eingebaut; Prüfung mit `node scripts/check-ergaenzung.cjs`).
 
 - ICD: J44.80–J44.83, J44.89, J44.90–J44.93, J44.99 am BfArM (ICD-10-GM 2026, Block J40–J47) geprüft: J44.8-/J44.9- mit FEV1-Fünfstelle. J44.0-/J44.1- (Infektion/akute Exazerbation) bewusst nicht aufgenommen, da das Profil die stabile Phase beschreibt.
 - „Keine Leitlinienaussage“ bei KG-Muko, Inhalation, BGM, KMT und heißer Rolle bezieht sich auf die ausgewerteten Teile: NVL Kurzfassung Kap. 4.1–4.3 und DGP-Empfehlungsübersicht. NVL Kap. 5 (Inhalationssysteme) und Kap. 6 (Rehabilitation) sowie DGP-Hintergrundtexte sind noch zu lesen; eine Aussage dort würde die Bewertung ändern.
