@@ -55,3 +55,12 @@ Maschinenlesbar: [QUELLEN_ABGLEICH.json](QUELLEN_ABGLEICH.json). Die lokale Quel
 4. **Lücken im klinischen Umfang:** deutsche Hüftquelle beziehungsweise ihren tatsächlichen Status klären; Schulter-Originalprüfung vertiefen; patellofemoralen Schmerz und chronische Sprunggelenksinstabilität getrennt als Erweiterungen bearbeiten.
 
 Das [Produktkonzept](../Heilmittel-Kompass/docs/produktkonzept.md) und der [deutsche Originalabgleich](../Heilmittel-Kompass/docs/deutsche-leitlinien.md) bleiben maßgebliche lokale Kontextdokumente. Die Prüfangaben dienen der internen Recherche; die vereinbarte kompakte Quellenanzeige der App bleibt erhalten.
+
+
+## Fortsetzung: tatsächlicher formaler Originalabgleich am 20.10.2026
+
+Die historische Importbewertung oben bleibt erhalten. In der Fortsetzung wurden G-BA-Richtlinienseite, Richtlinien-PDF, verlinkter Physiotherapiekatalog, KBV PraxisWissen 2026 und ausgewählte BfArM-ICD-10-GM-2026-Seiten tatsächlich erneut abgerufen. Damit ist die frühere Zugriffslücke für diese konkreten Quellen geschlossen. GBA-HMK/R1–R3 ist nun für den dokumentierten WS-/EX-Teil gezielt geprüft; eine vollständige Katalog- oder Sonderbedarfsfreigabe folgt daraus nicht.
+
+[Originalabgleich](../Heilmittel-Kompass/docs/formaler-regelabgleich.md) und [strukturierte Einzelbefunde](FORMALER_REGELABGLEICH.json) enthalten Fassungen, Fundstellen, Originalüberschriften, getrennte Erklärungen, Regeln und Prüfsummen. Die Datei unterscheidet 19 gezielt geprüfte endständige Codes, vier unterteilte Kategorien und einen offenen Zusatzkodierkontext. Die Zuordnung zu acht Profilen ist redaktionell und kontextabhängig, keine amtliche ICD-zu-Gruppe-Tabelle.
+
+Die App 0.4.4 korrigiert insbesondere die zuvor irrtümlich bei WS hinterlegte orientierende Kindermenge von 50 Einheiten. Diese steht im geprüften Katalog bei EX. Andere Datenbankeinträge, Gruppen, LHB/BVB, Blankodetails und fachliche Gesamtprüfung bleiben offen. Importdateien, Importprüfsummen und klinische Quellen-Abrufdaten wurden nicht verändert.

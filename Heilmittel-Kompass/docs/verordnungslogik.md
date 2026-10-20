@@ -29,3 +29,10 @@ Hausbesuch bei medizinischer Erforderlichkeit, Therapiebericht und dringlicher B
 ## Begrenzung
 
 Der Ablauf richtet sich an reguläre ärztliche ambulante GKV-Verordnungen. BG, Privat, Zahnärzte und Entlassmanagement sind nicht vollständig abgedeckt. Keine Patientenkopfdaten, Unterschrift oder vollständig ausgestellte Verordnung. Vollständige Validierung siehe [Prüfplan](validierung.md).
+
+
+## Präzisierung durch den Originalabgleich 0.4.4
+
+Am 20.10.2026 wurden WS/EX, die relevanten Symptom-/Mengen-/Kombinationsregeln sowie ausgewählte ICD-Kodes anhand der Originale geprüft. WS hat regulär 18 orientierende Einheiten ohne die bisher irrtümlich hinterlegte Kinderregel. EX hat 18 beziehungsweise unter 18 Jahren 50; bei unbekanntem Alter bleibt die Bedingung sichtbar. Die Leitsymptomatiküberschriften sind gruppenspezifisch übernommen und von verständlichen Erklärungen getrennt. Kataloglistung begründet keine klinische Therapierangfolge.
+
+Der begrenzte ICD-Prüfbestand unterscheidet gezielt geprüften Kode, unterteilte Kategorie, offenen Zusatzkodierkontext und unbekannten Status. Fehlender Treffer bedeutet ungeprüft. Die bestehenden übrigen Datenbank-/Sonderregeln bleiben ausdrücklich offen, auch wenn der Prototyp Berechnungen anbietet. Die Auswahl wird nicht als formale Gesamtprüfung ausgegeben. Einzelheiten: [Originalabgleich](formaler-regelabgleich.md).

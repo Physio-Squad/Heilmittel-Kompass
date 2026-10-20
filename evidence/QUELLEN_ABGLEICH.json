@@ -28,7 +28,14 @@
       "local_source_ids": [],
       "classification": "formal_basis_pending",
       "local_reconciliation": "Bereits als amtliche Grundlage dokumentiert (lokal R1–R3). Geltende Fassung und Zuordnungen noch nicht vollständig verifiziert; Import schließt die formale Lücke nicht.",
-      "local_source_records": []
+      "local_source_records": [],
+      "subsequent_review": {
+        "reviewed_on": "2026-10-20",
+        "classification": "formal_basis_targeted_partial_review",
+        "report": "Heilmittel-Kompass/docs/formaler-regelabgleich.md",
+        "data": "evidence/FORMALER_REGELABGLEICH.json",
+        "scope": "WS/EX, ausgewählte ICD-Kodes und zugehörige allgemeine Regeln; keine vollständige Katalog-, LHB-/BVB- oder Blankoverordnungsfreigabe."
+      }
     },
     {
       "id": "NICE-NG59",

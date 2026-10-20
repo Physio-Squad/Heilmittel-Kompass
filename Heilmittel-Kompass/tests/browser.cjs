@@ -115,6 +115,46 @@ const artifacts = process.env.HEILMITTEL_TEST_ARTIFACTS || '/tmp/heilmittel-komp
       await page.locator('#matches .result').first().click();
       await page.locator('.clinical-guide').screenshot({path:path.join(artifacts, 'deutsch-'+id+'.png')});
     }
+    // New formal data must work in the real DOM, including the long EX label.
+    for (const width of [1440,390,320]) {
+      await page.setViewportSize({width,height:900});
+      await page.getByRole('button',{name:'Rücken',exact:true}).click();
+      await page.locator('#age').fill('17');
+      assert.match(await page.locator('#quantityHint').innerText(),/18 Einheiten/);
+      assert.doesNotMatch(await page.locator('#quantityHint').innerText(),/50 Einheiten/);
+      assert.match(await page.locator('#diagnosis').innerText(),/ICD-10-GM 2026/);
+      assert.equal(await page.locator('[data-sym]:checked').count(),0);
+      await page.locator('[data-sym]').nth(0).check();
+      await page.locator('[data-sym]').nth(1).check();
+      assert.match(await page.locator('#summaryContent').innerText(),/Bewegungssegmente.*Muskelfunktion/s);
+      await page.selectOption('#group','EX');
+      assert.equal(await page.locator('[data-sym]:checked').count(),0);
+      assert.match(await page.locator('#symptomChoices').innerText(),/Kapsel-Band-Apparats/);
+      assert.match(await page.locator('#quantityHint').innerText(),/50 Einheiten/);
+      assert.match(await page.locator('#warnings').innerText(),/Abweichende ICD/);
+      await page.locator('#age').fill('18');
+      assert.match(await page.locator('#quantityHint').innerText(),/18 Einheiten/);
+      assert.doesNotMatch(await page.locator('#quantityHint').innerText(),/50 Einheiten/);
+      await page.locator('[data-sym]').nth(2).check();
+      assert.match(await page.locator('#warnings').innerText(),/Patientenindividuelle Leitsymptomatik ergänzen/);
+      await page.locator('#individual').fill('Kraftminderung beim Treppensteigen');
+      assert.match(await page.locator('#summaryContent').innerText(),/Kraftminderung beim Treppensteigen/);
+      assert.match(await page.locator('#summaryContent').innerText(),/Formale Gesamtprüfung offen/);
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      if(width===320)await page.locator('#symptomChoices').screenshot({path:path.join(artifacts,'katalog-ex-320.png')});
+    }
+    // A syntactically plausible code remains unverified, with no negative inference.
+    await page.getByText('Diagnose nicht in der Suche?',{exact:true}).click();
+    await page.locator('#customCode').fill('M54.500');
+    await page.locator('#customName').fill('Fiktiver ungeprüfter Eintrag');
+    await page.locator('#useCustom').click();
+    await page.selectOption('#group','WS');
+    assert.match(await page.locator('#warnings').innerText(),/noch nicht geprüft/);
+    assert.doesNotMatch(await page.locator('#diagnosis').innerText(),/Kode im Verzeichnis geprüft/);
+    await page.locator('#customCode').fill('S93.4');
+    await page.locator('#useCustom').click();
+    await page.selectOption('#group','EX');
+    assert.match(await page.locator('#warnings').innerText(),/Nicht endständige ICD-Kategorie/);
     // Confirm HTML export really downloads a self-contained app with the new profiles.
     const downloadPromise = page.waitForEvent('download');
     await page.locator('#download').click();
@@ -122,8 +162,12 @@ const artifacts = process.env.HEILMITTEL_TEST_ARTIFACTS || '/tmp/heilmittel-komp
     const downloaded = path.join(artifacts, 'export.html');
     await download.saveAs(downloaded);
     assert.match(fs.readFileSync(downloaded,'utf8'), /Midportion Achilles Tendinopathy/);
+    assert.match(fs.readFileSync(downloaded,'utf8'), /terminal_im_Original_geprueft/);
+    await page.goto('file://'+downloaded);
+    await page.getByRole('button',{name:'Rücken',exact:true}).click();
+    assert.match(await page.locator('#diagnosis').innerText(),/ICD-10-GM 2026/);
     assert.deepEqual(errors, []);
-    console.log('Browserprüfung bestanden: '+profileChecks+' Profil-/Viewport-Kombinationen, 3 Demos, Quellen, Diagnosewechsel, abweichende Zusatzbewertungen, deutscher Quellenabgleich und HTML-Download. Keine Fachprüfung.');
+    console.log('Browserprüfung bestanden: '+profileChecks+' Profil-/Viewport-Kombinationen, 3 Demos, Quellen, Diagnosewechsel, abweichende Zusatzbewertungen, deutscher Quellenabgleich sowie WS/EX-Regeln, Altersgrenze, offene ICD-Zustände und eigenständiger HTML-Export. Keine Fachprüfung.');
   } finally {
     await browser.close();
   }

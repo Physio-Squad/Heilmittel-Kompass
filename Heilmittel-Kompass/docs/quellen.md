@@ -64,3 +64,10 @@ Der Nutzer fand auf der Koxarthrose-Registerseite keinen verfügbaren Text. Ein 
 Aus `research/leitlinien-quellen-2026-10`, Commit `aff328c2afc17f7b4b37246c9af84c62a135cbf5`, wurden `evidence/QUELLEN.md` und `evidence/PRUEFPROTOKOLL.md` unverändert in den lokalen Arbeitsstand übernommen. Der [Abgleich](../../evidence/ABGLEICH.md) ordnet die 20 importierten Quellen-/Dokumenteinträge den bisherigen lokalen Belegen zu. Er bewahrt tatsächliche lokale Originalprüfungen, dokumentiert zusätzliche Rechercheziele und trennt Importdatum von Quellen-Abrufdatum.
 
 Die importierten Dateien enthalten noch keine vollständig ausgefüllte Einzel-Empfehlungsmatrix und keine geprüfte Katalogdatenbank. Deshalb wurden durch den Import keine klinischen App-Empfehlungen, Katalogregeln oder Abrufdaten geändert. Der freigegebene Startumfang bleibt auf häufige muskuloskelettale Fälle begrenzt; weitere genannte Fachbereiche sind Rechercheziele.
+
+
+## Neuer formaler Originalabgleich – 20.10.2026
+
+R1–R4 wurden erneut tatsächlich abgerufen: Richtlinienseite, Richtlinien-PDF (Änderung 15.05.2025, in Kraft 05.08.2025), dort verlinkter Katalog (Dateifassung 16.05.2024) und KBV PraxisWissen 2026. WS-/EX-Tabellen vollständig gezielt gelesen und als gerenderte Seiten visuell geprüft. Ergänzend wurden ausgewählte BfArM-Kodes der ICD-10-GM 2026 und ihre Unterteilungen geprüft. Der Beschluss vom 20.08.2026 zur Anlage 2 wird auf der Originalseite als noch nicht in Kraft ausgewiesen und nicht als neue geltende Listenberechtigung übernommen.
+
+Konkrete Fundstellen, URLs, Fassungen und Prüfgrenzen: [formaler-regelabgleich.md](formaler-regelabgleich.md). Maschinenlesbare Ergebnisse und Download-SHA-256: [FORMALER_REGELABGLEICH.json](../../evidence/FORMALER_REGELABGLEICH.json). Frühere Abrufbefunde bleiben historische Angaben. Keine Neudatierung klinischer Quellen und keine vollständige Listen-, Vertrags- oder ICD-Datenbankfreigabe.

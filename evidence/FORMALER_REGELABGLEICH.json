@@ -1,0 +1,665 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-20",
+  "scope": "Gezielter erster Originalabgleich für die acht vereinbarten muskuloskelettalen Profile; keine vollständige Regel- oder ICD-Datenbank und keine unabhängige fachliche Freigabe.",
+  "sources": {
+    "R2": {
+      "url": "https://www.g-ba.de/downloads/62-492-3865/HeilM-RL_2025-05-15_iK-2025-08-05.pdf",
+      "bytes": 893672,
+      "sha256": "6e65437019c17eae23b0a2e80c85e68d46698013a0bfa7167d7ec4d8f933d204",
+      "content_type": "application/pdf",
+      "retrieved_on": "2026-10-20",
+      "file_name_at_retrieval": "gba-richtlinie.pdf",
+      "review_status": "gezielt_am_Original_geprueft",
+      "title": "G-BA Heilmittel-Richtlinie",
+      "version": "Änderung 15.05.2025, in Kraft 05.08.2025",
+      "locations": [
+        "§ 3 Abs. 5; § 4",
+        "§ 7 Abs. 1–7",
+        "§ 12 Abs. 1–6",
+        "§ 13 Abs. 2 k/l",
+        "§ 19 Abs. 2 und Abs. 3 Nr. 3a, 4, 7",
+        "§ 24 Abs. 2–3"
+      ]
+    },
+    "R3": {
+      "url": "https://www.g-ba.de/downloads/17-98-3064/HeilM-RL_2024-05-16_Heilmittelkatalog.pdf",
+      "bytes": 505687,
+      "sha256": "2b26cebd988aa990d5edfd82a975628dbc011e6ed5505b7726da20219bc1d39f",
+      "content_type": "application/pdf",
+      "retrieved_on": "2026-10-20",
+      "file_name_at_retrieval": "gba-katalog.pdf",
+      "review_status": "gezielt_am_Original_geprueft",
+      "title": "G-BA Heilmittelkatalog",
+      "version": "Dateifassung 16.05.2024; am 20.10.2026 auf der Richtlinienseite verlinkt",
+      "locations": [
+        "WS: Druckseite 61 / PDF-Seite 2",
+        "EX: Druckseite 62 / PDF-Seite 3"
+      ],
+      "review_method": "Text gelesen; beide vollständigen Tabellenseiten zusätzlich gerendert und visuell geprüft"
+    },
+    "R4": {
+      "url": "https://www.kbv.de/documents/infothek/publikationen/praxiswissen/praxiswissen-heilmittel.pdf",
+      "bytes": 2150521,
+      "sha256": "1343c5ff7711207415ef17fe437926468970fa0b86959de334aad52fe2108cd7",
+      "content_type": "application/pdf",
+      "retrieved_on": "2026-10-20",
+      "file_name_at_retrieval": "kbv-praxiswissen.pdf",
+      "review_status": "gezielt_am_Original_geprueft",
+      "title": "KBV PraxisWissen Heilmittel",
+      "version": "Aktualisierte Ausgabe 2026",
+      "locations": [
+        "Druckseiten 8–11 / PDF-Seiten 8–11"
+      ]
+    },
+    "ICD26-WS": {
+      "url": "https://klassifikationen.bfarm.de/icd-10-gm/kode-suche/htmlgm2026/block-m50-m54.htm",
+      "bytes": 37878,
+      "sha256": "58d3525aabb5c6679a1195ae73a79ff09a1baa0baba543272c8bdeab797ca286",
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_on": "2026-10-20",
+      "file_name_at_retrieval": "bfarm-m50-m54.html",
+      "review_status": "ausgewaehlte_Kodes_und_Unterteilungen_geprueft",
+      "version": "ICD-10-GM 2026; HTML-Stand 12.09.2025"
+    },
+    "ICD26-OA": {
+      "url": "https://klassifikationen.bfarm.de/icd-10-gm/kode-suche/htmlgm2026/block-m15-m19.htm",
+      "bytes": 42465,
+      "sha256": "2f616a3f4728e82bbc92c9b911b61d36f69bba657ae96da3c29919cf6bc2ac8a",
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_on": "2026-10-20",
+      "file_name_at_retrieval": "bfarm-m15-m19.html",
+      "review_status": "ausgewaehlte_Kodes_und_Unterteilungen_geprueft",
+      "version": "ICD-10-GM 2026; HTML-Stand 12.09.2025"
+    },
+    "ICD26-WEICHTEIL": {
+      "url": "https://klassifikationen.bfarm.de/icd-10-gm/kode-suche/htmlgm2026/block-m70-m79.htm",
+      "bytes": 151138,
+      "sha256": "7325cf68ca455aacd8b2a9fe31a9fc0063965f1a819e2a17a52d9fc2f8d1ec0d",
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_on": "2026-10-20",
+      "file_name_at_retrieval": "bfarm-m70-m79.html",
+      "review_status": "ausgewaehlte_Kodes_und_Unterteilungen_geprueft",
+      "version": "ICD-10-GM 2026; HTML-Stand 12.09.2025"
+    },
+    "ICD26-SPRUNG": {
+      "url": "https://klassifikationen.bfarm.de/icd-10-gm/kode-suche/htmlgm2026/block-s90-s99.htm",
+      "bytes": 31662,
+      "sha256": "811dda2d6ad05728dfd35088738b8bf7204352b26632ae2bd1d6edb2cd04d2ca",
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_on": "2026-10-20",
+      "file_name_at_retrieval": "bfarm-s90-s99.html",
+      "review_status": "ausgewaehlte_Kodes_und_Unterteilungen_geprueft",
+      "version": "ICD-10-GM 2026; HTML-Stand 12.09.2025"
+    },
+    "ICD26-INDEX": {
+      "url": "https://klassifikationen.bfarm.de/icd-10-gm/kode-suche/htmlgm2026/index.htm",
+      "bytes": 72177,
+      "sha256": "4a7bd3d41c995c6c9bd447ee993d982ed5b06ba63e6e8b731b3119e4456549a9",
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_on": "2026-10-20",
+      "file_name_at_retrieval": "bfarm-2026.html",
+      "review_status": "ausgewaehlte_Kodes_und_Unterteilungen_geprueft",
+      "version": "ICD-10-GM 2026; HTML-Stand 12.09.2025"
+    },
+    "R1": {
+      "url": "https://www.g-ba.de/richtlinien/12/",
+      "retrieved_on": "2026-10-20",
+      "version": "Änderung 15.05.2025; in Kraft 05.08.2025 angezeigt",
+      "review_status": "Originalseite_geprueft"
+    },
+    "GBA-7977": {
+      "url": "https://www.g-ba.de/beschluesse/7977/",
+      "retrieved_on": "2026-10-20",
+      "version": "Beschluss 20.08.2026",
+      "review_status": "Originalseite_geprueft",
+      "finding": "Originalseite weist noch nicht in Kraft aus; nicht als geltende LHB-Erweiterung übernehmen."
+    }
+  },
+  "groups": {
+    "WS": {
+      "name": "Wirbelsäulenerkrankungen",
+      "source": "R3",
+      "location": "Druckseite 61 / PDF-Seite 2",
+      "symptoms": [
+        {
+          "letter": "a",
+          "original": "Schädigung der Bewegungssegmente",
+          "original_examples": [
+            "der discoligamentären Strukturen (z.B. Instabilität, Hypermobilität)",
+            "der Gelenkbeweglichkeit und -stabilität",
+            "mit lokalem/(pseudo)-radikulärem Schmerz"
+          ],
+          "explanation": "Zum Beispiel eingeschränkte Beweglichkeit oder Stabilität der Wirbelsäule mit entsprechendem Schmerz."
+        },
+        {
+          "letter": "b",
+          "original": "Schädigung/Störung der Muskelfunktion",
+          "original_examples": [
+            "der Muskelkraft, -ausdauer und -koordination",
+            "des Muskeltonus",
+            "sekundäre Schmerzen (Myalgien, Schmerzfehlhaltungen)"
+          ],
+          "explanation": "Zum Beispiel verminderte Kraft oder Ausdauer, gestörte Koordination oder Muskelspannung und sekundäre Muskelschmerzen."
+        }
+      ],
+      "complementary_catalog": [
+        "Wärmetherapie",
+        "Kältetherapie",
+        "Traktion",
+        "Elektrotherapie",
+        "Hydroelektrische Bäder"
+      ],
+      "orient_under_18": null,
+      "review_status": "gezielt_geprueft_keine_unabhaengige_Freigabe",
+      "primary_catalog": [
+        "KG",
+        "KG Gruppe",
+        "KG-Gerät",
+        "KG im Bewegungsbad",
+        "KG im Bewegungsbad Gruppe",
+        "MT",
+        "Übungsbehandlung",
+        "Übungsbehandlung Gruppe",
+        "Übungsbehandlung im Bewegungsbad",
+        "Übungsbehandlung im Bewegungsbad Gruppe",
+        "Chirogymnastik",
+        "KMT",
+        "UWM",
+        "SM",
+        "PM",
+        "BGM"
+      ],
+      "individual_symptom": {
+        "letter": "x",
+        "original": "[patientenindividuelle Symptomatik]",
+        "requirements": "Handlungsleitende Schädigung/Funktionsstörung; der Gruppe zuordenbar und mit den Regelbeispielen vergleichbar. Keine automatische semantische Freigabe aus Freitext."
+      },
+      "max_per_prescription": 6,
+      "orient": 18,
+      "frequency_recommendation": "1–3x wöchentlich",
+      "massage_limit_per_case": 12,
+      "standard_combination_limit_per_case": 12,
+      "standard_combination_requirements_source": "R2 § 12 Abs. 4–6 und § 25",
+      "app_primary": [
+        "KG",
+        "MT",
+        "KGG"
+      ],
+      "app_complementary": [
+        "FANGO",
+        "US",
+        "ET",
+        "KALT"
+      ]
+    },
+    "EX": {
+      "name": "Erkrankungen der Extremitäten und des Beckens",
+      "source": "R3",
+      "location": "Druckseite 62 / PDF-Seite 3",
+      "symptoms": [
+        {
+          "letter": "a",
+          "original": "Schädigung/Störung der Gelenkfunktion (einschließlich des zugehörigen Kapsel-Band-Apparats und der umgreifenden Muskulatur)",
+          "original_examples": [
+            "der Gelenkbeweglichkeit und -stabilität",
+            "Schmerz (einschließlich Stumpf-, Phantomschmerz)"
+          ],
+          "explanation": "Zum Beispiel eingeschränkte Beweglichkeit oder Stabilität eines Gelenks und zugehörige Schmerzen."
+        },
+        {
+          "letter": "b",
+          "original": "Schädigung/Störung der Muskelfunktion",
+          "original_examples": [
+            "der Muskelkraft, -ausdauer und -koordination",
+            "des Muskeltonus",
+            "Schmerzen"
+          ],
+          "explanation": "Zum Beispiel verminderte Kraft oder Ausdauer, gestörte Koordination oder Muskelspannung und Schmerzen."
+        }
+      ],
+      "complementary_catalog": [
+        "Wärmetherapie",
+        "Kältetherapie",
+        "Elektrotherapie",
+        "Hydroelektrische Bäder"
+      ],
+      "orient_under_18": 50,
+      "review_status": "gezielt_geprueft_keine_unabhaengige_Freigabe",
+      "primary_catalog": [
+        "KG",
+        "KG Gruppe",
+        "KG-Gerät",
+        "KG im Bewegungsbad",
+        "KG im Bewegungsbad Gruppe",
+        "MT",
+        "Übungsbehandlung",
+        "Übungsbehandlung Gruppe",
+        "Übungsbehandlung im Bewegungsbad",
+        "Übungsbehandlung im Bewegungsbad Gruppe",
+        "Chirogymnastik",
+        "KMT",
+        "UWM",
+        "SM",
+        "PM",
+        "BGM"
+      ],
+      "individual_symptom": {
+        "letter": "x",
+        "original": "[patientenindividuelle Symptomatik]",
+        "requirements": "Handlungsleitende Schädigung/Funktionsstörung; der Gruppe zuordenbar und mit den Regelbeispielen vergleichbar. Keine automatische semantische Freigabe aus Freitext."
+      },
+      "max_per_prescription": 6,
+      "orient": 18,
+      "frequency_recommendation": "1–3x wöchentlich",
+      "massage_limit_per_case": 12,
+      "standard_combination_limit_per_case": 12,
+      "standard_combination_requirements_source": "R2 § 12 Abs. 4–6 und § 25",
+      "app_primary": [
+        "KG",
+        "MT",
+        "KGG"
+      ],
+      "app_complementary": [
+        "FANGO",
+        "US",
+        "ET",
+        "KALT"
+      ]
+    }
+  },
+  "diagnoses": {
+    "M54.5": {
+      "title": "Kreuzschmerz",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WS",
+      "location": "M54.5",
+      "context_note": "Der Kode bestätigt weder ein nicht-spezifisches klinisches Profil noch allein die Diagnosegruppe."
+    },
+    "M54.2": {
+      "title": "Zervikalneuralgie",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WS",
+      "location": "M54.2",
+      "context_note": "Der Kode bestätigt weder ein nicht-spezifisches klinisches Profil noch allein die Diagnosegruppe."
+    },
+    "M54.4": {
+      "title": "Lumboischialgie",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WS",
+      "location": "M54.4",
+      "context_note": "Der Kode bestätigt weder ein nicht-spezifisches klinisches Profil noch allein die Diagnosegruppe."
+    },
+    "M54.6": {
+      "title": "Schmerzen im Bereich der Brustwirbelsäule",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WS",
+      "location": "M54.6",
+      "context_note": "Der Kode bestätigt weder ein nicht-spezifisches klinisches Profil noch allein die Diagnosegruppe."
+    },
+    "M50.1": {
+      "title": "Zervikaler Bandscheibenschaden mit Radikulopathie",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WS",
+      "location": "M50.1",
+      "context_note": "Der Kode bestätigt weder ein nicht-spezifisches klinisches Profil noch allein die Diagnosegruppe."
+    },
+    "M16.0": {
+      "title": "Primäre Koxarthrose, beidseitig",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-OA",
+      "location": "M16.0",
+      "context_note": ""
+    },
+    "M16.1": {
+      "title": "Sonstige primäre Koxarthrose",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-OA",
+      "location": "M16.1",
+      "context_note": ""
+    },
+    "M17.0": {
+      "title": "Primäre Gonarthrose, beidseitig",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-OA",
+      "location": "M17.0",
+      "context_note": ""
+    },
+    "M17.1": {
+      "title": "Sonstige primäre Gonarthrose",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-OA",
+      "location": "M17.1",
+      "context_note": ""
+    },
+    "M75.1": {
+      "title": "Läsionen der Rotatorenmanschette",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WEICHTEIL",
+      "location": "M75.1",
+      "context_note": "Schließt nichttraumatische vollständige und unvollständige Rupturen ein; bestätigt das begrenzte Tendinopathieprofil nicht."
+    },
+    "M75.4": {
+      "title": "Impingement-Syndrom der Schulter",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WEICHTEIL",
+      "location": "M75.4",
+      "context_note": "Bestätigt allein weder Rotatorenmanschetten-Tendinopathie noch deren Ausschlusskriterien."
+    },
+    "M76.6": {
+      "title": "Tendinitis der Achillessehne",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WEICHTEIL",
+      "location": "M76.6",
+      "context_note": "Inklusivum Bursitis subachillea; Midportion versus Insertion und Rupturausschluss klinisch klären."
+    },
+    "M72.2": {
+      "title": "Fibromatose der Plantarfaszie [Ledderhose-Kontraktur]",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WEICHTEIL",
+      "location": "M72.2",
+      "context_note": "Inklusivum Fasciitis plantaris. Keine Gleichsetzung von Ledderhose und klinischem Plantarfasziitisprofil."
+    },
+    "M77.3": {
+      "title": "Kalkaneussporn",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-WEICHTEIL",
+      "location": "M77.3",
+      "context_note": "Bestätigt keine Plantarfasziitis."
+    },
+    "S93.40": {
+      "title": "Verstauchung und Zerrung des oberen Sprunggelenkes: Teil nicht näher bezeichnet",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-SPRUNG",
+      "location": "S93.40",
+      "context_note": "Titel aus Oberkategorie und Unterkode zusammengesetzt. Laterale Distorsion, Zeitpunkt und Ausschlüsse klinisch bestätigen; nicht jede Untergruppe passt zum lateralen Profil."
+    },
+    "S93.41": {
+      "title": "Verstauchung und Zerrung des oberen Sprunggelenkes: Lig. deltoideum",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-SPRUNG",
+      "location": "S93.41",
+      "context_note": "Titel aus Oberkategorie und Unterkode zusammengesetzt. Laterale Distorsion, Zeitpunkt und Ausschlüsse klinisch bestätigen; nicht jede Untergruppe passt zum lateralen Profil."
+    },
+    "S93.42": {
+      "title": "Verstauchung und Zerrung des oberen Sprunggelenkes: Lig. calcaneofibulare",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-SPRUNG",
+      "location": "S93.42",
+      "context_note": "Titel aus Oberkategorie und Unterkode zusammengesetzt. Laterale Distorsion, Zeitpunkt und Ausschlüsse klinisch bestätigen; nicht jede Untergruppe passt zum lateralen Profil."
+    },
+    "S93.43": {
+      "title": "Verstauchung und Zerrung des oberen Sprunggelenkes: Lig. tibiofibulare (anterius) (posterius), distal",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-SPRUNG",
+      "location": "S93.43",
+      "context_note": "Titel aus Oberkategorie und Unterkode zusammengesetzt. Laterale Distorsion, Zeitpunkt und Ausschlüsse klinisch bestätigen; nicht jede Untergruppe passt zum lateralen Profil."
+    },
+    "S93.48": {
+      "title": "Verstauchung und Zerrung des oberen Sprunggelenkes: Sonstige Teile",
+      "year": 2026,
+      "status": "terminal_im_Original_geprueft",
+      "source": "ICD26-SPRUNG",
+      "location": "S93.48",
+      "context_note": "Titel aus Oberkategorie und Unterkode zusammengesetzt. Laterale Distorsion, Zeitpunkt und Ausschlüsse klinisch bestätigen; nicht jede Untergruppe passt zum lateralen Profil."
+    },
+    "M54.8": {
+      "title": "Sonstige Rückenschmerzen",
+      "year": 2026,
+      "status": "nicht_endstaendige_Kategorie",
+      "source": "ICD26-WS",
+      "location": "M54.8-",
+      "context_note": "Unterteilung im Original vorhanden; vollständigen passenden Kode ärztlich konkretisieren."
+    },
+    "M54.9": {
+      "title": "Rückenschmerzen, nicht näher bezeichnet",
+      "year": 2026,
+      "status": "nicht_endstaendige_Kategorie",
+      "source": "ICD26-WS",
+      "location": "M54.9-",
+      "context_note": "Unterteilung im Original vorhanden; vollständigen passenden Kode ärztlich konkretisieren."
+    },
+    "M75": {
+      "title": "Schulterläsionen",
+      "year": 2026,
+      "status": "nicht_endstaendige_Kategorie",
+      "source": "ICD26-WEICHTEIL",
+      "location": "M75-",
+      "context_note": "Unterteilung im Original vorhanden; vollständigen passenden Kode ärztlich konkretisieren."
+    },
+    "S93.4": {
+      "title": "Verstauchung und Zerrung des oberen Sprunggelenkes",
+      "year": 2026,
+      "status": "nicht_endstaendige_Kategorie",
+      "source": "ICD26-SPRUNG",
+      "location": "S93.4-",
+      "context_note": "Unterteilung im Original vorhanden; vollständigen passenden Kode ärztlich konkretisieren."
+    },
+    "M51.1": {
+      "title": "Lumbale und sonstige Bandscheibenschäden mit Radikulopathie",
+      "year": 2026,
+      "status": "zusatzkodierung_offen",
+      "source": "ICD26-WS",
+      "location": "M51.1† (G55.1*)",
+      "context_note": "Original nennt Kreuz-Stern-Beziehung zu G55.1*. Kodierkontext und erforderliche Zusatzkodierung noch gesondert prüfen."
+    }
+  },
+  "profile_contexts": {
+    "back": {
+      "candidate_group": "WS",
+      "codes": [
+        "M54.5"
+      ],
+      "required_context": "Ärztlich bestätigter nicht-spezifischer lumbaler Rückenschmerz mit relevanter Funktionsstörung; spezifische Ursache/Warnzeichen ausgeschlossen.",
+      "mapping_status": "redaktioneller_kontextabhaengiger_Vorschlag_keine_amtliche_ICD_Gruppen_Tabelle",
+      "sources": [
+        "R2 § 3 Abs. 5; § 4; § 12 Abs. 1",
+        "R3 WS/EX",
+        "R4 Druckseiten 8–10"
+      ],
+      "alternatives": "Bei anderem Behandlungsanlass erneut fachlich zuordnen. Andere Diagnosegruppen und Sonderwege sind hier nicht abschließend geprüft; keine automatische Ausschlussliste."
+    },
+    "neck": {
+      "candidate_group": "WS",
+      "codes": [
+        "M54.2"
+      ],
+      "required_context": "Nicht-spezifische Nackenschmerzen klinisch bestätigen; Bandscheibenschäden und sonstige spezifische Ursachen getrennt behandeln.",
+      "mapping_status": "redaktioneller_kontextabhaengiger_Vorschlag_keine_amtliche_ICD_Gruppen_Tabelle",
+      "sources": [
+        "R2 § 3 Abs. 5; § 4; § 12 Abs. 1",
+        "R3 WS/EX",
+        "R4 Druckseiten 8–10"
+      ],
+      "alternatives": "Bei anderem Behandlungsanlass erneut fachlich zuordnen. Andere Diagnosegruppen und Sonderwege sind hier nicht abschließend geprüft; keine automatische Ausschlussliste."
+    },
+    "oa": {
+      "candidate_group": "EX",
+      "codes": [
+        "M17.0",
+        "M17.1"
+      ],
+      "required_context": "Kniearthrose mit behandlungsrelevanter Gelenk- oder Muskelfunktionsstörung.",
+      "mapping_status": "redaktioneller_kontextabhaengiger_Vorschlag_keine_amtliche_ICD_Gruppen_Tabelle",
+      "sources": [
+        "R2 § 3 Abs. 5; § 4; § 12 Abs. 1",
+        "R3 WS/EX",
+        "R4 Druckseiten 8–10"
+      ],
+      "alternatives": "Bei anderem Behandlungsanlass erneut fachlich zuordnen. Andere Diagnosegruppen und Sonderwege sind hier nicht abschließend geprüft; keine automatische Ausschlussliste."
+    },
+    "hip": {
+      "candidate_group": "EX",
+      "codes": [
+        "M16.0",
+        "M16.1"
+      ],
+      "required_context": "Hüftarthrose mit behandlungsrelevanter Gelenk- oder Muskelfunktionsstörung.",
+      "mapping_status": "redaktioneller_kontextabhaengiger_Vorschlag_keine_amtliche_ICD_Gruppen_Tabelle",
+      "sources": [
+        "R2 § 3 Abs. 5; § 4; § 12 Abs. 1",
+        "R3 WS/EX",
+        "R4 Druckseiten 8–10"
+      ],
+      "alternatives": "Bei anderem Behandlungsanlass erneut fachlich zuordnen. Andere Diagnosegruppen und Sonderwege sind hier nicht abschließend geprüft; keine automatische Ausschlussliste."
+    },
+    "shoulder": {
+      "candidate_group": "EX",
+      "codes": [
+        "M75.1",
+        "M75.4"
+      ],
+      "required_context": "Rotatorenmanschetten-Tendinopathie bestätigen; komplette Ruptur, Frozen Shoulder und postoperative Situation nicht in dieses Profil übernehmen.",
+      "mapping_status": "redaktioneller_kontextabhaengiger_Vorschlag_keine_amtliche_ICD_Gruppen_Tabelle",
+      "sources": [
+        "R2 § 3 Abs. 5; § 4; § 12 Abs. 1",
+        "R3 WS/EX",
+        "R4 Druckseiten 8–10"
+      ],
+      "alternatives": "Bei anderem Behandlungsanlass erneut fachlich zuordnen. Andere Diagnosegruppen und Sonderwege sind hier nicht abschließend geprüft; keine automatische Ausschlussliste."
+    },
+    "achilles": {
+      "candidate_group": "EX",
+      "codes": [
+        "M76.6"
+      ],
+      "required_context": "Midportion-Tendinopathie und relevante Funktionsstörung bestätigen; Insertion, Bursitis, Ruptur oder postoperative Situation nicht gleichsetzen.",
+      "mapping_status": "redaktioneller_kontextabhaengiger_Vorschlag_keine_amtliche_ICD_Gruppen_Tabelle",
+      "sources": [
+        "R2 § 3 Abs. 5; § 4; § 12 Abs. 1",
+        "R3 WS/EX",
+        "R4 Druckseiten 8–10"
+      ],
+      "alternatives": "Bei anderem Behandlungsanlass erneut fachlich zuordnen. Andere Diagnosegruppen und Sonderwege sind hier nicht abschließend geprüft; keine automatische Ausschlussliste."
+    },
+    "heel": {
+      "candidate_group": "EX",
+      "codes": [
+        "M72.2",
+        "M77.3"
+      ],
+      "required_context": "Plantarfasziitis klinisch bestätigen; alleiniger Spornbefund oder Ledderhose-Diagnose bestätigt das Profil nicht.",
+      "mapping_status": "redaktioneller_kontextabhaengiger_Vorschlag_keine_amtliche_ICD_Gruppen_Tabelle",
+      "sources": [
+        "R2 § 3 Abs. 5; § 4; § 12 Abs. 1",
+        "R3 WS/EX",
+        "R4 Druckseiten 8–10"
+      ],
+      "alternatives": "Bei anderem Behandlungsanlass erneut fachlich zuordnen. Andere Diagnosegruppen und Sonderwege sind hier nicht abschließend geprüft; keine automatische Ausschlussliste."
+    },
+    "ankle": {
+      "candidate_group": "EX",
+      "codes": [
+        "S93.40",
+        "S93.42",
+        "S93.48"
+      ],
+      "required_context": "Akute/postakute laterale Distorsion und betroffene Strukturen bestätigen; mediale/Syndesmosenverletzung, Fraktur und chronische Instabilität separat einordnen.",
+      "mapping_status": "redaktioneller_kontextabhaengiger_Vorschlag_keine_amtliche_ICD_Gruppen_Tabelle",
+      "sources": [
+        "R2 § 3 Abs. 5; § 4; § 12 Abs. 1",
+        "R3 WS/EX",
+        "R4 Druckseiten 8–10"
+      ],
+      "alternatives": "Bei anderem Behandlungsanlass erneut fachlich zuordnen. Andere Diagnosegruppen und Sonderwege sind hier nicht abschließend geprüft; keine automatische Ausschlussliste."
+    }
+  },
+  "rules": [
+    {
+      "id": "SYM-MULTI",
+      "source": "R2",
+      "location": "§ 13 Abs. 2 l; ergänzt durch R4 S. 9–10",
+      "finding": "Mehrere Katalog-Leitsymptomatiken sind möglich. Alternativ individuelle vergleichbare Leitsymptomatik; Ziele getrennt.",
+      "status": "gezielt_geprueft"
+    },
+    {
+      "id": "PRIMARY-SPLIT",
+      "source": "R2",
+      "location": "§ 12 Abs. 2",
+      "finding": "Bis drei unterschiedliche vorrangige Heilmittel, sofern in der Gruppe vorgesehen; Einheiten aufteilen.",
+      "status": "gezielt_geprueft"
+    },
+    {
+      "id": "SUPPLEMENT-MAX",
+      "source": "R2",
+      "location": "§ 7 Abs. 5; § 12 Abs. 3",
+      "finding": "Höchstens eine medizinisch erforderliche Ergänzung; ihre Menge höchstens Summe vorrangiger Einheiten.",
+      "status": "gezielt_geprueft"
+    },
+    {
+      "id": "ORIENT",
+      "source": "R2",
+      "location": "§ 7 Abs. 1–4",
+      "finding": "Orientierende Menge ist keine starre Obergrenze; weitere Verordnungen bei Bedarf mit medizinischen Gründen in der Patientendokumentation. Ergänzungsmenge zählt dabei nicht mit.",
+      "status": "gezielt_geprueft"
+    },
+    {
+      "id": "THERMO",
+      "source": "R2",
+      "location": "§ 24 Abs. 2 Nr. 4–5, Abs. 3",
+      "finding": "Fango ist Peloid-Warmpackung, Ultraschall eine Form der Wärmetherapie. Wärme/Kälte grundsätzlich therapeutisch erforderliche Ergänzung zu den genannten vorrangigen Leistungen; US-Ausnahme beachten.",
+      "status": "gezielt_geprueft"
+    },
+    {
+      "id": "ISOLATED",
+      "source": "R2",
+      "location": "§ 12 Abs. 3",
+      "finding": "ET/ES/US unter Katalogvoraussetzungen auch isoliert möglich. App bietet entsprechend Produktentscheidung keine isolierten Ergänzungen an; daraus folgt kein formales Verbot.",
+      "status": "gezielt_geprueft_nicht_angeboten"
+    },
+    {
+      "id": "KG",
+      "source": "R2",
+      "location": "§ 19 Abs. 2; Abs. 3 Nr. 3a",
+      "finding": "KG enthält mobilisierende und stabilisierende Übungen/Techniken; auch Massagetechniken möglich. Eigenübungsprogramme soweit möglich im Vordergrund. KG nicht pauschal mit ausschließlich aktiv gleichsetzen.",
+      "status": "gezielt_geprueft"
+    },
+    {
+      "id": "KGG",
+      "source": "R2",
+      "location": "§ 19 Abs. 3 Nr. 4",
+      "finding": "Spezielle medizinische Trainingsgeräte und unmittelbare Anleitung/Aufsicht/Kontrolle; grundsätzlich parallele Einzelbehandlung bis drei Personen. Kataloglistung allein ersetzt Prüfung des Befunds nicht.",
+      "status": "gezielt_geprueft"
+    },
+    {
+      "id": "MT",
+      "source": "R2",
+      "location": "§ 19 Abs. 3 Nr. 7",
+      "finding": "Gezielte impulslose Mobilisation oder Weichteiltechniken bei reversiblen Schädigungen und zur Schmerzlinderung. Keine klinische Rangfolge aus der Kataloglistung. Vertrags-Leistungsbeschreibung für weitergehende Inhalte separat prüfen.",
+      "status": "gezielt_geprueft"
+    },
+    {
+      "id": "SPECIAL",
+      "source": "R2",
+      "location": "§ 7 Abs. 6–7; § 13a",
+      "finding": "Allgemeine Zwölf-Wochen- und Blankogrundlagen gelesen; aktuelle Listenbedingungen, Vertragsregeln, Datumsgrenzen und fachliche Gesamtprüfung bleiben offen.",
+      "status": "teilweise_geprueft_kein_Sonderweg_freigegeben"
+    }
+  ],
+  "open_items": [
+    "Alle weiteren angebotenen ICD-Zeilen, Zusatzkennzeichen, Kodierregeln und Kontextprüfung",
+    "Vollständige LHB-/BVB-Listen mit Zweitcodes, Alter, Fristen und weiteren Bedingungen",
+    "Blankoverordnung: aktuelle Vertragsliste, Ampel, Mengen, Tagelimits, Fristberechnung",
+    "Andere Diagnosegruppen einschließlich CS, ZN, PN, LY und mögliche Alternativen",
+    "Vollständige Qualifikations-/Vertrags-Leistungsbeschreibungen und angebotene Sonderkonstellationen",
+    "Unabhängiger ärztlicher/physiotherapeutischer Fachreview; vollständiger diagnosebezogener Zielablauf"
+  ]
+}

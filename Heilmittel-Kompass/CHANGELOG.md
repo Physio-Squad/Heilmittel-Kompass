@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.4 – 20.10.2026
+
+- Ersten gezielten Originalabgleich für WS/EX und ausgewählte ICD-10-GM-2026-Kodes mit Fundstellen, Fassungen und Download-Prüfsummen ergänzt.
+- Falsch bei WS hinterlegte orientierende Kindermenge 50 entfernt; EX-Altersbedingung bei fehlendem Alter sichtbar.
+- WS-/EX-Leitsymptomatiküberschriften im Original mit getrennten kurzen Erklärungen und Katalogquelle angezeigt. Mehrfachauswahl und individueller alternativer Text bleiben.
+- Begrenzten eingebetteten ICD-Prüfbestand ergänzt: endständiger Code, unterteilte Kategorie, offener Zusatzkodierkontext und unbekannter Status. Format/Präfix bestätigen keine Gültigkeit.
+- Formale Gesamtprüfung und Sonderwege ausdrücklich offen; klinische Profile, Empfehlungen und Quellen-Abrufdaten unverändert. Keine neue automatische Therapieauswahl.
+- Syntax, erweiterte Smoke- und echte Chrome-Browserprüfungen bestanden. Kein Deployment, keine fachliche Gesamtfreigabe.
+
 ## 0.4.3 – 20.10.2026
 
 - Alle acht klinischen Bereiche konsequent auf kurze Stichpunkte umgestellt: Geltungsbereich, konkrete Therapie, Physiotherapiebedarf und Zusätze.

@@ -58,3 +58,21 @@ JavaScript-Syntax, vorhandener Smoke-Test und die echte Chromium-Prüfung mit 24
 ## Stichpunktfassung 0.4.3 – 20.10.2026
 
 Syntaxprüfung, vorhandener Smoke-Test und echte Chromium-Prüfung bestanden: acht klinische Profile bei drei Bildschirmbreiten, jeweils drei Stichpunktlisten, Quellen/Abrufdaten, klinische Unterschiede, Diagnosewechsel, drei Demos und HTML-Download. Zusätzlich wurde in allen Profilen das Fehlen der ersetzten Begriffe und der Selbstwärme-/Selbstkältehinweise in der Anzeige geprüft. Mobile Nackenansicht und Desktopansicht visuell kontrolliert. Die Kürzung und redaktionelle Zuordnung zu Heilmittelbegriffen sind keine neue medizinische Freigabe und keine Aktualisierung der Abrufdaten.
+
+
+## Originalabgleich und Softwareprüfung 0.4.4 – 20.10.2026
+
+Gezielte Quellenprüfung getrennt dokumentiert in [formaler-regelabgleich.md](formaler-regelabgleich.md). Keine unabhängige medizinische oder rechtliche Freigabe. Die priorisierten offenen Punkte bleiben bestehen; ihre WS-/EX-Teilbefunde werden durch den neuen Bericht konkretisiert.
+
+Bestanden: JavaScript-Syntax, erweiterter `node tests/smoke.cjs`, `node scripts/sync-formal-data.cjs --check` und echte Browserprüfung mit vorhandenem Google Chrome/Playwright unter macOS. Zunächst scheiterte der Browserstart an der Sandbox; die genehmigte lokale Ausführung bestand. Geprüft wurden:
+
+- Bisherige 24 Profil-/Viewport-Kombinationen (1440/390/320), drei Demos, klinische Quellen und abweichende Bewertungen unverändert.
+- WS mit Alter 17: 18 orientierende Einheiten; EX mit 17: 50; mit 18: 18; unbekanntes EX-Alter im Smoke-Test als offene Bedingung.
+- Lange originale EX-a-Überschrift bei allen drei Breiten ohne horizontalen Seitenüberlauf; Mobil-Screenshot zusätzlich visuell angesehen.
+- Keine Symptomvorauswahl aus ICD; a+b zusammen, alternativ x mit Pflichttext; Gruppenwechsel löscht die bisherige Symptomwahl.
+- Bekannt endständiger Code versus nicht endständige Kategorie; syntaktisch plausibler unbekannter Code bleibt ungeprüft, ohne ungültig zu behaupten; offener Kreuz-Stern-Kontext im Smoke-Test.
+- Formale Gesamtprüfung bleibt in Ergebnis und Kopiertext offen; Sonderweg-Hinweis bleibt sichtbar.
+- Eigenständiger HTML-Download erneut in Chrome als lokale Datei geöffnet; der eingebettete ICD-Prüfbestand funktioniert ohne zusätzlich geladene Datendatei.
+- Eingebetteter Datensatz stimmt mit dem dokumentierten JSON überein. Das ist eine Konsistenzprüfung, keine fachliche Quellenfreigabe.
+
+Aufruf unter macOS: vorhandenen Node-/Playwright-Pfad und `CHROMIUM_EXECUTABLE` auf die installierte Chrome-Datei setzen. Die Standard-Testanleitung bleibt für Umgebungen mit installiertem Chromium gültig. Keine vollständige Formular-/Barrierefreiheits-, Sonderfall- oder Datenbankprüfung.

@@ -1,6 +1,6 @@
 # Heilmittel-Kompass
 
-Browserbasierter Arbeitsstand zur klinischen Orientierung, Auswahl physiotherapeutischer Heilmittel und Vorbereitung ärztlicher GKV-Verordnungsangaben. Version 0.4.3, weiterentwickelt aus dem Heilmittel-Assistenten.
+Browserbasierter Arbeitsstand zur klinischen Orientierung, Auswahl physiotherapeutischer Heilmittel und Vorbereitung ärztlicher GKV-Verordnungsangaben. Version 0.4.4, weiterentwickelt aus dem Heilmittel-Assistenten.
 
 **Status: Prototyp, keine vollständig fachlich validierte Verordnungssoftware.** Keine Patientendaten erforderlich. Keine Diagnoseautomatik und kein ausgestelltes Rezept.
 
@@ -28,6 +28,7 @@ Klinischen Bereich bestätigen → Therapie, Bedarf an Anleitung und Zusätze ei
 |---|---|
 | [Produktkonzept](docs/produktkonzept.md) | Bestätigter Zielablauf und Prüfkriterien für den Katalog-Unterbau; noch nicht vollständig umgesetzt |
 | [Anforderungen](docs/anforderungen.md) | Vereinbarte Produktregeln |
+| [Formaler Originalabgleich](docs/formaler-regelabgleich.md) | WS/EX, ausgewählte ICD-Kodes, Originalfundstellen und offene Regeln |
 | [Verordnungslogik](docs/verordnungslogik.md) | Rezeptangaben und Sonderwege |
 | [Evidenz](docs/evidenz.md) | Klinische Prioritäten, Übertragungsgrenzen |
 | [Deutscher Leitlinienabgleich](docs/deutsche-leitlinien.md) | Geprüfte Fassungen, konkrete Empfehlungen und Grenzen |
@@ -48,3 +49,10 @@ Mit Node.js: `node tests/smoke.cjs`. Die Prüfung verwendet einen simulierten DO
 Dieses GitHub-Repository speichert den Code und die Dokumentation. Es veröffentlicht die App nicht automatisch und aktiviert noch keine Codex-Cloud-Umgebung. Eine ältere private Site existiert; siehe Übergabe. Keine Secrets, echten Patientenfälle oder fremden Original-PDFs ins Repository aufnehmen.
 
 Eine Softwarelizenz wurde noch nicht festgelegt. Rechte an verlinkten Leitlinien und Veröffentlichungen verbleiben bei den jeweiligen Rechteinhabern.
+
+
+## Begrenzter formaler Prüfbestand 0.4.4
+
+WS-/EX-Originaltexte und ausgewählte ICD-10-GM-2026-Kodes sind gezielt geprüft; übrige Einträge und Sonderregeln bleiben offen. Der strukturierte Regelabgleich liegt unter `../evidence/FORMALER_REGELABGLEICH.json`. Nach Änderungen daran mit `node scripts/sync-formal-data.cjs` in die eigenständige HTML übernehmen; `--check` prüft die Synchronität. Der Offlinebetrieb braucht diesen Pflegeschritt beim Anwenden der App nicht.
+
+Der oben beschriebene Ablauf ist der bisherige Prototypablauf. Der bestätigte künftige Einstieg über Diagnose plus wenige Funktionsangaben ist im Produktkonzept beschrieben und noch nicht vollständig implementiert.

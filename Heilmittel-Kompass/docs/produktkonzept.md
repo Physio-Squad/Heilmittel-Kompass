@@ -84,3 +84,8 @@ Quellenanzeige: Herausgeber, Titel, Fassung/Stand, Fundstelle und tatsächliches
 ## Bisheriger Stand
 
 Version 0.4.3 ist ein getesteter Prototyp mit ausgewählten klinischen Informationen und begrenzten Katalogzuordnungen. Die hier geforderte vollständige formale Prüfung des gewählten Startumfangs ist noch nicht abgeschlossen. Die Originalquellen für Richtlinie, Katalog und KBV-Verordnungshilfe waren beim Abrufversuch am 20.10.2026 in dieser Sitzung vom Netzwerkzugriff ausgeschlossen; daraus wurden keine neuen formalen Regeln abgeleitet.
+
+
+## Fortschritt 0.4.4 – erster formaler Teilabgleich
+
+Der [Originalabgleich vom 20.10.2026](formaler-regelabgleich.md) schließt die frühere Zugriffslücke für die tatsächlich abgerufenen G-BA-/KBV-Quellen und prüft WS/EX sowie ausgewählte ICD-10-GM-2026-Kodes. Die WS-Kindermenge wurde korrigiert, Originalüberschriften und begrenzte ICD-Prüfzustände sind eingebaut. Alle bestätigten Produktentscheidungen und acht Profile bleiben bestehen. Der vollständige Zielablauf, weitere Datenbankeinträge, alternative Gruppen und Sonderregeln bleiben offen; die Teilprüfung ist keine fachliche Gesamtfreigabe.

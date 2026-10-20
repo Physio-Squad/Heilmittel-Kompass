@@ -12,10 +12,23 @@ Diese Übergabe und das Produktkonzept beschreiben den zuletzt bestätigten Auft
 ## Tatsächlicher Arbeitsstand
 
 - Repository: https://github.com/Physio-Squad/Heilmittel-Kompass
-- App: Version 0.4.3, eigenständige `Heilmittel-Kompass/index.html`, ohne Build-Schritt.
+- App: Version 0.4.4, eigenständige `Heilmittel-Kompass/index.html`, ohne Build-Schritt.
 - Übergabe-Branch: `codex/uebergabe-2026-10-20`. Dieser Branch sichert den aktuellen App-, Dokumentations- und Recherchestand einschließlich der zuvor nicht committeten Änderungen. Im neuen Chat ausdrücklich diesen Branch verwenden; `main` enthält den Übergabestand nicht automatisch. Es wurde kein Website-Deployment vorgenommen.
 - Die beiden Originaldateien unter `evidence/` wurden unverändert aus Branch `research/leitlinien-quellen-2026-10`, Commit `aff328c2afc17f7b4b37246c9af84c62a135cbf5`, übernommen. Herkunft und Prüfsummen: `evidence/IMPORT.json`.
 - Der Rechercheimport wurde mit den vorhandenen Quellen abgeglichen. Er enthält Quellenregister und Prüfstände, noch keine vollständige Matrix extrahierter Einzelempfehlungen oder geprüfte Katalogdatenbank.
+
+## Fortsetzung: erster formaler Teilabgleich 0.4.4
+
+Am 20.10.2026 wurden G-BA-/KBV-Originale und ausgewählte BfArM-Seiten tatsächlich erneut abgerufen. Die unten beschriebene frühere Zugriffslücke ist für diese konkreten Quellen inzwischen geschlossen. [Formaler Originalabgleich](Heilmittel-Kompass/docs/formaler-regelabgleich.md) und [strukturierter Datensatz](evidence/FORMALER_REGELABGLEICH.json) enthalten Fundstellen, Fassungen, Prüfsummen und Grenzen.
+
+- WS-/EX-Tabellen gelesen und visuell geprüft. WS hat 18 orientierende Einheiten; die irrtümlich aus EX übernommene Kinderregel 50 wurde bei WS entfernt. EX bleibt unter 18 Jahren bei 50, sonst 18.
+- Gruppenspezifische Originalüberschriften mit getrennten Erklärungen und Katalogquelle eingebaut; keine Vorauswahl von Symptomen oder Heilmitteln aus ICD.
+- Begrenzter ICD-Prüfbestand: 19 endständige Kodes gezielt geprüft, vier unterteilte Kategorien erkannt, M51.1-Kreuz-Stern-Kontext offen. Fehlender Treffer bedeutet ungeprüft; keine Format-/Präfixfreigabe.
+- Kontextabhängige redaktionelle Zuordnung für alle acht Profile dokumentiert. Klinische Profilpassung bleibt zu bestätigen; Sporn, Ruptur, Insertion oder Syndesmosenverletzung nicht stillschweigend gleichsetzen.
+- G-BA-Beschluss 20.08.2026 laut Originalseite noch nicht in Kraft; nicht als neue geltende LHB-Berechtigung übernommen.
+- Syntax, erweiterter Smoke-Test, Datensynchronität und echte Chrome-/Playwright-Prüfung bestanden: alle bisherigen 24 Profil-/Viewport-Fälle sowie neue Regeln/Zustände und Offline-HTML-Export. Keine unabhängige Fachprüfung, kein Deployment.
+
+**Nächster Teil:** übrige angebotene ICD-Einträge und Kontext-/Zusatzkodierung, alternative Gruppen sowie vollständige LHB-/BVB- und Blankoverordnungsbedingungen prüfen. Der vollständige diagnosebezogene Zielablauf bleibt noch umzusetzen. Der aktuelle Bericht benennt alle Grenzen; keine stillschweigende Einschränkung der acht Profile und keine pauschale Freigabe bestehender Sonderregeln.
 
 ## Bestätigter Produktauftrag
 
