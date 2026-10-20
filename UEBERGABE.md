@@ -1,4 +1,25 @@
-# Heilmittel-Kompass – Übergabe vom 20.10.2026
+# Heilmittel-Kompass – Übergabe vom 21.10.2026
+
+## Aktueller Stand: Version 0.5.0 (Neuaufbau)
+
+- Branch: `claude/neuaufbau-0.5` (baut auf `codex/uebergabe-2026-10-20` auf). Kein Deployment.
+- App: `Heilmittel-Kompass/index.html`, eigenständig, ohne Build. Drei Skriptblöcke: `HK_DATA` (Daten mit Quellen), `HK` (Regellogik), Oberfläche.
+- Anlass: In 0.4.4 standen Arbeits- und Prüfvermerke in der Oberfläche („redaktionell zugeordnet“, „keine ungeprüfte Übertragung …“). Alle sichtbaren Texte wurden neu geschrieben; Schreibregeln in `Heilmittel-Kompass/AGENTS.md`, automatische Prüfung in beiden Tests.
+- Ablauf jetzt wie im Produktkonzept: Diagnose → Profil bestätigen (+ optionale, eingeklappte Befundfragen) → Gruppe/Leitsymptomatik → Heilmittel mit Leitlinienbewertung an jeder Karte → Menge/Angaben → Muster-13-Vorschau.
+- Neu geprüft am 21.10.2026: Katalog CS/ZN/PN/LY, KBV-Diagnoseliste 01.01.2026, Blanko-Diagnoseliste, NVL Kreuzschmerz. Details und offene Punkte: `Heilmittel-Kompass/docs/formaler-regelabgleich.md` (Abschnitt 21.10.2026).
+- Tests: `node tests/smoke.cjs`, `node tests/browser.cjs` (24 Profil-/Viewport-Fälle plus Blanko, Diagnoseliste, unbekannter Code, Demo) bestanden.
+
+Nutzerentscheidungen vom 21.10.2026: Neuaufbau statt Überarbeitung; Gruppen CS/ZN/PN/LY mitführen ohne Leitlinienbewertung; Blankoverordnung Schulter behalten; Befundfragen optional und eingeklappt, 2–4 Fragen; neues Design.
+
+## Nächste Schritte
+
+1. Offene formale Punkte aus dem Abschnitt 21.10.2026 klären.
+2. Unabhängiger ärztlicher und physiotherapeutischer Fachreview der Texte in `HK_DATA.profile`.
+3. Veröffentlichung nur auf ausdrücklichen Auftrag.
+
+---
+
+# Frühere Übergabe vom 20.10.2026
 
 ## Zuerst lesen
 

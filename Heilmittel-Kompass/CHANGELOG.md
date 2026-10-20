@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.5.0 – 21.10.2026 (Neuaufbau)
+
+- App neu aufgebaut nach dem bestätigten Zielablauf: Diagnose/ICD → klinische Einordnung bestätigen → Diagnosegruppe und Leitsymptomatik → Heilmittel → Menge und Angaben. Der getrennte Einstieg „klinischen Bereich wählen“ entfällt; das Profil wird aus der Diagnose vorgeschlagen und muss bestätigt werden.
+- Leitlinienbewertung direkt an jeder Heilmittelkarte (Empfohlen / Mit Einschränkung / Möglich / Uneinheitlich / Nicht empfohlen / Keine Leitlinienaussage), mit Phase akut/chronisch, wo die Leitlinie unterscheidet.
+- Optionale, eingeklappte Befundfragen (Dauer, Vordergrund Beweglichkeit/Kraft, Eigenprogramm). Sie heben passende Leitsymptomatik bzw. Bedarfsaussagen hervor; ausgewählt wird nichts.
+- Alle sichtbaren Texte neu geschrieben: fachliche Aussagen statt Arbeits- und Prüfvermerken. Regeln dafür in AGENTS.md; Smoke- und Browsertest prüfen auf typische Meta-Formulierungen.
+- Live-Vorschau im Aufbau von Muster 13 mit Status „noch offen / bitte korrigieren“ und kopierbarem Text.
+- Rückenprofil um die NVL Nicht-spezifischer Kreuzschmerz (2. Aufl. 2017, Gültigkeit abgelaufen, in Überarbeitung) ergänzt; Kapitel 5 am 21.10.2026 abgerufen. Traktion als WS-Ergänzung aufgenommen (Katalog WS; Leitlinien dagegen).
+- Diagnosegruppen CS, ZN, PN, LY am Heilmittelkatalog (Fassung 16.05.2024) abgeglichen und als Gruppen ohne Leitlinienbewertung geführt.
+- KBV-Heilmittel-Diagnoseliste (Stand 01.01.2026) für die enthaltenen Codes abgeglichen: 12-Wochen-Verordnung bei Listentreffer oder Kassengenehmigung, Zweitcode-Bedingungen (M50/M51), Lipödem-Befristung.
+- Blankoverordnung Schulter gegen die Vertragsliste (KVWL, gültig ab 01.11.2024) abgeglichen: 53 Einzelcodes, Familien M75/S42/S43/S46/S49, Z96.60 nur mit Z98.88. Ampel-Angaben entfernt (betreffen die Therapiepraxis, nicht die Verordnung).
+- HTML-Download und Synchronisationsskript entfernt; Daten, Logik und Oberfläche als getrennte Skriptblöcke in index.html.
+- Tests neu: `tests/smoke.cjs` (Regeln, Texte), `tests/browser.cjs` (8 Profile × 3 Breiten, Blanko, Diagnoseliste, unbekannter Code, Demo). Beide bestanden. Kein Deployment, keine fachliche Freigabe.
+
 ## 0.4.4 – 20.10.2026
 
 - Ersten gezielten Originalabgleich für WS/EX und ausgewählte ICD-10-GM-2026-Kodes mit Fundstellen, Fassungen und Download-Prüfsummen ergänzt.

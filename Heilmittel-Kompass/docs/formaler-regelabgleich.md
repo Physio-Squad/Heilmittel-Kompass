@@ -80,3 +80,18 @@ Vor Freigabe fehlen weiterhin:
 4. Andere Gruppen und Spezialleistungen (CS/ZN/PN/LY, MLD, KG-ZNS, Qualifikations-/Vertragsdetails).
 5. Vollständiger diagnosebezogener Produktablauf mit wenigen Funktionsfragen und ärztlich bestätigten Vorschlägen/Alternativen.
 6. Unabhängiger ärztlicher/physiotherapeutischer Fachreview. Softwareprüfungen bestätigen Verhalten, keine medizinische oder rechtliche Freigabe.
+
+
+## Fortsetzung 21.10.2026 (Version 0.5.0)
+
+Zusätzlich abgerufen und in `HK_DATA` übernommen:
+
+| Quelle | Abgerufen | Übernommen |
+|---|---|---|
+| [G-BA Heilmittelkatalog](https://www.g-ba.de/downloads/17-98-3064/HeilM-RL_2024-05-16_Heilmittelkatalog.pdf), S. 63–65, 68 | 21.10.2026 | CS, ZN, PN, LY: Leitsymptomatiken, vorrangige/ergänzende Heilmittel, Höchstmengen (CS/LY 6, ZN/PN 10), orientierende Mengen (CS 18, ZN/PN/LY 30, ZN unter 18 Jahren 50), MLD-Zeiten und Kompressions-Fußnote. Inhalt über eine Textzusammenfassung des Originals erfasst; Leitsymptomatik-Wortlaut bei ZN/PN/LY b/c vor Freigabe am PDF gegenlesen. |
+| [KBV Heilmittel-Diagnoseliste](https://www.kbv.de/documents/praxis/verordnungen/heilmittel/heilmittel-diagnoseliste.pdf), Stand 01.01.2026 | 21.10.2026 | Gelistet: G35.0/.1-/.2-/.3-/.9, G20.1-/G20.2-, I89.01/.02/.04/.05, E88.20–22 (befristet bis 31.12.2027; E88.20 nur mit KPE), M75.1 (EX), M50.0/M51.0 mit G99.2, M50.1/M51.1 mit G55.1. Nicht gelistet: M54, M16, M17, M76, M72, M77, S93, G62, G56, M79.7, I89.00/.03. Ob ein Eintrag LHB oder BVB ist, ließ sich aus dem Text nicht je Zeile bestimmen; die App behandelt beide gleich (Verordnung für bis zu 12 Wochen). Fristen bei M50/M51 nicht eindeutig zuordenbar; die App verweist dafür auf die Liste. |
+| [KVWL Diagnoseliste Blankoverordnung](https://www.kvwl.de/fileadmin/user_upload/pdf/Mitglieder/Verordnung/Heilmittel/Diagnoseliste_Indikationen_Blankoverordnung.pdf) | 21.10.2026 | Vollständiger Abgleich der App-Liste: keine Abweichung. Z96.60 nur mit Z98.8(8); M24.41 auch mit Z98.8 gelistet. |
+| [KVWL PraxisInfo Blankoverordnung](https://www.kvwl.de/fileadmin/user_upload/pdf/Mitglieder/Verordnung/Heilmittel/PraxisInfo_Heilmittel_Blankoverordnung.pdf), Stand 10/2024 | 21.10.2026 | 16 Wochen ab Ausstellung, Unterbrechung verlängert nicht; Heilmittel/Menge/Frequenz durch Therapiepraxis; Wirtschaftlichkeitsverantwortung bei der Praxis; Folgeverordnung durch Arzt. Leitsymptomatik bleibt in der App Pflichtangabe (Muster 13); vor Freigabe am Vertragstext bestätigen. |
+| [NVL Nicht-spezifischer Kreuzschmerz](https://register.awmf.org/assets/guidelines/nvl-007k_S3_Kreuzschmerz_2018-02-abgelaufen.pdf), Kurzfassung | 21.10.2026 | Empfehlungen 4-2, 4-3, 5-1 bis 5-29, 9-1 für das Rückenprofil. Gültigkeit laut Dokument bis 03/2022, in Überarbeitung; in der App so gekennzeichnet. |
+
+Weiterhin offen: Leitsymptomatik-Wortlaut CS/ZN/PN/LY gegen PDF; LHB/BVB-Unterscheidung je Zeile; Fristen M50/M51; MLD-45/60-Bedingungen nach § 18 HeilM-RL; Blanko-Vertragstext (Leitsymptomatik, parallele Verordnungen); unabhängiger Fachreview.

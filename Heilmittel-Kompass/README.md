@@ -1,26 +1,33 @@
 # Heilmittel-Kompass
 
-Browserbasierter Arbeitsstand zur klinischen Orientierung, Auswahl physiotherapeutischer Heilmittel und Vorbereitung ärztlicher GKV-Verordnungsangaben. Version 0.4.4, weiterentwickelt aus dem Heilmittel-Assistenten.
+Ärztliche Entscheidungshilfe für die Verordnung physiotherapeutischer Heilmittel (GKV, Muster 13). Version 0.5.0.
 
-**Status: Prototyp, keine vollständig fachlich validierte Verordnungssoftware.** Keine Patientendaten erforderlich. Keine Diagnoseautomatik und kein ausgestelltes Rezept.
+**Status: Prototyp, nicht unabhängig fachlich geprüft.** Keine Patientendaten, keine Speicherung, kein ausgestelltes Rezept.
 
 ## Start
 
-`index.html` herunterladen und im Browser öffnen. CSS, JavaScript und ein begrenzter Diagnosedatenbestand sind eingebettet. Die Auswahl funktioniert offline; externe Quellen benötigen Internet. Über „Demoversion öffnen“ lassen sich drei fiktive Fälle laden.
+`index.html` im Browser öffnen. Alles ist eingebettet; ohne Internet fehlen nur die Webfonts und Quellenlinks. Drei fiktive Beispiele lassen sich unter dem Diagnosefeld laden.
 
 ## Ablauf
 
-Klinischen Bereich bestätigen → Therapie, Bedarf an Anleitung und Zusätze einordnen → ärztlich gestellte Diagnose/ICD → Diagnosegruppe → Leitsymptomatik → Heilmittel/Kombination → Menge und Ergebnis. Die klinische Orientierung funktioniert auch vor dem Diagnoseeintrag. Therapieziele sind optional. Kopieren und HTML-Download sind vorhanden; Drucken ist entfernt.
+1. **Diagnose:** Suche nach Klartext oder ICD-10-Code. Geprüfte ICD-10-GM-2026-Codes sind markiert; Kategorien verlangen den vollständigen Code. Unbekannte Codes sind möglich, die Gruppe wird dann selbst gewählt.
+2. **Klinische Einordnung:** Für acht muskuloskelettale Bilder wird ein Profil vorgeschlagen und muss bestätigt werden (Geltungsbereich und Ausschlüsse). Danach: Was hilft, wann Physiotherapie, weitere Maßnahmen, Quellen. Optionale Befundfragen heben Passendes hervor, wählen aber nichts aus.
+3. **Diagnosegruppe und Leitsymptomatik:** Gruppe als Vorschlag, änderbar. Originaltexte des Katalogs mit kurzer Erklärung; Mehrfachauswahl und patientenindividuelle Leitsymptomatik.
+4. **Heilmittel:** Bis zu drei vorrangige Heilmittel, höchstens eine Ergänzung. Jede Karte zeigt die Leitlinienbewertung. Bei gelisteten Schulterdiagnosen alternativ Blankoverordnung.
+5. **Menge und Angaben:** Einheiten je Heilmittel, Frequenz, Höchst- und orientierende Menge, 12-Wochen-Verordnung bei Diagnoseliste oder Genehmigung, Hausbesuch, Therapiebericht, Dringlichkeit, Therapieziele.
 
-- Mehrere Katalog-Leitsymptomatiken oder alternativ individueller Freitext.
-- Hauptheilmittel allein oder mit Ergänzung; Ergänzungsmenge separat.
-- Mehrere Hauptheilmittel nur im aufklappbaren Ausnahmebereich, mit Mengenaufteilung.
-- Keine KG-Gruppe; KG-ZNS optional und nie automatisch ausgewählt.
-- Ausgewählte Sonderwege und Schulter-Blankoverordnung.
-- Klinische Orientierung für acht bestätigte Geltungsbereiche: lumbaler Rückenschmerz, nicht-spezifische Nackenschmerzen, Kniearthrose, Hüftarthrose, Rotatorenmanschetten-Tendinopathie, Midportion-Achillessehnen-Tendinopathie, Plantarfasziitis und akute/postakute laterale Sprunggelenksdistorsion.
-- Drei Fragen pro Bereich: Welche Therapie hilft? Wann ist Physiotherapie sinnvoll? Welche Zusätze lohnen sich? Keine Behandlungssteuerung.
-- Quellen, Original-Empfehlungsstärke und widersprüchliche Bewertungen einsehbar. Deutsche Originalleitlinien zu Kniearthrose und nicht-spezifischen Nackenschmerzen eingearbeitet; deutscher Hüftabgleich offen. Ältere Quellen ausdrücklich gekennzeichnet.
-- Drei dauerhaft gekennzeichnete fiktive Demofälle.
+Rechts (mobil unten) entsteht die Verordnung im Aufbau von Muster 13 mit offenen Punkten und Korrekturhinweisen; „Text kopieren“ übernimmt alles als Text.
+
+Profile: lumbaler Rückenschmerz, nicht-spezifische Nackenschmerzen, Kniearthrose, Hüftarthrose, Rotatorenmanschetten-Tendinopathie, Midportion-Achillessehnen-Tendinopathie, Plantarfasziitis, akute/postakute laterale Sprunggelenksdistorsion. Gruppen CS, ZN, PN und LY sind formal nach Katalog abgebildet, ohne Leitlinienbewertung.
+
+## Aufbau und Tests
+
+`index.html` enthält drei Skriptblöcke: `HK_DATA` (alle fachlichen Daten mit Quellen), `HK` (Regellogik ohne DOM) und die Oberfläche. Fachliche Änderungen erfolgen in `HK_DATA`.
+
+```
+node tests/smoke.cjs        # Regeln und Texte
+node tests/browser.cjs      # benötigt Playwright + Chromium (CHROMIUM_EXECUTABLE)
+```
 
 ## Dokumentation
 
@@ -37,7 +44,7 @@ Klinischen Bereich bestätigen → Therapie, Bedarf an Anleitung und Zusätze ei
 | [Quellen](docs/quellen.md) | Recherchequellen und Prüfstatus |
 | [Entscheidungen](docs/entscheidungen.md) | Hintergrund der Gestaltung |
 | [Validierung](docs/validierung.md) | Prüfstand und offene Risiken |
-| [Übergabe](docs/uebergabe.md) | Weiterarbeit in der Cloud |
+| [Übergabe](../UEBERGABE.md) | Aktueller Stand und nächste Schritte |
 | [Changelog](CHANGELOG.md) | Projektentwicklung |
 
 ## Prüfung

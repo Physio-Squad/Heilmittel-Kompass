@@ -1,59 +1,86 @@
-const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
-const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
-let syms=[];const els=new Map();
-function el(id){if(!els.has(id))els.set(id,{value:'',checked:false,hidden:false,dataset:{},classList:{toggle(){}},setAttribute(){},addEventListener(k,f){this[k]=f},querySelectorAll(){return[]},get innerHTML(){return this.html||''},set innerHTML(v){this.html=v;if(id==='symptom')this.value='';if(id==='symptomChoices')syms=[...v.matchAll(/data-sym="([^"]+)"/g)].map(m=>({dataset:{sym:m[1]},checked:false}));}});return els.get(id);}
-const doc={documentElement:{outerHTML:html},getElementById:el,querySelectorAll(q){if(q==='[data-sym]')return syms;if(q==='[data-sym]:checked')return syms.filter(x=>x.checked);return[]},addEventListener(){}};
-const c=vm.createContext({document:doc,Date,Blob,URL,setTimeout(){},navigator:{},location:{reload(){}},console});
-vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],c);const run=s=>vm.runInContext(s,c);
-for(const id of ['back','oa','shoulder']){
- run("loadDemo('"+id+"')");
- assert.equal(el('units').value,6);assert.equal(el('frequency').value,'1-2');assert.equal(el('evidenceProfile').value,id);
- assert.match(run('textOutput'),/^DEMO/);assert.match(el('summaryContent').innerHTML,/Demo · fiktives/);assert.equal(el('demoNotice').hidden,false);
- assert.equal(run('state.supp'),'NONE');assert.ok(el('goalCustom').value.length>20);
- el('units').value='4';run('update()');assert.match(run('textOutput'),/^DEMO/);
+// Prüft die Regel- und Textlogik ohne Browser. Ersetzt keine fachliche Prüfung.
+const fs = require('node:fs'), vm = require('node:vm'), path = require('node:path'), assert = require('node:assert/strict');
+const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]);
+assert.equal(scripts.length, 3, 'Daten, Logik und Oberfläche als getrennte Skripte');
+scripts.forEach(s => new vm.Script(s));
+const ctx = vm.createContext({});
+vm.runInContext(scripts[0] + ';' + scripts[1] + ';this.HK=HK;', ctx);
+const HK = ctx.HK, D = HK.D;
+const st = (o) => Object.assign(HK.newState(), o);
+
+// ICD-Eingabe
+assert.equal(HK.code('m545'), 'M54.5');
+assert.equal(HK.code(' g55.1* '), 'G55.1');
+assert.equal(HK.icdStatus('M54.5'), 'geprueft');
+assert.equal(HK.icdStatus('S93.4'), 'kategorie');
+assert.equal(HK.icdStatus('M54.500'), null, 'Format allein bestätigt keinen Code');
+assert.equal(HK.search('knie')[0].c.slice(0,3), 'M17');
+assert.equal(HK.search('M75.1')[0].c, 'M75.1');
+
+// Profilzuordnung (nur Vorschlag; Bestätigung in der Oberfläche)
+assert.equal(HK.profileFor('M54.5'), 'back');
+assert.equal(HK.profileFor('M17.1'), 'knee');
+assert.equal(HK.profileFor('M16.0'), 'hip');
+assert.equal(HK.profileFor('M75.4'), 'shoulder');
+assert.equal(HK.profileFor('S93.42'), 'ankle');
+assert.equal(HK.profileFor('S93.41'), null, 'mediale Bandverletzung gehört nicht zum lateralen Profil');
+assert.equal(HK.profileFor('S93.43'), null, 'Syndesmose gehört nicht zum lateralen Profil');
+assert.equal(Object.keys(D.profile).length, 8);
+for (const [id, p] of Object.entries(D.profile)) {
+  for (const k of D.gruppen.EX.primary) assert.ok(p.hm[k], id + ': Bewertung für ' + k);
+  for (const r of Object.values(p.hm)) for (const q of (r.r || [])) assert.ok(D.quellen[q], id + ': Quelle ' + q);
+  for (const q of p.quellen) assert.ok(D.quellen[q]);
 }
-run("choose(DIAGNOSES.find(d=>d.code==='M54.5'))");assert.equal(run('activeDemo'),null);assert.equal(el('demoNotice').hidden,true);
-syms[0].checked=true;el('symptomChoices').change({target:syms[0]});syms[1].checked=true;el('symptomChoices').change({target:syms[1]});assert.ok(run('symptomText()').includes('; '));
-run("state.primary=['KG'];state.supp='FANGO'");el('suppUnits').value='3';run('update()');assert.match(run('textOutput'),/Ergänzung: 3 ×/);
-el('suppUnits').value='7';run('update()');assert.match(el('warnings').innerHTML,/Menge der Ergänzung/);
-run("choose({code:'Z96.60',name:'Test',group:'EX',second:'Z98.88'})");assert.equal(el('secondCodeWrap').hidden,false);el('secondCode').value='Z98.88';run('update()');assert.doesNotMatch(el('warnings').innerHTML,/Erforderlichen zweiten/);
-run("choose(DIAGNOSES.find(d=>d.code==='M75.4'));state.route='blank';update()");assert.equal(el('quantityCard').hidden,true);assert.equal(el('suppUnitsWrap').hidden,true);assert.doesNotMatch(run('textOutput'),/Frequenz:/);
-// Regression cases for the first formal source review. These test software behavior,
-// not the medical correctness or completeness of the underlying regulations.
-run("choose(DIAGNOSES.find(d=>d.code==='M54.5'))");
-el('age').value='17';run('update()');
-assert.match(el('quantityHint').innerHTML,/18 Einheiten/);
-assert.doesNotMatch(el('quantityHint').innerHTML,/50 Einheiten/);
-assert.equal(run("icdReview('M54.5').status"),'terminal_im_Original_geprueft');
-assert.equal(run("icdReview('M54.500')"),null,'Prefix or format must not imply validity');
-assert.equal(run("icdReview('S93.4').status"),'nicht_endstaendige_Kategorie');
-assert.equal(run("icdReview('S93.42').status"),'terminal_im_Original_geprueft');
-assert.match(el('symptomChoices').innerHTML,/Schädigung der Bewegungssegmente/);
-assert.match(el('symptomChoices').innerHTML,/Zum Beispiel/);
-run("choose(DIAGNOSES.find(d=>d.code==='M17.0'))");
-el('age').value='17';run('update()');assert.match(el('quantityHint').innerHTML,/50 Einheiten/);
-el('age').value='18';run('update()');assert.match(el('quantityHint').innerHTML,/18 Einheiten/);
-assert.doesNotMatch(el('quantityHint').innerHTML,/50 Einheiten/);
-el('age').value='';run('update()');assert.match(el('quantityHint').innerHTML,/Alter offen: unter 18 Jahren 50/);
-assert.match(el('symptomChoices').innerHTML,/Kapsel-Band-Apparats/);
-assert.equal(syms.filter(s=>s.checked).length,0,'No symptom should be inferred from ICD');
-syms[0].checked=true;el('symptomChoices').change({target:syms[0]});
-syms[1].checked=true;el('symptomChoices').change({target:syms[1]});
-assert.ok(run('symptomText()').includes('; '));
-syms[2].checked=true;el('symptomChoices').change({target:syms[2]});
-assert.equal(syms.filter(s=>s.checked).length,1);
-assert.match(el('warnings').innerHTML,/Patientenindividuelle Leitsymptomatik ergänzen/);
-el('individual').value='Relevante Kraftminderung beim Aufstehen';run('update()');
-assert.equal(run('symptomText()'),el('individual').value);
-assert.match(el('summaryContent').innerHTML,/Formale Gesamtprüfung offen/);
-run("choose({code:'M54.8',name:'Kategorie',group:'WS',custom:true})");
-assert.match(el('warnings').innerHTML,/Nicht endständige ICD-Kategorie/);
-run("choose({code:'M54.500',name:'Ungeprüft',group:'WS',custom:true})");
-assert.match(el('warnings').innerHTML,/Gültigkeit, Endständigkeit und Klartext.*noch nicht geprüft/);
-assert.doesNotMatch(el('warnings').innerHTML,/ungültig/i);
-run("choose(DIAGNOSES.find(d=>d.code==='M51.1'))");
-assert.match(el('warnings').innerHTML,/Zusatzkodierung/);
-const reviewed=JSON.parse(fs.readFileSync(path.join(__dirname,'..','..','evidence','FORMALER_REGELABGLEICH.json'),'utf8'));
-assert.deepEqual(JSON.parse(run('JSON.stringify(formalReview)')),{reviewed_on:reviewed.reviewed_on,groups:reviewed.groups,diagnoses:reviewed.diagnoses});
-assert.equal(Object.keys(reviewed.profile_contexts).length,8);
-console.log('Smoke-Test bestanden: Demos, Symptome, Mengen, Zusatzcode, Blanko sowie WS/EX-Altersgrenze, begrenzter ICD-Prüfstatus und Datensynchronität. Kein Browser- oder Fachtest.');
+
+// Katalogregeln WS/EX
+assert.equal(D.gruppen.WS.orient, 18); assert.equal(D.gruppen.WS.orientKind, undefined, 'WS ohne Kinderregel');
+assert.equal(D.gruppen.EX.orientKind, 50);
+assert.ok(D.gruppen.WS.supp.includes('TRAK')); assert.ok(!D.gruppen.EX.supp.includes('TRAK'));
+let s = st({code:'M17.1', gruppe:'EX', sym:['a'], primary:['KG','MT'], units:{KG:'3',MT:'3'}, freq:'1-2'});
+assert.equal(HK.check(s).fertig, true);
+s.units.MT = '4'; assert.match(HK.check(s).fehler.join(), /Höchstmenge je Verordnung: 6/);
+s.units.MT = '3'; s.supp = 'FANGO'; s.suppUnits = '7'; assert.match(HK.check(s).fehler.join(), /höchstens 6 Einheiten/);
+s.suppUnits = '6'; assert.equal(HK.check(s).fertig, true);
+s.supp = 'TRAK'; assert.match(HK.check(s).fehler.join(), /nicht vorgesehen/);
+assert.equal(HK.limits(st({code:'M17.1', gruppe:'EX', unter18:true})).orient, 50);
+assert.equal(HK.limits(st({code:'M54.5', gruppe:'WS', unter18:true})).orient, 18);
+
+// Leitsymptomatik
+s = st({code:'M54.5', gruppe:'WS', primary:['KG'], units:{KG:'6'}, freq:'1'});
+assert.ok(HK.check(s).offen.includes('Leitsymptomatik'));
+s.symX = true; assert.ok(HK.check(s).offen.some(x => /patientenindividuellen/.test(x)));
+s.symXText = 'Schmerzhaft eingeschränkte Rotation'; assert.equal(HK.check(s).fertig, true);
+s.sym = ['a','b']; assert.equal(HK.symText(s).length, 3, 'Katalog- und individuelle Leitsymptomatik kombinierbar');
+
+// Diagnoseliste und 12 Wochen
+assert.equal(HK.liste('M51.1', '', 'WS').aktiv, false);
+assert.equal(HK.liste('M51.1', 'G55.1', 'WS').aktiv, true);
+let L = HK.limits(st({code:'G35.9', gruppe:'ZN', freq:'2'})); assert.equal(L.zwoelf, true); assert.equal(L.max, 24);
+L = HK.limits(st({code:'G35.9', gruppe:'ZN'})); assert.equal(L.max, null);
+L = HK.limits(st({code:'M54.5', gruppe:'WS', genehmigung:true, freq:'3'})); assert.equal(L.max, 36);
+assert.equal(HK.limits(st({code:'G62.9', gruppe:'PN'})).max, 10);
+assert.equal(HK.liste('E88.20').hinweis.includes('31.12.2027'), true);
+assert.equal(HK.liste('I89.00'), null);
+
+// Blankoverordnung
+assert.ok(HK.blanko('M75.1').ok); assert.ok(HK.blanko('S42.21').ok); assert.ok(HK.blanko('M19.01').ok);
+assert.equal(HK.blanko('M17.1'), null);
+assert.equal(HK.blanko('Z96.60', '').ok, false); assert.equal(HK.blanko('Z96.60', 'Z98.88').ok, true);
+s = st({code:'M75.1', gruppe:'EX', sym:['a'], route:'blanko', ausstellung:'2026-10-21'});
+assert.equal(HK.check(s).fertig, true);
+const t = HK.text(s); assert.match(t, /Heilmittel: BLANKOVERORDNUNG/); assert.match(t, /Gültig bis: 10\.02\.2027/); assert.doesNotMatch(t, /Therapiefrequenz/);
+s = st({code:'Z96.60', gruppe:'EX', sym:['a'], route:'blanko', ausstellung:'2026-10-21'});
+assert.match(HK.check(s).fehler.join(), /Z98.88/);
+
+// Bewertungen je Phase
+const neckKG = D.profile.neck.hm.KG;
+assert.equal(HK.verdict(neckKG, 'akut').v, 'opt'); assert.equal(HK.verdict(neckKG, 'chron').v, 'pos'); assert.equal(HK.verdict(neckKG, null).v, 'phase');
+assert.equal(HK.phaseKey('back', 'subakut'), 'chron'); assert.equal(HK.phaseKey('neck', 'subakut'), null);
+
+// Sichtbare Texte frei von Arbeits- und Prüfvermerken
+const visible = JSON.stringify({p:D.profile, h:D.heilmittel, g:D.gruppen, z:D.ziele, v:D.verdikt}) + scripts[2] + html.replace(/<script>[\s\S]*?<\/script>/g, '');
+const banned = /redaktionell|stillschweigend|ungeprüft|Arbeitsstand|Prüfstand|pauschal|Originalabgleich|Vollprüfung|gleichsetzen|nicht automatisch|Prüfvermerk|Übertragung auf/i;
+assert.doesNotMatch(visible, banned);
+
+console.log('smoke ok');
