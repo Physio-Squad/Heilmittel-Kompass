@@ -58,8 +58,8 @@ Quelle: G-BA, Heilmittelkatalog, Dateifassung 16.05.2024, Abschnitt I, S. 61–7
 
 | ID | Herausgeber / Titel | Link | Prüfstatus |
 |---|---|---|---|
-| NVL-COPD | NVL COPD, 2. Aufl. (nvl-003), Langfassung inkl. Addendum 2024 | https://register.awmf.org/assets/guidelines/nvl-003l_S3_COPD_2024-12.pdf | Kurzfassung 2026-02 vorhanden; Kapitel nicht-medikamentöse Therapie/Rehabilitation extrahieren |
-| DGP-COPD-2026 | DGP, S2k Fachärztliche Diagnostik und Therapie der COPD (020-006) | https://register.awmf.org/assets/guidelines/020-006l_S2k_Fachaerztliche-Diagnostik-Therapie-COPD_2026-03.pdf | Veröffentlicht 02/2026; Physiotherapie/Training extrahieren |
+| NVL-COPD | NVL COPD, 2. Aufl. (nvl-003), Langfassung inkl. Addendum 2024 | https://register.awmf.org/assets/guidelines/nvl-003l_S3_COPD_2024-12.pdf | Gültig bis 25.06.2026 (formal abgelaufen); Kapitel 4.1–4.3 teilweise ausgewertet → [EMPFEHLUNGEN_AT_COPD.md](EMPFEHLUNGEN_AT_COPD.md) |
+| DGP-COPD-2026 | DGP, S2k Fachärztliche Diagnostik und Therapie der COPD (020-006) | https://register.awmf.org/assets/guidelines/020-006l_S2k_Fachaerztliche-Diagnostik-Therapie-COPD_2026-03.pdf | Veröffentlicht 02/2026; Empfehlungsübersicht ausgewertet → [EMPFEHLUNGEN_AT_COPD.md](EMPFEHLUNGEN_AT_COPD.md) |
 | NICE-NG115 | NICE, COPD in over 16s | https://www.nice.org.uk/guidance/ng115/chapter/Recommendations | Bereits im Register; Diagnosepaket offen |
 | NVL-ASTHMA-2024 | NVL Asthma, 5. Aufl. (nvl-002) | https://www.leitlinien.de/themen/asthma/pdf/asthma-vers5-lang.pdf | Abschnitt Atemphysiotherapie extrahieren |
 | ERS-BE-2025 | ERS, Clinical practice guideline for the management of adult bronchiectasis, 2025 | https://doi.org/10.1183/13993003.01126-2025 | DOI über DZL-Publikationsseite; Airway-Clearance-Empfehlungen extrahieren |
