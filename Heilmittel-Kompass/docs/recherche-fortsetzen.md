@@ -16,7 +16,7 @@ Nutze möglichst aktuelle deutsche, US-amerikanische und niederländische Origin
 
 Bisherige Bereiche: lumbaler Rückenschmerz, nicht-spezifische Nackenschmerzen, Kniearthrose, Hüftarthrose, Rotatorenmanschetten-Tendinopathie, Midportion-Achillessehnen-Tendinopathie, Plantarfasziitis und akute/postakute laterale Sprunggelenksdistorsion.
 
-Beginne mit den größten Lücken: deutscher und niederländischer Abgleich bei Hüfte und Schulter sowie Aktualisierungen älterer Quellen. Erweitere danach um patellofemoralen Schmerz und chronische Sprunggelenksinstabilität. Behandle weitere Bereiche als eigene Recherchepakete. Behaupte keine statistische Häufigkeitsrangliste ohne entsprechende Versorgungsdaten.
+Beginne mit den größten Lücken: deutscher und niederländischer Abgleich bei Hüfte und Schulter sowie Aktualisierungen älterer Quellen. Erweitere danach um patellofemoralen Schmerz und chronische Sprunggelenksinstabilität. Behandle weitere Bereiche als eigene Recherchepakete. Für die übrigen Diagnosegruppen (CS, ZN, PN, AT, GE, LY, SO1–SO5) liegt ein Startregister in `evidence/QUELLEN_DIAGNOSEGRUPPEN.md`. Behaupte keine statistische Häufigkeitsrangliste ohne entsprechende Versorgungsdaten.
 
 Arbeite eigenständig in überschaubaren Diagnosepaketen. Frage nur nach fehlenden Angaben oder Dokumenten, die die konkrete Arbeit verhindern; recherchiere unabhängig zugängliche Quellen währenddessen weiter.
 

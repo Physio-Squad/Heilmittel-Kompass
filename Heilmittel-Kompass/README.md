@@ -41,6 +41,7 @@ node tests/browser.cjs      # benötigt Playwright + Chromium (CHROMIUM_EXECUTAB
 | [Deutscher Leitlinienabgleich](docs/deutsche-leitlinien.md) | Geprüfte Fassungen, konkrete Empfehlungen und Grenzen |
 | [Recherche fortsetzen](docs/recherche-fortsetzen.md) | Kopierbarer Übergabeprompt für einen anderen Chat |
 | [Importierte Recherche und Abgleich](../evidence/ABGLEICH.md) | Zwei Originalregister vom Recherche-Branch, ID-Zuordnung und zusammengeführte Prüfstände |
+| [Quellen übrige Diagnosegruppen](../evidence/QUELLEN_DIAGNOSEGRUPPEN.md) | Katalogübersicht aller 13 Physiotherapie-Gruppen; Leitlinienquellen für CS, ZN, PN, AT, GE, LY, SO1–SO5 (identifiziert, nicht ausgewertet) |
 | [Quellen](docs/quellen.md) | Recherchequellen und Prüfstatus |
 | [Entscheidungen](docs/entscheidungen.md) | Hintergrund der Gestaltung |
 | [Validierung](docs/validierung.md) | Prüfstand und offene Risiken |

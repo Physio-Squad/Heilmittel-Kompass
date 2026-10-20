@@ -71,3 +71,7 @@ Die importierten Dateien enthalten noch keine vollständig ausgefüllte Einzel-E
 R1–R4 wurden erneut tatsächlich abgerufen: Richtlinienseite, Richtlinien-PDF (Änderung 15.05.2025, in Kraft 05.08.2025), dort verlinkter Katalog (Dateifassung 16.05.2024) und KBV PraxisWissen 2026. WS-/EX-Tabellen vollständig gezielt gelesen und als gerenderte Seiten visuell geprüft. Ergänzend wurden ausgewählte BfArM-Kodes der ICD-10-GM 2026 und ihre Unterteilungen geprüft. Der Beschluss vom 20.08.2026 zur Anlage 2 wird auf der Originalseite als noch nicht in Kraft ausgewiesen und nicht als neue geltende Listenberechtigung übernommen.
 
 Konkrete Fundstellen, URLs, Fassungen und Prüfgrenzen: [formaler-regelabgleich.md](formaler-regelabgleich.md). Maschinenlesbare Ergebnisse und Download-SHA-256: [FORMALER_REGELABGLEICH.json](../../evidence/FORMALER_REGELABGLEICH.json). Frühere Abrufbefunde bleiben historische Angaben. Keine Neudatierung klinischer Quellen und keine vollständige Listen-, Vertrags- oder ICD-Datenbankfreigabe.
+
+## Übrige Diagnosegruppen – 21.10.2026
+
+Quellenregister für CS, ZN, PN, AT, GE, LY und SO1–SO5 mit Katalogübersicht aller 13 Physiotherapie-Gruppen: [QUELLEN_DIAGNOSEGRUPPEN.md](../../evidence/QUELLEN_DIAGNOSEGRUPPEN.md). Status durchgehend „Quelle identifiziert“; keine Einzelempfehlungen extrahiert. Die App unterstützt diese Gruppen weiterhin nicht. Die importierten Dateien `QUELLEN.md` und `PRUEFPROTOKOLL.md` bleiben byte-identisch (siehe `IMPORT.json`).
