@@ -1,6 +1,6 @@
 # Heilmittel-Kompass – Übergabe vom 21.10.2026
 
-## Aktueller Stand: Version 0.5.0 (Neuaufbau)
+## Aktueller Stand: Version 0.5.1 (Neuaufbau, offene Formalpunkte geklärt)
 
 - Branch: `claude/neuaufbau-0.5` (baut auf `codex/uebergabe-2026-10-20` auf). Kein Deployment.
 - App: `Heilmittel-Kompass/index.html`, eigenständig, ohne Build. Drei Skriptblöcke: `HK_DATA` (Daten mit Quellen), `HK` (Regellogik), Oberfläche.
@@ -13,7 +13,7 @@ Nutzerentscheidungen vom 21.10.2026: Neuaufbau statt Überarbeitung; Gruppen CS/
 
 ## Nächste Schritte
 
-1. Offene formale Punkte aus dem Abschnitt 21.10.2026 klären.
+1. Formale Punkte sind in 0.5.1 geklärt (siehe docs/formaler-regelabgleich.md, „Geklärt am 21.10.2026“).
 2. Unabhängiger ärztlicher und physiotherapeutischer Fachreview der Texte in `HK_DATA.profile`.
 3. Veröffentlichung nur auf ausdrücklichen Auftrag.
 

@@ -202,7 +202,7 @@ footer li{margin-bottom:3px}
     <div class="brand"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="4" fill="none" stroke="#B3243B" stroke-width="1.6"/><path d="M11 5.5v11M5.5 11h11" stroke="#17242E" stroke-width="2.2" stroke-linecap="round"/></svg>Heilmittel-Kompass</div>
     <p class="lead">Von der Diagnose zur Heilmittelverordnung Physiotherapie, mit Leitlinienbewertung an jeder Option.</p>
   </div>
-  <p class="tag">Prototyp 0.5 – fachliche Prüfung ausstehend</p>
+  <p class="tag">Prototyp 0.5.1 – fachliche Prüfung ausstehend</p>
 </div></header>
 
 <div class="wrap layout">
@@ -245,7 +245,7 @@ footer li{margin-bottom:3px}
 
 <script>
 const HK_DATA = {
-version: '0.5.0',
+version: '0.5.1',
 standDaten: '21.10.2026',
 
 // Heilmittel: Kurzbeschreibung für die Karte (Grundlage: HeilM-RL § 19, § 24; Katalog)
@@ -254,10 +254,10 @@ heilmittel: {
   MT:    {name:'Manuelle Therapie', kurz:'MT', text:'Impulslose Mobilisation von Gelenken und Weichteiltechniken bei reversiblen Funktionsstörungen und zur Schmerzlinderung.', hinweis:'Nur durch Therapeuten mit MT-Zertifikat; Termine sind nicht überall kurzfristig verfügbar.'},
   KGG:   {name:'KG am Gerät', kurz:'KG-Gerät', text:'Training an speziellen medizinischen Trainingsgeräten unter unmittelbarer Anleitung, bis zu drei Patienten parallel.'},
   ZNS:   {name:'KG-ZNS', kurz:'KG-ZNS', text:'Behandlung nach Bobath, Vojta oder PNF bei zentralnervösen Erkrankungen.', hinweis:'Bis zum 18. Geburtstag als KG-ZNS-Kinder (Bobath oder Vojta).'},
-  MLD30: {name:'Manuelle Lymphdrainage 30 Min.', kurz:'MLD-30', text:'Lymphdrainage mit 30 Minuten Behandlungszeit.'},
-  MLD45: {name:'Manuelle Lymphdrainage 45 Min.', kurz:'MLD-45', text:'Lymphdrainage mit 45 Minuten Behandlungszeit.'},
-  MLD60: {name:'Manuelle Lymphdrainage 60 Min.', kurz:'MLD-60', text:'Lymphdrainage mit 60 Minuten Behandlungszeit.'},
-  MLD:   {name:'Manuelle Lymphdrainage ohne Zeitvorgabe', kurz:'MLD', text:'Die Physiotherapie legt die Behandlungszeit (30, 45 oder 60 Minuten) nach Befund fest.'},
+  MLD30: {name:'Manuelle Lymphdrainage 30 Min.', kurz:'MLD-30', text:'Stadium I an einem oder zwei Körperteilen oder Stadium II an einem Körperteil.'},
+  MLD45: {name:'Manuelle Lymphdrainage 45 Min.', kurz:'MLD-45', text:'Stadium II an einem oder zwei Körperteilen oder Stadium III an einem Körperteil; ausnahmsweise Stadium I an zwei Körperteilen bei kurzfristigem Behandlungsbedarf.'},
+  MLD60: {name:'Manuelle Lymphdrainage 60 Min.', kurz:'MLD-60', text:'Stadium II an zwei Körperteilen oder Stadium III an einem oder zwei Körperteilen.'},
+  MLD:   {name:'Manuelle Lymphdrainage ohne Zeitvorgabe', kurz:'MLD', text:'Die Physiotherapie legt die Behandlungszeit (30, 45 oder 60 Minuten) nach Befund fest.', hinweis:'Das Stadium des Lymph- oder Lipödems muss aus dem ICD-Code hervorgehen.'},
   FANGO: {name:'Wärmetherapie (Fango)', kurz:'Wärmetherapie', text:'Warmpackung mit Peloiden.'},
   US:    {name:'Ultraschall-Wärmetherapie', kurz:'Ultraschall', text:'Wärmetherapie mittels Ultraschall.'},
   ET:    {name:'Elektrotherapie', kurz:'Elektrotherapie', text:'Behandlung mit nieder- oder mittelfrequenten Strömen, zum Beispiel TENS oder Interferenzstrom.'},
@@ -282,7 +282,7 @@ gruppen: {
   PN: {name:'Periphere Nervenläsionen / Muskelerkrankungen', anlass:'Periphere Nerven- oder Muskelerkrankung', max:10, orient:30, primary:['KG'], supp:['FANGO','KALT','ET','ES'], fundstelle:'Heilmittelkatalog, S. 65', ohneKlinik:true,
     sym:[{l:'a', t:'Schädigung/Störung der Bewegungsfunktion', e:''},{l:'b', t:'Schädigung/Störung der Muskelfunktion', e:''}]},
   LY: {name:'Lymphabflussstörungen', anlass:'Lymph- oder Lipödem', max:6, orient:30, primary:['MLD30','MLD45','MLD60','MLD'], supp:['FANGO','KALT','ET','UEB'], fundstelle:'Heilmittelkatalog, S. 68', ohneKlinik:true, kompression:true,
-    sym:[{l:'a', t:'Schädigung der Lymphgefäße, Lymphknoten, Kapillaren', e:''},{l:'b', t:'Schädigung der Haut (Verdickung, trophische Veränderungen)', e:''},{l:'c', t:'Schmerzen', e:''}]}
+    sym:[{l:'a', t:'Schädigung der Lymphgefäße, Lymphknoten, Kapillaren', e:''},{l:'b', t:'Schädigung der Haut', e:'Zum Beispiel Verdickung oder trophische Veränderungen.'},{l:'c', t:'Schmerzen', e:''}]}
 },
 
 // ICD-10-GM 2026, am BfArM-Original geprüft (20.10.2026). t = terminal, k = Kategorie (5. Stelle nötig)
@@ -300,8 +300,10 @@ diagnosen: [
   {c:'M54.6', n:'Schmerzen im Bereich der Brustwirbelsäule', g:'WS', s:'bws thorakal'},
   {c:'M54.8', n:'Sonstige Rückenschmerzen', g:'WS', k:true},
   {c:'M54.9', n:'Rückenschmerzen, nicht näher bezeichnet', g:'WS', k:true},
-  {c:'M50.1', n:'Zervikaler Bandscheibenschaden mit Radikulopathie', g:'WS', s:'bandscheibenvorfall hws'},
+  {c:'M50.1', n:'Zervikaler Bandscheibenschaden mit Radikulopathie', g:'WS', s:'bandscheibenvorfall hws', zweit:'G55.1'},
   {c:'M51.1', n:'Lumbale und sonstige Bandscheibenschäden mit Radikulopathie', g:'WS', s:'bandscheibenvorfall lws prolaps', zweit:'G55.1'},
+  {c:'M51.0', n:'Lumbale und sonstige Bandscheibenschäden mit Myelopathie', g:'WS', s:'bandscheibenvorfall lws', zweit:'G99.2'},
+  {c:'M50.0', n:'Zervikaler Bandscheibenschaden mit Myelopathie', g:'WS', s:'bandscheibenvorfall hws', zweit:'G99.2'},
   {c:'M41.9', n:'Skoliose, nicht näher bezeichnet', g:'WS'},
   {c:'M17.0', n:'Primäre Gonarthrose, beidseitig', g:'EX', s:'kniearthrose knie arthrose'},
   {c:'M17.1', n:'Sonstige primäre Gonarthrose', g:'EX', s:'kniearthrose knie arthrose einseitig'},
@@ -360,10 +362,10 @@ diagnoseliste: [
   {c:'E88.21', g:['LY'], hinweis:'Befristet bis 31.12.2027.'},
   {c:'E88.22', g:['LY'], hinweis:'Befristet bis 31.12.2027.'},
   {c:'M75.1', g:['EX']},
-  {c:'M50.0', zweit:'G99.2', hinweis:'Frist nach Akutereignis und zulässige Diagnosegruppen in der KBV-Diagnoseliste nachsehen.'},
-  {c:'M50.1', zweit:'G55.1', hinweis:'Frist nach Akutereignis und zulässige Diagnosegruppen in der KBV-Diagnoseliste nachsehen.'},
-  {c:'M51.0', zweit:'G99.2', hinweis:'Frist nach Akutereignis und zulässige Diagnosegruppen in der KBV-Diagnoseliste nachsehen.'},
-  {c:'M51.1', zweit:'G55.1', hinweis:'Frist nach Akutereignis und zulässige Diagnosegruppen in der KBV-Diagnoseliste nachsehen.'}
+  {c:'M50.0', zweit:'G99.2', g:['WS','EX','ZN'], frist:6},
+  {c:'M50.1', zweit:'G55.1', g:['WS','EX','ZN'], frist:6},
+  {c:'M51.0', zweit:'G99.2', g:['WS','EX','ZN'], frist:6},
+  {c:'M51.1', zweit:'G55.1', g:['WS','EX','ZN'], frist:6}
 ],
 
 quellen: {
@@ -382,7 +384,7 @@ quellen: {
 },
 
 formaleQuellen: [
-  {t:'Heilmittel-Richtlinie', h:'G-BA', s:'Änderung 15.05.2025, in Kraft 05.08.2025', a:'20.10.2026', u:'https://www.g-ba.de/richtlinien/12/'},
+  {t:'Heilmittel-Richtlinie', h:'G-BA', s:'Änderung 15.05.2025, in Kraft 05.08.2025', a:'21.10.2026', u:'https://www.g-ba.de/richtlinien/12/'},
   {t:'Heilmittelkatalog Physiotherapie', h:'G-BA', s:'Fassung 16.05.2024', a:'21.10.2026', u:'https://www.g-ba.de/downloads/17-98-3064/HeilM-RL_2024-05-16_Heilmittelkatalog.pdf'},
   {t:'PraxisWissen Heilmittel', h:'KBV', s:'Ausgabe 2026', a:'20.10.2026', u:'https://www.kbv.de/documents/infothek/publikationen/praxiswissen/praxiswissen-heilmittel.pdf'},
   {t:'Heilmittel-Diagnoseliste', h:'KBV', s:'Stand 01.01.2026', a:'21.10.2026', u:'https://www.kbv.de/documents/praxis/verordnungen/heilmittel/heilmittel-diagnoseliste.pdf'},
@@ -676,6 +678,7 @@ const HK = (function(D){
       else if(su > t) fehler.push('Ergänzendes Heilmittel höchstens '+t+' Einheiten (Summe der vorrangigen).');
     }
     if(!s.freq) offen.push('Therapiefrequenz');
+    if(s.primary.includes('MLD') && s.code && !/^(I89\.0|E88\.2)/.test(code(s.code))) fehler.push('MLD ohne Zeitvorgabe: Das Ödemstadium muss aus dem ICD-Code hervorgehen (z. B. I89.01, E88.21).');
     return {offen, fehler, fertig: !offen.length && !fehler.length};
   }
 
@@ -966,7 +969,8 @@ function limitHTML(){
   if(L.zwoelf) s += L.max ? `<b>Bis zu ${L.max} Einheiten</b> je Verordnung (12 Wochen bei ${HK.freqMax(S.freq)}x wöchentlich).` : `<b>Verordnung für bis zu 12 Wochen.</b> Frequenz wählen, um die Menge zu berechnen.`;
   else s += `<b>Höchstmenge ${L.max} Einheiten</b> je Verordnung.`;
   s += ` Gewählt: ${t}.`;
-  s += `<br>Orientierende Behandlungsmenge ${L.orient} Einheiten je Verordnungsfall${L.orientKind && !S.unter18 ? ` (unter 18 Jahren ${L.orientKind})` : ''}. Weitere Verordnungen sind bei medizinischer Notwendigkeit möglich; Gründe in der Patientenakte dokumentieren.`;
+  if(L.zwoelf) s += `<br>Kataloghöchstmenge und orientierende Behandlungsmenge sind dabei nicht bindend; maßgeblich ist der höchste Wert der Frequenz.`;
+  else s += `<br>Orientierende Behandlungsmenge ${L.orient} Einheiten je Verordnungsfall${L.orientKind && !S.unter18 ? ` (unter 18 Jahren ${L.orientKind})` : ''}. Weitere Verordnungen sind bei medizinischer Notwendigkeit möglich; Gründe in der Patientenakte dokumentieren.`;
   return s;
 }
 function renderS5(){
@@ -983,7 +987,8 @@ function renderS5(){
       <div class="row2"><div><label class="f" for="freq">Therapiefrequenz</label><select id="freq" data-bind="freq"><option value="">Bitte wählen</option>${[['1','1x wöchentlich'],['1-2','1–2x wöchentlich'],['2','2x wöchentlich'],['2-3','2–3x wöchentlich'],['3','3x wöchentlich']].map(([v,l]) => `<option value="${v}" ${S.freq===v?'selected':''}>${l}</option>`).join('')}</select></div><div></div></div>
       <p class="note">Katalogempfehlung: 1–3x wöchentlich. Abweichungen medizinisch begründen.</p>
       <p class="limit" id="limit">${limitHTML()}</p>`;
-    if(L.liste) html += L.liste.aktiv ? `<p class="info">Diagnose steht auf der KBV-Diagnoseliste: Verordnung für bis zu 12 Wochen möglich.${L.liste.hinweis?' '+esc(L.liste.hinweis):''}</p>` : (L.liste.zweit && !L.liste.zweitOk ? `<p class="note">Mit Zweitcode ${esc(L.liste.zweit)} steht die Diagnose auf der KBV-Diagnoseliste.</p>` : '');
+    if(L.liste) html += L.liste.aktiv ? `<p class="info">Diagnose steht auf der KBV-Diagnoseliste: Verordnung für bis zu 12 Wochen möglich.${L.liste.frist?` Als besonderer Verordnungsbedarf berücksichtigt bis ${L.liste.frist} Monate nach dem Akutereignis, gerechnet ab der ersten Heilmittelverordnung zu diesem Code.`:''}${L.liste.hinweis?' '+esc(L.liste.hinweis):''}</p>`
+      : (L.liste.zweit && !L.liste.zweitOk ? `<p class="note">Mit Zweitcode ${esc(L.liste.zweit)} steht die Diagnose auf der KBV-Diagnoseliste.</p>` : (!L.liste.gruppeOk ? `<p class="note">Auf der KBV-Diagnoseliste nur mit Diagnosegruppe ${esc(L.liste.g.join(', '))}.</p>` : ''));
     html += `<div class="checks">`
       + (g.orientKind ? `<label class="check"><input type="checkbox" data-flag="unter18" ${S.unter18?'checked':''}><span>Patient unter 18 Jahre</span></label>` : '')
       + (!L.liste?.aktiv ? `<label class="check"><input type="checkbox" data-flag="genehmigung" ${S.genehmigung?'checked':''}><span>Genehmigung der Krankenkasse für langfristigen Heilmittelbedarf liegt vor<small>Dann ist eine Verordnung für bis zu 12 Wochen möglich.</small></span></label>` : '')

@@ -94,4 +94,14 @@ Zusätzlich abgerufen und in `HK_DATA` übernommen:
 | [KVWL PraxisInfo Blankoverordnung](https://www.kvwl.de/fileadmin/user_upload/pdf/Mitglieder/Verordnung/Heilmittel/PraxisInfo_Heilmittel_Blankoverordnung.pdf), Stand 10/2024 | 21.10.2026 | 16 Wochen ab Ausstellung, Unterbrechung verlängert nicht; Heilmittel/Menge/Frequenz durch Therapiepraxis; Wirtschaftlichkeitsverantwortung bei der Praxis; Folgeverordnung durch Arzt. Leitsymptomatik bleibt in der App Pflichtangabe (Muster 13); vor Freigabe am Vertragstext bestätigen. |
 | [NVL Nicht-spezifischer Kreuzschmerz](https://register.awmf.org/assets/guidelines/nvl-007k_S3_Kreuzschmerz_2018-02-abgelaufen.pdf), Kurzfassung | 21.10.2026 | Empfehlungen 4-2, 4-3, 5-1 bis 5-29, 9-1 für das Rückenprofil. Gültigkeit laut Dokument bis 03/2022, in Überarbeitung; in der App so gekennzeichnet. |
 
-Weiterhin offen: Leitsymptomatik-Wortlaut CS/ZN/PN/LY gegen PDF; LHB/BVB-Unterscheidung je Zeile; Fristen M50/M51; MLD-45/60-Bedingungen nach § 18 HeilM-RL; Blanko-Vertragstext (Leitsymptomatik, parallele Verordnungen); unabhängiger Fachreview.
+### Geklärt am 21.10.2026 (Version 0.5.1)
+
+| Punkt | Ergebnis | Quelle |
+|---|---|---|
+| Leitsymptomatik CS/ZN/PN/LY | Wortlaut bestätigt. CS nur a „chronische Schmerzen“. LY b lautet „Schädigung der Haut“. | Heilmittelkatalog S. 63–65, 68 |
+| MLD-30/45/60 | MLD-30: Stadium I an 1–2 Körperteilen oder II an 1. MLD-45: II an 1–2, III an 1, ausnahmsweise I an 2 bei kurzfristigem Bedarf. MLD-60: II an 2 oder III an 1–2. Ohne Zeitvorgabe: Stadium als ICD-Code angeben. Körperteile nicht auf der Verordnung. | HeilM-RL § 18 Abs. 2 Nr. 7 |
+| 12 Wochen | LHB (§ 8) und BVB: bis 12 Wochen; Höchstmenge und orientierende Menge nicht bindend; Einheiten nach Frequenz, bei Spanne höchster Wert. Hinweise der Liste wie „Akutereignis“ nicht bindend, Alterskriterien schon. | HeilM-RL § 7 Abs. 6–7 |
+| M50/M51 | M50.0/M51.0 + G99.2, M50.1/M51.1 + G55.1: BVB, WS/EX/ZN, längstens 6 Monate nach Akutereignis. Fristberechnung ab erster Verordnung zu diesem Code. | Diagnoseliste Stand 01.07.2025 (physio-deutschland.de), KBV-Liste 01.01.2026 |
+| Blankoverordnung | Entfallen dürfen Einheiten, Heilmittel, ergänzende Angaben, Frequenz. Diagnose, Diagnosegruppe und Leitsymptomatik bleiben Pflicht. Bei medizinischen Gründen gegen Blanko: vollständige Verordnung. Beginnfristen nach § 15 gelten. | HeilM-RL § 13a |
+
+Weiterhin offen: unabhängiger ärztlicher und physiotherapeutischer Fachreview. Parallele konventionelle Verordnung neben einer Blankoverordnung ist in § 13a nicht geregelt; die App bietet sie nicht gesondert an.

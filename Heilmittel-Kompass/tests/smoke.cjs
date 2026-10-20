@@ -63,6 +63,14 @@ assert.equal(HK.limits(st({code:'G62.9', gruppe:'PN'})).max, 10);
 assert.equal(HK.liste('E88.20').hinweis.includes('31.12.2027'), true);
 assert.equal(HK.liste('I89.00'), null);
 
+// MLD und Diagnoseliste (HeilM-RL § 18 Abs. 2 Nr. 7, § 7 Abs. 6–7)
+s = st({code:'I89.01', gruppe:'LY', sym:['a'], primary:['MLD'], units:{MLD:'6'}, freq:'2'});
+assert.equal(HK.check(s).fertig, true);
+s.code = 'I89.9'; assert.match(HK.check(s).fehler.join(), /Ödemstadium/);
+assert.equal(HK.liste('M50.1', 'G55.1', 'ZN').aktiv, true); assert.equal(HK.liste('M50.1', 'G55.1', 'PN').aktiv, false);
+assert.equal(HK.liste('M51.1', 'G55.1').frist, 6);
+assert.equal(D.gruppen.LY.sym[1].t, 'Schädigung der Haut');
+
 // Blankoverordnung
 assert.ok(HK.blanko('M75.1').ok); assert.ok(HK.blanko('S42.21').ok); assert.ok(HK.blanko('M19.01').ok);
 assert.equal(HK.blanko('M17.1'), null);

@@ -1,6 +1,6 @@
 # Heilmittel-Kompass
 
-Ärztliche Entscheidungshilfe für die Verordnung physiotherapeutischer Heilmittel (GKV, Muster 13). Version 0.5.0.
+Ärztliche Entscheidungshilfe für die Verordnung physiotherapeutischer Heilmittel (GKV, Muster 13). Version 0.5.1.
 
 **Status: Prototyp, nicht unabhängig fachlich geprüft.** Keine Patientendaten, keine Speicherung, kein ausgestelltes Rezept.
 

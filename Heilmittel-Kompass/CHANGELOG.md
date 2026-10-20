@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.1 – 21.10.2026
+
+- Offene formale Punkte aus 0.5.0 an Originalquellen geklärt (HeilM-RL, Fassung in Kraft 05.08.2025; Heilmittelkatalog; Diagnoseliste):
+  - Leitsymptomatik CS/ZN/PN/LY wörtlich bestätigt; LY b lautet „Schädigung der Haut“ (Verdickung/trophische Veränderungen als Erklärung).
+  - MLD-30/45/60: Stadium- und Körperteilbedingungen nach § 18 Abs. 2 Nr. 7 an den Karten. MLD ohne Zeitvorgabe nur, wenn das Stadium aus dem ICD-Code hervorgeht (Prüfung eingebaut).
+  - 12-Wochen-Verordnung nach § 7 Abs. 6–7: Kataloghöchstmenge und orientierende Menge nicht bindend, Einheiten nach höchstem Frequenzwert; gilt für langfristigen und besonderen Verordnungsbedarf gleichermaßen. LHB/BVB-Unterscheidung je Zeile damit für die Verordnung nicht nötig.
+  - M50.0/M50.1/M51.0/M51.1 mit Zweitcode G99.2 bzw. G55.1: besonderer Verordnungsbedarf, Diagnosegruppen WS/EX/ZN, längstens 6 Monate nach Akutereignis (Hinweis für die Wirtschaftlichkeitsprüfung, für die Verordnung nicht bindend).
+  - Blankoverordnung: Leitsymptomatik bleibt Pflichtangabe (§ 13a Abs. 1 nennt sie nicht unter den entfallenden Angaben).
+
 ## 0.5.0 – 21.10.2026 (Neuaufbau)
 
 - App neu aufgebaut nach dem bestätigten Zielablauf: Diagnose/ICD → klinische Einordnung bestätigen → Diagnosegruppe und Leitsymptomatik → Heilmittel → Menge und Angaben. Der getrennte Einstieg „klinischen Bereich wählen“ entfällt; das Profil wird aus der Diagnose vorgeschlagen und muss bestätigt werden.
