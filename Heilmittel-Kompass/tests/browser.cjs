@@ -67,7 +67,7 @@ const cases = [['M54.5','back','WS'],['M54.2','neck','WS'],['M17.1','knee','EX']
       await page.goto(file);
       await page.fill('#dx', 'M17.1'); await page.keyboard.press('Enter');
       assert.equal(await page.locator('#dxInfo .prog').isVisible(), true);
-      assert.match(await page.locator('#dxInfo .prog').innerText(), /GLA:D/);
+      assert.match(await page.locator('#dxInfo .prog').innerText(), /GLA:D/); assert.match(await page.locator('#dxInfo .vertrag').innerText(), /Teilnahmevertrag[\s\S]*54 €/);
       await page.fill('#dx', 'M54.5'); await page.keyboard.press('Enter');
       assert.equal(await page.locator('#dxInfo .prog').count(), 0);
       // Budgetfrei-Rubrik

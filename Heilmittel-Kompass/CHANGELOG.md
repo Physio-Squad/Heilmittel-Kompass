@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.2 – 21.10.2026
+
+- GLA:D-Kasten: eigener, farbig abgesetzter Block „Nur mit eigenem Teilnahmevertrag“ oben im Kasten (Einschreibung als Netzwerkarzt über Teilnahmeerklärung an die Deutsche Arzt Management GmbH; Vergütung 54 € netto je Patient, extrabudgetär, fällig nach dem ersten Physiotherapietermin; Link „Netzwerkarzt werden“).
+
 ## 0.7.1 – 21.10.2026
 
 - GLA:D-Hinweis: Bei M16.-, M17.- und degenerativen Meniskusschäden (M23.2-, M23.3-, neu suchbar) erscheint direkt unter der Diagnose ein hervorgehobener Kasten zu GLA:D mit Inhalt, Nutzen, Zugang (nur GLA:D-Netzwerkärzte über Webportal), Kostenträgern (Selektivverträge § 140a SGB V, Einzelfallantrag) und Budgetwirkung, Links und Studien (Skou & Roos 2017; Grønne et al. 2021; Skou et al. NEJM 2015; Kise et al. BMJ 2016).

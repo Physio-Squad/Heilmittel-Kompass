@@ -198,6 +198,9 @@ ul.ll{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .prog h3{margin:0 0 4px;font-size:16.5px;color:#163F2A}
 .prog .pk{margin:0 0 8px;font-size:14.5px}
 .prog ul.pts{font-size:14px}
+.vertrag{background:#fff;border:1.5px solid var(--cond);border-left:6px solid var(--cond);border-radius:8px;padding:10px 14px;margin:4px 0 12px;font-size:14px}
+.vertrag strong{display:block;color:var(--cond);font-size:15px;margin-bottom:2px}
+.vertrag ul{margin:4px 0 6px;padding-left:18px}
 .prog .pl{font-size:14px;margin:8px 0 0}
 .prog .srcs{margin-top:8px}
 .way.wide{grid-column:1/-1}
@@ -234,7 +237,7 @@ footer li{margin-bottom:3px}
     <div class="brand"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="4" fill="none" stroke="#B3243B" stroke-width="1.6"/><path d="M11 5.5v11M5.5 11h11" stroke="#17242E" stroke-width="2.2" stroke-linecap="round"/></svg>Heilmittel-Kompass</div>
     <p class="lead">Von der Diagnose zur Heilmittelverordnung Physiotherapie, mit Leitlinienbewertung an jeder Option.</p>
   </div>
-  <p class="tag">Prototyp 0.7.1 – fachliche Prüfung ausstehend</p>
+  <p class="tag">Prototyp 0.7.2 – fachliche Prüfung ausstehend</p>
 </div>
 <div class="wrap"><nav class="views" aria-label="Bereich"><button type="button" data-view="rx" aria-pressed="true">Verordnung</button><button type="button" data-view="budget" aria-pressed="false">Budgetfrei verordnen</button></nav></div>
 </header>
@@ -401,7 +404,7 @@ const HK_LISTE = [
 ];
 
 const HK_DATA = {
-version: '0.7.1',
+version: '0.7.2',
 standDaten: '21.10.2026',
 
 // Heilmittel: Kurzbeschreibung für die Karte (Grundlage: HeilM-RL § 19, § 24; Katalog)
@@ -693,13 +696,14 @@ programme: [
   {id:'glad', codes:['M16','M17','M23.2','M23.3'],
    titel:'GLA:D Arthrose: strukturiertes Programm statt Einzelverordnung',
    kurz:'Schulungs- und Trainingsprogramm für Knie- und Hüftarthrose sowie degenerative Meniskusschäden, unabhängig vom Schweregrad.',
+   vertrag:{t:'Nur mit eigenem Teilnahmevertrag', p:['Verordnen dürfen nur Ärzte, die als GLA:D-Netzwerkarzt eingeschrieben sind: Teilnahmeerklärung an die Deutsche Arzt Management GmbH, danach Zugang zum GLA:D-Webportal.','Vergütung: 54 € netto je eingeschriebenem Patient, außerhalb des Budgets, fällig nach dem ersten Physiotherapietermin.'], link:{t:'Netzwerkarzt werden', u:'https://glad-deutschland.de/fuer-aerzte/'}},
    punkte:[
      'Inhalt: 12 Wochen mit 3 Einzelterminen, 2 Patientenschulungen, 12 Gruppentrainings (höchstens 5 Personen) und Abschlusstest; begleitende App für 12 Monate.',
      'Nutzen: Register aus Dänemark mit 9.825 Patienten: Schmerz nach 3 Monaten im Mittel um etwa ein Viertel geringer, nach 12 Monaten anhaltend; weniger Schmerzmittel, bessere Lebensqualität. Kosteneffektiv in einer Auswertung von 16.255 Patienten. Ohne Kontrollgruppe; die Bausteine Training und Schulung sind in randomisierten Studien belegt.',
      'Entspricht den Leitlinienempfehlungen zu angeleiteter Bewegungstherapie mit Edukation (S3 Gonarthrose, APTA Hüftarthrose, NICE).',
      'Zugang: Verordnung nur durch eingeschriebene GLA:D-Netzwerkärzte über das GLA:D-Webportal, nicht auf Muster 13. Bei fehlendem Netzwerkarzt ist eine Online-Sprechstunde möglich.',
      'Kosten: Selektivverträge nach § 140a SGB V teilnehmender Krankenkassen (u. a. BARMER regional gestaffelt, KKH, IKK classic, mehrere BKKs) oder bewilligter Einzelfallantrag; sonst Selbstzahler (etwa 680–700 €).',
-     'Budget: belastet das Heilmittelbudget nicht; die ärztliche Einschreibung wird extrabudgetär vergütet. Erneute Verordnung frühestens nach einem Jahr und nur für ein weiteres Gelenk.'
+     'Budget: belastet das Heilmittelbudget nicht. Erneute Verordnung frühestens nach einem Jahr und nur für ein weiteres Gelenk.'
    ],
    links:[
      {t:'GLA:D für Ärzte', u:'https://glad-deutschland.de/fuer-aerzte/'},
@@ -2544,6 +2548,7 @@ function renderDx(){
 }
 function progBox(p){
   return `<aside class="prog" aria-label="${esc(p.titel)}"><h3>${esc(p.titel)}</h3><p class="pk">${esc(p.kurz)}</p>
+    ${p.vertrag ? `<div class="vertrag"><strong>${esc(p.vertrag.t)}</strong><ul>${p.vertrag.p.map(x => `<li>${esc(x)}</li>`).join('')}</ul><a href="${esc(p.vertrag.link.u)}" target="_blank" rel="noopener">${esc(p.vertrag.link.t)}</a></div>` : ''}
     <ul class="pts">${p.punkte.map(t => { const i = t.indexOf(':'); return `<li>${i>0 && i<14 ? `<b>${esc(t.slice(0,i))}:</b>${esc(t.slice(i+1))}` : esc(t)}</li>`; }).join('')}</ul>
     <p class="pl">${p.links.map(l => `<a href="${esc(l.u)}" target="_blank" rel="noopener">${esc(l.t)}</a>`).join(' · ')}</p>
     <details class="srcs"><summary>Studien</summary><ol>${p.studien.map(s => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a><br>${esc(s.e)}</li>`).join('')}</ol></details></aside>`;
