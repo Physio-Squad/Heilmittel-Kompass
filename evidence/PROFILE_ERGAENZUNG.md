@@ -1,6 +1,6 @@
 # Profilergänzung übrige Diagnosegruppen – Prüfdokumentation
 
-Stand: 2026-10-21. Gehört zu `Heilmittel-Kompass/daten/profile-ergaenzung.js` (Format `HK_DATA`, noch nicht in `index.html` eingebaut). Prüfung: `node Heilmittel-Kompass/scripts/check-ergaenzung.cjs` (Format, Codes, Gruppenbezug, Quellenverweise, Bewertung für jedes Heilmittel der Gruppe, verbotene Formulierungen aus `tests/smoke.cjs`).
+Stand: 2026-10-21. Seit Version 0.6.0 in `Heilmittel-Kompass/index.html` als Block `HK_DATA_ERG` eingebaut; die frühere Datei `daten/profile-ergaenzung.js` und ihr Prüfskript sind entfernt, die Formatprüfung läuft in `tests/smoke.cjs`. Beim Einbau geändert: „(DGH, Hintergrundtext)“ → „(DGH, ohne Empfehlungsgrad)“.
 
 Diese Datei enthält die Prüf- und Arbeitsvermerke, die nach `AGENTS.md` nicht in die Oberflächentexte gehören.
 

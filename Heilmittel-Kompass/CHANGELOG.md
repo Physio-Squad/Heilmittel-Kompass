@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.0 – 21.10.2026
+
+- 15 weitere Diagnoseprofile aus der Recherche der Parallelsitzung eingebaut (evidence/PROFILE_ERGAENZUNG.md): COPD, Bronchiektasen (AT); pAVK (GE); Lymphödem (LY); Parkinson, MS, Schlaganfall, Querschnittlähmung (ZN); Fazialisparese, GBS/CIDP, Karpaltunnelsyndrom (PN); chronische Obstipation (SO1); Harninkontinenz der Frau (SO2); Lagerungsschwindel, periphere Vestibulopathie (SO3). Insgesamt 23 Profile.
+- Neue Diagnosegruppen AT, GE, SO1, SO2, SO3 mit Katalogangaben; neue Heilmittel KG (Atemtherapie), KG-Muko, Inhalation, BGM, KMT, heiße Rolle, Colonmassage. 49 weitere ICD-10-GM-2026-Codes.
+- Daten als eigener Block `HK_DATA_ERG` in index.html; `daten/profile-ergaenzung.js` und `scripts/check-ergaenzung.cjs` entfernt, Formatprüfung in `tests/smoke.cjs` für alle Profile übernommen.
+- KBV-Diagnoseliste ergänzt: I69.3/I69.4 (ZN, 1 Jahr nach Akutereignis), G82.0-/.1-/.3-/.4- (ZN), G61.0 und G61.8 (nur CIDP) (PN), J44.00/.10/.80/.90 (AT, FEV1 < 35 %), N39.3, N39.4-, H81.- ab 70 Jahren (Altersgrenze bindend nach § 7 Abs. 7; Abfrage in Schritt 5).
+- AT: Abfrage „Mukoviszidose oder vergleichbare pulmonale Erkrankung“ für orientierende Menge 50. Ergänzung darf nicht dasselbe Heilmittel wie ein vorrangiges sein (Inhalation). Befundfragen nur noch bei WS/EX-Profilen, weil sie Leitsymptomatik a/b dieser Gruppen zuordnen.
+- „Keine Leitlinienaussage“ zeigt einen Begründungssatz, wenn die Leitlinie ausdrücklich keinen Wirkungsnachweis sieht (z. B. Elektrotherapie bei Fazialisparese).
+
 ## 0.5.1 – 21.10.2026
 
 - Offene formale Punkte aus 0.5.0 an Originalquellen geklärt (HeilM-RL, Fassung in Kraft 05.08.2025; Heilmittelkatalog; Diagnoseliste):

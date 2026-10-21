@@ -202,7 +202,7 @@ footer li{margin-bottom:3px}
     <div class="brand"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="4" fill="none" stroke="#B3243B" stroke-width="1.6"/><path d="M11 5.5v11M5.5 11h11" stroke="#17242E" stroke-width="2.2" stroke-linecap="round"/></svg>Heilmittel-Kompass</div>
     <p class="lead">Von der Diagnose zur Heilmittelverordnung Physiotherapie, mit Leitlinienbewertung an jeder Option.</p>
   </div>
-  <p class="tag">Prototyp 0.5.1 – fachliche Prüfung ausstehend</p>
+  <p class="tag">Prototyp 0.6 – fachliche Prüfung ausstehend</p>
 </div></header>
 
 <div class="wrap layout">
@@ -245,7 +245,7 @@ footer li{margin-bottom:3px}
 
 <script>
 const HK_DATA = {
-version: '0.5.1',
+version: '0.6.0',
 standDaten: '21.10.2026',
 
 // Heilmittel: Kurzbeschreibung für die Karte (Grundlage: HeilM-RL § 19, § 24; Katalog)
@@ -264,7 +264,7 @@ heilmittel: {
   ES:    {name:'Elektrostimulation', kurz:'Elektrostimulation', text:'Gezielte Stimulation gelähmter oder geschwächter Muskulatur.'},
   KALT:  {name:'Kältetherapie', kurz:'Kältetherapie', text:'Lokale Kälteanwendung.'},
   TRAK:  {name:'Traktionsbehandlung', kurz:'Traktion', text:'Traktion der Wirbelsäule mit Gerät.'},
-  UEB:   {name:'Übungsbehandlung', kurz:'Übungsbehandlung', text:'Ergänzende Übungsbehandlung.'}
+  UEB:   {name:'Übungsbehandlung', kurz:'Übungsbehandlung', text:'Übungen zur Verbesserung von Kraft, Ausdauer, Koordination und Kontinenz, auch in der Gruppe.'}
 },
 
 // Diagnosegruppen nach Heilmittelkatalog (G-BA, Fassung 16.05.2024); App-Auswahl der Heilmittel
@@ -277,11 +277,11 @@ gruppen: {
          {l:'b', t:'Schädigung/Störung der Muskelfunktion', e:'Zum Beispiel verminderte Kraft, Ausdauer oder Koordination, gestörter Muskeltonus, Schmerzen.'}]},
   CS: {name:'Chronifiziertes Schmerzsyndrom', anlass:'Chronifizierte Schmerzen als Behandlungsanlass', max:6, orient:18, primary:['KG','KGG'], supp:['FANGO','ET','KALT'], fundstelle:'Heilmittelkatalog, S. 63', ohneKlinik:true,
     sym:[{l:'a', t:'Chronische Schmerzen', e:''}]},
-  ZN: {name:'ZNS-Erkrankungen einschließlich Rückenmark / neuromuskuläre Erkrankungen', anlass:'Zentralnervöse oder neuromuskuläre Erkrankung', max:10, orient:30, orientKind:50, primary:['KG','ZNS'], supp:['FANGO','KALT','ET','ES'], fundstelle:'Heilmittelkatalog, S. 64', ohneKlinik:true,
+  ZN: {name:'ZNS-Erkrankungen einschließlich Rückenmark / neuromuskuläre Erkrankungen', anlass:'Zentralnervöse oder neuromuskuläre Erkrankung', max:10, orient:30, orientKind:50, primary:['KG','ZNS'], supp:['FANGO','KALT','ET','ES'], fundstelle:'Heilmittelkatalog, S. 64',
     sym:[{l:'a', t:'Schädigung/Störung der Bewegungs- und Sinnesfunktion', e:''},{l:'b', t:'Schädigung/Störung der Muskelfunktion', e:''}]},
-  PN: {name:'Periphere Nervenläsionen / Muskelerkrankungen', anlass:'Periphere Nerven- oder Muskelerkrankung', max:10, orient:30, primary:['KG'], supp:['FANGO','KALT','ET','ES'], fundstelle:'Heilmittelkatalog, S. 65', ohneKlinik:true,
+  PN: {name:'Periphere Nervenläsionen / Muskelerkrankungen', anlass:'Periphere Nerven- oder Muskelerkrankung', max:10, orient:30, primary:['KG'], supp:['FANGO','KALT','ET','ES'], fundstelle:'Heilmittelkatalog, S. 65',
     sym:[{l:'a', t:'Schädigung/Störung der Bewegungsfunktion', e:''},{l:'b', t:'Schädigung/Störung der Muskelfunktion', e:''}]},
-  LY: {name:'Lymphabflussstörungen', anlass:'Lymph- oder Lipödem', max:6, orient:30, primary:['MLD30','MLD45','MLD60','MLD'], supp:['FANGO','KALT','ET','UEB'], fundstelle:'Heilmittelkatalog, S. 68', ohneKlinik:true, kompression:true,
+  LY: {name:'Lymphabflussstörungen', anlass:'Lymph- oder Lipödem', max:6, orient:30, primary:['MLD30','MLD45','MLD60','MLD'], supp:['FANGO','KALT','ET','UEB'], fundstelle:'Heilmittelkatalog, S. 68', kompression:true,
     sym:[{l:'a', t:'Schädigung der Lymphgefäße, Lymphknoten, Kapillaren', e:''},{l:'b', t:'Schädigung der Haut', e:'Zum Beispiel Verdickung oder trophische Veränderungen.'},{l:'c', t:'Schmerzen', e:''}]}
 },
 
@@ -362,6 +362,11 @@ diagnoseliste: [
   {c:'E88.21', g:['LY'], hinweis:'Befristet bis 31.12.2027.'},
   {c:'E88.22', g:['LY'], hinweis:'Befristet bis 31.12.2027.'},
   {c:'M75.1', g:['EX']},
+  {c:'I69.3', g:['ZN'], frist:12},{c:'I69.4', g:['ZN'], frist:12},
+  {p:'G82.0', g:['ZN']},{p:'G82.1', g:['ZN']},{p:'G82.3', g:['ZN']},{p:'G82.4', g:['ZN']},
+  {c:'G61.0', g:['PN']},{c:'G61.8', g:['PN'], hinweis:'Gilt nur für CIDP.'},
+  {c:'J44.00', g:['AT'], hinweis:'Nur bei FEV1 unter 35 % des Sollwertes.'},{c:'J44.10', g:['AT'], hinweis:'Nur bei FEV1 unter 35 % des Sollwertes.'},{c:'J44.80', g:['AT']},{c:'J44.90', g:['AT']},
+  {c:'N39.3', g:['SO2'], alter:70},{p:'N39.4', alter:70},{p:'H81', g:['WS','EX','SO3'], alter:70},
   {c:'M50.0', zweit:'G99.2', g:['WS','EX','ZN'], frist:6},
   {c:'M50.1', zweit:'G55.1', g:['WS','EX','ZN'], frist:6},
   {c:'M51.0', zweit:'G99.2', g:['WS','EX','ZN'], frist:6},
@@ -388,6 +393,7 @@ formaleQuellen: [
   {t:'Heilmittelkatalog Physiotherapie', h:'G-BA', s:'Fassung 16.05.2024', a:'21.10.2026', u:'https://www.g-ba.de/downloads/17-98-3064/HeilM-RL_2024-05-16_Heilmittelkatalog.pdf'},
   {t:'PraxisWissen Heilmittel', h:'KBV', s:'Ausgabe 2026', a:'20.10.2026', u:'https://www.kbv.de/documents/infothek/publikationen/praxiswissen/praxiswissen-heilmittel.pdf'},
   {t:'Heilmittel-Diagnoseliste', h:'KBV', s:'Stand 01.01.2026', a:'21.10.2026', u:'https://www.kbv.de/documents/praxis/verordnungen/heilmittel/heilmittel-diagnoseliste.pdf'},
+  {t:'Heilmittel-Diagnoseliste (Webversion)', h:'KBV, über physio-deutschland.de', s:'Stand 01.07.2025', a:'21.10.2026', u:'https://www.physio-deutschland.de/fileadmin/data/nordverbund/PDFs/Allgemein/Heilmittel_Diagnoseliste_Webversion_Stand_01.07.2025.pdf'},
   {t:'Diagnoseliste Blankoverordnung', h:'KVWL nach Vertrag § 125a SGB V', s:'gültig ab 01.11.2024', a:'21.10.2026', u:'https://www.kvwl.de/fileadmin/user_upload/pdf/Mitglieder/Verordnung/Heilmittel/Diagnoseliste_Indikationen_Blankoverordnung.pdf'},
   {t:'ICD-10-GM 2026', h:'BfArM', s:'Version 2026', a:'20.10.2026', u:'https://klassifikationen.bfarm.de/icd-10-gm/kode-suche/htmlgm2026/index.htm'}
 ],
@@ -557,9 +563,1509 @@ demos: [
 ]
 };
 
+// Ergänzung übrige Diagnosegruppen (Recherche 21.10.2026, evidence/PROFILE_ERGAENZUNG.md)
+const HK_DATA_ERG = {
+ "heilmittel": {
+  "KGAT": {
+   "name": "Krankengymnastik (Atemtherapie)",
+   "kurz": "KG (Atemtherapie)",
+   "text": "Krankengymnastik bei Störungen der Atmung, z. B. Atem- und Hustentechniken, Sekretmobilisation, atemerleichternde Körperstellungen."
+  },
+  "KGMUKO": {
+   "name": "Krankengymnastik bei Mukoviszidose",
+   "kurz": "KG-Muko",
+   "text": "Krankengymnastik zur Behandlung schwerer Erkrankungen der Atmungsorgane, z. B. Mukoviszidose oder vergleichbare pulmonale Schädigungen."
+  },
+  "INH": {
+   "name": "Inhalationstherapie",
+   "kurz": "Inhalation",
+   "text": "Inhalation als Heilmittel der physikalischen Therapie."
+  },
+  "BGM": {
+   "name": "Bindegewebsmassage",
+   "kurz": "BGM",
+   "text": "Reflextherapeutische Massage des Bindegewebes."
+  },
+  "KMT": {
+   "name": "Klassische Massagetherapie",
+   "kurz": "KMT",
+   "text": "Klassische Massage zur Tonusregulation und Durchblutungsförderung."
+  },
+  "HROLLE": {
+   "name": "Wärmetherapie (heiße Rolle)",
+   "kurz": "Heiße Rolle",
+   "text": "Wärmeanwendung mit heißer Rolle, insbesondere bei Störungen der Atmung."
+  },
+  "CM": {
+   "name": "Colonmassage",
+   "kurz": "CM",
+   "text": "Massage entlang des Dickdarmverlaufs zur Anregung der Darmtätigkeit."
+  }
+ },
+ "gruppen": {
+  "AT": {
+   "name": "Störungen der Atmung",
+   "anlass": "Erkrankung der Atmungsorgane oder der Atemmuskulatur",
+   "max": 6,
+   "orient": 18,
+   "orientMuko": 50,
+   "primary": [
+    "KGAT",
+    "KGMUKO",
+    "INH",
+    "BGM"
+   ],
+   "supp": [
+    "KMT",
+    "HROLLE",
+    "INH"
+   ],
+   "fundstelle": "Heilmittelkatalog, S. 66",
+   "sym": [
+    {
+     "l": "a",
+     "t": "Schädigung/Störung der Atmungsfunktion",
+     "e": "Zum Beispiel bronchiale Obstruktion, veränderte Atemfrequenz, -rhythmus oder -tiefe, Husten mit oder ohne Auswurf, Dyspnoe."
+    },
+    {
+     "l": "b",
+     "t": "Schädigung der Atemmuskulatur (einschließlich Zwerchfell und Atemhilfsmuskulatur)",
+     "e": "Zum Beispiel thorakale Schmerzen."
+    }
+   ]
+  },
+  "GE": {
+   "name": "Arterielle Gefäßerkrankungen",
+   "anlass": "Arterielle Gefäßerkrankung, konservativ oder nach interventioneller/operativer Behandlung",
+   "max": 6,
+   "orient": 18,
+   "primary": [
+    "KG",
+    "UEB"
+   ],
+   "supp": [
+    "FANGO",
+    "KALT"
+   ],
+   "fundstelle": "Heilmittelkatalog, S. 67",
+   "sym": [
+    {
+     "l": "a",
+     "t": "Schmerzen der Extremitäten (unter Belastung, Claudicatio)",
+     "e": ""
+    },
+    {
+     "l": "b",
+     "t": "Schädigung/Störung der Muskelfunktion",
+     "e": "Zum Beispiel Kraft, Ausdauer, Tonus."
+    }
+   ]
+  },
+  "SO1": {
+   "name": "Störung der Dickdarmfunktion",
+   "anlass": "Funktionsstörung des Dickdarms",
+   "max": 6,
+   "orient": 18,
+   "primary": [
+    "CM",
+    "BGM"
+   ],
+   "supp": [
+    "FANGO"
+   ],
+   "fundstelle": "Heilmittelkatalog, S. 69",
+   "sym": [
+    {
+     "l": "a",
+     "t": "Schädigung/Störung der Defäkationsfunktion",
+     "e": "Zum Beispiel Stuhlfrequenz, Stuhlkonsistenz, Meteorismus."
+    },
+    {
+     "l": "b",
+     "t": "Schmerzen",
+     "e": ""
+    }
+   ]
+  },
+  "SO2": {
+   "name": "Störungen der Ausscheidung (Stuhlinkontinenz, Harninkontinenz)",
+   "anlass": "Harn- oder Stuhlinkontinenz",
+   "max": 6,
+   "orient": 18,
+   "primary": [
+    "KG",
+    "UEB"
+   ],
+   "supp": [
+    "ET"
+   ],
+   "fundstelle": "Heilmittelkatalog, S. 70",
+   "sym": [
+    {
+     "l": "a",
+     "t": "Schädigung/Störung der Stuhlkontinenz",
+     "e": ""
+    },
+    {
+     "l": "b",
+     "t": "Schädigung/Störung der Harnkontinenz",
+     "e": ""
+    }
+   ]
+  },
+  "SO3": {
+   "name": "Schwindel unterschiedlicher Genese und Ätiologie",
+   "anlass": "Vestibulärer Schwindel",
+   "max": 6,
+   "orient": 18,
+   "primary": [
+    "KG",
+    "UEB"
+   ],
+   "supp": [],
+   "fundstelle": "Heilmittelkatalog, S. 71",
+   "sym": [
+    {
+     "l": "a",
+     "t": "Schädigung/Störung der vestibulären Funktion",
+     "e": "Zum Beispiel Lage-, Gleichgewichts- und Bewegungssinn."
+    },
+    {
+     "l": "b",
+     "t": "Schwindelgefühl, Fallneigung",
+     "e": ""
+    }
+   ]
+  }
+ },
+ "quellen": {
+  "NVLC": {
+   "t": "Nationale VersorgungsLeitlinie COPD",
+   "h": "BÄK, KBV, AWMF",
+   "s": "2. Auflage, Version 1, 2021; Gültigkeit abgelaufen (06/2026)",
+   "f": "Kurzfassung, Kap. 4.1–4.3, Empfehlungen 4-1 bis 4-11, S. 20–24",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/nvl-003k_S3_COPD_2026-02.pdf"
+  },
+  "DGPC": {
+   "t": "S2k-Leitlinie Fachärztliche Diagnostik und Therapie der COPD",
+   "h": "DGP",
+   "s": "Version 5.1, Februar 2026",
+   "f": "Empfehlungen E 30–38, E 45–46; Kap. 3.2.2–3.2.10",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/020-006l_S2k_Fachaerztliche-Diagnostik-Therapie-COPD_2026-03.pdf"
+  },
+  "ERSBE": {
+   "t": "Clinical Practice Guideline for the Management of Adult Bronchiectasis",
+   "h": "ERS",
+   "s": "2025 (Eur Respir J)",
+   "f": "Empfehlungen Atemwegsclearance und pulmonale Rehabilitation",
+   "a": "21.10.2026",
+   "u": "https://doi.org/10.1183/13993003.01126-2025"
+  },
+  "DGAP": {
+   "t": "S3-Leitlinie Diagnostik, Therapie und Nachsorge der peripheren arteriellen Verschlusskrankheit",
+   "h": "DGA",
+   "s": "2024",
+   "f": "Schlüsselfragen-Fazit, S. 4",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/065-003l_S3_Diagnostik-Therapie-Nachsorge-periphere-arterielle-Verschlusskrankheit_2024-11.pdf"
+  },
+  "ISLLY": {
+   "t": "The Diagnosis and Treatment of Peripheral Lymphedema: 2023 Consensus Document",
+   "h": "International Society of Lymphology",
+   "s": "Lymphology 2023;56:133–151",
+   "f": "Therapie, S. 141–143",
+   "a": "21.10.2026",
+   "u": "https://www.isl.arizona.edu/sites/default/files/2024-11/THE-DIAGNOSIS-AND-TREATMENT-OF-PERIPHERAL-LYMPHEDEMA-2023-CONSENSUS-DOCUMENT-OF-THE-INTERNATIONAL-SOCIETY-OF-LYMPHOLOGY.pdf"
+  },
+  "DGNPK": {
+   "t": "Parkinson-Krankheit",
+   "h": "DGN",
+   "s": "S2k, November 2023",
+   "f": "Empfehlungsübersicht, S. 15–18 (Kap. 3.12, 3.18, 3.23)",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/030-010l_Parkinson_Krankheit_2023-11_1.pdf"
+  },
+  "DGNMS": {
+   "t": "Diagnose und Therapie der Multiplen Sklerose, NMOSD und MOGAD",
+   "h": "DGN",
+   "s": "S2k, April 2026",
+   "f": "Symptombezogene Therapie, S. 17",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/030-050l_S2k_Diagnose-Therapie-Multiple-Sklerose-Neuromyelitis-optica-Spektrum-Erkrankung-NMOSD-MOG-IgG-assoziierte-Erkrankung-MOGAD_2026-04.pdf"
+  },
+  "DGNSP": {
+   "t": "Therapie des spastischen Syndroms",
+   "h": "DGN",
+   "s": "S2k, Version 6.1, 12/2024, gültig bis 11/2029",
+   "f": "Empfehlungsübersicht, S. 6–11",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/030-078l_S2k_Therapie_spastisches_Syndrom_2025-04.pdf"
+  },
+  "DGNRA": {
+   "t": "Rehabilitative Therapie bei Armparese nach Schlaganfall",
+   "h": "DGNR",
+   "s": "S3, Version 06/2020",
+   "f": "Kap. 6.1, S. 28",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guideline_bkp/080-001l_S3_Rehabilitative_Therapie_bei_Armparese_nach_Schlaganfall_2020-07.pdf"
+  },
+  "DMGPQ": {
+   "t": "Rehabilitation der unteren Extremität, der Steh- und Gehfunktion bei Menschen mit Querschnittlähmung",
+   "h": "DMGP",
+   "s": "S2e, Version 2.0, 2024",
+   "f": "Empfehlungen 7.7–7.11, S. 29–32",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/179-009l_S2e_Rehabilitation-untere-Extremitaet-Stehfunktion-Gehfunktion-Querschnittlaehmung_2024-07.pdf"
+  },
+  "DGNFP": {
+   "t": "Therapie der idiopathischen Fazialisparese",
+   "h": "DGN",
+   "s": "S2k, 02/2022, gültig bis 02/2027",
+   "f": "Kap. 3.2, Tab. 4, S. 25–26",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/030-013l_S2k_Therapie-Idiopathische-Fazialisparese-Bell’s-Palsy_2022-05.pdf"
+  },
+  "DGNIN": {
+   "t": "Therapie immunvermittelter Neuropathien",
+   "h": "DGN",
+   "s": "S2e, Version 4.1, 10/2025, gültig bis 09/2030",
+   "f": "Kap. 4.1, S. 12; Kap. 4.2, S. 26",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/030-130l_S2e_Therapie-Immunvermittelte-Neuropathien_2026-03.pdf"
+  },
+  "DGHKTS": {
+   "t": "Diagnostik und Therapie des Karpaltunnelsyndroms",
+   "h": "DGH",
+   "s": "S3, 2022",
+   "f": "Kap. 11.1–11.2, S. 23–31",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guideline_bkp/005-003l_S3_Diagnostik-Therapie-Karpaltunnelsyndrom-KTS_2022-04.pdf"
+  },
+  "DGVSO": {
+   "t": "S2k-Leitlinie Chronische Obstipation",
+   "h": "DGVS, DGNM",
+   "s": "Version 1.0, 04/2022",
+   "f": "Empfehlungen 6.3–6.5, 7.1, 12.1–12.4, 13.6",
+   "a": "21.10.2026",
+   "u": "https://www.dgvs.de/leitlinien/unterer-gi-trakt/chronische-obstipation/"
+  },
+  "NG123": {
+   "t": "Urinary incontinence and pelvic organ prolapse in women (NG123)",
+   "h": "NICE",
+   "s": "2019",
+   "f": "1.4.3–1.4.12",
+   "a": "21.10.2026",
+   "u": "https://www.nice.org.uk/guidance/ng123/chapter/Recommendations"
+  },
+  "DEGAS": {
+   "t": "Schwindel in der Hausarztpraxis",
+   "h": "DEGAM",
+   "s": "S2k, Kurzversion 2.4, 2025, gültig bis 02/2030",
+   "f": "Kurzversion, Abschnitte BPLS und Vestibulopathie",
+   "a": "21.10.2026",
+   "u": "https://register.awmf.org/assets/guidelines/053-018k_S2k_Schwindel-in-der-Hausarztpraxis_2026-06-1.pdf"
+  },
+  "APTAV": {
+   "t": "Vestibular Rehabilitation for Peripheral Vestibular Hypofunction (Updated CPG)",
+   "h": "ANPT/APTA",
+   "s": "Revision 2021",
+   "f": "Action Statements 1–10",
+   "a": "21.10.2026",
+   "u": "https://www.neuropt.org/docs/default-source/cpgs/vestibular-update/vestibular-hypofunction-cpg-revision-2021.pdf"
+  }
+ },
+ "diagnosen": [
+  {
+   "c": "J44.80",
+   "n": "Sonstige näher bezeichnete chronische obstruktive Lungenkrankheit, FEV1 <35 % des Sollwertes",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J44.81",
+   "n": "Sonstige näher bezeichnete chronische obstruktive Lungenkrankheit, FEV1 ≥35 % und <50 % des Sollwertes",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J44.82",
+   "n": "Sonstige näher bezeichnete chronische obstruktive Lungenkrankheit, FEV1 ≥50 % und <70 % des Sollwertes",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J44.83",
+   "n": "Sonstige näher bezeichnete chronische obstruktive Lungenkrankheit, FEV1 ≥70 % des Sollwertes",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J44.89",
+   "n": "Sonstige näher bezeichnete chronische obstruktive Lungenkrankheit, FEV1 nicht näher bezeichnet",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J44.90",
+   "n": "Chronische obstruktive Lungenkrankheit, nicht näher bezeichnet, FEV1 <35 % des Sollwertes",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J44.91",
+   "n": "Chronische obstruktive Lungenkrankheit, nicht näher bezeichnet, FEV1 ≥35 % und <50 % des Sollwertes",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J44.92",
+   "n": "Chronische obstruktive Lungenkrankheit, nicht näher bezeichnet, FEV1 ≥50 % und <70 % des Sollwertes",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J44.93",
+   "n": "Chronische obstruktive Lungenkrankheit, nicht näher bezeichnet, FEV1 ≥70 % des Sollwertes",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J44.99",
+   "n": "Chronische obstruktive Lungenkrankheit, nicht näher bezeichnet, FEV1 nicht näher bezeichnet",
+   "g": "AT",
+   "s": "copd lunge atemnot"
+  },
+  {
+   "c": "J47",
+   "n": "Bronchiektasen",
+   "g": "AT",
+   "s": "bronchiektasen lunge sekret"
+  },
+  {
+   "c": "I70.21",
+   "n": "Atherosklerose der Extremitätenarterien, Becken-Bein-Typ, mit belastungsinduziertem Ischämieschmerz, Gehstrecke 200 m und mehr",
+   "g": "GE",
+   "s": "pavk claudicatio schaufensterkrankheit"
+  },
+  {
+   "c": "I70.22",
+   "n": "Atherosklerose der Extremitätenarterien, Becken-Bein-Typ, mit belastungsinduziertem Ischämieschmerz, Gehstrecke weniger als 200 m",
+   "g": "GE",
+   "s": "pavk claudicatio schaufensterkrankheit"
+  },
+  {
+   "c": "G20.00",
+   "n": "Primäres Parkinson-Syndrom mit fehlender oder geringer Beeinträchtigung, ohne Wirkungsfluktuation",
+   "g": "ZN",
+   "s": "parkinson"
+  },
+  {
+   "c": "G20.01",
+   "n": "Primäres Parkinson-Syndrom mit fehlender oder geringer Beeinträchtigung, mit Wirkungsfluktuation",
+   "g": "ZN",
+   "s": "parkinson"
+  },
+  {
+   "c": "G20.10",
+   "n": "Primäres Parkinson-Syndrom mit mäßiger bis schwerer Beeinträchtigung, ohne Wirkungsfluktuation",
+   "g": "ZN",
+   "s": "parkinson"
+  },
+  {
+   "c": "G20.11",
+   "n": "Primäres Parkinson-Syndrom mit mäßiger bis schwerer Beeinträchtigung, mit Wirkungsfluktuation",
+   "g": "ZN",
+   "s": "parkinson"
+  },
+  {
+   "c": "G20.20",
+   "n": "Primäres Parkinson-Syndrom mit schwerster Beeinträchtigung, ohne Wirkungsfluktuation",
+   "g": "ZN",
+   "s": "parkinson"
+  },
+  {
+   "c": "G20.21",
+   "n": "Primäres Parkinson-Syndrom mit schwerster Beeinträchtigung, mit Wirkungsfluktuation",
+   "g": "ZN",
+   "s": "parkinson"
+  },
+  {
+   "c": "G20.90",
+   "n": "Primäres Parkinson-Syndrom, nicht näher bezeichnet, ohne Wirkungsfluktuation",
+   "g": "ZN",
+   "s": "parkinson"
+  },
+  {
+   "c": "G20.91",
+   "n": "Primäres Parkinson-Syndrom, nicht näher bezeichnet, mit Wirkungsfluktuation",
+   "g": "ZN",
+   "s": "parkinson"
+  },
+  {
+   "c": "G35.10",
+   "n": "Multiple Sklerose mit vorherrschend schubförmigem Verlauf, ohne Angabe einer akuten Exazerbation oder Progression",
+   "g": "ZN",
+   "s": "ms"
+  },
+  {
+   "c": "G35.11",
+   "n": "Multiple Sklerose mit vorherrschend schubförmigem Verlauf, mit Angabe einer akuten Exazerbation oder Progression",
+   "g": "ZN",
+   "s": "ms"
+  },
+  {
+   "c": "G35.20",
+   "n": "Multiple Sklerose mit primär-chronischem Verlauf, ohne Angabe einer akuten Exazerbation oder Progression",
+   "g": "ZN",
+   "s": "ms"
+  },
+  {
+   "c": "G35.21",
+   "n": "Multiple Sklerose mit primär-chronischem Verlauf, mit Angabe einer akuten Exazerbation oder Progression",
+   "g": "ZN",
+   "s": "ms"
+  },
+  {
+   "c": "G35.30",
+   "n": "Multiple Sklerose mit sekundär-chronischem Verlauf, ohne Angabe einer akuten Exazerbation oder Progression",
+   "g": "ZN",
+   "s": "ms"
+  },
+  {
+   "c": "G35.31",
+   "n": "Multiple Sklerose mit sekundär-chronischem Verlauf, mit Angabe einer akuten Exazerbation oder Progression",
+   "g": "ZN",
+   "s": "ms"
+  },
+  {
+   "c": "I69.3",
+   "n": "Folgen eines Hirninfarktes",
+   "g": "ZN",
+   "s": "schlaganfall apoplex hemiparese"
+  },
+  {
+   "c": "I69.4",
+   "n": "Folgen eines Schlaganfalls, nicht als Blutung oder Infarkt bezeichnet",
+   "g": "ZN",
+   "s": "schlaganfall apoplex hemiparese"
+  },
+  {
+   "c": "G82.02",
+   "n": "Schlaffe Paraparese und Paraplegie, chronische komplette Querschnittlähmung",
+   "g": "ZN",
+   "s": "querschnitt paraplegie tetraplegie"
+  },
+  {
+   "c": "G82.03",
+   "n": "Schlaffe Paraparese und Paraplegie, chronische inkomplette Querschnittlähmung",
+   "g": "ZN",
+   "s": "querschnitt paraplegie tetraplegie"
+  },
+  {
+   "c": "G82.12",
+   "n": "Spastische Paraparese und Paraplegie, chronische komplette Querschnittlähmung",
+   "g": "ZN",
+   "s": "querschnitt paraplegie tetraplegie"
+  },
+  {
+   "c": "G82.13",
+   "n": "Spastische Paraparese und Paraplegie, chronische inkomplette Querschnittlähmung",
+   "g": "ZN",
+   "s": "querschnitt paraplegie tetraplegie"
+  },
+  {
+   "c": "G82.32",
+   "n": "Schlaffe Tetraparese und Tetraplegie, chronische komplette Querschnittlähmung",
+   "g": "ZN",
+   "s": "querschnitt paraplegie tetraplegie"
+  },
+  {
+   "c": "G82.33",
+   "n": "Schlaffe Tetraparese und Tetraplegie, chronische inkomplette Querschnittlähmung",
+   "g": "ZN",
+   "s": "querschnitt paraplegie tetraplegie"
+  },
+  {
+   "c": "G82.42",
+   "n": "Spastische Tetraparese und Tetraplegie, chronische komplette Querschnittlähmung",
+   "g": "ZN",
+   "s": "querschnitt paraplegie tetraplegie"
+  },
+  {
+   "c": "G82.43",
+   "n": "Spastische Tetraparese und Tetraplegie, chronische inkomplette Querschnittlähmung",
+   "g": "ZN",
+   "s": "querschnitt paraplegie tetraplegie"
+  },
+  {
+   "c": "G51.0",
+   "n": "Fazialisparese",
+   "g": "PN",
+   "s": "fazialisparese bell"
+  },
+  {
+   "c": "G61.0",
+   "n": "Guillain-Barré-Syndrom",
+   "g": "PN",
+   "s": "guillain barre cidp polyneuritis"
+  },
+  {
+   "c": "G61.8",
+   "n": "Sonstige Polyneuritiden",
+   "g": "PN",
+   "s": "guillain barre cidp polyneuritis"
+  },
+  {
+   "c": "K59.00",
+   "n": "Obstipation bei Kolontransitstörung",
+   "g": "SO1",
+   "s": "obstipation verstopfung"
+  },
+  {
+   "c": "K59.01",
+   "n": "Obstipation bei Stuhlentleerungsstörung",
+   "g": "SO1",
+   "s": "obstipation verstopfung"
+  },
+  {
+   "c": "K59.09",
+   "n": "Sonstige und nicht näher bezeichnete Obstipation",
+   "g": "SO1",
+   "s": "obstipation verstopfung"
+  },
+  {
+   "c": "N39.3",
+   "n": "Belastungsinkontinenz [Stressinkontinenz]",
+   "g": "SO2",
+   "s": "harninkontinenz beckenboden"
+  },
+  {
+   "c": "N39.42",
+   "n": "Dranginkontinenz",
+   "g": "SO2",
+   "s": "harninkontinenz beckenboden"
+  },
+  {
+   "c": "N39.48",
+   "n": "Sonstige näher bezeichnete Harninkontinenz",
+   "g": "SO2",
+   "s": "harninkontinenz beckenboden"
+  },
+  {
+   "c": "H81.1",
+   "n": "Benigner paroxysmaler Schwindel",
+   "g": "SO3",
+   "s": "schwindel lagerungsschwindel bpls"
+  },
+  {
+   "c": "H81.2",
+   "n": "Neuropathia vestibularis",
+   "g": "SO3",
+   "s": "schwindel vestibulopathie neuritis"
+  },
+  {
+   "c": "H81.8",
+   "n": "Sonstige Störungen der Vestibularfunktion",
+   "g": "SO3",
+   "s": "schwindel vestibulopathie neuritis"
+  }
+ ],
+ "profile": {
+  "copd": {
+   "titel": "COPD (stabile Phase)",
+   "gilt": "Gilt für stabile COPD aller Schweregrade mit Atemnot, Husten mit Auswurf oder eingeschränkter Belastbarkeit.",
+   "nicht": "Nicht bei akuter Exazerbation sowie bei Asthma, Bronchiektasen oder Mukoviszidose als führender Diagnose.",
+   "codes": [
+    "J44.80",
+    "J44.81",
+    "J44.82",
+    "J44.83",
+    "J44.89",
+    "J44.90",
+    "J44.91",
+    "J44.92",
+    "J44.93",
+    "J44.99"
+   ],
+   "therapie": [
+    "Angeleitetes, individuell dosiertes körperliches Training in allen Schweregraden (NVL ⇑⇑; DGP: soll).",
+    "Selbsthilfetechniken gegen Atemnot vermitteln, z. B. in Schulung, Lungensport oder Physiotherapie (NVL ⇑⇑).",
+    "Atemphysiotherapie bei Belastungsdyspnoe und zur Sekretelimination (DGP: soll; NVL ⇑)."
+   ],
+   "bedarf": [
+    "Atemnot schränkt Alltag oder Lebensqualität ein, und Selbsthilfetechniken reichen nicht aus.",
+    "Sekretretention oder produktiver Husten; außerdem, wenn körperliches Training nicht ausreichend möglich ist (NVL ⇔)."
+   ],
+   "weitere": [
+    "Lungensport als Rehabilitationssport verordnen, wenn selbstständiges Training nicht möglich ist (NVL ⇑).",
+    "Strukturierte Patientenschulung, bei Bedarf Nachschulung (NVL ⇑⇑; DGP: soll).",
+    "Pneumologische Rehabilitation anbieten; nach schwerer Exazerbation Anschlussheilbehandlung (DGP: soll).",
+    "Körperliche Aktivität regelmäßig erfragen; nach oder ohne Rehabilitation häusliches Training fortführen (NVL ⇑⇑; DGP: soll)."
+   ],
+   "quellen": [
+    "NVLC",
+    "DGPC"
+   ],
+   "hm": {
+    "KGAT": {
+     "v": "pos",
+     "t": "Bei Belastungsdyspnoe und Sputumproduktion empfohlen (DGP: soll); NVL ⇑, wenn Selbsthilfetechniken nicht ausreichen oder bei Sekretretention.",
+     "r": [
+      "DGPC",
+      "NVLC"
+     ]
+    },
+    "KGMUKO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zur COPD; die Position ist für schwere Erkrankungen der Atmungsorgane wie Mukoviszidose vorgesehen.",
+     "r": []
+    },
+    "INH": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Inhalation als physikalische Therapie bei COPD.",
+     "r": []
+    },
+    "BGM": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Bindegewebsmassage bei COPD.",
+     "r": []
+    },
+    "KMT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu klassischen Massage bei COPD.",
+     "r": []
+    },
+    "HROLLE": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie bei COPD.",
+     "r": []
+    }
+   }
+  },
+  "bronchiektasen": {
+   "titel": "Bronchiektasen",
+   "gilt": "Gilt für Erwachsene mit Bronchiektasen ohne Mukoviszidose.",
+   "nicht": "Nicht bei Mukoviszidose oder bei COPD ohne Bronchiektasen als führender Diagnose.",
+   "codes": [
+    "J47"
+   ],
+   "therapie": [
+    "Atemwegsclearance-Techniken für die meisten Betroffenen (ERS: starke Empfehlung).",
+    "Pulmonale Rehabilitation bei eingeschränkter Belastbarkeit (ERS: starke Empfehlung)."
+   ],
+   "bedarf": [
+    "Chronischer produktiver Husten: Anleitung zu Clearance-Techniken für das tägliche Eigenprogramm.",
+    "Eingeschränkte Belastbarkeit, wenn eine pulmonale Rehabilitation nicht oder noch nicht möglich ist."
+   ],
+   "weitere": [
+    "Pulmonale Rehabilitation bei eingeschränkter Belastbarkeit (ERS: starke Empfehlung).",
+    "Orientierende Behandlungsmenge bis 50 Einheiten bei mit Mukoviszidose vergleichbaren pulmonalen Erkrankungen (Heilmittelkatalog AT)."
+   ],
+   "quellen": [
+    "ERSBE"
+   ],
+   "hm": {
+    "KGAT": {
+     "v": "pos",
+     "t": "Atemwegsclearance-Techniken für die meisten Betroffenen empfohlen (ERS: starke Empfehlung).",
+     "r": [
+      "ERSBE"
+     ]
+    },
+    "KGMUKO": {
+     "v": "pos",
+     "t": "Atemwegsclearance empfohlen (ERS: starke Empfehlung); KG-Muko ist bei mit Mukoviszidose vergleichbaren pulmonalen Erkrankungen vorgesehen.",
+     "r": [
+      "ERSBE"
+     ]
+    },
+    "INH": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Inhalation als physikalische Therapie bei Bronchiektasen.",
+     "r": []
+    },
+    "BGM": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Bindegewebsmassage bei Bronchiektasen.",
+     "r": []
+    },
+    "KMT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu klassischen Massage bei Bronchiektasen.",
+     "r": []
+    },
+    "HROLLE": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie bei Bronchiektasen.",
+     "r": []
+    }
+   }
+  },
+  "pavk": {
+   "titel": "pAVK mit Claudicatio (Stadium II)",
+   "gilt": "Gilt für periphere arterielle Verschlusskrankheit vom Becken-Bein-Typ mit belastungsabhängigem Ischämieschmerz, auch nach Revaskularisation.",
+   "nicht": "Nicht bei Ruheschmerz, Ulzeration oder Gangrän (kritische Extremitätenischämie).",
+   "codes": [
+    "I70.21",
+    "I70.22"
+   ],
+   "therapie": [
+    "Gehtraining, idealerweise strukturiert und überwacht, zusammen mit optimaler medikamentöser Therapie (DGA: soll).",
+    "Konservative Therapie mindestens 3–6 Monate, dann Neubewertung (DGA: soll).",
+    "Nach Revaskularisation strukturiertes Gehtraining fortführen (DGA: soll)."
+   ],
+   "bedarf": [
+    "Strukturiertes Gehtraining ist anders nicht verfügbar, z. B. kein erreichbares Gefäßsportangebot.",
+    "Einschränkung von Gehstrecke oder Muskelfunktion, die Anleitung und Belastungssteuerung braucht."
+   ],
+   "weitere": [
+    "Strukturiertes Gehtraining ist auch in Gefäßsportgruppen möglich; das Angebot ist regional begrenzt (DGA).",
+    "Gehtraining immer zusammen mit optimaler medikamentöser Therapie (DGA: soll)."
+   ],
+   "quellen": [
+    "DGAP"
+   ],
+   "hm": {
+    "KG": {
+     "v": "pos",
+     "t": "Strukturiertes Gehtraining soll im Stadium II empfohlen werden (DGA: soll).",
+     "r": [
+      "DGAP"
+     ]
+    },
+    "UEB": {
+     "v": "pos",
+     "t": "Strukturiertes Gehtraining, auch in der Gruppe (DGA: soll).",
+     "r": [
+      "DGAP"
+     ]
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie bei pAVK.",
+     "r": []
+    },
+    "KALT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Kältetherapie bei pAVK.",
+     "r": []
+    }
+   }
+  },
+  "lymphoedem": {
+   "titel": "Lymphödem der Extremitäten",
+   "gilt": "Gilt für primäres oder sekundäres Lymphödem der Extremitäten oder sonstiger Lokalisation, Stadium I bis III.",
+   "nicht": "Nicht bei kardial, renal oder venös bedingtem Ödem ohne lymphatische Komponente.",
+   "codes": [
+    "I89.00",
+    "I89.01",
+    "I89.02",
+    "I89.03",
+    "I89.04",
+    "I89.05"
+   ],
+   "therapie": [
+    "Komplexe physikalische Entstauungstherapie: Lymphdrainage, Kompressionsbandagierung, Bewegung und Hautpflege (ISL-Konsens).",
+    "Erhaltungsphase mit flachgestrickter Kompressionsversorgung, Bewegung und Hautpflege; Lymphdrainage nach Bedarf (ISL-Konsens)."
+   ],
+   "bedarf": [
+    "Entstauungsphase, besonders ab Stadium II: Lymphdrainage zusammen mit Kompressionsbandagierung.",
+    "Erhaltungsphase, wenn das Volumen unter Kompression und Bewegung allein wieder zunimmt."
+   ],
+   "weitere": [
+    "Maßangefertigte Kompressionsversorgung für die Erhaltungsphase verordnen (ISL-Konsens).",
+    "Kompressionsbandagen werden als Verbandmittel gesondert verordnet (Heilmittelkatalog LY)."
+   ],
+   "quellen": [
+    "ISLLY"
+   ],
+   "hm": {
+    "MLD30": {
+     "v": "cond",
+     "l": "Mit Kompression",
+     "t": "Teil der Entstauungstherapie; allein geringer Zusatznutzen zu Kompression und Bewegung für die Volumenreduktion (ISL-Konsens, ohne Grad).",
+     "r": [
+      "ISLLY"
+     ]
+    },
+    "MLD45": {
+     "v": "cond",
+     "l": "Mit Kompression",
+     "t": "Teil der Entstauungstherapie; allein geringer Zusatznutzen zu Kompression und Bewegung für die Volumenreduktion (ISL-Konsens, ohne Grad).",
+     "r": [
+      "ISLLY"
+     ]
+    },
+    "MLD60": {
+     "v": "cond",
+     "l": "Mit Kompression",
+     "t": "Teil der Entstauungstherapie; allein geringer Zusatznutzen zu Kompression und Bewegung für die Volumenreduktion (ISL-Konsens, ohne Grad).",
+     "r": [
+      "ISLLY"
+     ]
+    },
+    "MLD": {
+     "v": "cond",
+     "l": "Mit Kompression",
+     "t": "Teil der Entstauungstherapie; allein geringer Zusatznutzen zu Kompression und Bewegung für die Volumenreduktion (ISL-Konsens, ohne Grad).",
+     "r": [
+      "ISLLY"
+     ]
+    },
+    "UEB": {
+     "v": "pos",
+     "t": "Bewegung unterstützt die Entstauung unabhängig von Form und Dauer (ISL-Konsens, ohne Grad).",
+     "r": [
+      "ISLLY"
+     ]
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie beim Lymphödem.",
+     "r": []
+    },
+    "KALT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Kältetherapie beim Lymphödem.",
+     "r": []
+    },
+    "ET": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrotherapie beim Lymphödem.",
+     "r": []
+    }
+   }
+  },
+  "parkinson": {
+   "titel": "Parkinson-Krankheit",
+   "gilt": "Gilt für primäres Parkinson-Syndrom mit motorischen Einschränkungen im Alltag.",
+   "nicht": "Nicht bei atypischen oder sekundären Parkinson-Syndromen als führender Diagnose.",
+   "codes": [
+    "G20.00",
+    "G20.01",
+    "G20.10",
+    "G20.11",
+    "G20.20",
+    "G20.21",
+    "G20.90",
+    "G20.91"
+   ],
+   "therapie": [
+    "Zugang zu Physiotherapie, wenn motorische Symptome den Alltag einschränken (DGN: soll).",
+    "Aerobes Ausdauertraining 2–3-mal pro Woche für 45–60 Minuten bei leichter kognitiver Störung (DGN: soll)."
+   ],
+   "bedarf": [
+    "Motorische Symptome wie Gang-, Gleichgewichts- oder Transferstörungen schränken den Alltag ein.",
+    "Angeleiteter Aufbau eines Übungs- und Ausdauerprogramms mit Übergang ins Eigenprogramm."
+   ],
+   "weitere": [
+    "Ergotherapie bei Einschränkungen im Alltag, im Beruf oder der Armfunktion einschließlich Handschrift (DGN: sollte).",
+    "Logopädische Sprech- bzw. Schlucktherapie bei Dysarthrie oder Dysphagie (DGN: soll).",
+    "Kognitives Training bei leichter kognitiver Störung (DGN: sollte)."
+   ],
+   "quellen": [
+    "DGNPK"
+   ],
+   "hm": {
+    "KG": {
+     "v": "pos",
+     "t": "Zugang zu Physiotherapie bei alltagsrelevanten motorischen Symptomen (DGN: soll).",
+     "r": [
+      "DGNPK"
+     ]
+    },
+    "ZNS": {
+     "v": "opt",
+     "t": "Die Leitlinie empfiehlt Physiotherapie ohne Festlegung auf ein Behandlungskonzept (DGN: soll für Physiotherapie).",
+     "r": [
+      "DGNPK"
+     ]
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie bei Parkinson.",
+     "r": []
+    },
+    "KALT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Kältetherapie bei Parkinson.",
+     "r": []
+    },
+    "ET": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrotherapie bei Parkinson.",
+     "r": []
+    },
+    "ES": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrostimulation bei Parkinson.",
+     "r": []
+    }
+   }
+  },
+  "ms": {
+   "titel": "Multiple Sklerose",
+   "gilt": "Gilt für Multiple Sklerose mit Spastik, Gangstörung, Fatigue oder eingeschränkter Mobilität.",
+   "nicht": "Nicht bei NMOSD oder MOGAD als führender Diagnose.",
+   "codes": [
+    "G35.0",
+    "G35.10",
+    "G35.11",
+    "G35.20",
+    "G35.21",
+    "G35.30",
+    "G35.31",
+    "G35.9"
+   ],
+   "therapie": [
+    "Bei Spastik regelmäßige Physiotherapie; spastikauslösende Ursachen vermeiden (DGN MS: soll).",
+    "Bei eingeschränkter Mobilität nicht-medikamentöse Therapie mit Techniken der Gangrehabilitation; nach Stürzen und Sturzangst fragen (DGN MS: soll).",
+    "Bei Fatigue zu Kraft- und Ausdauertraining sowie kühlenden Maßnahmen beraten (DGN MS: soll)."
+   ],
+   "bedarf": [
+    "Spastik, Gangstörung oder Sturzgefahr beeinträchtigen Alltag oder Teilhabe.",
+    "Bei selbstberichteter Spastik: Schulung und tägliches Dehn- oder Bewegungsprogramm einüben (DGN Spastik: sollte)."
+   ],
+   "weitere": [
+    "Multimodale Rehabilitation mit gemeinsam festgelegten Therapiezielen (DGN MS: soll).",
+    "Digitale Gesundheitsanwendung zur Unterstützung des Heimübungsprogramms bei Beinspastik möglich (DGN Spastik: kann)."
+   ],
+   "quellen": [
+    "DGNMS",
+    "DGNSP"
+   ],
+   "hm": {
+    "KG": {
+     "v": "pos",
+     "t": "Regelmäßige Physiotherapie bei Spastik und Mobilitätseinschränkung (DGN MS: soll).",
+     "r": [
+      "DGNMS"
+     ]
+    },
+    "ZNS": {
+     "v": "opt",
+     "t": "Spastiktherapie individuell am körperlichen und rehabilitativen Gesamtstatus ausrichten (DGN Spastik: sollte); ein bestimmtes Behandlungskonzept wird nicht vorgegeben.",
+     "r": [
+      "DGNSP"
+     ]
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie bei MS.",
+     "r": []
+    },
+    "KALT": {
+     "v": "opt",
+     "t": "Kühlende Maßnahmen bei Fatigue in die Beratung einbeziehen (DGN MS: soll, als Beratung).",
+     "r": [
+      "DGNMS"
+     ]
+    },
+    "ET": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrotherapie bei MS.",
+     "r": []
+    },
+    "ES": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrostimulation bei MS.",
+     "r": []
+    }
+   }
+  },
+  "schlaganfall": {
+   "titel": "Folgen eines Schlaganfalls mit Parese",
+   "gilt": "Gilt für Arm- oder Beinparese und Spastik nach Hirninfarkt oder nicht näher bezeichnetem Schlaganfall.",
+   "nicht": "Nicht bei Folgen einer Hirnblutung oder Subarachnoidalblutung; dafür die passenden Codes I69.0–I69.2 wählen.",
+   "codes": [
+    "I69.3",
+    "I69.4"
+   ],
+   "therapie": [
+    "Subakut: werktäglich mindestens 30 Minuten Armtherapie zur Verbesserung der Armaktivitäten (DGNR: A).",
+    "Chronisch, mittelschwere bis schwere Armparese: 90–270 Minuten pro Woche repetitives Training, ggf. mit EMG-getriggerter Elektrostimulation, oder aufgabenbezogenes Training (DGNR: B).",
+    "Physiotherapie vorrangig auf aktive Funktion ausrichten; ein Tonusanstieg durch aktive Therapie ist nicht zu befürchten (DGN Spastik: sollte)."
+   ],
+   "bedarf": [
+    "Arm- oder Beinparese mit Einschränkung von Alltagsaktivitäten, Gehen oder Selbstversorgung.",
+    "Spastik mit Kontrakturgefahr: Lagerung in Dehnstellung, ggf. mit Schienen (DGN Spastik: sollte)."
+   ],
+   "weitere": [
+    "Nach Botulinumtoxin eine individuell ausgewählte Begleittherapie (z. B. Dehnung, Orthese, Casting, Elektrostimulation) einplanen (DGN Spastik: sollte).",
+    "Serielles Casting bei funktionell relevanter Kontraktur, bevorzugt nach Botulinumtoxin (DGN Spastik: sollte).",
+    "Kinesiotaping bei Schulterschmerz mit Subluxation möglich (DGN Spastik: kann)."
+   ],
+   "quellen": [
+    "DGNRA",
+    "DGNSP"
+   ],
+   "hm": {
+    "KG": {
+     "v": "pos",
+     "t": "Intensives repetitives bzw. aufgabenbezogenes Training (DGNR: A subakut, B chronisch); aktive Funktion im Vordergrund (DGN Spastik: sollte).",
+     "r": [
+      "DGNRA",
+      "DGNSP"
+     ]
+    },
+    "ZNS": {
+     "v": "opt",
+     "t": "Aktives, repetitives Training ist empfohlen (DGNR: A/B); KG-ZNS bei entsprechendem Behandlungsbedarf möglich.",
+     "r": [
+      "DGNRA"
+     ]
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie nach Schlaganfall.",
+     "r": []
+    },
+    "KALT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Kältetherapie nach Schlaganfall.",
+     "r": []
+    },
+    "ET": {
+     "v": "opt",
+     "t": "TENS bei Beinspastik nach Schlaganfall kann erwogen werden (DGN Spastik: kann).",
+     "r": [
+      "DGNSP"
+     ]
+    },
+    "ES": {
+     "v": "opt",
+     "t": "Chronische Armparese: als Teil des repetitiven Trainings (DGNR: B); bei Beinspastik ergänzend möglich (DGN Spastik: kann).",
+     "r": [
+      "DGNRA",
+      "DGNSP"
+     ]
+    }
+   }
+  },
+  "querschnitt": {
+   "titel": "Chronische Querschnittlähmung",
+   "gilt": "Gilt für chronische komplette oder inkomplette Para- und Tetraparese nach Rückenmarkschädigung.",
+   "nicht": "Nicht bei akuter Querschnittlähmung.",
+   "codes": [
+    "G82.02",
+    "G82.03",
+    "G82.12",
+    "G82.13",
+    "G82.32",
+    "G82.33",
+    "G82.42",
+    "G82.43"
+   ],
+   "therapie": [
+    "Angeleitete Trainingstherapie für Kraft, Ausdauer und Mobilität, auch als Heimprogramm (DMGP: A ⇑⇑).",
+    "Gehtraining mit Gewichtsentlastung, Robotik oder Exoskelett, wenn die Geh- und Stehfunktion verbessert werden kann (DMGP: B ⇑).",
+    "Konventionelles Gehtraining am Boden zum Erhalt oder zur Verbesserung der Gehfunktion (DMGP: ⇑, Expertenkonsens)."
+   ],
+   "bedarf": [
+    "Erhalt oder Verbesserung von Kraft, Mobilität, Steh- oder Gehfunktion.",
+    "Spastik, Kontrakturgefahr oder Schmerz, die Bewegungstherapie und Stehtraining erfordern."
+   ],
+   "weitere": [
+    "Stehtraining im Stehbrett, Stehtisch oder Stehrollstuhl, mit oder ohne FES (DMGP: B ⇑).",
+    "Passives motorisiertes Beintraining bei schwer Betroffenen zur Spastikbehandlung möglich (DGN Spastik: kann)."
+   ],
+   "quellen": [
+    "DMGPQ",
+    "DGNSP"
+   ],
+   "hm": {
+    "KG": {
+     "v": "pos",
+     "t": "Fachlich angeleitete Trainingstherapie (DMGP: A ⇑⇑) und Gehtraining (DMGP: B ⇑ bzw. ⇑).",
+     "r": [
+      "DMGPQ"
+     ]
+    },
+    "ZNS": {
+     "v": "opt",
+     "t": "Aktive Trainings- und Gehtherapie ist empfohlen (DMGP: A/B); KG-ZNS bei entsprechendem Behandlungsbedarf möglich.",
+     "r": [
+      "DMGPQ"
+     ]
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie bei Querschnittlähmung.",
+     "r": []
+    },
+    "KALT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Kältetherapie bei Querschnittlähmung.",
+     "r": []
+    },
+    "ET": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrotherapie bei Querschnittlähmung.",
+     "r": []
+    },
+    "ES": {
+     "v": "pos",
+     "t": "Bewegungstrainer mit FES zur Spastik- und Schmerzreduktion und Vorbereitung des Gehens (DMGP: B ⇑).",
+     "r": [
+      "DMGPQ"
+     ]
+    }
+   }
+  },
+  "fazialisparese": {
+   "titel": "Idiopathische Fazialisparese",
+   "gilt": "Gilt für periphere idiopathische Fazialisparese (Bell-Lähmung).",
+   "nicht": "Nicht bei zentraler Fazialisparese oder bei Parese durch Trauma, Tumor oder Zoster als führender Ursache.",
+   "codes": [
+    "G51.0"
+   ],
+   "therapie": [
+    "Glukokortikoide (DGN: A); Augenschutz bei unvollständigem Lidschluss (DGN: klinischer Konsens).",
+    "Mimische Übungen vor dem Spiegel aus psychologischen Gründen (DGN: klinischer Konsens)."
+   ],
+   "bedarf": [
+    "Anleitung zu mimischen Übungen für das Eigenprogramm, besonders bei ausgeprägter Parese.",
+    "Für einen spezifischen Nutzen von Physiotherapie fehlt ausreichende Evidenz (DGN, ohne Empfehlungsgrad)."
+   ],
+   "weitere": [
+    "Tränenersatz, Hornhautschutz und Uhrglasverband bei unvollständigem Lidschluss (DGN: klinischer Konsens).",
+    "Bei persistierender schwerer Parese Lidbeschwerung zur Lidbedeckung prüfen (DGN)."
+   ],
+   "quellen": [
+    "DGNFP"
+   ],
+   "hm": {
+    "KG": {
+     "v": "opt",
+     "t": "Anleitung zu mimischen Übungen kann aus psychologischen Gründen erwogen werden (DGN: klinischer Konsens).",
+     "r": [
+      "DGNFP"
+     ]
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie bei Fazialisparese.",
+     "r": []
+    },
+    "KALT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Kältetherapie bei Fazialisparese.",
+     "r": []
+    },
+    "ET": {
+     "v": "none",
+     "t": "Für Elektrotherapie allein ist keine Wirkung belegt (DGN, ohne Empfehlungsgrad).",
+     "r": [
+      "DGNFP"
+     ]
+    },
+    "ES": {
+     "v": "none",
+     "t": "Für Elektrostimulation allein ist keine Wirkung belegt (DGN, ohne Empfehlungsgrad).",
+     "r": [
+      "DGNFP"
+     ]
+    }
+   }
+  },
+  "polyneuritis": {
+   "titel": "Guillain-Barré-Syndrom und CIDP",
+   "gilt": "Gilt für Guillain-Barré-Syndrom und chronische inflammatorische demyelinisierende Polyneuropathie mit motorischen Defiziten.",
+   "nicht": "Nicht bei nicht-entzündlichen Polyneuropathien wie diabetischer Polyneuropathie.",
+   "codes": [
+    "G61.0",
+    "G61.8"
+   ],
+   "therapie": [
+    "GBS: Physiotherapie und Logopädie frühzeitig beginnen; anschließend Rehabilitation (DGN: klinischer Konsens).",
+    "CIDP: Physiotherapie angepasst an den Einzelfall (DGN: klinischer Konsens; Evidenz niedriger Qualität für Nutzen)."
+   ],
+   "bedarf": [
+    "Paresen, Gangunsicherheit oder Einschränkung der Selbstversorgung.",
+    "Nach der Akutphase bzw. unter Immuntherapie zum Wiederaufbau von Kraft und Mobilität."
+   ],
+   "weitere": [
+    "Rehabilitation nach GBS (DGN: klinischer Konsens).",
+    "Logopädie bei Dysarthrie oder Dysphagie frühzeitig (DGN: klinischer Konsens)."
+   ],
+   "quellen": [
+    "DGNIN"
+   ],
+   "hm": {
+    "KG": {
+     "v": "cond",
+     "l": "GBS früh, CIDP individuell",
+     "t": "GBS: Physiotherapie frühzeitig beginnen; CIDP: angepasst an den Einzelfall (DGN: klinischer Konsens).",
+     "r": [
+      "DGNIN"
+     ]
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie bei GBS oder CIDP.",
+     "r": []
+    },
+    "KALT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Kältetherapie bei GBS oder CIDP.",
+     "r": []
+    },
+    "ET": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrotherapie bei GBS oder CIDP.",
+     "r": []
+    },
+    "ES": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrostimulation bei GBS oder CIDP.",
+     "r": []
+    }
+   }
+  },
+  "karpaltunnel": {
+   "titel": "Karpaltunnelsyndrom",
+   "gilt": "Gilt für Karpaltunnelsyndrom mit Reizsymptomen ohne persistierende sensible oder motorische Ausfälle (konservativer Therapieversuch).",
+   "nicht": "Nicht bei persistierenden Ausfällen, Thenaratrophie oder therapieresistenten Parästhesien; hier ist die Operation indiziert.",
+   "codes": [
+    "G56.0"
+   ],
+   "therapie": [
+    "Im Frühstadium mit nur Reizsymptomen konservativer Therapieversuch (DGH: Expertenkonsens).",
+    "Nächtliche Handgelenkschiene (DGH: A ⇑⇑).",
+    "Orale Glukokortikoide möglich (DGH: 0 ⇔); ultraschallgesteuerte Infiltration oder Low-Level-Laser möglich (DGH: schwach ⇑)."
+   ],
+   "bedarf": [
+    "Für Nervengleitübungen und Handgelenkmobilisation ist nur ein kurzfristiger Effekt belegt; sie werden nicht empfohlen (DGH, ohne Empfehlungsgrad).",
+    "Der konservative Therapieversuch stützt sich vorrangig auf die Nachtschiene (DGH: A ⇑⇑)."
+   ],
+   "weitere": [
+    "Operation bei persistierenden sensiblen oder motorischen Ausfällen oder therapieresistenten Parästhesien (DGH: A ⇑⇑).",
+    "Wiederholte Steroidinjektionen nicht empfohlen (DGH, ohne Empfehlungsgrad)."
+   ],
+   "quellen": [
+    "DGHKTS"
+   ],
+   "hm": {
+    "KG": {
+     "v": "neg",
+     "t": "Nervengleitübungen und Handgelenkmobilisation werden wegen nur kurzfristiger Effekte nicht empfohlen (DGH, ohne Empfehlungsgrad).",
+     "r": [
+      "DGHKTS"
+     ]
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie beim Karpaltunnelsyndrom.",
+     "r": []
+    },
+    "KALT": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Kältetherapie beim Karpaltunnelsyndrom.",
+     "r": []
+    },
+    "ET": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrotherapie beim Karpaltunnelsyndrom.",
+     "r": []
+    },
+    "ES": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Elektrostimulation beim Karpaltunnelsyndrom.",
+     "r": []
+    }
+   }
+  },
+  "obstipation": {
+   "titel": "Chronische Obstipation",
+   "gilt": "Gilt für chronische Obstipation bei Kolontransit- oder Stuhlentleerungsstörung.",
+   "nicht": "Nicht bei akuter Obstipation, Ileus oder unbehandelter organischer Ursache.",
+   "codes": [
+    "K59.00",
+    "K59.01",
+    "K59.09"
+   ],
+   "therapie": [
+    "Körperliche Inaktivität vermeiden (DGVS: sollte); etwa 30 g Ballaststoffe pro Tag (DGVS: sollte).",
+    "Bei Beckenbodendyssynergie Biofeedback-Training (DGVS: sollte); bei reiner Transitstörung kein Biofeedback (DGVS: sollte nicht).",
+    "Abdominalmassage als unterstützende Maßnahme möglich (DGVS: kann)."
+   ],
+   "bedarf": [
+    "Ergänzend zu Allgemeinmaßnahmen und medikamentöser Therapie, wenn Massage als unterstützende Maßnahme gewünscht ist.",
+    "Stuhlentleerungsstörung mit Dyssynergie: Biofeedback bzw. Stuhltraining (DGVS: sollte bzw. kann)."
+   ],
+   "weitere": [
+    "Mehr Bewegung über das altersübliche Maß nicht als Obstipationstherapie in Aussicht stellen (DGVS: sollte).",
+    "Bei Adipositas kann mehr körperliche Aktivität sinnvoll sein (DGVS: kann)."
+   ],
+   "quellen": [
+    "DGVSO"
+   ],
+   "hm": {
+    "CM": {
+     "v": "opt",
+     "t": "Abdominalmassage kann unterstützend eingesetzt werden (DGVS: kann, Konsens).",
+     "r": [
+      "DGVSO"
+     ]
+    },
+    "BGM": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Bindegewebsmassage bei Obstipation.",
+     "r": []
+    },
+    "FANGO": {
+     "v": "none",
+     "t": "Keine Leitlinienaussage zu Wärmetherapie bei Obstipation.",
+     "r": []
+    }
+   }
+  },
+  "harninkontinenz": {
+   "titel": "Harninkontinenz der Frau",
+   "gilt": "Gilt für Frauen mit Belastungs-, Drang- oder Mischharninkontinenz.",
+   "nicht": "Nicht bei Überlauf-, Reflex- oder extraurethraler Inkontinenz und nicht bei neurogener Blasenfunktionsstörung.",
+   "codes": [
+    "N39.3",
+    "N39.42",
+    "N39.48"
+   ],
+   "therapie": [
+    "Belastungs- oder Mischinkontinenz: angeleitetes Beckenbodentraining über mindestens 3 Monate als erste Therapie (NICE: offer).",
+    "Drang- oder Mischinkontinenz: Blasentraining über mindestens 6 Wochen als erste Therapie (NICE: offer).",
+    "Bei BMI über 30 Gewichtsreduktion empfehlen (NICE: advise)."
+   ],
+   "bedarf": [
+    "Belastungs- oder Mischinkontinenz: angeleitetes Beckenbodentraining, mindestens 8 Kontraktionen dreimal täglich.",
+    "Keine aktive Beckenbodenkontraktion möglich: Elektrostimulation oder Biofeedback zur Unterstützung erwägen (NICE: consider)."
+   ],
+   "weitere": [
+    "Bei Wirksamkeit das Training dauerhaft fortführen (NICE).",
+    "Reicht Blasentraining nicht, Kombination mit Medikamenten gegen überaktive Blase erwägen (NICE: consider)."
+   ],
+   "quellen": [
+    "NG123"
+   ],
+   "hm": {
+    "KG": {
+     "v": "pos",
+     "t": "Angeleitetes Beckenbodentraining über mindestens 3 Monate als erste Therapie bei Belastungs- und Mischinkontinenz (NICE: offer).",
+     "r": [
+      "NG123"
+     ]
+    },
+    "UEB": {
+     "v": "pos",
+     "t": "Angeleitetes Beckenbodentraining, auch in der Gruppe (NICE: offer, angeleitetes Programm).",
+     "r": [
+      "NG123"
+     ]
+    },
+    "ET": {
+     "v": "cond",
+     "l": "Ohne aktive Kontraktion",
+     "t": "Nicht routinemäßig und nicht routinemäßig mit Beckenbodentraining kombinieren; erwägen, wenn keine aktive Beckenbodenkontraktion möglich ist (NICE).",
+     "r": [
+      "NG123"
+     ]
+    }
+   }
+  },
+  "bpls": {
+   "titel": "Benigner paroxysmaler Lagerungsschwindel",
+   "gilt": "Gilt für benignen paroxysmalen Lagerungsschwindel.",
+   "nicht": "Nicht bei zentralem Schwindel oder bei Warnzeichen für eine zentrale Ursache.",
+   "codes": [
+    "H81.1"
+   ],
+   "therapie": [
+    "Lagerungsmanöver zur wiederholten Selbstanwendung mehrmals täglich, Therapiekontrolle nach etwa 14 Tagen (DEGAM: soll).",
+    "Sedierende Antivertiginosa nur symptomatisch und in der Regel nicht länger als drei Tage (DEGAM: soll)."
+   ],
+   "bedarf": [
+    "Anleitung zur Selbstbehandlung mit Lagerungsmanövern, wenn diese allein nicht gelingt.",
+    "Anhaltender Schwindel oder Fallneigung nach erfolgreicher Reposition."
+   ],
+   "weitere": [
+    "Therapiekontrolle nach etwa 14 Tagen (DEGAM)."
+   ],
+   "quellen": [
+    "DEGAS"
+   ],
+   "hm": {
+    "KG": {
+     "v": "pos",
+     "t": "Lagerungsmanöver mit Anleitung zur Selbstanwendung (DEGAM: soll).",
+     "r": [
+      "DEGAS"
+     ]
+    },
+    "UEB": {
+     "v": "opt",
+     "t": "Übungen zur Selbstanwendung der Lagerungsmanöver einüben (DEGAM: soll, Selbstanwendung).",
+     "r": [
+      "DEGAS"
+     ]
+    }
+   }
+  },
+  "vestibulopathie": {
+   "titel": "Periphere vestibuläre Hypofunktion",
+   "gilt": "Gilt für einseitige oder beidseitige periphere vestibuläre Unterfunktion, akut, subakut oder chronisch.",
+   "nicht": "Nicht bei benignem paroxysmalem Lagerungsschwindel oder zentralem Schwindel.",
+   "codes": [
+    "H81.2",
+    "H81.8"
+   ],
+   "therapie": [
+    "Vestibuläre Physiotherapie bei akuter, subakuter und chronischer einseitiger sowie bei beidseitiger Unterfunktion (APTA: A).",
+    "Supervidierte Therapie mit Heimprogramm (APTA: A); Blickstabilisierung chronisch 3–5-mal täglich, insgesamt mindestens 20 Minuten über 4–6 Wochen (APTA: C).",
+    "Keine Sakkaden- oder Folgebewegungsübungen allein zur Blickstabilisierung (APTA: A, dagegen)."
+   ],
+   "bedarf": [
+    "Schwindel, Gleichgewichtsstörung oder Fallneigung nach Neuropathia vestibularis oder bei beidseitiger Vestibulopathie.",
+    "Beidseitige Vestibulopathie: Vestibularisrehabilitation kann die Symptome bessern (DEGAM: kann)."
+   ],
+   "weitere": [
+    "Therapie beenden, wenn Ziele erreicht sind, Symptome abgeklungen sind oder kein Fortschritt mehr erzielt wird (APTA: B).",
+    "Sedierende Antivertiginosa nicht länger als drei Tage, da sie die zentrale Kompensation verzögern können (DEGAM: soll)."
+   ],
+   "quellen": [
+    "APTAV",
+    "DEGAS"
+   ],
+   "hm": {
+    "KG": {
+     "v": "pos",
+     "t": "Supervidierte vestibuläre Physiotherapie (APTA: A); bei beidseitiger Vestibulopathie Vestibularisrehabilitation möglich (DEGAM: kann).",
+     "r": [
+      "APTAV",
+      "DEGAS"
+     ]
+    },
+    "UEB": {
+     "v": "pos",
+     "t": "Gleichgewichts- und Blickstabilisierungsübungen als Heimprogramm mit Kontrolle (APTA: A für supervidierte Therapie; Dosierung C).",
+     "r": [
+      "APTAV"
+     ]
+    }
+   }
+  }
+ }
+};
+
 </script>
 <script>
 const HK = (function(D){
+  if(typeof HK_DATA_ERG !== 'undefined'){
+    const E = HK_DATA_ERG;
+    Object.assign(D.heilmittel, E.heilmittel); Object.assign(D.gruppen, E.gruppen); Object.assign(D.quellen, E.quellen); Object.assign(D.profile, E.profile);
+    const have = new Set(D.diagnosen.map(x => x.c));
+    for(const x of E.diagnosen){ if(!have.has(x.c)){ D.diagnosen.push(x); have.add(x.c); } D.icdGeprueft[x.c] = D.icdGeprueft[x.c] || 't'; }
+    for(const p of Object.values(E.profile)) for(const c of p.codes) if(!D.icdGeprueft[c]) D.icdGeprueft[c] = 't';
+  }
   const norm = s => String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ß/g,'ss');
 
   // ICD-Eingabe vereinheitlichen: Großschreibung, Punkt nach drittem Zeichen, Kennzeichen (*, †, G, V, Z, R, L, B) entfernen
@@ -619,13 +2125,14 @@ const HK = (function(D){
     return ok ? {ok:true} : null;
   }
 
-  function liste(c, zweit, gruppe){
+  function liste(c, zweit, gruppe, ab70){
     c = code(c);
     const e = D.diagnoseliste.find(x => x.c ? x.c === c : c.startsWith(x.p));
     if(!e) return null;
     const zweitOk = !e.zweit || code(zweit).startsWith(code(e.zweit));
     const gruppeOk = !e.g || !gruppe || e.g.includes(gruppe);
-    return {...e, aktiv: zweitOk && gruppeOk, zweitOk, gruppeOk};
+    const alterOk = !e.alter || !!ab70;
+    return {...e, aktiv: zweitOk && gruppeOk && alterOk, zweitOk, gruppeOk, alterOk};
   }
 
   const freqMax = f => ({'1':1,'1-2':2,'2':2,'2-3':3,'3':3})[f] || 0;
@@ -633,11 +2140,11 @@ const HK = (function(D){
 
   function limits(s){
     const g = D.gruppen[s.gruppe]; if(!g) return null;
-    const l = liste(s.code, s.zweit, s.gruppe);
+    const l = liste(s.code, s.zweit, s.gruppe, s.ab70);
     const zwoelf = !!(l?.aktiv || s.genehmigung);
     const fm = freqMax(s.freq);
     const max = zwoelf ? (fm ? fm*12 : null) : g.max;
-    const orient = (s.unter18 && g.orientKind) ? g.orientKind : g.orient;
+    const orient = (s.unter18 && g.orientKind) ? g.orientKind : (s.muko && g.orientMuko) ? g.orientMuko : g.orient;
     return {max, zwoelf, liste:l, orient, orientKind:g.orientKind||null, regulär:g.max};
   }
 
@@ -672,6 +2179,7 @@ const HK = (function(D){
       if(L && L.max && t > L.max) fehler.push('Höchstmenge je Verordnung: '+L.max+' Einheiten'+(L.zwoelf?' (12 Wochen bei gewählter Frequenz)':'')+'.');
     }
     if(s.supp){
+      if(s.primary.includes(s.supp)) fehler.push(D.heilmittel[s.supp].kurz+' ist bereits als vorrangiges Heilmittel gewählt.');
       if(g && !g.supp.includes(s.supp)) fehler.push('Ergänzendes Heilmittel ist für '+s.gruppe+' nicht vorgesehen.');
       const su = parseInt(s.suppUnits,10);
       if(!(su > 0)) offen.push('Einheiten des ergänzenden Heilmittels');
@@ -756,7 +2264,7 @@ const HK = (function(D){
 
   function newState(){
     return {code:'', name:'', diag:null, zweit:'', gruppe:'', profil:null, profilOk:null, antworten:{phase:'',problem:'',self:''},
-      sym:[], symX:false, symXText:'', route:'normal', primary:[], units:{}, supp:'', suppUnits:'', freq:'', unter18:false, genehmigung:false,
+      sym:[], symX:false, symXText:'', route:'normal', primary:[], units:{}, supp:'', suppUnits:'', freq:'', unter18:false, ab70:false, muko:false, genehmigung:false,
       kompression:false, hausbesuch:false, bericht:false, dringlich:false, ausstellung:'', ziele:[], zieleText:''};
   }
 
@@ -880,12 +2388,12 @@ function renderS2(){
       <div class="block"><h4>Wann Physiotherapie</h4><ul class="pts">${p.bedarf.map((t,i) => `<li class="${i===hitNeed?'hit':''}">${esc(t)}</li>`).join('')}</ul></div>
     </div>
     ${p.weitere.length ? `<div class="block" style="margin-top:12px"><h4>Weitere Maßnahmen</h4><ul class="pts">${p.weitere.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>` : ''}
-    <details class="q" id="anam" ${S.anamOpen?'open':''}><summary>Angaben zum Befund (optional)</summary><div class="body">
+    ${(D.gruppen[S.diag?.g]?.name && ['WS','EX'].includes(S.diag?.g)) ? `<details class="q" id="anam" ${S.anamOpen?'open':''}><summary>Angaben zum Befund (optional)</summary><div class="body">
       <p class="note" style="margin-top:0">Hebt passende Optionen hervor. Ausgewählt wird nichts.</p>
       ${phaseQ}
       <div class="qa"><p class="qt">Was steht im Vordergrund?</p>${seg('problem',[['a','Beweglichkeit oder Stabilität'],['b','Kraft, Ausdauer, Koordination'],['beides','Beides']])}</div>
       <div class="qa"><p class="qt">Kann der Patient ein Übungsprogramm selbstständig umsetzen?</p>${seg('self',[['ja','Ja, voraussichtlich'],['nein','Braucht Anleitung']])}</div>
-    </div></details>
+    </div></details>` : ''}
     ${srcList(p.quellen)}`;
 }
 
@@ -924,7 +2432,7 @@ function evBlock(k){
   const p = (S.profilOk && profile()) || null; if(!p) return '';
   const rec = p.hm[k]; if(!rec) return '';
   const key = pk(); const vd = HK.verdict(rec, key);
-  if(vd.v === 'none') return `<div class="ev v-none"><span class="chip">${esc(vd.label)}</span></div>`;
+  if(vd.v === 'none') return `<div class="ev v-none"><p><span class="chip">${esc(vd.label)}</span>${rec.r && rec.r.length && rec.t ? ' '+esc(rec.t) : ''}</p></div>`;
   const ph = rec.akut || rec.chron ? (key ? [key==='akut'?rec.akut:rec.chron] : [rec.akut, rec.chron]).filter(Boolean) : [];
   return `<div class="ev v-${vd.v}"><p><span class="chip">${esc(vd.label)}</span> ${esc(rec.t)}</p>${ph.map(t => `<p class="ph">${esc(t)}</p>`).join('')}<p class="r">${rec.r.map(r => esc(D.quellen[r].h)).filter((x,i,a)=>a.indexOf(x)===i).join(', ')}</p></div>`;
 }
@@ -952,10 +2460,10 @@ function renderS4(){
   html += `<p class="sub">Vorrangiges Heilmittel wählen; bis zu drei sind möglich.</p><div class="hmgrid">${g.primary.map(k => hmCard(k, S.primary.includes(k), 'primary')).join('')}</div>`;
   if(S.primary.length > 1) html += `<p class="warn">Mehrere vorrangige Heilmittel: Die Behandlung erfolgt unter Umständen durch verschiedene Therapeuten, die Terminplanung ist aufwendiger. Einheiten werden aufgeteilt.</p>`;
   if(g.kompression && S.primary.some(k => k.startsWith('MLD'))) html += `<label class="check" style="margin-top:12px"><input type="checkbox" data-flag="kompression" ${S.kompression?'checked':''}><span>Mit Kompressionsbandagierung<small>Kompressionsbinden gesondert als Verbandmittel verordnen, sofern keine Hilfsmittel zur Kompression vorhanden sind.</small></span></label>`;
-  if(S.primary.length){
+  if(S.primary.length && g.supp.length){
     html += `<h3 class="sec">Ergänzendes Heilmittel</h3><p class="sub">Optional, höchstens eines.</p><div class="hmgrid">`
       + `<button type="button" class="hm radio" data-supp="" aria-pressed="${!S.supp}"><span class="box" aria-hidden="true"></span><span class="hd"><span class="nm">Ohne Ergänzung</span></span><span class="ds">Nur das vorrangige Heilmittel.</span></button>`
-      + g.supp.map(k => hmCard(k, S.supp===k, 'supp')).join('') + `</div>`;
+      + g.supp.filter(k => !S.primary.includes(k)).map(k => hmCard(k, S.supp===k, 'supp')).join('') + `</div>`;
   }
   b.innerHTML = html;
   sec.classList.toggle('done', S.primary.length > 0);
@@ -987,10 +2495,12 @@ function renderS5(){
       <div class="row2"><div><label class="f" for="freq">Therapiefrequenz</label><select id="freq" data-bind="freq"><option value="">Bitte wählen</option>${[['1','1x wöchentlich'],['1-2','1–2x wöchentlich'],['2','2x wöchentlich'],['2-3','2–3x wöchentlich'],['3','3x wöchentlich']].map(([v,l]) => `<option value="${v}" ${S.freq===v?'selected':''}>${l}</option>`).join('')}</select></div><div></div></div>
       <p class="note">Katalogempfehlung: 1–3x wöchentlich. Abweichungen medizinisch begründen.</p>
       <p class="limit" id="limit">${limitHTML()}</p>`;
-    if(L.liste) html += L.liste.aktiv ? `<p class="info">Diagnose steht auf der KBV-Diagnoseliste: Verordnung für bis zu 12 Wochen möglich.${L.liste.frist?` Als besonderer Verordnungsbedarf berücksichtigt bis ${L.liste.frist} Monate nach dem Akutereignis, gerechnet ab der ersten Heilmittelverordnung zu diesem Code.`:''}${L.liste.hinweis?' '+esc(L.liste.hinweis):''}</p>`
-      : (L.liste.zweit && !L.liste.zweitOk ? `<p class="note">Mit Zweitcode ${esc(L.liste.zweit)} steht die Diagnose auf der KBV-Diagnoseliste.</p>` : (!L.liste.gruppeOk ? `<p class="note">Auf der KBV-Diagnoseliste nur mit Diagnosegruppe ${esc(L.liste.g.join(', '))}.</p>` : ''));
+    if(L.liste) html += L.liste.aktiv ? `<p class="info">Diagnose steht auf der KBV-Diagnoseliste: Verordnung für bis zu 12 Wochen möglich.${L.liste.frist?` Als besonderer Verordnungsbedarf berücksichtigt bis ${L.liste.frist===12?'1 Jahr':L.liste.frist+' Monate'} nach dem Akutereignis, gerechnet ab der ersten Heilmittelverordnung zu diesem Code.`:''}${L.liste.hinweis?' '+esc(L.liste.hinweis):''}</p>`
+      : (L.liste.zweit && !L.liste.zweitOk ? `<p class="note">Mit Zweitcode ${esc(L.liste.zweit)} steht die Diagnose auf der KBV-Diagnoseliste.</p>` : (!L.liste.gruppeOk ? `<p class="note">Auf der KBV-Diagnoseliste nur mit Diagnosegruppe ${esc(L.liste.g.join(', '))}.</p>` : (!L.liste.alterOk ? `<p class="note">Ab ${L.liste.alter} Jahren steht die Diagnose auf der KBV-Diagnoseliste.</p>` : '')));
     html += `<div class="checks">`
       + (g.orientKind ? `<label class="check"><input type="checkbox" data-flag="unter18" ${S.unter18?'checked':''}><span>Patient unter 18 Jahre</span></label>` : '')
+      + (L.liste?.alter ? `<label class="check"><input type="checkbox" data-flag="ab70" ${S.ab70?'checked':''}><span>Patient ab ${L.liste.alter} Jahre<small>Voraussetzung für den Eintrag auf der KBV-Diagnoseliste.</small></span></label>` : '')
+      + (g.orientMuko ? `<label class="check"><input type="checkbox" data-flag="muko" ${S.muko?'checked':''}><span>Mukoviszidose oder vergleichbare pulmonale Erkrankung<small>Orientierende Behandlungsmenge dann bis ${g.orientMuko} Einheiten.</small></span></label>` : '')
       + (!L.liste?.aktiv ? `<label class="check"><input type="checkbox" data-flag="genehmigung" ${S.genehmigung?'checked':''}><span>Genehmigung der Krankenkasse für langfristigen Heilmittelbedarf liegt vor<small>Dann ist eine Verordnung für bis zu 12 Wochen möglich.</small></span></label>` : '')
       + `</div>`;
   }

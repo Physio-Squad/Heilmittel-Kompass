@@ -1,6 +1,9 @@
 # Heilmittel-Kompass – Übergabe vom 21.10.2026
 
-## Aktueller Stand: Version 0.5.1 (Neuaufbau, offene Formalpunkte geklärt)
+## Aktueller Stand: Version 0.6.0 (23 Profile, alle Diagnosegruppen außer SO4/SO5)
+
+- 0.6.0: Recherche der Parallelsitzung (15 Profile, Gruppen AT/GE/SO1–SO3) eingebaut; Diagnoseliste für diese Codes ergänzt. Offene Recherchepunkte je Profil: evidence/PROFILE_ERGAENZUNG.md.
+
 
 - Branch: `claude/neuaufbau-0.5` (baut auf `codex/uebergabe-2026-10-20` auf). Kein Deployment.
 - App: `Heilmittel-Kompass/index.html`, eigenständig, ohne Build. Drei Skriptblöcke: `HK_DATA` (Daten mit Quellen), `HK` (Regellogik), Oberfläche.

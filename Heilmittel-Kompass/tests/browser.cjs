@@ -45,10 +45,23 @@ const cases = [['M54.5','back','WS'],['M54.2','neck','WS'],['M17.1','knee','EX']
       assert.match(await page.locator('#form').innerText(), /Alle Angaben vollständig/);
       // Andere Diagnosegruppe ohne Leitlinienbewertung, Diagnoseliste
       await page.goto(file);
-      await page.fill('#dx', 'G35.9'); await page.keyboard.press('Enter');
+      await page.fill('#dx', 'M79.7'); await page.keyboard.press('Enter');
       assert.match(await page.locator('#s2b').innerText(), /keine klinische Einordnung/);
+      await page.goto(file);
+      await page.fill('#dx', 'G35.9'); await page.keyboard.press('Enter'); await page.click('[data-act=profOk]');
       await page.check('[data-sym=a]'); await page.click('[data-primary=KG]'); await page.selectOption('#freq', '2');
       assert.match(await page.locator('#limit').innerText(), /Bis zu 24 Einheiten/);
+      // Ergänzte Gruppe AT ohne Befundfragen
+      await page.goto(file);
+      await page.fill('#dx', 'J44.82'); await page.keyboard.press('Enter');
+      await page.click('[data-act=profOk]');
+      assert.equal(await page.locator('#anam').count(), 0);
+      assert.equal(await page.locator('input[name=grp][value=AT]').isChecked(), true);
+      await page.check('[data-sym=a]'); await page.click('[data-primary=KGAT]');
+      assert.match(await page.locator('[data-primary=KGAT] .ev').innerText(), /Empfohlen/);
+      await page.fill('[data-unit=KGAT]', '6'); await page.selectOption('#freq', '1-2');
+      assert.match(await page.locator('#form').innerText(), /Alle Angaben vollständig/);
+      assert.doesNotMatch(await page.locator('body').innerText(), banned);
       // Unbekannter Code
       await page.goto(file);
       await page.fill('#dx', 'M23.2'); await page.keyboard.press('Enter');

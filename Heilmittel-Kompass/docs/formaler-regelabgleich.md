@@ -105,3 +105,21 @@ Zusätzlich abgerufen und in `HK_DATA` übernommen:
 | Blankoverordnung | Entfallen dürfen Einheiten, Heilmittel, ergänzende Angaben, Frequenz. Diagnose, Diagnosegruppe und Leitsymptomatik bleiben Pflicht. Bei medizinischen Gründen gegen Blanko: vollständige Verordnung. Beginnfristen nach § 15 gelten. | HeilM-RL § 13a |
 
 Weiterhin offen: unabhängiger ärztlicher und physiotherapeutischer Fachreview. Parallele konventionelle Verordnung neben einer Blankoverordnung ist in § 13a nicht geregelt; die App bietet sie nicht gesondert an.
+
+
+## Ergänzung 21.10.2026 (Version 0.6.0): Diagnoseliste für weitere Gruppen
+
+Quelle: [Heilmittel-Diagnoseliste, Webversion Stand 01.07.2025](https://www.physio-deutschland.de/fileadmin/data/nordverbund/PDFs/Allgemein/Heilmittel_Diagnoseliste_Webversion_Stand_01.07.2025.pdf), abgerufen 21.10.2026 (Textauswertung).
+
+| Code | Gruppe | Bedingung |
+|---|---|---|
+| I69.3, I69.4 | ZN | längstens 1 Jahr nach Akutereignis |
+| G82.0-, G82.1-, G82.3-, G82.4- | ZN | – |
+| G61.0 | PN | – |
+| G61.8 | PN | nur CIDP |
+| J44.00, J44.10, J44.80, J44.90 | AT | FEV1 < 35 % des Sollwertes |
+| N39.3 | SO2 | ab 70 Jahren |
+| N39.4- | nicht eindeutig | ab 70 Jahren |
+| H81.- | WS/EX/SO3 | ab 70 Jahren |
+
+Nicht gelistet: G51.0, J47, I70.2-, K59.0-, G56.0, G20.0-. Altersgrenzen sind nach § 7 Abs. 7 HeilM-RL bindend; die App fragt sie ab. Gegen die KBV-Liste Stand 01.01.2026 gegenlesen (Tabellenstruktur in der Textauswertung nicht eindeutig).

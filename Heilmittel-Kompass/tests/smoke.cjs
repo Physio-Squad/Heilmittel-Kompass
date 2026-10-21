@@ -22,16 +22,24 @@ assert.equal(HK.search('M75.1')[0].c, 'M75.1');
 assert.equal(HK.profileFor('M54.5'), 'back');
 assert.equal(HK.profileFor('M17.1'), 'knee');
 assert.equal(HK.profileFor('M16.0'), 'hip');
+assert.equal(HK.profileFor('J44.82'), 'copd');
+assert.equal(HK.profileFor('I69.3'), 'schlaganfall');
+assert.equal(HK.profileFor('N39.3'), 'harninkontinenz');
 assert.equal(HK.profileFor('M75.4'), 'shoulder');
 assert.equal(HK.profileFor('S93.42'), 'ankle');
 assert.equal(HK.profileFor('S93.41'), null, 'mediale Bandverletzung gehört nicht zum lateralen Profil');
 assert.equal(HK.profileFor('S93.43'), null, 'Syndesmose gehört nicht zum lateralen Profil');
-assert.equal(Object.keys(D.profile).length, 8);
+assert.equal(Object.keys(D.profile).length, 23);
 for (const [id, p] of Object.entries(D.profile)) {
-  for (const k of D.gruppen.EX.primary) assert.ok(p.hm[k], id + ': Bewertung für ' + k);
-  for (const r of Object.values(p.hm)) for (const q of (r.r || [])) assert.ok(D.quellen[q], id + ': Quelle ' + q);
+  const groups = new Set(p.codes.map(c => { const d = HK.find(c) || HK.all.find(x => x.c.startsWith(c + '.')); assert.ok(d, id + ': Code ' + c); return d.g; }));
+  assert.equal(groups.size, 1, id + ': Codes aus einer Diagnosegruppe');
+  const g = D.gruppen[[...groups][0]]; assert.ok(g, id + ': Gruppe');
+  for (const k of g.primary) assert.ok(p.hm[k], id + ': Bewertung für ' + k);
+  for (const [k, r] of Object.entries(p.hm)) { for (const v of (typeof r.v === 'object' ? Object.values(r.v) : [r.v])) assert.ok(D.verdikt[v], id + '.' + k + ': Verdikt'); for (const q of (r.r || [])) assert.ok(D.quellen[q], id + ': Quelle ' + q); }
   for (const q of p.quellen) assert.ok(D.quellen[q]);
+  for (const c of p.codes) assert.equal(HK.profileFor(c), id, c + ' → ' + id);
 }
+for (const [k, g] of Object.entries(D.gruppen)) for (const h of [...g.primary, ...g.supp]) assert.ok(D.heilmittel[h], k + ': Heilmittel ' + h);
 
 // Katalogregeln WS/EX
 assert.equal(D.gruppen.WS.orient, 18); assert.equal(D.gruppen.WS.orientKind, undefined, 'WS ohne Kinderregel');
@@ -70,6 +78,15 @@ s.code = 'I89.9'; assert.match(HK.check(s).fehler.join(), /Ödemstadium/);
 assert.equal(HK.liste('M50.1', 'G55.1', 'ZN').aktiv, true); assert.equal(HK.liste('M50.1', 'G55.1', 'PN').aktiv, false);
 assert.equal(HK.liste('M51.1', 'G55.1').frist, 6);
 assert.equal(D.gruppen.LY.sym[1].t, 'Schädigung der Haut');
+
+// Ergänzte Gruppen und Altersbedingung der Diagnoseliste
+assert.equal(HK.liste('N39.3', '', 'SO2', false).aktiv, false);
+assert.equal(HK.liste('N39.3', '', 'SO2', true).aktiv, true);
+assert.equal(HK.liste('I69.3', '', 'ZN').frist, 12);
+assert.equal(HK.limits(st({code:'J47', gruppe:'AT', muko:true})).orient, 50);
+s = st({code:'J44.82', gruppe:'AT', sym:['a'], primary:['INH'], units:{INH:'6'}, supp:'INH', suppUnits:'6', freq:'2'});
+assert.match(HK.check(s).fehler.join(), /bereits als vorrangiges/);
+assert.equal(D.gruppen.SO3.supp.length, 0);
 
 // Blankoverordnung
 assert.ok(HK.blanko('M75.1').ok); assert.ok(HK.blanko('S42.21').ok); assert.ok(HK.blanko('M19.01').ok);

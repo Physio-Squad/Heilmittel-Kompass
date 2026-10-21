@@ -1,6 +1,6 @@
 # Heilmittel-Kompass
 
-Ärztliche Entscheidungshilfe für die Verordnung physiotherapeutischer Heilmittel (GKV, Muster 13). Version 0.5.1.
+Ärztliche Entscheidungshilfe für die Verordnung physiotherapeutischer Heilmittel (GKV, Muster 13). Version 0.6.0.
 
 **Status: Prototyp, nicht unabhängig fachlich geprüft.** Keine Patientendaten, keine Speicherung, kein ausgestelltes Rezept.
 
@@ -18,11 +18,11 @@
 
 Rechts (mobil unten) entsteht die Verordnung im Aufbau von Muster 13 mit offenen Punkten und Korrekturhinweisen; „Text kopieren“ übernimmt alles als Text.
 
-Profile: lumbaler Rückenschmerz, nicht-spezifische Nackenschmerzen, Kniearthrose, Hüftarthrose, Rotatorenmanschetten-Tendinopathie, Midportion-Achillessehnen-Tendinopathie, Plantarfasziitis, akute/postakute laterale Sprunggelenksdistorsion. Gruppen CS, ZN, PN und LY sind formal nach Katalog abgebildet, ohne Leitlinienbewertung.
+Profile (23): lumbaler Rückenschmerz, nicht-spezifische Nackenschmerzen, Kniearthrose, Hüftarthrose, Rotatorenmanschetten-Tendinopathie, Midportion-Achillessehnen-Tendinopathie, Plantarfasziitis, laterale Sprunggelenksdistorsion (WS/EX); COPD, Bronchiektasen (AT); pAVK (GE); Lymphödem (LY); Parkinson, Multiple Sklerose, Schlaganfall, Querschnittlähmung (ZN); Fazialisparese, GBS/CIDP, Karpaltunnelsyndrom (PN); chronische Obstipation (SO1); Harninkontinenz der Frau (SO2); Lagerungsschwindel, periphere Vestibulopathie (SO3). Gruppe CS ist formal abgebildet, ohne Leitlinienbewertung. Befundfragen gibt es bei den WS/EX-Profilen.
 
 ## Aufbau und Tests
 
-`index.html` enthält drei Skriptblöcke: `HK_DATA` (alle fachlichen Daten mit Quellen), `HK` (Regellogik ohne DOM) und die Oberfläche. Fachliche Änderungen erfolgen in `HK_DATA`.
+`index.html` enthält drei Skriptblöcke: `HK_DATA` und `HK_DATA_ERG` (fachliche Daten mit Quellen; Ergänzung der übrigen Gruppen), `HK` (Regellogik ohne DOM) und die Oberfläche. Fachliche Änderungen erfolgen in `HK_DATA`.
 
 ```
 node tests/smoke.cjs        # Regeln und Texte
