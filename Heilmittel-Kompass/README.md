@@ -1,6 +1,6 @@
 # Heilmittel-Kompass
 
-Ärztliche Entscheidungshilfe für die Verordnung physiotherapeutischer Heilmittel (GKV, Muster 13). Version 0.7.0.
+Ärztliche Entscheidungshilfe für die Verordnung physiotherapeutischer Heilmittel (GKV, Muster 13). Version 0.7.1.
 
 **Status: Prototyp, nicht unabhängig fachlich geprüft.** Keine Patientendaten, keine Speicherung, kein ausgestelltes Rezept.
 
@@ -15,6 +15,8 @@
 3. **Diagnosegruppe und Leitsymptomatik:** Gruppe als Vorschlag, änderbar. Originaltexte des Katalogs mit kurzer Erklärung; Mehrfachauswahl und patientenindividuelle Leitsymptomatik.
 4. **Heilmittel:** Bis zu drei vorrangige Heilmittel, höchstens eine Ergänzung. Jede Karte zeigt die Leitlinienbewertung. Bei gelisteten Schulterdiagnosen alternativ Blankoverordnung.
 5. **Menge und Angaben:** Einheiten je Heilmittel, Frequenz, Höchst- und orientierende Menge, 12-Wochen-Verordnung bei Diagnoseliste oder Genehmigung, Hausbesuch, Therapiebericht, Dringlichkeit, Therapieziele.
+
+Bei Knie- und Hüftarthrose sowie degenerativen Meniskusschäden erscheint unter der Diagnose ein Hinweis auf das GLA:D-Programm.
 
 Die Rubrik **Budgetfrei verordnen** (Umschalter oben) erklärt langfristigen Heilmittelbedarf, Genehmigung, besonderen Verordnungsbedarf und Blankoverordnung und schlägt Diagnosen in der KBV-Diagnoseliste nach.
 

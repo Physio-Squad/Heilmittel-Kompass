@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.1 – 21.10.2026
+
+- GLA:D-Hinweis: Bei M16.-, M17.- und degenerativen Meniskusschäden (M23.2-, M23.3-, neu suchbar) erscheint direkt unter der Diagnose ein hervorgehobener Kasten zu GLA:D mit Inhalt, Nutzen, Zugang (nur GLA:D-Netzwerkärzte über Webportal), Kostenträgern (Selektivverträge § 140a SGB V, Einzelfallantrag) und Budgetwirkung, Links und Studien (Skou & Roos 2017; Grønne et al. 2021; Skou et al. NEJM 2015; Kise et al. BMJ 2016).
+- Rubrik „Budgetfrei verordnen“ um „Versorgungsprogramme nach Selektivvertrag“ ergänzt.
+- Programme als `HK_DATA.programme`; weitere Programme lassen sich dort mit Codes ergänzen.
+
 ## 0.7.0 – 21.10.2026
 
 - Neue Rubrik „Budgetfrei verordnen“ (Umschalter oben, auch per #budgetfrei): vier Wege (langfristiger Heilmittelbedarf nach Anlage 2, mit Genehmigung, besonderer Verordnungsbedarf, Blankoverordnung) mit Kriterien und Rechtsgrundlage, Checkliste und Nachschlagen nach Diagnose/Code oder Diagnosegruppe mit Übernahme in die Verordnung.

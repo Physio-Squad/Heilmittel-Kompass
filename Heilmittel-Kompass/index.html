@@ -194,6 +194,13 @@ ul.ll{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .lb{font-size:13.5px;margin:6px 0 4px}
 .status.bf{border-top:1px solid var(--form-line);color:var(--pos);font-weight:600}
 @media (max-width:760px){ .ways{grid-template-columns:1fr} }
+.prog{margin-top:14px;border:2px solid var(--pos);background:var(--pos-bg);border-radius:10px;padding:16px 18px}
+.prog h3{margin:0 0 4px;font-size:16.5px;color:#163F2A}
+.prog .pk{margin:0 0 8px;font-size:14.5px}
+.prog ul.pts{font-size:14px}
+.prog .pl{font-size:14px;margin:8px 0 0}
+.prog .srcs{margin-top:8px}
+.way.wide{grid-column:1/-1}
 footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:13px}
 footer h2{font-size:14px;color:var(--ink);margin:0 0 6px}
 footer ul{margin:0;padding-left:18px}
@@ -227,7 +234,7 @@ footer li{margin-bottom:3px}
     <div class="brand"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="4" fill="none" stroke="#B3243B" stroke-width="1.6"/><path d="M11 5.5v11M5.5 11h11" stroke="#17242E" stroke-width="2.2" stroke-linecap="round"/></svg>Heilmittel-Kompass</div>
     <p class="lead">Von der Diagnose zur Heilmittelverordnung Physiotherapie, mit Leitlinienbewertung an jeder Option.</p>
   </div>
-  <p class="tag">Prototyp 0.7 – fachliche Prüfung ausstehend</p>
+  <p class="tag">Prototyp 0.7.1 – fachliche Prüfung ausstehend</p>
 </div>
 <div class="wrap"><nav class="views" aria-label="Bereich"><button type="button" data-view="rx" aria-pressed="true">Verordnung</button><button type="button" data-view="budget" aria-pressed="false">Budgetfrei verordnen</button></nav></div>
 </header>
@@ -394,7 +401,7 @@ const HK_LISTE = [
 ];
 
 const HK_DATA = {
-version: '0.7.0',
+version: '0.7.1',
 standDaten: '21.10.2026',
 
 // Heilmittel: Kurzbeschreibung für die Karte (Grundlage: HeilM-RL § 19, § 24; Katalog)
@@ -458,6 +465,8 @@ diagnosen: [
   {c:'M17.1', n:'Sonstige primäre Gonarthrose', g:'EX', s:'kniearthrose knie arthrose einseitig'},
   {c:'M16.0', n:'Primäre Koxarthrose, beidseitig', g:'EX', s:'hüftarthrose hüfte arthrose'},
   {c:'M16.1', n:'Sonstige primäre Koxarthrose', g:'EX', s:'hüftarthrose hüfte arthrose einseitig'},
+  {c:'M23.2', n:'Meniskusschädigung durch alten Riss oder alte Verletzung', g:'EX', k:true, s:'meniskus knie degenerativ'},
+  {c:'M23.3', n:'Sonstige Meniskusschädigungen', g:'EX', k:true, s:'meniskus knie degenerativ'},
   {c:'M75.1', n:'Läsionen der Rotatorenmanschette', g:'EX', s:'schulter rotatorenmanschette tendinopathie supraspinatus'},
   {c:'M75.3', n:'Tendinitis calcarea im Schulterbereich', g:'EX', s:'schulter kalkschulter tendinopathie'},
   {c:'M75.4', n:'Impingement-Syndrom der Schulter', g:'EX', s:'schulter impingement'},
@@ -678,6 +687,32 @@ profile: {
     }
   }
 },
+
+// Versorgungsprogramme außerhalb der Heilmittelverordnung (Selektivverträge)
+programme: [
+  {id:'glad', codes:['M16','M17','M23.2','M23.3'],
+   titel:'GLA:D Arthrose: strukturiertes Programm statt Einzelverordnung',
+   kurz:'Schulungs- und Trainingsprogramm für Knie- und Hüftarthrose sowie degenerative Meniskusschäden, unabhängig vom Schweregrad.',
+   punkte:[
+     'Inhalt: 12 Wochen mit 3 Einzelterminen, 2 Patientenschulungen, 12 Gruppentrainings (höchstens 5 Personen) und Abschlusstest; begleitende App für 12 Monate.',
+     'Nutzen: Register aus Dänemark mit 9.825 Patienten: Schmerz nach 3 Monaten im Mittel um etwa ein Viertel geringer, nach 12 Monaten anhaltend; weniger Schmerzmittel, bessere Lebensqualität. Kosteneffektiv in einer Auswertung von 16.255 Patienten. Ohne Kontrollgruppe; die Bausteine Training und Schulung sind in randomisierten Studien belegt.',
+     'Entspricht den Leitlinienempfehlungen zu angeleiteter Bewegungstherapie mit Edukation (S3 Gonarthrose, APTA Hüftarthrose, NICE).',
+     'Zugang: Verordnung nur durch eingeschriebene GLA:D-Netzwerkärzte über das GLA:D-Webportal, nicht auf Muster 13. Bei fehlendem Netzwerkarzt ist eine Online-Sprechstunde möglich.',
+     'Kosten: Selektivverträge nach § 140a SGB V teilnehmender Krankenkassen (u. a. BARMER regional gestaffelt, KKH, IKK classic, mehrere BKKs) oder bewilligter Einzelfallantrag; sonst Selbstzahler (etwa 680–700 €).',
+     'Budget: belastet das Heilmittelbudget nicht; die ärztliche Einschreibung wird extrabudgetär vergütet. Erneute Verordnung frühestens nach einem Jahr und nur für ein weiteres Gelenk.'
+   ],
+   links:[
+     {t:'GLA:D für Ärzte', u:'https://glad-deutschland.de/fuer-aerzte/'},
+     {t:'Teilnehmende Krankenkassen', u:'https://glad-deutschland.de/krankenkassen'},
+     {t:'FAQ für Leistungserbringer (03/2026)', u:'https://www.physio-deutschland.de/fileadmin/data/bund/news/pdfs/GLAD_FAQ_Leistungserbringer_3.2026.pdf'}
+   ],
+   studien:[
+     {t:'Skou ST, Roos EM. Good Life with osteoArthritis in Denmark (GLA:D™): evidence-based education and supervised neuromuscular exercise delivered by certified physiotherapists nationwide. BMC Musculoskelet Disord 2017;18:72.', u:'https://doi.org/10.1186/s12891-017-1439-y', e:'Register, 9.825 Patienten, Schmerz (VAS 0–100) nach 3 Monaten Knie −13,8, Hüfte −11,0; Schmerzmittelgebrauch Knie 56 % → 37 %; ohne Kontrollgruppe.'},
+     {t:'Grønne DT, Roos EM, Ibsen R, Kjellberg J, Skou ST. Cost-effectiveness of an 8-week supervised education and exercise therapy programme for knee and hip osteoarthritis. BMJ Open 2021;11:e049541.', u:'https://doi.org/10.1136/bmjopen-2021-049541', e:'16.255 Patienten; etwa 8.500 € (Knie) bzw. 22.600 € (Hüfte) je gewonnenem QALY im ersten Jahr; ohne Kontrollgruppe.'},
+     {t:'Skou ST et al. A randomized, controlled trial of total knee replacement. N Engl J Med 2015;373:1597–1606.', u:'https://doi.org/10.1056/NEJMoa1505467', e:'Randomisiert, 100 Patienten; ein 12-wöchiges nicht-operatives Programm mit Training und Schulung verbesserte die Beschwerden deutlich; drei Viertel kamen nach 12 Monaten ohne Knieprothese aus.'},
+     {t:'Kise NJ et al. Exercise therapy versus arthroscopic partial meniscectomy for degenerative meniscal tear in middle aged patients. BMJ 2016;354:i3740.', u:'https://doi.org/10.1136/bmj.i3740', e:'Randomisiert, 140 Patienten (35–60 Jahre); nach 2 Jahren kein klinisch relevanter Unterschied, Muskelkraft mit Training besser.'}
+   ]}
+],
 
 verdikt: {pos:'Empfohlen', cond:'Mit Einschränkung', opt:'Möglich', mixed:'Uneinheitlich', neg:'Nicht empfohlen', none:'Keine Leitlinienaussage'},
 
@@ -2422,13 +2457,18 @@ const HK = (function(D){
     return phase;
   }
 
+  function programme(c){
+    c = code(c); if(!c) return [];
+    return (D.programme||[]).filter(p => p.codes.some(sp => c === sp || c.startsWith(sp.includes('.') ? sp : sp+'.')));
+  }
+
   function newState(){
     return {code:'', name:'', diag:null, zweit:'', gruppe:'', profil:null, profilOk:null, antworten:{phase:'',problem:'',self:''},
       sym:[], symX:false, symXText:'', route:'normal', primary:[], units:{}, supp:'', suppUnits:'', freq:'', unter18:false, ab70:false, muko:false, genehmigung:false,
       kompression:false, hausbesuch:false, bericht:false, dringlich:false, ausstellung:'', ziele:[], zieleText:''};
   }
 
-  return {D, budgetfrei, listeEintrag, listeSuche, specMatch, code, isCode, find, search, icdStatus, profileFor, blanko, liste, limits, total, check, symText, felder, text, verdict, phaseKey, freqMax, newState, all:ALL};
+  return {D, programme, budgetfrei, listeEintrag, listeSuche, specMatch, code, isCode, find, search, icdStatus, profileFor, blanko, liste, limits, total, check, symText, felder, text, verdict, phaseKey, freqMax, newState, all:ALL};
 })(HK_DATA);
 
 </script>
@@ -2499,7 +2539,14 @@ function renderDx(){
     + `<div class="row2"><div><label class="f" for="dxName">Diagnose im Klartext</label><input type="text" id="dxName" data-bind="name" value="${esc(S.name)}"></div>`
     + (needZ ? `<div><label class="f" for="zweit">Zweitcode ${esc(needZ)}</label><input type="text" id="zweit" data-bind="zweit" placeholder="${esc(needZ)}" value="${esc(S.zweit)}"></div>` : '<div></div>')
     + `</div>`
-    + (needZ ? `<p class="note">${zweitNote()}</p>` : '');
+    + (needZ ? `<p class="note">${zweitNote()}</p>` : '')
+    + HK.programme(S.code).map(progBox).join('');
+}
+function progBox(p){
+  return `<aside class="prog" aria-label="${esc(p.titel)}"><h3>${esc(p.titel)}</h3><p class="pk">${esc(p.kurz)}</p>
+    <ul class="pts">${p.punkte.map(t => { const i = t.indexOf(':'); return `<li>${i>0 && i<14 ? `<b>${esc(t.slice(0,i))}:</b>${esc(t.slice(i+1))}` : esc(t)}</li>`; }).join('')}</ul>
+    <p class="pl">${p.links.map(l => `<a href="${esc(l.u)}" target="_blank" rel="noopener">${esc(l.t)}</a>`).join(' · ')}</p>
+    <details class="srcs"><summary>Studien</summary><ol>${p.studien.map(s => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a><br>${esc(s.e)}</li>`).join('')}</ol></details></aside>`;
 }
 function zweitNote(){
   const l = HK.liste(S.code), b = HK.blanko(S.code);
@@ -2792,7 +2839,7 @@ function renderBudget(){
 }
 $('budget').innerHTML = `
   <h1 class="bh">Budgetfrei verordnen</h1>
-  <p class="lead">Diese Heilmittelverordnungen gehen nicht in die Wirtschaftlichkeitsprüfung Ihrer Praxis ein. In allen Fällen gelten die übrigen Regeln der Heilmittel-Richtlinie.</p>
+  <p class="lead">Diese Heilmittelverordnungen und Programme gehen nicht in die Wirtschaftlichkeitsprüfung Ihrer Praxis ein. Für Heilmittel gelten die übrigen Regeln der Heilmittel-Richtlinie.</p>
   <div class="ways">
     <section class="way"><h2>Langfristiger Heilmittelbedarf</h2><p class="wsub">Diagnose nach Anlage 2 der Heilmittel-Richtlinie</p>
       <ul class="pts"><li>ICD-10-Code und passende Diagnosegruppe stehen in Anlage 2.</li><li>Kein Antrag nötig; der Bedarf gilt als gegeben.</li><li>Verordnung für bis zu 12 Wochen; Höchstmenge und orientierende Menge sind nicht bindend.</li></ul>
@@ -2806,6 +2853,9 @@ $('budget').innerHTML = `
     <section class="way"><h2>Blankoverordnung</h2><p class="wsub">Ausgewählte Schulterdiagnosen</p>
       <ul class="pts"><li>Diagnose aus der Blanko-Liste, Diagnosegruppe EX.</li><li>Die Physiotherapie legt Heilmittel, Menge und Frequenz fest und trägt die wirtschaftliche Verantwortung.</li><li>Gültig 16 Wochen ab Ausstellung.</li></ul>
       <p class="law">§ 73 Abs. 11 und § 106b Abs. 4 Nr. 4 SGB V; § 13a HeilM-RL.</p></section>
+    <section class="way wide"><h2>Versorgungsprogramme nach Selektivvertrag</h2><p class="wsub">Zum Beispiel GLA:D bei Knie- und Hüftarthrose</p>
+      <ul class="pts"><li>Programm mit eigener Vergütung über Verträge nach § 140a SGB V; keine Heilmittelverordnung auf Muster 13.</li><li>Belastet das Heilmittelbudget nicht; Teilnahme der Krankenkasse und Einschreibung des Arztes erforderlich.</li><li>GLA:D: Verordnung durch GLA:D-Netzwerkärzte über das Webportal. <a href="https://glad-deutschland.de/fuer-aerzte/" target="_blank" rel="noopener">Informationen für Ärzte</a></li></ul>
+      <p class="law">§ 140a SGB V.</p></section>
   </div>
   <h2 class="bh2">So verordnen Sie budgetfrei</h2>
   <ol class="steps2">

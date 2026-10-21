@@ -104,6 +104,10 @@ assert.equal(HK.budgetfrei(st({code:'M19.01', gruppe:'EX', route:'blanko'})), 'b
 assert.ok(HK.listeSuche('schlaganfall').length >= 2); assert.ok(HK.listeSuche('', 'SO2').length >= 1);
 for (const e of D.diagnoseliste) { assert.ok(e.b && e.n && e.c.length && e.g.length, JSON.stringify(e)); for (const g of e.g) assert.ok(['WS','EX','CS','ZN','PN','AT','GE','LY','SO1','SO2','SO3','SO4','SO5'].includes(g), g); }
 
+// Versorgungsprogramme (GLA:D)
+assert.equal(HK.programme('M17.1')[0].id, 'glad'); assert.equal(HK.programme('M16.0').length, 1);
+assert.equal(HK.programme('M23.31').length, 1); assert.equal(HK.programme('M54.5').length, 0); assert.equal(HK.programme('M75.1').length, 0);
+
 // Blankoverordnung
 assert.ok(HK.blanko('M75.1').ok); assert.ok(HK.blanko('S42.21').ok); assert.ok(HK.blanko('M19.01').ok);
 assert.equal(HK.blanko('M17.1'), null);

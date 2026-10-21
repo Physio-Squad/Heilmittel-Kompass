@@ -63,6 +63,13 @@ const cases = [['M54.5','back','WS'],['M54.2','neck','WS'],['M17.1','knee','EX']
       await page.fill('[data-unit=KGAT]', '6'); await page.selectOption('#freq', '1-2');
       assert.match(await page.locator('#form').innerText(), /Alle Angaben vollständig/);
       assert.doesNotMatch(await page.locator('body').innerText(), banned);
+      // GLA:D-Hinweis bei Arthrose, nicht bei Rücken
+      await page.goto(file);
+      await page.fill('#dx', 'M17.1'); await page.keyboard.press('Enter');
+      assert.equal(await page.locator('#dxInfo .prog').isVisible(), true);
+      assert.match(await page.locator('#dxInfo .prog').innerText(), /GLA:D/);
+      await page.fill('#dx', 'M54.5'); await page.keyboard.press('Enter');
+      assert.equal(await page.locator('#dxInfo .prog').count(), 0);
       // Budgetfrei-Rubrik
       await page.goto(file + '#budgetfrei');
       assert.equal(await page.locator('#budget').isVisible(), true);
@@ -78,7 +85,7 @@ const cases = [['M54.5','back','WS'],['M54.2','neck','WS'],['M17.1','knee','EX']
       await page.click('[data-view=rx]');
       // Unbekannter Code
       await page.goto(file);
-      await page.fill('#dx', 'M23.2'); await page.keyboard.press('Enter');
+      await page.fill('#dx', 'M23.9'); await page.keyboard.press('Enter');
       assert.match(await page.locator('#dxInfo').innerText(), /Diagnosegruppe in Schritt 3 selbst wählen/);
       // Demo
       await page.goto(file);

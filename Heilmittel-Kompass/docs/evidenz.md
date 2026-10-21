@@ -74,3 +74,14 @@ Vier Nutzer-PDFs wurden gezielt gelesen und per SHA-256 mit den erreichbaren AWM
 - **Stärke gegenüber Evidenz:** Die DEGAM-Negativempfehlungen für Fango, Rotlicht, Kryotherapie und Ultraschall werden als Expertenkonsens gekennzeichnet. Konsensstärke ist keine Evidenzsicherheit. Die App macht daraus weder eine Grad-A-Studienlage noch ein formales Verordnungsverbot.
 
 Der Betreuungsbedarf bleibt ohne feste Terminschwelle. Direkte Leitlinienempfehlungen zur Bewegungstherapie werden sichtbar von der praktischen Abwägung zur eigenständigen Umsetzung unterschieden. Keine Behandlungssteuerung oder individuelle Medikamentenempfehlungen ergänzt. Fachliche Freigabe und ein vollständiger Aktualitätsaudit bleiben ausstehend.
+
+
+## GLA:D (Version 0.7.1, Abruf 21.10.2026)
+
+Quellen: [GLA:D FAQ Leistungserbringer 03/2026](https://www.physio-deutschland.de/fileadmin/data/bund/news/pdfs/GLAD_FAQ_Leistungserbringer_3.2026.pdf), [GLA:D Patienten-FAQ 03/2026](https://www.physio-deutschland.de/fileadmin/data/bund/news/pdfs/GLAD_Patienten_FAQ_3.2026.pdf), [glad-deutschland.de/fuer-aerzte](https://glad-deutschland.de/fuer-aerzte/), [Krankenkassen](https://glad-deutschland.de/krankenkassen).
+
+- Selektivverträge nach § 140a SGB V; BARMER rollt nach NRW-Pilot clusterweise aus (01.01.2026 BW, BY, NI/HB, HH; 01.07.2026 BE, BB, MV, SH; 01.01.2027 SN, ST, TH; 01.07.2027 HE, SL, RP). Kassenlogos auf der Website: u. a. KKH, IKK classic, Continentale, mehrere BKKs; Zuordnung zu Bundesländern dort nicht angegeben.
+- Ärztliche Vergütung laut FAQ 54 € netto je Patient, extrabudgetär; Heilmittelbudget nicht belastet.
+- ICD-10-Einschlusscodes stehen laut FAQ in der Arztbroschüre (nicht abrufbar). Die App zeigt den Hinweis bei M16.-, M17.-, M23.2-, M23.3-; Zuordnung der degenerativen Meniskusschäden zu M23.2-/M23.3- gegen die Arztbroschüre prüfen.
+- Widerspruch in den Quellen: Selbstzahlerpreis 680 € bzw. 700 €; die App nennt die Spanne.
+- Evidenz: Registerdaten ohne Kontrollgruppe (Skou & Roos 2017; Grønne et al. 2021); Wirksamkeit der Bausteine in RCTs (Skou et al. NEJM 2015; Kise et al. BMJ 2016). Angaben zu NEJM 2015 und BMJ 2016 aus bekannter Literatur, nicht neu abgerufen.

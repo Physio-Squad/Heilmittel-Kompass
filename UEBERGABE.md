@@ -1,6 +1,8 @@
 # Heilmittel-Kompass – Übergabe vom 21.10.2026
 
-## Aktueller Stand: Version 0.7.0 (23 Profile, Rubrik „Budgetfrei verordnen“)
+## Aktueller Stand: Version 0.7.1 (23 Profile, Rubrik „Budgetfrei verordnen“, GLA:D-Hinweis)
+
+- 0.7.1: GLA:D-Kasten bei Knie-/Hüftarthrose und degenerativem Meniskus; Details und offene Punkte in docs/evidenz.md.
 
 - 0.7.0: Rubrik Budgetfrei mit Kriterien, Checkliste und Nachschlagen in der KBV-Diagnoseliste (`HK_LISTE`). Offene Gegenprüfungen der Liste: docs/formaler-regelabgleich.md, Abschnitt „Budgetfrei verordnen“.
 
