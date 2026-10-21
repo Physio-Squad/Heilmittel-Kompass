@@ -123,3 +123,15 @@ Quelle: [Heilmittel-Diagnoseliste, Webversion Stand 01.07.2025](https://www.phys
 | H81.- | WS/EX/SO3 | ab 70 Jahren |
 
 Nicht gelistet: G51.0, J47, I70.2-, K59.0-, G56.0, G20.0-. Altersgrenzen sind nach § 7 Abs. 7 HeilM-RL bindend; die App fragt sie ab. Gegen die KBV-Liste Stand 01.01.2026 gegenlesen (Tabellenstruktur in der Textauswertung nicht eindeutig).
+
+
+## Budgetfrei verordnen (Version 0.7.0, 21.10.2026)
+
+Rechtsgrundlagen: § 8 HeilM-RL (Kriterien, Antrag, Befristung ≥ 1 Jahr); [§ 32 Abs. 1a SGB V](https://lxgesetze.de/sgb-v/32) (Entscheidung in vier Wochen, sonst als erteilt); [§ 106b SGB V](https://www.gesetze-im-internet.de/sgb_5/__106b.html) Abs. 2 Satz 4 (besondere Verordnungsbedarfe), Abs. 4 Nr. 1 (LHB nicht geprüft), Abs. 4 Nr. 4 i. V. m. [§ 73 Abs. 11](https://www.gesetze-im-internet.de/sgb_5/__73.html) (Blankoverordnung nicht geprüft); [KBV Heilmittel](https://www.kbv.de/praxis/verordnungen/heilmittel) (BVB-Kosten werden herausgerechnet).
+
+`HK_LISTE` in index.html: physiotherapierelevante Einträge der Diagnoseliste aus der [Webversion Stand 01.07.2025](https://www.physio-deutschland.de/fileadmin/data/nordverbund/PDFs/Allgemein/Heilmittel_Diagnoseliste_Webversion_Stand_01.07.2025.pdf), drei kapitelweise Textauswertungen am 21.10.2026, plus Änderungen zum 01.01.2026 (Lipödem bis 31.12.2027, Z98.88). Die Tabellenstruktur ist in der Textauswertung nicht immer eindeutig; vor Freigabe gegen die [KBV-Liste 01.01.2026](https://www.kbv.de/documents/praxis/verordnungen/heilmittel/heilmittel-diagnoseliste.pdf) gegenlesen, insbesondere:
+
+- Aus Blockzuordnung übernommen: M48.0-/M50/M51 (WS/EX/ZN, 6 Monate), M31.3, M33.1/2, I64, G93.80, I97.85/86, Q82.0x, E88.21/22, F45.41, R26.1.
+- Unsicher: M80.2- (Altersgrenze 70 übernommen), R26.2 (WS/EX/SO3 ab 70 laut einer von zwei Auswertungen), Z96.65 (Gruppen EX/LY angenommen wie Z96.64).
+- Nicht aufgenommen, weil keine Physio-Gruppe erkennbar: C71, C72, G36, M40.1-, M41.5-, M80.5-, M80.8-, R29.6.
+- LHB (Anlage 2) und BVB sind in der Liste nicht zeilenweise gekennzeichnet; die App nennt „besonderer Verordnungsbedarf“ nur bei Fristangabe. Für die Budgetwirkung macht es keinen Unterschied.

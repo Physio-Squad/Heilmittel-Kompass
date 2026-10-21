@@ -1,6 +1,6 @@
 # Heilmittel-Kompass
 
-Ärztliche Entscheidungshilfe für die Verordnung physiotherapeutischer Heilmittel (GKV, Muster 13). Version 0.6.0.
+Ärztliche Entscheidungshilfe für die Verordnung physiotherapeutischer Heilmittel (GKV, Muster 13). Version 0.7.0.
 
 **Status: Prototyp, nicht unabhängig fachlich geprüft.** Keine Patientendaten, keine Speicherung, kein ausgestelltes Rezept.
 
@@ -16,13 +16,15 @@
 4. **Heilmittel:** Bis zu drei vorrangige Heilmittel, höchstens eine Ergänzung. Jede Karte zeigt die Leitlinienbewertung. Bei gelisteten Schulterdiagnosen alternativ Blankoverordnung.
 5. **Menge und Angaben:** Einheiten je Heilmittel, Frequenz, Höchst- und orientierende Menge, 12-Wochen-Verordnung bei Diagnoseliste oder Genehmigung, Hausbesuch, Therapiebericht, Dringlichkeit, Therapieziele.
 
+Die Rubrik **Budgetfrei verordnen** (Umschalter oben) erklärt langfristigen Heilmittelbedarf, Genehmigung, besonderen Verordnungsbedarf und Blankoverordnung und schlägt Diagnosen in der KBV-Diagnoseliste nach.
+
 Rechts (mobil unten) entsteht die Verordnung im Aufbau von Muster 13 mit offenen Punkten und Korrekturhinweisen; „Text kopieren“ übernimmt alles als Text.
 
 Profile (23): lumbaler Rückenschmerz, nicht-spezifische Nackenschmerzen, Kniearthrose, Hüftarthrose, Rotatorenmanschetten-Tendinopathie, Midportion-Achillessehnen-Tendinopathie, Plantarfasziitis, laterale Sprunggelenksdistorsion (WS/EX); COPD, Bronchiektasen (AT); pAVK (GE); Lymphödem (LY); Parkinson, Multiple Sklerose, Schlaganfall, Querschnittlähmung (ZN); Fazialisparese, GBS/CIDP, Karpaltunnelsyndrom (PN); chronische Obstipation (SO1); Harninkontinenz der Frau (SO2); Lagerungsschwindel, periphere Vestibulopathie (SO3). Gruppe CS ist formal abgebildet, ohne Leitlinienbewertung. Befundfragen gibt es bei den WS/EX-Profilen.
 
 ## Aufbau und Tests
 
-`index.html` enthält drei Skriptblöcke: `HK_DATA` und `HK_DATA_ERG` (fachliche Daten mit Quellen; Ergänzung der übrigen Gruppen), `HK` (Regellogik ohne DOM) und die Oberfläche. Fachliche Änderungen erfolgen in `HK_DATA`.
+`index.html` enthält drei Skriptblöcke: `HK_LISTE` (KBV-Diagnoseliste), `HK_DATA` und `HK_DATA_ERG` (fachliche Daten mit Quellen; Ergänzung der übrigen Gruppen), `HK` (Regellogik ohne DOM) und die Oberfläche. Fachliche Änderungen erfolgen in `HK_DATA`.
 
 ```
 node tests/smoke.cjs        # Regeln und Texte

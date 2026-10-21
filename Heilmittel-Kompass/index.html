@@ -169,6 +169,31 @@ h3.sec{font-size:15px;margin:22px 0 4px}
 .rxbtns .btn{flex:1}
 .demoflag{display:inline-block;background:var(--cond-bg);color:var(--cond);font-weight:700;font-size:12px;border-radius:4px;padding:2px 8px;margin:0 0 8px}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:6px;padding:10px 16px;font-size:14px;z-index:50}
+nav.views{display:inline-flex;border:1px solid var(--line);border-radius:8px;padding:3px;background:#fff;margin-top:14px}
+nav.views button{border:0;background:none;border-radius:6px;padding:8px 16px;cursor:pointer;font-weight:600;font-size:14px;min-height:38px;color:var(--muted)}
+nav.views button[aria-pressed=true]{background:var(--ink);color:#fff}
+#budget{padding-bottom:48px}
+.bh{font-size:26px;letter-spacing:-.4px;margin:6px 0 4px}
+.bh2{font-size:19px;margin:30px 0 10px}
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.way{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.way h2{font-size:17px;margin:0}
+.way .wsub{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.way .law{font-size:12.5px;color:var(--faint);margin:10px 0 0}
+ol.steps2{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 20px 16px 40px;margin:0}
+ol.steps2 li{margin:4px 0}
+.lbh{font-size:14px;margin:18px 0 6px;color:var(--muted)}
+ul.ll{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.le{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.le .lh{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline}
+.le .c{font-family:var(--type);font-weight:700}
+.le .nm{font-weight:600}
+.lg{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.gchip{font-size:12px;font-weight:700;border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+.kat{font-size:12px;font-weight:600;color:var(--cond);background:var(--cond-bg);border-radius:4px;padding:1px 7px}
+.lb{font-size:13.5px;margin:6px 0 4px}
+.status.bf{border-top:1px solid var(--form-line);color:var(--pos);font-weight:600}
+@media (max-width:760px){ .ways{grid-template-columns:1fr} }
 footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:13px}
 footer h2{font-size:14px;color:var(--ink);margin:0 0 6px}
 footer ul{margin:0;padding-left:18px}
@@ -202,8 +227,11 @@ footer li{margin-bottom:3px}
     <div class="brand"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="4" fill="none" stroke="#B3243B" stroke-width="1.6"/><path d="M11 5.5v11M5.5 11h11" stroke="#17242E" stroke-width="2.2" stroke-linecap="round"/></svg>Heilmittel-Kompass</div>
     <p class="lead">Von der Diagnose zur Heilmittelverordnung Physiotherapie, mit Leitlinienbewertung an jeder Option.</p>
   </div>
-  <p class="tag">Prototyp 0.6 – fachliche Prüfung ausstehend</p>
-</div></header>
+  <p class="tag">Prototyp 0.7 – fachliche Prüfung ausstehend</p>
+</div>
+<div class="wrap"><nav class="views" aria-label="Bereich"><button type="button" data-view="rx" aria-pressed="true">Verordnung</button><button type="button" data-view="budget" aria-pressed="false">Budgetfrei verordnen</button></nav></div>
+</header>
+<div class="wrap" id="budget" hidden></div>
 
 <div class="wrap layout">
   <div class="steps" id="steps">
@@ -244,8 +272,129 @@ footer li{margin-bottom:3px}
 <div class="toast" id="toast" role="status" hidden></div>
 
 <script>
+// KBV Heilmittel-Diagnoseliste, physiotherapierelevante Einträge.
+// Inhalt: Webversion Stand 01.07.2025 (Textauswertung 21.10.2026) mit Änderungen zum 01.01.2026 (Lipödem-Befristung, Z98.88).
+// [Codes, Bezeichnung, Diagnosegruppen, Bedingungen] ; Codes: 'G35.1' = Code und Untercodes, 'G11' = ganze Kategorie, 'C00-C97' = Kategorienbereich
+// Bedingungen: frist (Monate nach Akutereignis -> besonderer Verordnungsbedarf), alter (ab), bis (Alter bis einschließlich), zweit, h (weitere Bedingung), lhb:true (Anlage 2 HeilM-RL)
+const HK_LISTE = [
+ // Nervensystem
+ {b:'Nervensystem', c:['B94.1'], n:'Folgezustände einer Virusenzephalitis', g:['ZN','SO3'], frist:12},
+ {b:'Nervensystem', c:['C70'], n:'Bösartige Neubildung der Meningen', g:['ZN','SO1','SO3'], frist:12},
+ {b:'Nervensystem', c:['G10'], n:'Chorea Huntington', g:['ZN']},
+ {b:'Nervensystem', c:['G11'], n:'Hereditäre Ataxie', g:['ZN']},
+ {b:'Nervensystem', c:['G12'], n:'Spinale Muskelatrophie und verwandte Syndrome', g:['ZN','AT']},
+ {b:'Nervensystem', c:['G14'], n:'Postpolio-Syndrom', g:['ZN','PN','AT']},
+ {b:'Nervensystem', c:['G20.1'], n:'Primäres Parkinson-Syndrom, Hoehn und Yahr 3 oder 4', s:'parkinson', g:['ZN']},
+ {b:'Nervensystem', c:['G20.2'], n:'Primäres Parkinson-Syndrom, Hoehn und Yahr 5', s:'parkinson', g:['ZN']},
+ {b:'Nervensystem', c:['G21.3','G21.4','G21.8'], n:'Sekundäres Parkinson-Syndrom', g:['ZN']},
+ {b:'Nervensystem', c:['G24.3'], n:'Torticollis spasticus', g:['ZN'], h:'Nur bei leitliniengerechter medikamentöser Therapie.'},
+ {b:'Nervensystem', c:['G35.0','G35.1','G35.2','G35.3','G35.9'], n:'Multiple Sklerose', s:'ms', g:['ZN']},
+ {b:'Nervensystem', c:['G37'], n:'Sonstige demyelinisierende Krankheiten des ZNS', g:['ZN']},
+ {b:'Nervensystem', c:['G60.0'], n:'Hereditäre sensomotorische Neuropathie', g:['WS','EX','PN']},
+ {b:'Nervensystem', c:['G60.8'], n:'Sonstige hereditäre und idiopathische Neuropathien', g:['EX','CS','PN','SO4']},
+ {b:'Nervensystem', c:['G61.0'], n:'Guillain-Barré-Syndrom', g:['PN']},
+ {b:'Nervensystem', c:['G61.8'], n:'Sonstige Polyneuritiden', g:['PN'], h:'Nur CIDP.'},
+ {b:'Nervensystem', c:['G70.0'], n:'Myasthenia gravis', g:['ZN']},
+ {b:'Nervensystem', c:['G70.2'], n:'Angeborene oder entwicklungsbedingte Myasthenie', g:['PN','AT']},
+ {b:'Nervensystem', c:['G71.0'], n:'Muskeldystrophie', g:['ZN','AT']},
+ {b:'Nervensystem', c:['G71.1'], n:'Myotone Syndrome', g:['PN','AT']},
+ {b:'Nervensystem', c:['G71.2'], n:'Angeborene Myopathien', g:['WS','EX','PN','AT']},
+ {b:'Nervensystem', c:['G71.3'], n:'Mitochondriale Myopathie', g:['ZN','PN']},
+ {b:'Nervensystem', c:['G72.3'], n:'Periodische Lähmung', g:['PN','AT']},
+ {b:'Nervensystem', c:['G72.4'], n:'Entzündliche Myopathie', g:['PN','AT']},
+ {b:'Nervensystem', c:['G73.6'], n:'Myopathie bei Stoffwechselkrankheiten', g:['PN']},
+ {b:'Nervensystem', c:['G80'], n:'Infantile Zerebralparese', s:'icp', g:['ZN']},
+ {b:'Nervensystem', c:['G81.0','G81.1'], n:'Schlaffe oder spastische Hemiparese/Hemiplegie', g:['ZN']},
+ {b:'Nervensystem', c:['G82.0','G82.1','G82.2','G82.3','G82.4','G82.5'], n:'Paraparese, Paraplegie, Tetraparese, Tetraplegie', s:'querschnitt', g:['ZN']},
+ {b:'Nervensystem', c:['G91.2'], n:'Normaldruckhydrozephalus', g:['ZN']},
+ {b:'Nervensystem', c:['G93.1'], n:'Anoxische Hirnschädigung', g:['ZN']},
+ {b:'Nervensystem', c:['G93.80'], n:'Apallisches Syndrom', g:['ZN']},
+ {b:'Nervensystem', c:['G95.0'], n:'Syringomyelie und Syringobulbie', g:['ZN']},
+ {b:'Nervensystem', c:['I60','I61','I63','I64'], n:'Subarachnoidalblutung, intrazerebrale Blutung, Hirninfarkt, Schlaganfall', s:'apoplex insult', g:['ZN'], frist:12},
+ {b:'Nervensystem', c:['I69.0','I69.1','I69.2','I69.3','I69.4','I69.8'], n:'Folgen einer zerebrovaskulären Krankheit', s:'schlaganfall apoplex hemiparese', g:['ZN'], frist:12},
+ {b:'Nervensystem', c:['Q01','Q03','Q04','Q05','Q06'], n:'Angeborene Fehlbildungen von Gehirn und Rückenmark (u. a. Spina bifida, Hydrozephalus)', g:['ZN','AT','SO1','SO3']},
+ {b:'Nervensystem', c:['S14'], n:'Verletzung von Nerven und Rückenmark in Halshöhe', g:['ZN','AT'], frist:12},
+ {b:'Nervensystem', c:['S24'], n:'Verletzung von Nerven und Rückenmark in Thoraxhöhe', g:['ZN'], frist:12},
+ {b:'Nervensystem', c:['S34'], n:'Verletzung von Nerven und lumbalem Rückenmark in Höhe Abdomen, Lumbosakralgegend und Becken', g:['ZN'], frist:12},
+ {b:'Nervensystem', c:['T09.3'], n:'Verletzung des Rückenmarks, Höhe nicht näher bezeichnet', g:['ZN','AT'], frist:12},
+ {b:'Nervensystem', c:['T90.5'], n:'Folgen einer intrakraniellen Verletzung', g:['ZN','AT','SO3']},
+ {b:'Nervensystem', c:['S06.1','S06.2','S06.3','S06.4','S06.5','S06.6','S06.7','S06.8','S06.9'], n:'Intrakranielle Verletzung', g:['ZN','AT','SO3'], h:'Für Folgen ab einem Jahr nach der Verletzung.'},
+ // Rheuma und Bindegewebe
+ {b:'Rheuma und Bindegewebe', c:['M05'], n:'Seropositive chronische Polyarthritis', s:'rheuma rheumatoide arthritis', g:['WS','EX','AT']},
+ {b:'Rheuma und Bindegewebe', c:['M06.0','M06.1'], n:'Seronegative chronische Polyarthritis, adulte Still-Krankheit', g:['WS','EX']},
+ {b:'Rheuma und Bindegewebe', c:['M07.0','M07.1','M07.2','M07.3','M07.4','M07.5','M07.6'], n:'Psoriasis-Arthritis und Arthritis bei Darmerkrankungen', g:['WS','EX']},
+ {b:'Rheuma und Bindegewebe', c:['M08'], n:'Juvenile Arthritis', g:['WS','EX']},
+ {b:'Rheuma und Bindegewebe', c:['M30.0','M31.3','M33.0','M33.1','M33.2'], n:'Panarteriitis nodosa, Granulomatose mit Polyangiitis, Dermato-/Polymyositis', g:['EX','ZN','PN']},
+ {b:'Rheuma und Bindegewebe', c:['M32.1','M32.8'], n:'Systemischer Lupus erythematodes', g:['EX','WS','AT']},
+ {b:'Rheuma und Bindegewebe', c:['M34'], n:'Systemische Sklerose', g:['WS','EX','AT']},
+ {b:'Rheuma und Bindegewebe', c:['M36.2'], n:'Arthropathia haemophilica', g:['EX','CS']},
+ {b:'Rheuma und Bindegewebe', c:['M45.0'], n:'Spondylitis ankylosans', s:'morbus bechterew', g:['WS','EX']},
+ // Angeborene Fehlbildungen und Chromosomen
+ {b:'Fehlbildungen und Entwicklung', c:['Q66.0'], n:'Pes equinovarus congenitus', g:['EX']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q68.0'], n:'Angeborene Deformität des M. sternocleidomastoideus', g:['EX']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q71','Q72','Q73.0','Q73.1','Q73.8'], n:'Reduktionsdefekte der Extremitäten', g:['WS','EX','CS','ZN','PN','AT','GE','LY','SO1','SO2','SO3','SO4']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q74.3'], n:'Arthrogryposis multiplex congenita', g:['EX']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q78.0'], n:'Osteogenesis imperfecta', g:['EX','WS']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q79.6'], n:'Ehlers-Danlos-Syndrom', g:['WS','EX','CS']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q87.0'], n:'Fehlbildungssyndrome mit Beteiligung des Gesichts', g:['WS','EX']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q87.2'], n:'Fehlbildungssyndrome mit Beteiligung der Extremitäten', g:['EX','CS','LY']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q87.4'], n:'Marfan-Syndrom', g:['WS','EX','AT']},
+ {b:'Fehlbildungen und Entwicklung', c:['F83'], n:'Kombinierte umschriebene Entwicklungsstörungen', g:['ZN'], bis:18},
+ {b:'Fehlbildungen und Entwicklung', c:['F84.0','F84.1','F84.3','F84.4','F84.5','F84.8'], n:'Tiefgreifende Entwicklungsstörungen', g:['ZN']},
+ {b:'Fehlbildungen und Entwicklung', c:['F84.2'], n:'Rett-Syndrom', g:['ZN','WS','EX','AT']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q90','Q91.0','Q91.1','Q91.2','Q91.3','Q91.4','Q91.5','Q91.6','Q91.7','Q96'], n:'Down-, Edwards-, Patau-, Turner-Syndrom', g:['ZN']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q93.3'], n:'Wolf-Hirschhorn-Syndrom', g:['EX','WS']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q93.4'], n:'Cri-du-chat-Syndrom', g:['WS','EX','ZN']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q93.5'], n:'Sonstige Deletionen (u. a. Angelman-Syndrom)', g:['ZN','WS']},
+ {b:'Fehlbildungen und Entwicklung', c:['Q99.2'], n:'Fragiles X-Chromosom', g:['ZN','SO2']},
+ {b:'Fehlbildungen und Entwicklung', c:['E74.0','E75.0','E76.0'], n:'Glykogenspeicherkrankheit, GM2-Gangliosidose, Mukopolysaccharidose Typ I', g:['ZN','PN','AT','WS','EX','CS','SO1']},
+ // Wirbelsäule und Skelett
+ {b:'Wirbelsäule und Skelett', c:['M40.0'], n:'Kyphose als Haltungsstörung', g:['WS'], h:'Gesamtkyphosewinkel über 60° bei Erwachsenen.'},
+ {b:'Wirbelsäule und Skelett', c:['M41.0','M41.1'], n:'Idiopathische Skoliose beim Kind und Jugendlichen', g:['WS','EX'], bis:18, h:'Cobb-Winkel über 20°.'},
+ {b:'Wirbelsäule und Skelett', c:['M41.2'], n:'Sonstige idiopathische Skoliose', g:['WS','AT'], h:'Cobb-Winkel ab 50°.'},
+ {b:'Wirbelsäule und Skelett', c:['M42.04','M42.05'], n:'Juvenile Osteochondrose der Wirbelsäule, thorakal/thorakolumbal', g:['WS'], bis:18, h:'Fixierte Kyphose über 40°.'},
+ {b:'Wirbelsäule und Skelett', c:['M47.0','M47.1'], n:'Spondylose mit Myelopathie', g:['WS','EX','ZN'], frist:6, zweit:'G99.2'},
+ {b:'Wirbelsäule und Skelett', c:['M47.2'], n:'Sonstige Spondylose mit Radikulopathie', g:['WS','EX','ZN'], frist:6, zweit:'G55.2'},
+ {b:'Wirbelsäule und Skelett', c:['M47.9'], n:'Spondylose mit Myelopathie oder Radikulopathie', g:['WS','EX','ZN'], frist:6, zweit:['G99.2','G55.2']},
+ {b:'Wirbelsäule und Skelett', c:['M48.0'], n:'Spinalkanalstenose mit Radikulopathie', g:['WS','EX','ZN'], frist:6, zweit:'G55.3'},
+ {b:'Wirbelsäule und Skelett', c:['M50.0'], n:'Zervikaler Bandscheibenschaden mit Myelopathie', g:['WS','EX','ZN'], frist:6, zweit:'G99.2'},
+ {b:'Wirbelsäule und Skelett', c:['M50.1'], n:'Zervikaler Bandscheibenschaden mit Radikulopathie', g:['WS','EX','ZN'], frist:6, zweit:'G55.1'},
+ {b:'Wirbelsäule und Skelett', c:['M51.0'], n:'Lumbaler Bandscheibenschaden mit Myelopathie', g:['WS','EX','ZN'], frist:6, zweit:'G99.2'},
+ {b:'Wirbelsäule und Skelett', c:['M51.1'], n:'Lumbaler Bandscheibenschaden mit Radikulopathie', g:['WS','EX','ZN'], frist:6, zweit:'G55.1'},
+ {b:'Wirbelsäule und Skelett', c:['M80.0','M80.2'], n:'Osteoporose mit pathologischer Fraktur', s:'geriatrie', g:['WS','EX'], alter:70},
+ {b:'Wirbelsäule und Skelett', c:['M80.3'], n:'Osteoporose mit pathologischer Fraktur infolge Malabsorption nach Operation', g:['WS','EX'], frist:6},
+ // Gelenke, Verletzungen, Amputation
+ {b:'Gelenke, Verletzungen, Amputation', c:['M75.1'], n:'Läsionen der Rotatorenmanschette', g:['EX']},
+ {b:'Gelenke, Verletzungen, Amputation', c:['M23.5'], n:'Chronische Instabilität des Kniegelenkes', g:['EX','LY'], frist:6, zweit:'Z98.88'},
+ {b:'Gelenke, Verletzungen, Amputation', c:['Z96.64'], n:'Hüftgelenkendoprothese', s:'tep hüfte', g:['EX','LY'], zweit:'Z98.88'},
+ {b:'Gelenke, Verletzungen, Amputation', c:['Z96.65'], n:'Kniegelenkendoprothese', s:'tep knie', g:['EX','LY'], zweit:'Z98.88'},
+ {b:'Gelenke, Verletzungen, Amputation', c:['M89.0','G90.5','G90.6','G90.7'], n:'Komplexes regionales Schmerzsyndrom (CRPS), Algodystrophie', s:'morbus sudeck', g:['EX','LY','PN'], frist:12},
+ {b:'Gelenke, Verletzungen, Amputation', c:['Z89.1','Z89.2','Z89.5','Z89.6'], n:'Einseitiger Verlust einer Extremität', s:'amputation', g:['EX','WS','CS','LY'], frist:12},
+ {b:'Gelenke, Verletzungen, Amputation', c:['Z89.3','Z89.7','Z89.8'], n:'Beidseitiger Verlust von Extremitäten', s:'amputation', g:['EX','WS','CS','LY']},
+ {b:'Gelenke, Verletzungen, Amputation', c:['T20.3','T20.7','T21.3','T21.7','T22.3','T22.7','T23.3','T23.7','T24.3','T24.7','T25.3','T25.7','T29.3','T29.7'], n:'Verbrennung oder Verätzung 3. Grades', g:['LY','CS','EX','WS']},
+ // Lymphsystem
+ {b:'Lymphsystem', c:['C00-C97'], n:'Bösartige Neubildung mit Lymphabflussstörung', s:'krebs tumor onkologie mammakarzinom lymphödem', g:['LY'], h:'Nach Operation oder Bestrahlung, insbesondere bei Melanom, Mamma-, Kopf-Hals- oder Beckentumoren.'},
+ {b:'Lymphsystem', c:['I89.01','I89.02','I89.04','I89.05'], n:'Lymphödem Stadium II oder III', s:'lymphödem', g:['LY']},
+ {b:'Lymphsystem', c:['I97.21','I97.22','I97.82','I97.83','I97.85','I97.86'], n:'Lymphödem nach medizinischen Maßnahmen, Stadium II oder III', g:['LY']},
+ {b:'Lymphsystem', c:['Q82.01','Q82.02','Q82.04','Q82.05'], n:'Hereditäres Lymphödem, Stadium II oder III', g:['LY']},
+ {b:'Lymphsystem', c:['E88.20'], n:'Lipödem, Stadium I', g:['LY'], h:'Nur zusammen mit komplexer physikalischer Entstauungstherapie; befristet bis 31.12.2027.'},
+ {b:'Lymphsystem', c:['E88.21','E88.22'], n:'Lipödem, Stadium II oder III', g:['LY'], h:'Befristet bis 31.12.2027.'},
+ // Atmung
+ {b:'Atmung', c:['J44.00','J44.10','J44.80','J44.90'], n:'COPD', g:['AT'], h:'Nur bei FEV1 unter 35 % des Sollwertes.'},
+ {b:'Atmung', c:['J84.10','J84.80'], n:'Interstitielle Lungenkrankheit', g:['AT']},
+ {b:'Atmung', c:['P27.1','P27.8'], n:'Bronchopulmonale Dysplasie und sonstige perinatale chronische Atemwegskrankheit', g:['AT']},
+ {b:'Atmung', c:['E84'], n:'Zystische Fibrose (Mukoviszidose)', s:'cf', g:['AT']},
+ {b:'Atmung', c:['U09.9'], n:'Post-COVID-Syndrom', s:'long covid', g:['WS','AT']},
+ {b:'Atmung', c:['Z99.0','Z43.0','Z99.1'], n:'Abhängigkeit von Aspirator oder Respirator, Tracheostoma', g:['EX','ZN','PN','AT','LY'], h:'Mit Einbindung der Ärzte, die die außerklinische Intensivpflege koordinieren.'},
+ // Geriatrie
+ {b:'Geriatrische Syndrome', c:['R26.0','R26.1','R26.2'], n:'Gangstörung (ataktisch, paretisch, Gehbeschwerden)', s:'sturz gangunsicherheit geriatrie', g:['WS','EX','SO3'], alter:70},
+ {b:'Geriatrische Syndrome', c:['H81','H82','R42'], n:'Schwindel und Störungen der Vestibularfunktion', g:['WS','EX','SO3'], alter:70},
+ {b:'Geriatrische Syndrome', c:['N39.3','N39.4','R32','R15'], n:'Harn- oder Stuhlinkontinenz', g:['SO2'], alter:70},
+ {b:'Geriatrische Syndrome', c:['F45.40','F45.41','G54.6','R52.1','R52.2'], n:'Chronischer Schmerz, Phantomschmerz', g:['CS'], alter:70}
+];
+
 const HK_DATA = {
-version: '0.6.0',
+version: '0.7.0',
 standDaten: '21.10.2026',
 
 // Heilmittel: Kurzbeschreibung für die Karte (Grundlage: HeilM-RL § 19, § 24; Katalog)
@@ -353,25 +502,8 @@ blanko: {
   namen:[["M13.11","Monarthritis, anderenorts nicht klassifiziert: Schulterregion",0],["M13.81","Sonstige näher bezeichnete Arthritis: Schulterregion",0],["M13.91","Arthritis, nicht näher bezeichnet: Schulterregion",0],["M19.01","Primäre Arthrose sonstiger Gelenke: Schulterregion",0],["M19.11","Posttraumatische Arthrose sonstiger Gelenke: Schulterregion",0],["M19.21","Sonstige sekundäre Arthrose: Schulterregion",0],["M19.81","Sonstige näher bezeichnete Arthrose: Schulterregion",0],["M19.91","Arthrose, nicht näher bezeichnet: Schulterregion",0],["M24.11","Sonstige Gelenkknorpelschädigungen: Schulterregion",0],["M24.21","Krankheiten der Bänder: Schulterregion",0],["M24.31","Pathologische Luxation und Subluxation eines Gelenkes, anderenorts nicht klassifiziert: Schulter",0],["M24.41","Habituelle Luxation und Subluxation eines Gelenkes: Schulterregion",0],["M24.51","Gelenkkontraktur: Schulterregion",0],["M24.61","Ankylose eines Gelenkes: Schulterregion",0],["M24.81","Sonstige näher bezeichnete Gelenkschädigungen, anderenorts nicht klassifiziert: Schulterregion",0],["M24.91","Gelenkschädigung, nicht näher bezeichnet: Schulterregion",0],["M25.01","Hämarthros: Schulterregion",0],["M25.11","Gelenkfistel: Schulterregion",0],["M25.21","Schlottergelenk: Schulterregion",0],["M25.31","Sonstige Instabilität eines Gelenkes: Schulterregion",0],["M25.41","Gelenkerguss: Schulterregion",0],["M25.61","Gelenksteife, anderenorts nicht klassifiziert: Schulterregion",0],["M65.01","Sehnenscheidenabszess: Schulterregion",0],["M65.11","Sonstige infektiöse (Teno-)Synovitis: Schulterregion",0],["M65.81","Sonstige Synovitis und Tenosynovitis: Schulterregion",0],["M65.91","Synovitis und Tenosynovitis, nicht näher bezeichnet: Schulterregion",0],["M66.11","Ruptur der Synovialis: Schulterregion",0],["M66.21","Spontanruptur der Strecksehnen: Schulterregion",0],["M66.31","Spontanruptur von Beugesehnen: Schulterregion",0],["M66.41","Spontanruptur sonstiger Sehnen: Schulterregion",0],["M71.01","Schleimbeutelabszess: Schulterregion",0],["M71.11","Sonstige infektiöse Bursitis: Schulterregion",0],["M71.31","Sonstige Schleimbeutelzyste: Schulterregion",0],["M71.81","Sonstige näher bezeichnete Bursopathien: Schulterregion",0],["M71.91","Bursopathie, nicht näher bezeichnet: Schulterregion",0],["M84.11","Nichtvereinigung der Frakturenden [Pseudarthrose]: Schulterregion",0],["M84.81","Sonstige Veränderungen der Knochenkontinuität: Schulterregion",0],["M84.91","Veränderung der Knochenkontinuität, nicht näher bezeichnet: Schulterregion",0],["M93.21","Osteochondrosis dissecans: Schulterregion",0],["M93.81","Sonstige näher bezeichnete Osteochrondropathien: Schulterregion",0],["M94.21","Chondromalazie: Schulterregion",0],["M94.31","Chondrolyse: Schulterregion",0],["M94.81","Sonstige näher bezeichnete Knorpelkrankheiten: Schulterregion",0],["M94.91","Knorpelkrankheit, nicht näher bezeichnet: Schulterregion",0],["S42.3","Fraktur des Humerusschaftes",0],["S42.7","Multiple Frakturen der Klavikula, der Skapula und des Humerus",0],["S42.8","Fraktur sonstiger Teile der Schulter und des Oberarmes",0],["S42.9","Fraktur des Schultergürtels, Teil nicht näher bezeichnet; Fraktur der Schulter o.n.A.",0],["T22.30","Verbrennung 3. Grades der Schulter und des Armes, ausgenommen Handgelenk und Hand, Teil",0],["T22.32","Verbrennung 3. Grades des (Ober-)Armes und der Schulterregion",0],["T22.33","Verbrennung 3. Grades der Achselhöhle",0],["T84.00","Mechanische Komplikation durch eine Gelenkendoprothese: Schultergelenk",0],["T84.10","Mechanische Komplikation durch eine interne Osteosynthesevorrichtung an Extremitätenknochen:",0],["M84.01","Frakturheilung in Fehlstellung: Schulterregion [Klavikula, Skapula, Akromioklavikular-, Schulter-",0],["M84.21","Verzögerte Frakturheilung: Schulterregion [Klavikula, Skapula, Akromioklavikular-, Schulter-, Ster",0],["M84.31","Stressfraktur, anderenorts nicht klassifiziert: Schulterregion [Klavikula, Skapula, Akromioklaviku",0],["M84.41","Pathologische Fraktur, anderenorts nicht klassifiziert: Schulterregion [Klavikula, Skapula, Akromiok",0],["M75.0","Adhäsive Entzündung der Schultergelenkkapsel; Frozen shoulder; Periarthropathia humeroscapularis",0],["M75.2","Tendinitis des M. biceps brachii",0],["M75.3","Tendinitis calcarea im Schulterbereich; Bursitis calcarea im Schulterbereich",0],["M75.4","Impingement - Syndrom der Schulter",0],["M75.5","Bursitis im Schulterbereich",0],["M75.6","Schultererkrankung / Verletzung – M75.6",0],["M75.8","Sonstige Schulterläsionen",0],["M75.9","Schulterläsionen, nicht näher bezeichnet",0],["S43.00","Luxation des Schultergelenkes [Glenohumeralgelenk], nicht näher bezeichnet",0],["S43.01","Luxation des Humerus nach vorne",0],["S43.02","Luxation des Humerus nach hinten",0],["S43.03","Luxation des Humerus nach unten",0],["S43.08","Luxation sonstiger Teile der Schulter",0],["S43.1","Luxation des Akromioklavikulargelenkes",0],["S43.2","Luxation des Sternoklavikulargelenkes",0],["S43.3","Luxation sonstiger und nicht näher bezeichneter Teile des Schultergürtels",0],["S43.4","Verstauchung und Zerrung des Schultergelenkes",0],["S43.5","Verstauchung und Zerrung des Akromioklavikulargelenkes",0],["S43.6","Verstauchung und Zerrung des Sternoklavikulargelenkes",0],["S43.7","Verstauchung und Zerrung sonstiger und nicht näher bezeichneter Teile des Schultergürtels",0],["S46.0","Verletzung der Muskeln und der Sehnen der Rotatorenmanschette",0],["S46.1","Verletzung des Muskels und der Sehne des Caput longum des M. biceps brachii",0],["S46.2","Verletzung des Muskels und der Sehne an sonstigen Teilen des M. biceps brachii",0],["S46.3","Verletzung des Muskels und der Sehne des M. triceps brachii",0],["S46.7","Verletzung mehrerer Muskeln und Sehnen in Höhe der Schulter und des Oberarmes",0],["S46.8","Verletzung sonstiger Muskeln und Sehnen in Höhe der Schulter und des Oberarmes",0],["S46.9","Verletzung nicht näher bezeichneter Muskeln und Sehnen in Höhe der Schulter und des Oberarmes",0],["S49.7","Multiple Verletzungen der Schulter und des Oberarmes",0],["S49.8","Sonstige näher bezeichnete Verletzungen der Schulter und des Oberarmes",0],["S49.9","Nicht näher bezeichnete Verletzung der Schulter und des Oberarmes",0],["S42.00","Fraktur der Klavikula: Teil nicht näher bezeichnet; Klavikula o.n.A; Schlüsselbein o.n.A.",0],["S42.01","Fraktur der Klavikula: Mediales Drittel",0],["S42.02","Fraktur der Klavikula: Mittleres Drittel",0],["S42.03","Fraktur der Klavikula: Laterales Drittel",0],["S42.09","Fraktur der Klavikula: Multipel",0],["S42.10","Fraktur der Skapula: Teil nicht näher bezeichnet; Schulterblatt o.n.A.; Skapula o.n.A.",0],["S42.11","Fraktur der Skapula: Korpus",0],["S42.12","Fraktur der Skapula: Akromion, Spina Scapulae",0],["S42.13","Fraktur der Skapula: Processus Coracoideus",0],["S42.14","Fraktur der Skapula: Cavitas glenoidalis und Collum scapulae",0],["S42.19","Fraktur der Skapula: Multipel",0],["S42.20","Fraktur des proximalen Endes des Humerus: Teil nicht näher bezeichnet",0],["S42.21","Fraktur des proximalen Humerus: Kopf / proximale Epiphyse",0],["S42.22","Fraktur des proximalen Endes des Humerus: Collum chirurgicum",0],["S42.23","Fraktur des proximalen Endes des Humerus: Collum anatomicum",0],["S42.24","Fraktur des proximalen Endes des Humerus: Tuberculum majus",0],["S42.29","Fraktur des proximalen Endes des Humerus: Sonstige und multiple Teile; Tuberculum minus",0],["M75.1","Läsionen der Rotatorenmanschette",0]]
 },
 
-// KBV Heilmittel-Diagnoseliste, Stand 01.01.2026 (langfristiger Heilmittelbedarf / besonderer Verordnungsbedarf)
-diagnoseliste: [
-  {c:'G35.0', g:['ZN']},{p:'G35.1', g:['ZN']},{p:'G35.2', g:['ZN']},{p:'G35.3', g:['ZN']},{c:'G35.9', g:['ZN']},
-  {p:'G20.1', g:['ZN']},{p:'G20.2', g:['ZN']},
-  {c:'I89.01', g:['LY']},{c:'I89.02', g:['LY']},{c:'I89.04', g:['LY']},{c:'I89.05', g:['LY']},
-  {c:'E88.20', g:['LY'], hinweis:'Nur im Zusammenhang mit komplexer physikalischer Entstauungstherapie; befristet bis 31.12.2027.'},
-  {c:'E88.21', g:['LY'], hinweis:'Befristet bis 31.12.2027.'},
-  {c:'E88.22', g:['LY'], hinweis:'Befristet bis 31.12.2027.'},
-  {c:'M75.1', g:['EX']},
-  {c:'I69.3', g:['ZN'], frist:12},{c:'I69.4', g:['ZN'], frist:12},
-  {p:'G82.0', g:['ZN']},{p:'G82.1', g:['ZN']},{p:'G82.3', g:['ZN']},{p:'G82.4', g:['ZN']},
-  {c:'G61.0', g:['PN']},{c:'G61.8', g:['PN'], hinweis:'Gilt nur für CIDP.'},
-  {c:'J44.00', g:['AT'], hinweis:'Nur bei FEV1 unter 35 % des Sollwertes.'},{c:'J44.10', g:['AT'], hinweis:'Nur bei FEV1 unter 35 % des Sollwertes.'},{c:'J44.80', g:['AT']},{c:'J44.90', g:['AT']},
-  {c:'N39.3', g:['SO2'], alter:70},{p:'N39.4', alter:70},{p:'H81', g:['WS','EX','SO3'], alter:70},
-  {c:'M50.0', zweit:'G99.2', g:['WS','EX','ZN'], frist:6},
-  {c:'M50.1', zweit:'G55.1', g:['WS','EX','ZN'], frist:6},
-  {c:'M51.0', zweit:'G99.2', g:['WS','EX','ZN'], frist:6},
-  {c:'M51.1', zweit:'G55.1', g:['WS','EX','ZN'], frist:6}
-],
+// KBV Heilmittel-Diagnoseliste: siehe HK_LISTE (eigener Block)
+diagnoseliste: [],
 
 quellen: {
   NVL:  {t:'NVL Nicht-spezifischer Kreuzschmerz', h:'BÄK, KBV, AWMF', s:'2. Auflage 2017; Gültigkeit abgelaufen, in Überarbeitung', f:'Kurzfassung, Kap. 5, S. 20–23', a:'21.10.2026', u:'https://register.awmf.org/assets/guidelines/nvl-007k_S3_Kreuzschmerz_2018-02-abgelaufen.pdf'},
@@ -394,6 +526,7 @@ formaleQuellen: [
   {t:'PraxisWissen Heilmittel', h:'KBV', s:'Ausgabe 2026', a:'20.10.2026', u:'https://www.kbv.de/documents/infothek/publikationen/praxiswissen/praxiswissen-heilmittel.pdf'},
   {t:'Heilmittel-Diagnoseliste', h:'KBV', s:'Stand 01.01.2026', a:'21.10.2026', u:'https://www.kbv.de/documents/praxis/verordnungen/heilmittel/heilmittel-diagnoseliste.pdf'},
   {t:'Heilmittel-Diagnoseliste (Webversion)', h:'KBV, über physio-deutschland.de', s:'Stand 01.07.2025', a:'21.10.2026', u:'https://www.physio-deutschland.de/fileadmin/data/nordverbund/PDFs/Allgemein/Heilmittel_Diagnoseliste_Webversion_Stand_01.07.2025.pdf'},
+  {t:'Heilmittel-Richtlinie § 8 und SGB V §§ 32 Abs. 1a, 73 Abs. 11, 106b Abs. 4', h:'G-BA, Bundesgesetz', s:'aktuelle Fassung', a:'21.10.2026', u:'https://www.gesetze-im-internet.de/sgb_5/__106b.html'},
   {t:'Diagnoseliste Blankoverordnung', h:'KVWL nach Vertrag § 125a SGB V', s:'gültig ab 01.11.2024', a:'21.10.2026', u:'https://www.kvwl.de/fileadmin/user_upload/pdf/Mitglieder/Verordnung/Heilmittel/Diagnoseliste_Indikationen_Blankoverordnung.pdf'},
   {t:'ICD-10-GM 2026', h:'BfArM', s:'Version 2026', a:'20.10.2026', u:'https://klassifikationen.bfarm.de/icd-10-gm/kode-suche/htmlgm2026/index.htm'}
 ],
@@ -2125,14 +2258,32 @@ const HK = (function(D){
     return ok ? {ok:true} : null;
   }
 
-  function liste(c, zweit, gruppe, ab70){
-    c = code(c);
-    const e = D.diagnoseliste.find(x => x.c ? x.c === c : c.startsWith(x.p));
+  if(typeof HK_LISTE !== 'undefined') D.diagnoseliste = HK_LISTE;
+  function specMatch(c, spec){
+    if(spec.includes('-')){ const [a,b] = spec.split('-'); const k = c.slice(0,3); return k >= a && k <= b; }
+    if(c === spec) return true;
+    return spec.includes('.') ? c.startsWith(spec) : c.startsWith(spec+'.');
+  }
+  function listeEintrag(c){ c = code(c); if(!c) return null; return D.diagnoseliste.find(e => e.c.some(sp => specMatch(c, sp))) || null; }
+  function liste(c, zweit, gruppe, ab70, unter18){
+    const e = listeEintrag(c);
     if(!e) return null;
-    const zweitOk = !e.zweit || code(zweit).startsWith(code(e.zweit));
+    const zw = e.zweit ? [].concat(e.zweit) : null;
+    const zweitOk = !zw || zw.some(z => code(zweit).startsWith(code(z)) || (code(zweit).length >= 5 && code(z).startsWith(code(zweit))));
     const gruppeOk = !e.g || !gruppe || e.g.includes(gruppe);
     const alterOk = !e.alter || !!ab70;
-    return {...e, aktiv: zweitOk && gruppeOk && alterOk, zweitOk, gruppeOk, alterOk};
+    const bisOk = !e.bis || !!unter18;
+    return {...e, zweit: zw ? zw.join(' oder ') : null, kategorie: e.frist ? 'BVB' : null, aktiv: zweitOk && gruppeOk && alterOk && bisOk, zweitOk, gruppeOk, alterOk, bisOk};
+  }
+  function listeSuche(q, gruppe){
+    const n = norm(q).trim(), c = code(q);
+    return D.diagnoseliste.filter(e => {
+      if(gruppe && !e.g.includes(gruppe)) return false;
+      if(!n) return !!gruppe;
+      if(/^[A-Z]\d/.test(c) && (e.c.some(sp => specMatch(c, sp) || sp.startsWith(c)))) return true;
+      const hay = norm(e.n+' '+e.b+' '+e.c.join(' ')+' '+(e.s||''));
+      return n.split(/\s+/).every(w => hay.includes(w));
+    });
   }
 
   const freqMax = f => ({'1':1,'1-2':2,'2':2,'2-3':3,'3':3})[f] || 0;
@@ -2140,12 +2291,21 @@ const HK = (function(D){
 
   function limits(s){
     const g = D.gruppen[s.gruppe]; if(!g) return null;
-    const l = liste(s.code, s.zweit, s.gruppe, s.ab70);
+    const l = liste(s.code, s.zweit, s.gruppe, s.ab70, s.unter18);
     const zwoelf = !!(l?.aktiv || s.genehmigung);
     const fm = freqMax(s.freq);
     const max = zwoelf ? (fm ? fm*12 : null) : g.max;
     const orient = (s.unter18 && g.orientKind) ? g.orientKind : (s.muko && g.orientMuko) ? g.orientMuko : g.orient;
     return {max, zwoelf, liste:l, orient, orientKind:g.orientKind||null, regulär:g.max};
+  }
+
+  // 'liste' | 'genehmigung' | 'blanko' | null
+  function budgetfrei(s){
+    if(s.route === 'blanko' && s.code && blanko(s.code, s.zweit)?.ok) return 'blanko';
+    const l = s.code ? liste(s.code, s.zweit, s.gruppe, s.ab70, s.unter18) : null;
+    if(l?.aktiv) return 'liste';
+    if(s.genehmigung) return 'genehmigung';
+    return null;
   }
 
   function total(s){ return s.primary.reduce((a,k) => a + (parseInt(s.units[k],10)||0), 0); }
@@ -2268,7 +2428,7 @@ const HK = (function(D){
       kompression:false, hausbesuch:false, bericht:false, dringlich:false, ausstellung:'', ziele:[], zieleText:''};
   }
 
-  return {D, code, isCode, find, search, icdStatus, profileFor, blanko, liste, limits, total, check, symText, felder, text, verdict, phaseKey, freqMax, newState, all:ALL};
+  return {D, budgetfrei, listeEintrag, listeSuche, specMatch, code, isCode, find, search, icdStatus, profileFor, blanko, liste, limits, total, check, symText, felder, text, verdict, phaseKey, freqMax, newState, all:ALL};
 })(HK_DATA);
 
 </script>
@@ -2344,7 +2504,7 @@ function renderDx(){
 function zweitNote(){
   const l = HK.liste(S.code), b = HK.blanko(S.code);
   if(b?.zweit) return 'Mit '+b.zweit+' ist die Blankoverordnung möglich.';
-  if(l?.zweit) return 'Mit '+l.zweit+' steht die Diagnose auf der KBV-Diagnoseliste (Verordnung für bis zu 12 Wochen möglich).';
+  if(l?.zweit) return 'Mit '+l.zweit+' steht die Diagnose auf der KBV-Diagnoseliste und ist budgetfrei.';
   return '';
 }
 
@@ -2452,7 +2612,7 @@ function renderS4(){
   if(canBlank) html += `<div class="tabs" role="group" aria-label="Verordnungsart"><button type="button" data-route="normal" aria-pressed="${S.route==='normal'}">Heilmittel festlegen</button><button type="button" data-route="blanko" aria-pressed="${S.route==='blanko'}">Blankoverordnung</button></div>`;
   if(S.route === 'blanko'){
     html += `<p class="sub">Die Physiotherapie legt Heilmittel, Menge und Frequenz fest.</p>
-      <ul class="pts"><li>Gültig ${D.blanko.wochen} Wochen ab Ausstellung; Unterbrechungen verlängern die Frist nicht.</li><li>Die wirtschaftliche Verantwortung für die Menge liegt bei der Therapiepraxis.</li><li>Nach Ablauf entscheiden Sie über eine weitere Verordnung.</li>${bl.zweit?`<li>Nur mit Zweitcode ${esc(bl.zweit)}.</li>`:''}</ul>
+      <ul class="pts"><li>Gültig ${D.blanko.wochen} Wochen ab Ausstellung; Unterbrechungen verlängern die Frist nicht.</li><li>Budgetfrei: Die wirtschaftliche Verantwortung für die Menge liegt bei der Therapiepraxis.</li><li>Nach Ablauf entscheiden Sie über eine weitere Verordnung.</li>${bl.zweit?`<li>Nur mit Zweitcode ${esc(bl.zweit)}.</li>`:''}</ul>
       <div class="row2"><div><label class="f" for="ausstellung">Ausstellungsdatum</label><input type="date" id="ausstellung" data-bind="ausstellung" value="${esc(S.ausstellung)}"></div><div></div></div>`;
     b.innerHTML = html; sec.classList.add('done'); return;
   }
@@ -2495,13 +2655,20 @@ function renderS5(){
       <div class="row2"><div><label class="f" for="freq">Therapiefrequenz</label><select id="freq" data-bind="freq"><option value="">Bitte wählen</option>${[['1','1x wöchentlich'],['1-2','1–2x wöchentlich'],['2','2x wöchentlich'],['2-3','2–3x wöchentlich'],['3','3x wöchentlich']].map(([v,l]) => `<option value="${v}" ${S.freq===v?'selected':''}>${l}</option>`).join('')}</select></div><div></div></div>
       <p class="note">Katalogempfehlung: 1–3x wöchentlich. Abweichungen medizinisch begründen.</p>
       <p class="limit" id="limit">${limitHTML()}</p>`;
-    if(L.liste) html += L.liste.aktiv ? `<p class="info">Diagnose steht auf der KBV-Diagnoseliste: Verordnung für bis zu 12 Wochen möglich.${L.liste.frist?` Als besonderer Verordnungsbedarf berücksichtigt bis ${L.liste.frist===12?'1 Jahr':L.liste.frist+' Monate'} nach dem Akutereignis, gerechnet ab der ersten Heilmittelverordnung zu diesem Code.`:''}${L.liste.hinweis?' '+esc(L.liste.hinweis):''}</p>`
-      : (L.liste.zweit && !L.liste.zweitOk ? `<p class="note">Mit Zweitcode ${esc(L.liste.zweit)} steht die Diagnose auf der KBV-Diagnoseliste.</p>` : (!L.liste.gruppeOk ? `<p class="note">Auf der KBV-Diagnoseliste nur mit Diagnosegruppe ${esc(L.liste.g.join(', '))}.</p>` : (!L.liste.alterOk ? `<p class="note">Ab ${L.liste.alter} Jahren steht die Diagnose auf der KBV-Diagnoseliste.</p>` : '')));
+    if(L.liste){
+      const e = L.liste;
+      const bed = [e.h, e.frist ? `Als besonderer Verordnungsbedarf berücksichtigt bis ${e.frist===12?'1 Jahr':e.frist+' Monate'} nach dem Akutereignis, gerechnet ab der ersten Heilmittelverordnung zu diesem Code.` : ''].filter(Boolean).map(esc).join(' ');
+      if(e.aktiv) html += `<p class="info"><b>Budgetfrei:</b> Die Diagnose steht auf der KBV-Diagnoseliste${e.kategorie==='BVB'?' (besonderer Verordnungsbedarf)':''}. Verordnung für bis zu 12 Wochen möglich. ${bed}</p>`;
+      else {
+        const fehlt = [!e.zweitOk && 'Zweitcode '+esc(e.zweit), !e.gruppeOk && 'Diagnosegruppe '+esc(e.g.join(', ')), !e.alterOk && 'Alter ab '+e.alter+' Jahren', !e.bisOk && 'Alter unter 18 Jahren'].filter(Boolean);
+        html += `<p class="note">Auf der KBV-Diagnoseliste mit: ${fehlt.join(', ')}.${e.h?' '+esc(e.h):''}</p>`;
+      }
+    }
     html += `<div class="checks">`
-      + (g.orientKind ? `<label class="check"><input type="checkbox" data-flag="unter18" ${S.unter18?'checked':''}><span>Patient unter 18 Jahre</span></label>` : '')
+      + ((g.orientKind || L.liste?.bis) ? `<label class="check"><input type="checkbox" data-flag="unter18" ${S.unter18?'checked':''}><span>Patient unter 18 Jahre</span></label>` : '')
       + (L.liste?.alter ? `<label class="check"><input type="checkbox" data-flag="ab70" ${S.ab70?'checked':''}><span>Patient ab ${L.liste.alter} Jahre<small>Voraussetzung für den Eintrag auf der KBV-Diagnoseliste.</small></span></label>` : '')
       + (g.orientMuko ? `<label class="check"><input type="checkbox" data-flag="muko" ${S.muko?'checked':''}><span>Mukoviszidose oder vergleichbare pulmonale Erkrankung<small>Orientierende Behandlungsmenge dann bis ${g.orientMuko} Einheiten.</small></span></label>` : '')
-      + (!L.liste?.aktiv ? `<label class="check"><input type="checkbox" data-flag="genehmigung" ${S.genehmigung?'checked':''}><span>Genehmigung der Krankenkasse für langfristigen Heilmittelbedarf liegt vor<small>Dann ist eine Verordnung für bis zu 12 Wochen möglich.</small></span></label>` : '')
+      + (!L.liste?.aktiv ? `<label class="check"><input type="checkbox" data-flag="genehmigung" ${S.genehmigung?'checked':''}><span>Genehmigung der Krankenkasse für langfristigen Heilmittelbedarf liegt vor<small>Dann budgetfrei und Verordnung für bis zu 12 Wochen möglich. <a href="#budgetfrei">Voraussetzungen</a></small></span></label>` : '')
       + `</div>`;
   }
   html += `<h3 class="sec">Weitere Angaben</h3><div class="checks">
@@ -2537,6 +2704,8 @@ function renderRx(){
       <div class="fd w"><span class="k">ggf. Therapieziele / weitere med. Befunde und Hinweise</span>${v(f.ziele)}</div>
     </div>
     <div class="status ${c.fertig?'ok':''}">${c.fertig ? 'Alle Angaben vollständig.' : (c.fehler.length?`<span class="e">Bitte korrigieren:</span><ul>${c.fehler.map(x => `<li class="e">${esc(x)}</li>`).join('')}</ul>`:'') + (c.offen.length?`Noch offen: ${esc(c.offen.join(', '))}`:'')}</div>`;
+  const bf = HK.budgetfrei(S);
+  if(bf) $('form').insertAdjacentHTML('beforeend', `<div class="status bf">Budgetfrei: ${bf==='liste'?'Diagnose auf der KBV-Diagnoseliste':bf==='genehmigung'?'genehmigter langfristiger Heilmittelbedarf':'Blankoverordnung'}.</div>`);
   $('mstat').textContent = c.fertig ? 'Verordnung vollständig' : (c.fehler.length ? c.fehler.length+' Korrektur(en)' : c.offen.length+' Angabe(n) offen');
   const lim = $('limit'); if(lim) lim.innerHTML = limitHTML();
   $('s5').classList.toggle('done', c.fertig);
@@ -2595,7 +2764,81 @@ $('demos').addEventListener('click', e => {
 });
 $('fsrc').innerHTML = D.formaleQuellen.map(q => `<li><a href="${esc(q.u)}" target="_blank" rel="noopener">${esc(q.h)}: ${esc(q.t)}</a>, ${esc(q.s)}. Abgerufen ${esc(q.a)}.</li>`).join('');
 
-window.HKUI = {state: () => S, render};
+
+/* ---------- Budgetfrei verordnen ---------- */
+const GRP = ['WS','EX','CS','ZN','PN','AT','GE','LY','SO1','SO2','SO3','SO4'];
+let BQ = '', BG = '';
+function bed(e){
+  return [e.zweit && 'nur mit Zweitcode '+[].concat(e.zweit).join(' oder '), e.alter && 'ab '+e.alter+' Jahren', e.bis && 'bis 18 Jahre', e.h, e.frist && 'berücksichtigt bis '+(e.frist===12?'1 Jahr':e.frist+' Monate')+' nach dem Akutereignis'].filter(Boolean);
+}
+function eintrag(e){
+  const codes = e.c.map(c => c.includes('-') ? c.replace('-','–') : c).join(', ');
+  const b = bed(e);
+  const first = e.c[0];
+  return `<li class="le"><div class="lh"><span class="c">${esc(codes)}</span><span class="nm">${esc(e.n)}</span></div>
+    <div class="lg">${e.g.map(g => `<span class="gchip">${g}</span>`).join('')}${e.frist?'<span class="kat">besonderer Verordnungsbedarf</span>':''}</div>
+    ${b.length?`<p class="lb">${esc(b.join('; '))}.</p>`:''}
+    ${!first.includes('-') ? `<button type="button" class="linkbtn" data-use="${esc(first)}">${first.length>=5?'In Verordnung übernehmen':'Code '+esc(first)+' in der Verordnung suchen'}</button>` : ''}</li>`;
+}
+function renderBudget(){
+  const res = HK.listeSuche(BQ, BG);
+  const showList = BQ.trim() || BG;
+  const grouped = {};
+  for(const e of res) (grouped[e.b] = grouped[e.b] || []).push(e);
+  $('budgetList').innerHTML = !showList ? '<p class="note">Diagnose oder Code eingeben oder eine Diagnosegruppe wählen.</p>'
+    : !res.length ? `<p class="note">${BQ.trim() ? '„'+esc(BQ.trim())+'“ steht nicht auf der hinterlegten Diagnoseliste'+(BG?' für '+BG:'')+'. Budgetfrei ist dann nur eine Verordnung mit Genehmigung der Krankenkasse (langfristiger Heilmittelbedarf) oder eine Blankoverordnung bei Schulterdiagnosen.' : 'Keine Einträge.'}</p>`
+    : `<p class="note">${res.length} Einträge</p>` + Object.entries(grouped).map(([b,list]) => `<h4 class="lbh">${esc(b)}</h4><ul class="ll">${list.map(eintrag).join('')}</ul>`).join('');
+  document.querySelectorAll('[data-bg]').forEach(x => x.setAttribute('aria-pressed', x.dataset.bg === BG));
+}
+$('budget').innerHTML = `
+  <h1 class="bh">Budgetfrei verordnen</h1>
+  <p class="lead">Diese Heilmittelverordnungen gehen nicht in die Wirtschaftlichkeitsprüfung Ihrer Praxis ein. In allen Fällen gelten die übrigen Regeln der Heilmittel-Richtlinie.</p>
+  <div class="ways">
+    <section class="way"><h2>Langfristiger Heilmittelbedarf</h2><p class="wsub">Diagnose nach Anlage 2 der Heilmittel-Richtlinie</p>
+      <ul class="pts"><li>ICD-10-Code und passende Diagnosegruppe stehen in Anlage 2.</li><li>Kein Antrag nötig; der Bedarf gilt als gegeben.</li><li>Verordnung für bis zu 12 Wochen; Höchstmenge und orientierende Menge sind nicht bindend.</li></ul>
+      <p class="law">§ 8 Abs. 2 HeilM-RL; § 106b Abs. 4 Nr. 1 SGB V: nicht Gegenstand der Wirtschaftlichkeitsprüfung.</p></section>
+    <section class="way"><h2>Langfristiger Heilmittelbedarf mit Genehmigung</h2><p class="wsub">Schwere Schädigung, die nicht in Anlage 2 steht</p>
+      <ul class="pts"><li>Schwere und dauerhafte Schädigungen, vergleichbar mit Anlage 2; auch mehrere Schädigungen zusammen.</li><li>Therapiebedarf von mindestens einem Jahr.</li><li>Antrag stellt der Patient bei der Krankenkasse, mit Kopie der vollständig ausgefüllten Verordnung und Ihrer Begründung.</li><li>Entscheidet die Kasse nicht innerhalb von vier Wochen, gilt der Antrag als genehmigt.</li><li>Befristung mindestens ein Jahr; der Bescheid nennt Diagnose und Diagnosegruppe.</li></ul>
+      <p class="law">§ 8 Abs. 3–7 HeilM-RL; § 32 Abs. 1a SGB V.</p></section>
+    <section class="way"><h2>Besonderer Verordnungsbedarf</h2><p class="wsub">Diagnose auf der KBV-Diagnoseliste mit Bedingung</p>
+      <ul class="pts"><li>ICD-10-Code, gegebenenfalls Zweitcode, und Diagnosegruppe passen zur Liste.</li><li>Altersgrenzen sind bindend.</li><li>Fristen wie „1 Jahr nach Akutereignis“ begrenzen die Berücksichtigung in der Prüfung, gerechnet ab der ersten Verordnung zu diesem Code; die Verordnung selbst bleibt zulässig.</li><li>Verordnung für bis zu 12 Wochen.</li></ul>
+      <p class="law">§ 106b Abs. 2 SGB V mit Rahmenvorgaben (Anlage 2); § 7 Abs. 7 HeilM-RL. Kosten werden aus dem Verordnungsvolumen herausgerechnet.</p></section>
+    <section class="way"><h2>Blankoverordnung</h2><p class="wsub">Ausgewählte Schulterdiagnosen</p>
+      <ul class="pts"><li>Diagnose aus der Blanko-Liste, Diagnosegruppe EX.</li><li>Die Physiotherapie legt Heilmittel, Menge und Frequenz fest und trägt die wirtschaftliche Verantwortung.</li><li>Gültig 16 Wochen ab Ausstellung.</li></ul>
+      <p class="law">§ 73 Abs. 11 und § 106b Abs. 4 Nr. 4 SGB V; § 13a HeilM-RL.</p></section>
+  </div>
+  <h2 class="bh2">So verordnen Sie budgetfrei</h2>
+  <ol class="steps2">
+    <li>ICD-10-Code vollständig bis zur letzten Stelle angeben, bei Bedarf mit Zweitcode.</li>
+    <li>Die Diagnosegruppe wählen, die die Liste für diesen Code nennt.</li>
+    <li>Bedingungen wie Alter, Stadium oder Messwert prüfen und in der Patientenakte dokumentieren.</li>
+    <li>Ein eigenes Kennzeichen auf dem Rezept ist nicht nötig; die Praxissoftware erkennt Listendiagnosen und rechnet die 12-Wochen-Menge.</li>
+    <li>Ohne Listentreffer bei schwerer, dauerhafter Schädigung den Patienten auf den Genehmigungsantrag hinweisen.</li>
+    <li>Regionale Prüfvereinbarungen der KV können weitere Praxisbesonderheiten enthalten.</li>
+  </ol>
+  <h2 class="bh2">Diagnose nachschlagen</h2>
+  <div class="row2"><div><label class="f" for="bq">Diagnose oder ICD-10-Code</label><input type="text" id="bq" placeholder="z. B. G35.1, Schlaganfall, Lymphödem" autocomplete="off"></div><div></div></div>
+  <p class="f" style="font-weight:600;font-size:14px;margin:14px 0 6px">Oder nach Diagnosegruppe</p>
+  <div class="seg">${GRP.map(g => `<button type="button" data-bg="${g}" aria-pressed="false">${g}</button>`).join('')}</div>
+  <div id="budgetList"></div>
+  <p class="note">Grundlage: KBV-Heilmittel-Diagnoseliste (Physiotherapie), Stand 01.07.2025 mit Änderungen zum 01.01.2026. Schulterdiagnosen für die Blankoverordnung stehen in Schritt 4 der Verordnung. <a href="https://www.kbv.de/documents/praxis/verordnungen/heilmittel/heilmittel-diagnoseliste.pdf" target="_blank" rel="noopener">KBV-Diagnoseliste</a></p>`;
+$('bq').addEventListener('input', e => { BQ = e.target.value; renderBudget(); });
+$('budget').addEventListener('click', e => {
+  const g = e.target.closest('[data-bg]'); if(g){ BG = BG === g.dataset.bg ? '' : g.dataset.bg; renderBudget(); return; }
+  const u = e.target.closest('[data-use]'); if(u){ const c = u.dataset.use; location.hash = ''; if(c.length >= 5 && HK.isCode(c)) chooseCode(c); else { dx.value = c; showView('rx'); dx.focus(); showList(); return; } showView('rx'); }
+});
+function showView(v){
+  const b = v === 'budget';
+  $('budget').hidden = !b; document.querySelector('.layout').hidden = b; $('mbar').hidden = b;
+  document.querySelectorAll('[data-view]').forEach(x => x.setAttribute('aria-pressed', (x.dataset.view === 'budget') === b));
+  if(b) renderBudget();
+  window.scrollTo({top:0});
+}
+document.querySelectorAll('[data-view]').forEach(x => x.addEventListener('click', () => { location.hash = x.dataset.view === 'budget' ? 'budgetfrei' : ''; showView(x.dataset.view); }));
+window.addEventListener('hashchange', () => showView(location.hash === '#budgetfrei' ? 'budget' : 'rx'));
+if(location.hash === '#budgetfrei') showView('budget');
+
+window.HKUI = {showView: v => showView(v), state: () => S, render, chooseCode};
 render();
 })();
 

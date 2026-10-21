@@ -51,6 +51,7 @@ const cases = [['M54.5','back','WS'],['M54.2','neck','WS'],['M17.1','knee','EX']
       await page.fill('#dx', 'G35.9'); await page.keyboard.press('Enter'); await page.click('[data-act=profOk]');
       await page.check('[data-sym=a]'); await page.click('[data-primary=KG]'); await page.selectOption('#freq', '2');
       assert.match(await page.locator('#limit').innerText(), /Bis zu 24 Einheiten/);
+      assert.match(await page.locator('#form').innerText(), /Budgetfrei/);
       // Ergänzte Gruppe AT ohne Befundfragen
       await page.goto(file);
       await page.fill('#dx', 'J44.82'); await page.keyboard.press('Enter');
@@ -62,6 +63,19 @@ const cases = [['M54.5','back','WS'],['M54.2','neck','WS'],['M17.1','knee','EX']
       await page.fill('[data-unit=KGAT]', '6'); await page.selectOption('#freq', '1-2');
       assert.match(await page.locator('#form').innerText(), /Alle Angaben vollständig/);
       assert.doesNotMatch(await page.locator('body').innerText(), banned);
+      // Budgetfrei-Rubrik
+      await page.goto(file + '#budgetfrei');
+      assert.equal(await page.locator('#budget').isVisible(), true);
+      await page.fill('#bq', 'Schlaganfall');
+      assert.match(await page.locator('#budgetList').innerText(), /I69/);
+      await page.fill('#bq', 'M62.50');
+      assert.match(await page.locator('#budgetList').innerText(), /nicht auf der hinterlegten Diagnoseliste/);
+      await page.fill('#bq', ''); await page.click('[data-bg=SO2]');
+      assert.match(await page.locator('#budgetList').innerText(), /ab 70 Jahren/);
+      assert.doesNotMatch(await page.locator('body').innerText(), banned);
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true);
+      await page.screenshot({ path: path.join(out, `budget-${vp.width}.png`), fullPage: true });
+      await page.click('[data-view=rx]');
       // Unbekannter Code
       await page.goto(file);
       await page.fill('#dx', 'M23.2'); await page.keyboard.press('Enter');

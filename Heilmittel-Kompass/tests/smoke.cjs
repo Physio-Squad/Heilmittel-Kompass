@@ -68,7 +68,7 @@ let L = HK.limits(st({code:'G35.9', gruppe:'ZN', freq:'2'})); assert.equal(L.zwo
 L = HK.limits(st({code:'G35.9', gruppe:'ZN'})); assert.equal(L.max, null);
 L = HK.limits(st({code:'M54.5', gruppe:'WS', genehmigung:true, freq:'3'})); assert.equal(L.max, 36);
 assert.equal(HK.limits(st({code:'G62.9', gruppe:'PN'})).max, 10);
-assert.equal(HK.liste('E88.20').hinweis.includes('31.12.2027'), true);
+assert.equal(HK.liste('E88.20').h.includes('31.12.2027'), true);
 assert.equal(HK.liste('I89.00'), null);
 
 // MLD und Diagnoseliste (HeilM-RL § 18 Abs. 2 Nr. 7, § 7 Abs. 6–7)
@@ -87,6 +87,22 @@ assert.equal(HK.limits(st({code:'J47', gruppe:'AT', muko:true})).orient, 50);
 s = st({code:'J44.82', gruppe:'AT', sym:['a'], primary:['INH'], units:{INH:'6'}, supp:'INH', suppUnits:'6', freq:'2'});
 assert.match(HK.check(s).fehler.join(), /bereits als vorrangiges/);
 assert.equal(D.gruppen.SO3.supp.length, 0);
+
+// Budgetfrei: Diagnoseliste, Genehmigung, Blanko
+assert.equal(HK.liste('G35.11', '', 'ZN').aktiv, true);
+assert.equal(HK.liste('I63.4', '', 'ZN').kategorie, 'BVB');
+assert.equal(HK.liste('C50.9', '', 'LY').aktiv, true); assert.equal(HK.liste('D50.0'), null);
+assert.equal(HK.liste('M41.12', '', 'WS', false, false).aktiv, false); assert.equal(HK.liste('M41.12', '', 'WS', false, true).aktiv, true);
+assert.equal(HK.liste('R26.2', '', 'EX', true).aktiv, true);
+assert.equal(HK.liste('M47.96', 'G55.2', 'WS').aktiv, true); assert.equal(HK.liste('M47.96', 'G55.1', 'WS').aktiv, false);
+assert.equal(HK.liste('Z96.65', 'Z98.8', 'EX').aktiv, true);
+assert.equal(HK.liste('M62.50'), null, 'Sarkopenie nicht gelistet');
+assert.equal(HK.budgetfrei(st({code:'G35.9', gruppe:'ZN'})), 'liste');
+assert.equal(HK.budgetfrei(st({code:'M54.5', gruppe:'WS'})), null);
+assert.equal(HK.budgetfrei(st({code:'M54.5', gruppe:'WS', genehmigung:true})), 'genehmigung');
+assert.equal(HK.budgetfrei(st({code:'M19.01', gruppe:'EX', route:'blanko'})), 'blanko');
+assert.ok(HK.listeSuche('schlaganfall').length >= 2); assert.ok(HK.listeSuche('', 'SO2').length >= 1);
+for (const e of D.diagnoseliste) { assert.ok(e.b && e.n && e.c.length && e.g.length, JSON.stringify(e)); for (const g of e.g) assert.ok(['WS','EX','CS','ZN','PN','AT','GE','LY','SO1','SO2','SO3','SO4','SO5'].includes(g), g); }
 
 // Blankoverordnung
 assert.ok(HK.blanko('M75.1').ok); assert.ok(HK.blanko('S42.21').ok); assert.ok(HK.blanko('M19.01').ok);

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.0 – 21.10.2026
+
+- Neue Rubrik „Budgetfrei verordnen“ (Umschalter oben, auch per #budgetfrei): vier Wege (langfristiger Heilmittelbedarf nach Anlage 2, mit Genehmigung, besonderer Verordnungsbedarf, Blankoverordnung) mit Kriterien und Rechtsgrundlage, Checkliste und Nachschlagen nach Diagnose/Code oder Diagnosegruppe mit Übernahme in die Verordnung.
+- KBV-Diagnoseliste für die Physiotherapie weitgehend vollständig hinterlegt (rund 100 Einträge, Kapitel Nervensystem, Rheuma, Fehlbildungen/Entwicklung, Wirbelsäule/Skelett, Gelenke/Verletzungen/Amputation, Lymphsystem, Atmung, geriatrische Syndrome) mit Gruppen, Zweitcodes, Alters- und Fristbedingungen.
+- Schritt 5 und Verordnungsvorschau zeigen „Budgetfrei“ mit Grund (Liste, Genehmigung, Blanko) bzw. welche Bedingung zur Liste fehlt.
+- Rechtsgrundlagen geprüft: § 8 HeilM-RL, § 32 Abs. 1a SGB V (Entscheidung in vier Wochen, sonst Genehmigungsfiktion), § 106b Abs. 4 Nr. 1 und 4 SGB V, § 73 Abs. 11 SGB V.
+
 ## 0.6.0 – 21.10.2026
 
 - 15 weitere Diagnoseprofile aus der Recherche der Parallelsitzung eingebaut (evidence/PROFILE_ERGAENZUNG.md): COPD, Bronchiektasen (AT); pAVK (GE); Lymphödem (LY); Parkinson, MS, Schlaganfall, Querschnittlähmung (ZN); Fazialisparese, GBS/CIDP, Karpaltunnelsyndrom (PN); chronische Obstipation (SO1); Harninkontinenz der Frau (SO2); Lagerungsschwindel, periphere Vestibulopathie (SO3). Insgesamt 23 Profile.

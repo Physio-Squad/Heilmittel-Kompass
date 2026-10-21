@@ -1,6 +1,8 @@
 # Heilmittel-Kompass – Übergabe vom 21.10.2026
 
-## Aktueller Stand: Version 0.6.0 (23 Profile, alle Diagnosegruppen außer SO4/SO5)
+## Aktueller Stand: Version 0.7.0 (23 Profile, Rubrik „Budgetfrei verordnen“)
+
+- 0.7.0: Rubrik Budgetfrei mit Kriterien, Checkliste und Nachschlagen in der KBV-Diagnoseliste (`HK_LISTE`). Offene Gegenprüfungen der Liste: docs/formaler-regelabgleich.md, Abschnitt „Budgetfrei verordnen“.
 
 - 0.6.0: Recherche der Parallelsitzung (15 Profile, Gruppen AT/GE/SO1–SO3) eingebaut; Diagnoseliste für diese Codes ergänzt. Offene Recherchepunkte je Profil: evidence/PROFILE_ERGAENZUNG.md.
 
